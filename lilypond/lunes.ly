@@ -67,7 +67,7 @@ sop_music = {
   r\! a gis2
   g8 8~8 fis8~4 d'
   b4. a r4
-  r2 r4 b8\< a~ 4\!\fermata r
+  r2 r4 b8\p\< a~ 4\!\fermata r
   \cross {a8\fff 8~^\markup {\italic "¡Exclamado!"}4}
   \bar "||"
   8 8~8 b8~4 a8 fis~2 r
@@ -190,7 +190,7 @@ alt_music = {
   r fis eis2
   e8 8~8 dis8~2
   d4. cis4. r4
-  r4 g'8\< fis~2
+  r4 g'8\p\< fis~2
   \cross {d8\!^\markup {\italic "¿Sorpresa?"} a' r4 8\fff 8~4}
   \bar "||"
   fis4. eis\( 8\)-. r
@@ -248,8 +248,8 @@ alt_lyrics = \lyricmode {
   cua cua cua -- rac __ cua, __
   chiu -- rap, lu -- nes, __  ¿lu -- nes? ¡LU -- NES!
   
-  Chiu -- ru -- p,
-  Chiu -- ru -- p,
+  Chiu -- ra -- p,
+  Chiu -- ra -- p,
   so -- bre __ la __ ciu -- dad, __ _
   la gen -- te __ que ves __ _
   vi -- ve~en so -- le -- dad, __
@@ -283,8 +283,8 @@ alt_lyrics = \lyricmode {
   Cua cua cua -- rac __ cua, __ 
   Lu -- nes, uff! 
   Lu -- nes, pfff;
-  chiu -- ru -- p
-  chiu -- ru -- p
+  chiu -- ra -- p
+  chiu -- ra -- p
   
 
   so -- bre __ la __ ciu -- dad, __ _
@@ -323,7 +323,7 @@ ten_music = {
   fis8 a~8 d^"trompetas"~2\>
   r4\! c b2
   bes8 8~8 a~4 \tuplet 3/2 {a8 b a}
-  gis8 b d fis e d b a d\< a~4~2~4\fermata\!
+  gis8 b d fis e d b a d\p\< a~4~2~4\fermata\!
   r \cross {d8\fff 8~4}
   \bar "||"
   d4. cis\( 8\)-. r
@@ -377,9 +377,9 @@ ten_lyrics = \lyricmode {
   da -- bi -- ri da -- bi -- ra -- ba di -- bi -- ri -- ba,
   lu -- nes, __  ¡LU -- NES!
   
-  Chiu -- ru -- p,
+  Chiu -- ra -- p,
   du -- bap bi -- bap, __
-  Chiu -- ru -- p,
+  Chiu -- ra -- p,
   pfff, lu -- nes,  __
   la gen -- te __ que ves __ _
   vi -- ve, __ pfff, 
@@ -389,7 +389,7 @@ ten_lyrics = \lyricmode {
   mue -- re~el sol __
   que ma -- ña -- na __ so -- bre 
   la~a -- ve -- ni -- da __ na -- ce -- rá. __
-  Chiu -- ru -- ru du -- bi da -- bi -- ru.
+  Chiu -- ra -- ra du -- bi da -- bi -- ru.
   
   
   Cuá __ cuá. __ 
@@ -403,7 +403,7 @@ ten_lyrics = \lyricmode {
   mo -- ri -- rá, 
   y muer -- to el __ ver -- de, 
   só -- lo hie -- rro __ cre -- ce -- rá. __
-  Chiu -- ru -- ru du -- bi da -- bi -- ru.
+  Chiu -- ra -- ra du -- bi da -- bi -- ru.
 
   
   Cuá __ cuá. __
@@ -415,9 +415,9 @@ ten_lyrics = \lyricmode {
   Cua cua cua -- rac __ cua, __ 
   da -- ra -- ba dun __ dun __ 
   da -- ra -- ba da -- ba __ ba; __
-  chiu -- ru -- p
+  chiu -- ra -- p
   du bap bi bap,
-  chiu -- ru -- p
+  chiu -- ra -- p
   
 
   pfff,  ul -- nes, __
@@ -458,7 +458,7 @@ bass_music = {
   \tuplet 3/2 {8 b cis} d2 cis
   c8 8~8 b~2
   e4. a,4. r4
-  r2 e'8\< d~4~4\fermata\! r
+  r2 e'8\p\< d~4~4\fermata\! r
   \cross {a'8\fff 8~4} \bar "||"
   <a d,>4. <gis cis,>\( 8-.\) r
   <g c,>4. <fis b,>\( 8-.\) r
@@ -511,8 +511,8 @@ bass_lyrics = \lyricmode {
   chiu -- rap,
   lu -- nes, __  ¡LU -- NES!
   
-  Chiu -- ru -- p,
-  Chiu -- ru -- p,
+  Chiu -- ra -- p,
+  Chiu -- ra -- p,
   dun dun dun pa dun dun dun dun
   la gen -- te __ que ves __ _
   dun dun dun pa dun dun dun dun
@@ -545,8 +545,8 @@ bass_lyrics = \lyricmode {
   Lu -- nes o -- tra vez,
   Lu -- nes o -- tra vez;
   da -- ra -- ba
-  chiu -- ru -- p,
-  chiu -- ru -- p,
+  chiu -- ra -- p,
+  chiu -- ra -- p,
 
   dun dun dun pa dun dun dun dun
   la gen -- te __ que ves __ _
