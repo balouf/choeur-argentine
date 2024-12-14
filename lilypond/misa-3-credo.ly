@@ -139,7 +139,7 @@ csop_music = {
   gis4.-- a8 \breathe 4 gis8 a4 b a8 gis4.-- a8 r4
   R2.*7 r4 r r8 e'8~ e2.~ 2.~ 2.~ 4.~ 8 c d
   \times 3/2 { e e e fis } \times 3/2 { g fis fis e}
-  e d r r d d e4 c4 a8 gis8
+  e4 d8 r d d e4 c4 a8 gis8
   a8 b4 a4 gis8  gis4 a4 gis8 a8  
   b8 a4 gis4 a8 b4 a4 cis8 b
   \bar "||" \key a \major
@@ -245,7 +245,7 @@ calt_music = {
   \repeat unfold 15 {e4.-- } r 
   R2.*3 r4 r a8 b
   \times 3/2 { c c c d } \times 3/2 { e d d c }
-  c b r r b b c4 a4 e8 8
+  c4 b8 r b b c4 a4 e8 8
   8 4 4 8  4 4 8 8  8 4 4 8 4 4 a8 gis
   \bar "||" \key a \major
   a b4 a gis8 4 a gis8 a
@@ -336,7 +336,7 @@ cten_music = {
   b4.-- c8 \breathe 4 b8 c4 d4 c8 b4.-- c8 r4
   R2.*7 r4 r r8 e8~ e2.~ 2.~ 2.~ 4.~ 8 c d
   \times 3/2 { e e e fis } \times 3/2 { g fis fis e}
-  e d r r d d e4 c4 c8 b8
+  e4 d8 r d d e4 c4 c8 b8
   c8 d4 c4 b8  b4 c4 b8 c8  
   d8 c4 b4 c8 d4 c4 e8 d
   \bar "||" \key a \major
@@ -429,7 +429,7 @@ cbass_music = {
   4.-- 8 \breathe 4 8 4 4 8 4.-- 8 r4
   \repeat unfold 7 {e2.-- } 2 r4 r2. r r r4 r a8 b
   \times 3/2 { c c c d } \times 3/2 { e d d c }
-  c b r r b b c4 a4 r4 r4. e4 8 4 4 r r4. 4 8 4 4 cis'8 b
+  c4 b8 r b b c4 a4 r4 r4. e4 8 4 4 r r4. 4 8 4 4 cis'8 b
   \bar "||" \key a \major
   cis d4 cis b8 4 cis b8 cis
   d cis4 b cis8 d4 cis4 8 b
