@@ -171,7 +171,7 @@ csop_music = {
   R2.*4
   r4 r d8 cis d e4 d cis8
   cis4( d) cis8 d e d4 cis d8 e4 d r r2.
-  r4 r b b8 a4 gis fis8 a gis fis4 r
+  r4 r b b4 a8 gis4 fis8 a gis fis4 r
   R2.*7
   r4 r a gis4. cis b <cis e> <b d> <a cis>
   <gis b> r8 <a e'>4 <gis e'>4. <a e'> <b e> <cis e>
@@ -262,7 +262,7 @@ calt_music = {
   r4 r d8 cis d e4 d cis8 cis4( d) cis8 d
   e d4 cis d8 e4 d a'8 8 8 4 4 8
   4~ 4 8 8 8 4 4 8 4 4 r r2.
-  r4 r gis gis8 fis4 e dis8 fis e dis4 r
+  r4 r gis gis4 fis8 e4 dis8 fis e dis4 r
   R2.*7
   r4 r e e4. a gis a e e e r8 e4 e4. e e
   a gis a b a e a e a e a e a e a e a
