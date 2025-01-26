@@ -40,3 +40,4 @@ jobs:
         with:
           BRANCH: gh-pages
           FOLDER: html/
+          SINGLE-COMMIT: true
