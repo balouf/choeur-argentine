@@ -29,38 +29,3 @@
     \midi {}
   }
 }
-
-\book {
-  \bookOutputSuffix "-bass"
-  \score {
-    \unfoldRepeats
-    <<
-      \bass
-    >>
-    \midi {}
-  }
-}
-
-\book {
-  \bookOutputSuffix "-sop"
-  \score {
-    \unfoldRepeats
-    <<
-      \sop
-    >>
-    \midi {}
-  }
-}
-
-\book {
-  \bookOutputSuffix "-alt"
-  \score {
-    \unfoldRepeats
-    <<
-      \alt
-    >>
-    \midi {}
-  }
-}
-
-

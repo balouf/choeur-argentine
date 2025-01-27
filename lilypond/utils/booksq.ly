@@ -1,9 +1,5 @@
 #(set-global-staff-size conductor_size)
 \book {
-%  \bookOutputSuffix "-tutti"
-%  \header{
-%    instrument = "Tutti"
-%  }
   \score {
         \layout {
   \context {
@@ -13,7 +9,6 @@
 }
     \new ChoirStaff
        <<
-%    \lead
     \new StaffGroup
     <<
       \sop
@@ -36,48 +31,3 @@
     \midi {}
   }
 }
-
-\book {
-  \bookOutputSuffix "-bass"
-  \score {
-    \unfoldRepeats
-    <<
-      \bass
-    >>
-    \midi {}
-  }
-}
-
-\book {
-  \bookOutputSuffix "-sop"
-  \score {
-    \unfoldRepeats
-    <<
-      \sop
-    >>
-    \midi {}
-  }
-}
-
-\book {
-  \bookOutputSuffix "-alt"
-  \score {
-    \unfoldRepeats
-    <<
-      \alt
-    >>
-    \midi {}
-  }
-}
-
-\book {
-  \bookOutputSuffix "-ten"
-  \score {
-    \unfoldRepeats
-    <<
-      \ten
-    >>
-    \midi {}
-  }
-}
-
