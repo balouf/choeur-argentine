@@ -71,7 +71,7 @@ y la ra -- mi -- ta se~in -- cli -- na, __
 no la ve -- an sus -- pi -- rar.
 
 Se va, __ se va, __
-va, la ra -- mi -- ta se~in -- cli -- na, __
+y la ra -- mi -- ta se~in -- cli -- na, __
 no la ve -- an sus -- pi -- rar. __
 }
 
