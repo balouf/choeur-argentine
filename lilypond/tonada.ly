@@ -31,13 +31,13 @@ armure = {
 sop_music = {
 \set Score.dalSegnoTextFormatter = #format-dal-segno-text-brief
  \repeat segno 2 {
-a'4(\p f a2) a4( f4 2)
-a4( f a2) a4( f4 2)
+a'4(\p f a2) \breathe a4( f4 2) \breathe
+a4( f a2) \breathe a4( f4 2) \breathe
 a4^\mp g f g a c a2 \breathe
 a4 g f c' f, f 
 
 \alternative {
-\volta 1 {f2
+\volta 1 {f2 \break
 f16^\mf 8 d16 c8 a' f c c'4
 f,16 8 d16 c8 a' f f f4
 f16 8 d16 c8 a' f c c'4
@@ -72,7 +72,7 @@ sop_lyrics = \lyricmode {
   Del cam -- po ven -- go lle -- ga -- do
   brin -- can -- do so -- bre las flo -- res,
   co -- mo soy de Pam -- pi -- chue -- la
-  ven -- go cur -- ti -- da de flo -- res __
+  ven -- go cur -- ti -- da de so -- les __
   cam -- po __ vo -- lar __ li -- bre __ bai -- lar __
   y a -- le -- gre pa -- ra bai -- lar __
   U __ U __ lai ra ra ra lai ra ra
@@ -101,7 +101,7 @@ alt_music = {
  \set Score.dalSegnoTextFormatter = #format-dal-segno-text-brief
  \repeat segno 2 {
 
-f2(\p e) d( des) f( f) e( c)
+f2(\p e) \breathe d( des) \breathe f( f) \breathe e( c) \breathe
 f4^\mp e d f e d f2 \breathe
 f4 e d f bes, e 
 
@@ -134,7 +134,7 @@ alt_lyrics = \lyricmode {
   Lai ra ra ra lai ra ra,
   Lai ra ra ra lai ra ra
   U __ U __
-  Ven -- go cur -- ti -- da de flo -- res __
+  Ven -- go cur -- ti -- da de so -- les __
   a -- hí cam -- po pa -- ra vo -- lar ri -- o li -- bre
   pa -- ra bai -- lar y a -- le -- gre pa -- ra 
   bai -- lar, bai -- lar __ _
@@ -161,7 +161,7 @@ alt = \new Staff \with {instrumentName="Alto"
 bass_music = {
 \set Score.dalSegnoTextFormatter = #format-dal-segno-text-brief
 \repeat segno 2 {
-f,2(\p f) f( f) d( des) c( f)
+f,2(\p f) \breathe f( f) \breathe d( des) \breathe c( f) \breathe
 f^\mp g f des \breathe c g' c, 
 \alternative {
   \volta 1 {

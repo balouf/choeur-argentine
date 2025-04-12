@@ -67,7 +67,7 @@ sop_music = {
   \time 4/4
   e8 fis4 e16 g \tuplet 3/2 {b8 8 8} a d
   \time 2/4
-  b8 4\fermata 16 cis d8 8 8 e16 d
+  b8 4\fermata 16 cis d8^"più mosso" 8 8 e16 d
   cis8 a4 16 b c8 8 d c
   b16 c b4 g16 a b8 4 a16 e' d8 4 g,8
   \tuplet 3/2 {b b c} \tuplet 3/2 {b a e'}
