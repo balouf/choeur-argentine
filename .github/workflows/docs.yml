@@ -25,11 +25,17 @@ jobs:
         with:
           lilypond-version: 2.24
 
+      - name: Ffmpeg
+        uses: FedericoCarboni/setup-ffmpeg@v3
+        id: setup-ffmpeg
+        with:
+          ffmpeg-version: release
+
       - name: Install dependencies
         run : |
           sudo apt update
           sudo apt install timidity
-          sudo apt install python3-pip ffmpeg
+          sudo apt install python3-pip
           pip3 install ffmpeg-normalize
 
       - name: Compile files
