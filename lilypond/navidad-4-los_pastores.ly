@@ -7,7 +7,7 @@
 
 \header {
   title = "Navidad Nuestra"
-  subtitle = "4 - Los Pastores - Pas de Ah en 3e reprise (instrumental)"
+  subtitle = "4 - Los Pastores"
   composer = "Ariel Ramirez"
   tagline = ""
 
@@ -29,7 +29,7 @@ armure = {
 
 
 sop_music = {
-  e'4. d 
+  e'4. d^"Pas de Ah la 3e fois (instrumental)"
   \repeat volta 4 {
   c b r2. r4. r4 b8 4. r r2. \bar "||" \break
   <e, gis>8^"Tutti" <fis a> <gis b> <cis e> <b dis> <a cis>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<script src='https://surikov.github.io/webaudiofont/npm/dist/WebAudioFontPlayer.js'></script>
-	<script src='../choeur_argentine/MIDIFile.js'></script>
+	<script src='MIDIFile.js'></script>
 </head>
 
 <body>
@@ -49,24 +49,7 @@
 		var stepDuration = 44 / 1000;
 		var intervalId = 0;
 
-		var tracks = [
-			{'name': 'Dicotomía Incruenta', 'path': 'dicotomia'},
-			{'name': 'Se equivocó la paloma', 'path': 'paloma'},
-			{'name': 'Lunes otra ves', 'path': 'lunes'},
-			{'name': 'Miedo', 'path': 'miedo'},
-                        {'name': 'Tonada de la Quiaca', 'path': 'tonada'},
-            {'name': 'Bonita rama de sauce', 'path': 'bonita'},
-            {'name': 'Misa Criolla: 1 - Kyrie', 'path': 'misa-1-kyrie'},
-            {'name': 'Misa Criolla: 2 - Gloria', 'path': 'misa-2-gloria'},
-            {'name': 'Misa Criolla: 3 - Credo', 'path': 'misa-3-credo'},
-            {'name': 'Misa Criolla: 4 - Sanctus', 'path': 'misa-4-sanctus'},
-            {'name': 'Misa Criolla: 5 - Agnus', 'path': 'misa-5-agnus'},
-            {'name': 'Navidad Nuestra: 2 - La peregrinacion', 'path': 'navidad-2-perigrenacion'},
-            {'name': 'Navidad Nuestra: 3 - El Nacimiento', 'path': 'navidad-3-el_nacimiento'},
-            {'name': 'Navidad Nuestra: 4 - Los Pastores', 'path': 'navidad-4-los_pastores'},
-            {'name': 'Navidad Nuestra: 5 - Los Reyes Magos', 'path': 'navidad-5-los_reyes_magos'},
-            {'name': 'Navidad Nuestra: 6 - La Huida', 'path': 'navidad-6-la_huida'}
-		];
+		var tracks = $tracks;
 
 		var downloads = {
 			'pdf': [{'name': 'Choeurs', 'suffix': ''}],
@@ -75,8 +58,9 @@
 			'mp3': [{'name': 'Complet', 'suffix': ''}],
 		}
 
-		// var voix = ['Soprano', 'Alto', 'Tenor', 'Basse', 'Main droite', 'Main gauche']
-		var voix = ['Voix I', 'Voix II', 'Voix III', 'Voix IV', 'Voix V']
+		var voix = ['Soprano', 'Alto', 'Tenor', 'Basse', 'Main droite', 'Main gauche']
+		// var voix = ['Voix I', 'Voix II', 'Voix III', 'Voix IV', 'Voix V']
+		var song_id = 0;
 
 		chooserTrack();
 
@@ -95,6 +79,7 @@
 		}
 
 		function selectTrack(i) {
+		        song_id = i;
 				var path = tracks[i].path + '/' + tracks[i].path;
 				var html = '<h3>Partitions</h3> <ul>';
 				for (var j = 0; j < downloads.pdf.length; j++) {
@@ -237,7 +222,7 @@
 			var html = '<h3>Mixer</h3><table><tr><th>Voix</th><th>Instrument midi</th><th>Volume</th></tr>';
 			for (var i = 0; i < song.tracks.length; i++) {
 				var v = 100 * song.tracks[i].volume;
-				html = html + '<tr><td>' + voix[i] + '</td><td>' + chooserIns(song.tracks[i].id, i)
+				html = html + '<tr><td>' + tracks[song_id].voix[i] + '</td><td>' + chooserIns(song.tracks[i].id, i)
 						+ '</td><td><input id="channel' + i + '" type="range" min="0" max="100" value="' + v + '" step="1" /></td></tr>';
 			}
 			o.innerHTML = html + '</table>';
@@ -281,12 +266,16 @@
 		}
 		function chooserIns(n, track) {
 			var html = '<select id="selins' + track + '">';
+			var instru = ''
 			for (var i = 0; i < player.loader.instrumentKeys().length; i++) {
 				var sel = '';
 				if (i == n) {
 					sel = ' selected';
 				}
-				html = html + '<option value="' + i + '"' + sel + '>' + i + ': ' + player.loader.instrumentInfo(i).title + '</option>';
+				if (instru != player.loader.instrumentInfo(i).title) {
+				instru = player.loader.instrumentInfo(i).title
+				html = html + '<option value="' + i + '"' + sel + '>' + player.loader.instrumentInfo(i).title + '</option>';
+				}
 			}
 			html = html + '</select>';
 			return html;

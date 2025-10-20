@@ -18,7 +18,7 @@ jobs:
       - name: Set up python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
       - name: Install dependencies
         run : |
@@ -32,12 +32,12 @@ jobs:
 
       - name: Compile files
         run: |
-          python choeur_argentine/choeur_argentine.py
+          python deploy.py -l "./lilypond-2.24.2/bin/lilypond" -s "2025-2026"
 
       - name: Deploy Sphinx documentation on Github Pages
         uses: JamesIves/github-pages-deploy-action@v4
         if: github.ref == 'refs/heads/main'
         with:
           BRANCH: gh-pages
-          FOLDER: html/
+          FOLDER: build/
           SINGLE-COMMIT: true
