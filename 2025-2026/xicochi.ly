@@ -39,8 +39,8 @@ sop_music = {
 
 
 sop_lyrics = \lyricmode {
-  Xi -- cho -- chi,  xi -- cho -- chi,
-  xi -- cho -- chi co -- net -- zin -- tle
+  Xi -- co -- chi,  xi -- co -- chi,
+  xi -- co -- chi co -- net -- zin -- tle
   ca~o -- miz -- hui -- hui -- jo -- co
   in an -- ge -- los -- me, 
   ca~o -- miz -- hui -- hui -- jo -- co
@@ -51,8 +51,8 @@ sop_lyrics = \lyricmode {
   
 }
 
-sop = \new Staff \with {instrumentName="Soprano"
-  shortInstrumentName ="S."} <<
+sop = \new Staff \with {instrumentName="Soprano I"
+  shortInstrumentName ="S. 1"} <<
   \soprano_style
   \armure
   \relative c' {\sop_music}
@@ -69,8 +69,8 @@ alt_music = {
 }
 
 alt_lyrics = \lyricmode {
-  Xi -- cho -- chi, xi -- cho -- chi, xi -- cho -- chi,
-  xi -- cho -- chi, xi -- cho -- chi,
+  Xi -- co -- chi, xi -- co -- chi, xi -- co -- chi,
+  xi -- co -- chi, xi -- co -- chi,
   co -- net -- zin -- tle, co -- net -- zin -- tle
   ca~o -- miz -- hui -- hui -- jo -- co
   in an -- ge -- los -- me, 
@@ -82,8 +82,8 @@ alt_lyrics = \lyricmode {
 }
 
 
-alt = \new Staff \with {instrumentName="Alto"
-  shortInstrumentName ="A."} <<
+alt = \new Staff \with {instrumentName="Soprano II"
+  shortInstrumentName ="S. 2"} <<
   \alto_style
   \armure
   \relative c' {\alt_music}
@@ -100,8 +100,8 @@ a1.~2 g1 f1. e1 a2~2 f1~2 e1 f1.\fermata \fine
 }
 
 ten_lyrics = \lyricmode {
-  Xi -- cho -- chi, xi -- cho -- chi,
-  xi -- cho -- chi co -- net -- zin -- tle
+  Xi -- co -- chi, xi -- co -- chi,
+  xi -- co -- chi co -- net -- zin -- tle
   ca~o -- miz -- hui -- hui -- jo -- co
   in an -- ge -- los -- me, 
   ca~o -- miz -- hui -- hui -- jo -- co
@@ -111,8 +111,8 @@ ten_lyrics = \lyricmode {
   A -- le -- lo -- ya, a -- le -- lo -- ya.
 }
 
-ten = \new Staff \with {instrumentName="Tenor"
-  shortInstrumentName ="T."} <<
+ten = \new Staff \with {instrumentName="Alto"
+  shortInstrumentName ="A."} <<
   \alto_style
   \armure
   \relative c' {\ten_music}
@@ -130,8 +130,8 @@ bass_music = {
 }
 
 bass_lyrics = \lyricmode {
-  Xi -- cho -- chi, xi -- cho -- chi,
-  xi -- cho -- chi co -- net -- zin -- tle
+  Xi -- co -- chi, xi -- co -- chi,
+  xi -- co -- chi co -- net -- zin -- tle
   ca~o -- miz -- hui -- hui -- jo -- co
   in an -- ge -- los -- me, 
   ca~o -- miz -- hui -- hui -- jo -- co
@@ -141,8 +141,8 @@ bass_lyrics = \lyricmode {
   A -- le -- lo -- ya,~a -- le -- lo -- ya.
 }
 
-bass = \new Staff \with {instrumentName="Bass"
-  shortInstrumentName ="B."} <<
+bass = \new Staff \with {instrumentName="Men"
+  shortInstrumentName ="M."} <<
   \hommes_style
   \armure
   \relative c {\bass_music}
