@@ -88,7 +88,7 @@ sop_music = \relative c'' {
 	r8 c d e c4 |
 %45
 	r8 f f d e4 |
-	f4. ~ f8 e e^\f |
+	f4.^"rall." ~ f8 e e^\f |
 	f2.\break 
 \volta 2 \fine
 \volta 1 {
@@ -553,7 +553,7 @@ sa -- ra -- ban -- da ten -- ge que ten -- ge
 sa -- ra -- ban -- da ten -- ge que ten -- ge
 que ten -- ge ten -- ge que ten -- ge
 sum -- ba -- ca -- su cu -- cum -- be/sum ca  su  cu -- cum -- be cu -- cum -- be
-e -- se no -- che bran -- co se -- re -- mo-e -- se no -- che bran -- co se -- re -- mo
+e -- se no -- che bran -- co se -- re -- mo/e -- se no -- che bran -- co se -- re -- mo
 O Je -- su que ri -- sa te -- ne -- mo
 o que ri -- sa San -- to To -- mé
 o que ri -- sa o que ri -- sa San -- to To -- mé San -- to To -- mé

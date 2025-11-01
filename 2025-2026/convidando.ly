@@ -79,7 +79,7 @@ sFour = \lyricmode {
   \set stanza = "4."
   Ay que su ma -- dre a -- y,
   Co -- mo~en su~es -- pe -- ra a -- y,
-  Mi -- ra~en su~lu -- cen -- cia a -- y,
+  Mi -- ra~en su lu -- cen-cia a -- y,
   Sus cre -- ci -- mien -- tos a -- y.
 }
 

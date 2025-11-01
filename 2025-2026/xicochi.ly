@@ -47,7 +47,7 @@ sop_lyrics = \lyricmode {
   in an -- ge -- los -- me,
   in an -- ge -- los -- me,
   in an -- ge -- los -- me,
-  A -- le -- lo -- ya, a -- le -- lo -- ya.
+  A -- le -- lu -- ya, a -- le -- lu -- ya.
   
 }
 
@@ -78,7 +78,7 @@ alt_lyrics = \lyricmode {
   in an -- ge -- los -- me, 
   in an -- ge -- los -- me,
   in an -- ge -- los -- me,
-  A -- le -- lo -- ya, a -- le -- lo -- ya.
+  A -- le -- lu -- ya, a -- le -- lu -- ya.
 }
 
 
@@ -95,8 +95,8 @@ R1.*3 f2 1 1. 2 1 1. R1.*3
 a2 1 g2 1 d2 e1 f1. R1.*5
 g2 1 d2 e1 f2 d1 a'2 f1 g1 2 e1. 
 a2 1 bes2 g1 a2 g1 a2 1 g1 2 1.
-g2 1 a2 g1 f1. g2 e f~2 e1 f1.
-a1.~2 g1 f1. e1 a2~2 f1~2 e1 f1.\fermata \fine 
+g2 1 a2 g1 f1. g2 e f~2 e1 c1.
+a'1.~2 g1 f1. e1 a2~2 f1~2 e1 f1.\fermata \fine 
 }
 
 ten_lyrics = \lyricmode {
@@ -108,7 +108,7 @@ ten_lyrics = \lyricmode {
   in an -- ge -- los -- me, 
   in an -- ge -- los -- me,
   in an -- ge -- los -- me,
-  A -- le -- lo -- ya, a -- le -- lo -- ya.
+  A -- le -- lu -- ya, a -- le -- lu -- ya.
 }
 
 ten = \new Staff \with {instrumentName="Alto"
@@ -126,7 +126,7 @@ bass_music = {
   c'2 1 bes2 a1 f2 g1 a2 bes1 g1 2 c1.
   f,2 1 bes2 c1 f,2 g1f2 d1 g1 2 c,1.
   c'2 1 f,2 g1 d1. g2 a1 bes2 c1 f,1.
-  f1.~2 c1 d1. a'1.~2 bes1 c1. f,\fermata\fine
+  f1.~2 c1 d1. a'1. 2 bes1 c1. f,\fermata\fine
 }
 
 bass_lyrics = \lyricmode {
@@ -138,7 +138,7 @@ bass_lyrics = \lyricmode {
   in an -- ge -- los -- me, 
   in an -- ge -- los -- me,
   in an -- ge -- los -- me,
-  A -- le -- lo -- ya,~a -- le -- lo -- ya.
+  A -- le -- lu -- ya, a -- le -- lu -- ya.
 }
 
 bass = \new Staff \with {instrumentName="Men"
