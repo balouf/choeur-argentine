@@ -39,7 +39,9 @@ c8 d e d e f e4. r8 c c b b b b a a g4. r8
 d' d d4. r r4 r cis d4. r8 b cis
 d d d d c4 b4. r4 d8 8 cis4 d8 a4 b4. r r2.
 r4. r4 d8~8 b4 c b8 a4 c8 b cis d~8 e4 c8 d e~8
-d4 e8 4
+d4 e8 4 r8 e e d d d~8 c4 b8 e d~8 c4 8 b4
+a c8 b4. r8 d c b a c b fis4 b8 fis4 g8 a4 b4. r
+r8 c c b b b b a a g4. r8 d' d
 }
 
 sola_lyrics = \lyricmode {
@@ -62,6 +64,12 @@ Mo -- le -- ni -- yo de Za -- fa -- lá,
 de Za -- fa -- lá. Gua -- ché
 Va -- mo~á vel que tlaen de An -- go -- la~A __
 Zi -- o -- lo, y~á __ Zi -- o -- la,
+Bal -- ta -- za -- le cun __ Mel -- cho -- la,
+Y __ mi pli -- mo Gas -- i -- par;
+Va -- mo, va -- mo cu -- ren -- do~a -- yá,
+cu -- ren -- do~a -- yá,
+Gu -- lum -- bé, gu -- lum -- bé, gu -- lum -- bá
+Gu -- lum -- bé,
 }
 
 
@@ -83,6 +91,8 @@ solb_music = {
   r r2. r8 fis4 g4. r r8 e fis g g g g fis4 
   e4. r8 fis4 g4. r r2. r4. r4 fis8~8
   g4 e8 fis g~8 fis4 g8 a b~8 c4 a8 b c~8 b4 c8 4
+  r8 c c b b b~8 a4 g8 c b~8 a4 8 g4 8 fis4 g4. R2.
+  r8 d' c b a c b fis4 g4. R2. r4. r8 c c b b b b a a
 }
 
 solb_lyrics = \lyricmode {
@@ -101,6 +111,10 @@ Gua -- ché
 Mo -- le -- ni -- yo de Za -- fa -- lá. Gua -- ché
 Va -- mo~á vel que tla -- en de~An -- go -- la~A __
 Zi -- o -- lo, y~á __ Zi -- o -- la,
+Bal -- ta -- za -- le cun __ Mel -- cho -- la,
+Y __ mi pli -- mo Gas -- i -- par;
+Va -- mo, va -- mo cu -- ren -- do~a -- yá,
+Gu -- lum -- bé, gu -- lum -- bé, gu -- lum -- bá
 }
 
 solb = \new Staff \with {instrumentName="Solo II"
@@ -115,13 +129,17 @@ sop_music = {R2.*10
  r4. r8 a' a g g a b a4 4 8 8 b4 a4.r
  R2.*13 r4. r8 a a b c d c a a b4. r R2.*3
  r8 a4 4. R2. r8 a a b b b b a4 4. R2.*4
+ R2.*6 r8 a a g a b c d4 g,4. R2. r4. 
+ r8 a a b b b c a a b4. r R2.*2
 }
 
 sop_lyrics = \lyricmode {
 Va -- mo, va -- mo, cu -- ren -- do~a -- yá, 
 cu -- ren -- do~a -- yá.
-Gu -- lum -- bé, gu -- lum -- bé, fu -- lum -- bá;
+Gu -- lum -- bé, gu -- lum -- bé, gu -- lum -- bá;
 Gua -- ché de Za -- fa -- lá, de Za -- fa -- lá.
+Va -- mo, va -- mo cu -- ren -- do~a -- yá,
+Gu -- lum -- bé, gu -- lum -- bé, gu -- lum -- bá
 }
 
 sop = \new Staff \with {instrumentName="Soprano"
@@ -136,13 +154,17 @@ alt_music = {R2.*10
  r4. r8 fis8 8 d d d g e4 d fis8 e gis4 e4. r
  R2.*13 r4. r8 fis8 8 g g g g fis8 8 g4. r R2.*3
  r8 e4 fis4. R2. r8 e fis g g g g e4 fis4. R2.*4
+ R2.*6 r8 fis e d e f g f4 e4. R2. r4. 
+ r8 fis8 8 g g g g fis8 8 g4. r R2.*2
 }
 
 alt_lyrics = \lyricmode {
 Va -- mo, va -- mo, cu -- ren -- do~a -- yá, 
 cu -- ren -- do~a -- yá.
-Gu -- lum -- bé, gu -- lum -- bé, fu -- lum -- bá;
+Gu -- lum -- bé, gu -- lum -- bé, gu -- lum -- bá;
 Gua -- ché de Za -- fa -- lá, de Za -- fa -- lá.
+Va -- mo, va -- mo cu -- ren -- do~a -- yá,
+Gu -- lum -- bé, gu -- lum -- bé, gu -- lum -- bá
 }
 
 alt = \new Staff \with {instrumentName="Alto"
@@ -157,14 +179,18 @@ ten_music = {R2.*10
  r4. r8 d'8 8 b b c d cis4 a d8 cis e4 cis4. r
  R2.*13 r4. r8 d d d e f e d d d4. r R2.*3
  r8 cis4 a4. r8 b c d d d d c4 b d8 d cis4 d4. R2.*4
+ R2.*6 r8 d c b c d e b4 c4. R2. r4. 
+ r8 b b d e f e d d d4. r R2.*2
 }
 
 ten_lyrics = \lyricmode {
 Va -- mo, va -- mo, cu -- ren -- do~a -- yá, 
 cu -- ren -- do~a -- yá.
-Gu -- lum -- bé, gu -- lum -- bé, fu -- lum -- bá;
+Gu -- lum -- bé, gu -- lum -- bé, gu -- lum -- bá;
 Gua -- ché Mo -- le -- ni -- yo 
 de Za -- fa -- lá. de Za -- fa -- lá.
+Va -- mo, va -- mo cu -- ren -- do~a -- yá,
+Gu -- lum -- bé, gu -- lum -- bé, gu -- lum -- bá
 }
 
 ten = \new Staff \with {instrumentName="Tenor"
@@ -179,14 +205,18 @@ bass_music = {R2.*10
  r4. r8 d d g g g g a4 d,4 8 a e'4 a,4.r\break
  R2.*13 r4. r8 d d g g, g c d d g,4. r R2.*3
  r8 a4 d4. r8 g a b b b b a4 g g8 8 a4 d,4. R2.*4
+ R2.*6 r8 d d g g f e d4 c4. R2. r4. 
+ r8 d d g g, g c d d g,4. r R2.*2
 }
 
 bass_lyrics = \lyricmode {
 Va -- mo, va -- mo, cu -- ren -- do~a -- yá, 
 cu -- ren -- do~a -- yá.
-Gu -- lum -- bé, gu -- lum -- bé, fu -- lum -- bá;
+Gu -- lum -- bé, gu -- lum -- bé, gu -- lum -- bá;
 Gua -- ché Mo -- le -- ni -- yo 
 de Za -- fa -- lá. de Za -- fa -- lá.
+Va -- mo, va -- mo cu -- ren -- do~a -- yá,
+Gu -- lum -- bé, gu -- lum -- bé, gu -- lum -- bá
 }
 
 bass = \new Staff \with {instrumentName="Bass"
@@ -227,7 +257,12 @@ upper = \relative c' {
   <cis e a> <d fis a> <d g b>4. 4. 8 <c e a>4 <d g b>4.
   <d g b>8 <cis e a>4 <d fis a>4 8~8 <d g b>4 <e g c>
   <d g b>8 <d fis a>4. <d g b>4 8~8 <e g c>4 <f a c>
-  <e g c>8 <d g b>4. <e g c>
+  <e g c>8 <d g b>4. <e g c> <e g c>4. <e g b>4 8~8
+  <c e a>4 <e g c> <d g b>8~8 <c e a>4 <d fis a>8 <d g b>4
+  <d g a>8 <d fis a>4 <d g b>4. <d fis a> <d g b>8 <d fis a>4
+  <d g b>8 <d fis a>4 <d g b>8 <d fis a>4 <d g b>8 <d fis a>4
+  <d g b> <c f a>8 <e g c> <f a d>4 <e g c>4.
+  <d g b>4 <g b d> <a c d> <g b d> < d g b> <d fis a>
 }
 
 lower = \relative c {
@@ -244,6 +279,8 @@ g4. c,8 g'4 c,8 d4 e4. a4 4 e a4. g c, c
 g'4 4 fis g g d g g,8 c d4 g g a d,4. g8 8 a
 b4. 8 a4 g4. d a' d, g8 8 a b4. 8 a4 g4.
 g8 a4 d, d8~8 g4 c, g'8 d4. g4 8~8 c,4 f c8 g'4. c,
+c g'4 8~8 a4 e8 c g'~8 a4 fis8 g4 d4. g fis g8 d4
+g,8 d'4 g8 d4 g8 d4 g f8 e d d c4. g'4 4 fis g g d
 }
 
 
