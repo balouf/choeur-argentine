@@ -42,6 +42,7 @@ def run_lily(file, lily, dest):
         if subtitle:
             title = f"{title} - {subtitle[0]}"
         voix = instrus.findall(src)
+    pdfs = []
     stem = file.stem
     target = dest / stem
     target.mkdir(parents=True, exist_ok=True)
@@ -61,7 +62,14 @@ def run_lily(file, lily, dest):
                 continue
             new_name = f.stem.replace('--', '-')
             f.replace(target / f"{new_name}{suf}")
-    return title, stem, voix
+            if suf == '.pdf':
+                if new_name.endswith('-piano'):
+                    pdfs.append({'name': 'Piano', 'suffix': '-piano'})
+                elif new_name.endswith('-full'):
+                    pdfs.append({'name': 'Conducteur', 'suffix': '-full'})
+                else:
+                    pdfs.append({'name': 'Choeurs', 'suffix': ''})
+    return title, stem, voix, pdfs
 
 
 def run_everything(lily, source, dest):
@@ -84,7 +92,7 @@ def run_everything(lily, source, dest):
         tracks = []
         for future in tqdm(as_completed(futures), total=len(futures)):
             tracks.append(future.result())
-    tracks = [{'name': t[0], 'path':  t[1], 'voix': t[2]}
+    tracks = [{'name': t[0], 'path':  t[1], 'voix': t[2], 'pdfs': t[3]}
               for t in sorted(tracks, key=lambda t: t[0])]
     # print(tracks)
 

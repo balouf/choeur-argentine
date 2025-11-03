@@ -82,14 +82,14 @@
 		        song_id = i;
 				var path = tracks[i].path + '/' + tracks[i].path;
 				var html = '<h3>Partitions</h3> <ul>';
-				for (var j = 0; j < downloads.pdf.length; j++) {
-					html += '<li><a href="' + path + downloads.pdf[j].suffix + '.pdf" target="_blank">' + tracks[i].name
-							+ ' (' + downloads.pdf[j].name + ')</a></li>'
+				for (var j = 0; j < tracks[song_id].pdfs.length; j++) {
+					html += '<li><a href="' + path + tracks[song_id].pdfs[j].suffix + '.pdf" target="_blank">' + tracks[i].name
+							+ ' (' + tracks[song_id].pdfs[j].name + ')</a></li>'
 				}
 				html += '</ul><h3>MP3</h3> <ul>';
 				for (var j = 0; j < downloads.mp3.length; j++) {
 					html += '<li><a href="' + path + downloads.mp3[j].suffix + '.mp3" target="_blank">' + tracks[i].name
-							+ ' (' + downloads.pdf[j].name + ')</a></li>'
+							+ ' (' + downloads.mp3[j].name + ')</a></li>'
 				}
 				html += '</ul>';
 				document.getElementById('downloads').innerHTML = html;
