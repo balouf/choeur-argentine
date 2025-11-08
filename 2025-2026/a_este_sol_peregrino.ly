@@ -50,10 +50,12 @@ g8 8 a bes2 a4 bes2.
 \volta 2 \fine
 \pageBreak
 \volta 1 {
+  \repeat volta 2 {
   r4^"Coplas" d8 4 c8 c8 bes16 c bes8 8 a4
   bes4. d8 8 8 c bes bes a4.
   bes8 c d c c c c b4 c4. r2.
-  es8 8 d c d es f2. \bar "||"
+  es8 8 d c d es f2.
+  }
 }
 }
 }	
@@ -132,9 +134,11 @@ alt_music = {
   bes4 8 f f g f4. 2.
   \volta 2 \fine
   \volta 1 {
+    \repeat volta 2 {
     r4 bes8 4 a8 g g g g f4 4. bes8 8 8
     a g g fis4. g8 8 8 8. 16 8 4. 4.
     r2. g8 a bes bes a a bes2.
+    }
   }
   }
 }	
@@ -217,9 +221,11 @@ ten_music = {
   c d2.
   \volta 2 \fine
   \volta 1 {
+    \repeat volta 2 {
     r4 f8 4 8~16 es d8 es c d es d4. f8 8 8
     8 d d d4. 8 8 8 es8. 16 8 d es f es4.
     c8 d es es d d es bes4 f'4. 2.
+    }
   }
   }
 }	
@@ -297,16 +303,18 @@ bass_music = {
   r8 es'8 8 bes4 8  c bes aes g8. f16 es8~8 bes'4
   es,8 8 bes~8 f'4 bes,4 8
   \bar "||"
-  r8 bes'8 8 a8. bes16 a8 g4 8 f4 8 es es f
+  r8 bes'8 8 a8. bes16 a8 g4 8 f4 8 f f g
   bes4.~8 a4 bes4. f4 8 c4 8 d d es f4.~8 e4
   f4. g8 8 a bes4. es,8 8 8 d8. es16 d8 c4 8 bes4 8
   c4 8 d d es f4 8 bes4 8 es,8 8 f
   g4 8 d d es f4. bes,2.
   \volta 2 \fine
   \volta 1 {
+    \repeat volta 2 {
     r4 bes'8 4 f8 8 g es es f4 bes,4. bes'8 8 8
     f g g d4. g8 8. f16 es8 d c g'4. c,
-    aes'8 8 g f f f es4. f bes,2. 
+    aes'8 8 g f f f es4. f bes,2.
+    }
   }
   }
 }	
@@ -441,6 +449,7 @@ r4. <g b d>8 g32 a b c <g b d>8
 \oneVoice <d f bes>2.
 \volta 2 \fine
 \volta 1 {
+  \repeat volta 2 {
 r4 <f bes d>8 4 <f a c>8 
 <f g c> <d g bes> <es g bes>~8 <f a> es
 <d f bes>4. <f bes d>8 8 8 <f a c> <d g bes>4 <d fis a>4.
@@ -449,6 +458,7 @@ r4 <f bes d>8 4 <f a c>8
 <c g'c>8~<d g c> <es g c> <es f bes>~<d f bes> <f bes d>
 <g bes es>~<a es'> <g bes es>
 <f bes c> <f a d>~<f a es'> <f bes d> 2.
+  }
 }
 }
 }
@@ -477,9 +487,11 @@ c4 8 d d es f4 8 bes,4 8 es8 8 f
 g4 8 bes,8 8 8 f4 8 bes2.
 \volta 2 \fine
 \volta 1 {
+  \repeat volta 2 {
   r4 bes8 4 f8~8 g es~8 f4 bes4. 8 8 8
   f8 g4 d'4. g,8 8. f16 es8 d c g'4. c,
   aes' bes es, f bes2.
+  }
 }
 }
 }
