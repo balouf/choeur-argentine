@@ -37,7 +37,7 @@ verseOne = \lyricmode {
 verseTwo = \lyricmode {
   \set stanza = "2."
   A -- le -- gres cuan -- do fes -- ti -- vas
-  u -- nas her -- mo -- sas za -- ga -- les
+  u -- nas her -- mo -- sas za -- ga -- las
   con no -- vi -- dad en -- to -- na -- ron
   ju -- gue -- tes por la gua -- ra -- cha.
 }
