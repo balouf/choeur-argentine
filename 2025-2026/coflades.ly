@@ -200,10 +200,10 @@ Gu -- lum -- bé, gu -- lum -- bé, gu -- lum -- bá.
 Gua -- ché Mo -- le --  ni -- yo de Za -- fa -- lá. 
 Gua -- ché de Za -- fa -- lá.
 
-E-ya/Pli-mos/ Lin-da/Pli-mo
-Va-mo/Be-ya/ Nuez-tla/Buey-e
-Tu-ro/No-che/ Dan-sa/Neglo
-A-yá/A-blá/ I-rá/E-zá
+"1. E" -- ya
+Va -- mo
+Tu -- ro
+A -- yá
 Blas -- i -- co, Pe -- li -- co, 
 Zuan -- i -- co~y To -- má: 
 E -- ya, va -- mo tu -- ru,~a -- yá.
@@ -273,10 +273,10 @@ Va -- mo, va -- mo cu -- ren -- do~a -- yá,
 Gu -- lum -- bé, gu -- lum -- bé, gu -- lum -- bá
 Gua -- ché de Za -- fa -- lá, de Za -- fa -- lá.
 
-E-ya/Pli-mos/ Lin-da/Pli-mo
-Va-mo/Be-ya/ Nuez-tla/Buey-e
-Tu-ro/No-che/ Dan-sa/Neglo
-A-yá/A-blá/ I-rá/E-zá
+"1. E" -- ya
+Va -- mo
+Tu -- ro
+A -- yá
 Gu -- lum -- bé, gu -- lum -- bé, gu -- lum -- bá.
 Gua -- ché
 de Za -- fa -- lá, de Za -- fa -- lá.
@@ -314,10 +314,12 @@ Va -- mo, va -- mo cu -- ren -- do~a -- yá,
 Gu -- lum -- bé, gu -- lum -- bé, gu -- lum -- bá
 Gua -- ché de Za -- fa -- lá, de Za -- fa -- lá.
 
-E-ya/Pli-mos/ Lin-da/Pli-mo
-Va-mo/Be-ya/ Nuez-tla/Buey-e
-Tu-ro/No-che/ Dan-sa/Neglo
-A-yá/A-blá/ I-rá/E-zá
+"2. Pli" -- mos 
+Be -- ya
+No -- che
+A -- blá
+
+
 Gu -- lum -- bé, gu -- lum -- bé, gu -- lum -- bá.
 Gua -- ché
 de Za -- fa -- lá, de Za -- fa -- lá
@@ -357,10 +359,10 @@ Gu -- lum -- bé, gu -- lum -- bé, gu -- lum -- bá
 Gua -- ché Mo -- le --  ni -- yo de Za -- fa -- lá,
 de Za -- fa -- lá.
 
-E-ya/Pli-mos/ Lin-da/Pli-mo
-Va-mo/Be-ya/ Nuez-tla/Buey-e
-Tu-ro/No-che/ Dan-sa/Neglo
-A-yá/A-blá/ I-rá/E-zá
+"3. Lin" -- da 
+Nuez -- tla
+Dan -- sa
+I -- rá
 Gu -- lum -- bé, gu -- lum -- bé, gu -- lum -- bá.
 Gua -- ché Mo -- le -- ni -- yo
 de Za -- fa -- lá, de Za -- fa -- lá.
@@ -402,10 +404,10 @@ Gu -- lum -- bé, gu -- lum -- bé, gu -- lum -- bá
 Gua -- ché Mo -- le --  ni -- yo de Za -- fa -- lá,
 de Za -- fa -- lá.
 
-E-ya/Pli-mos/ Lin-da/Pli-mo
-Va-mo/Be-ya/ Nuez-tla/Buey-e
-Tu-ro/No-che/ Dan-sa/Neglo
-A-yá/A-blá/ I-rá/E-zá
+"4. Pli" -- mo
+Buey -- e
+Ne -- glo
+E -- zá
 Gu -- lum -- bé, gu -- lum -- bé, gu -- lum -- bá.
 Gua -- ché Mo -- le -- ni -- yo
 de Za -- fa -- lá, de Za -- fa -- lá.
