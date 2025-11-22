@@ -269,7 +269,7 @@ Su -- po -- ne la luz ma -- yor, __ _ ma -- yor. __
 
 ten_lb = \lyricmode {
 \repeat unfold 161 {""}
-De~o -- rien -- te~a~o -- rien -- _ te ca -- mi -- _ na,
+De~o -- rien -- te~a o -- rien --  te ca -- mi -- _ na,
 tu so -- be -- ra -- no~es -- plen -- dor.
 Que~aún el o -- ca -- so~es prin -- ci -- _ _  pio.
 Don -- de siem -- pre na -- ce~el sol, __ _
