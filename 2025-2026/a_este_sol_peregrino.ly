@@ -181,7 +181,7 @@ Su -- po -- ne la luz ma -- yor. __
 }
 alt_lb = \lyricmode {
 \repeat unfold 159 {""}
-De~o -- rien -- te~a~o -- rien -- _ te ca -- mi -- na,
+De~o -- rien -- te~a~o -- rien -- te ca -- mi _ -- na,
 tu so -- be -- ra -- no~es -- plen -- dor.
 Que~aún el o -- ca -- so~es prin -- ci -- pio.
 Don -- de siem -- pre na -- ce~el sol. __
@@ -363,7 +363,7 @@ Su -- po -- ne la luz ma -- yor, __  ma -- yor. __
 
 bass_lb = \lyricmode {
 \repeat unfold 174 {""}
-De~o -- rien -- te~a~o -- rien -- _ te ca -- mi -- na,
+De~o -- rien -- te~a~o -- rien -- te ca -- mi _ -- na,
 tu so -- be -- ra -- no~es -- plen -- dor.
 Que~aún el o -- ca -- so~es prin -- ci -- pio.
 Don -- de siem -- pre na -- ce~el sol, __
