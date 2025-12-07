@@ -26,7 +26,7 @@ verseOne = \lyricmode {
   Con -- vi dan -- do~es -- tà la no -- che
   a -- qui de mu -- ci -- cas va -- rias
   al re -- cién na -- ci -- do~in fan -- te
-  can -- ten tier -- nas a -- la -- an -- zas.
+  can -- ten tier -- nas a -- la -- ban -- zas.
   
   Ay que me~a -- bra -- so a -- y,
   di -- vi -- no due -- ño a -- y,

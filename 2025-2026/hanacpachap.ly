@@ -61,7 +61,7 @@ sop_lyrics = \lyricmode {
 sop_lyricsb = \lyricmode { \emph
   U -- ya -- ri -- huai mu -- chas -- cai -- ta
   Dios -- pa ram -- pan Dios -- pa ma -- man
-  Yu -- ra -- toc -- to ha -- man -- cai -- man
+  Yu -- rac -- toc -- to pa -- man -- cai -- man
   Yu pas ca -- lla, coll -- pas -- cai -- ta
   Hua huar qui __ man su -- yus -- cai -- ta
   Ri -- cu -- chi -- llai.
@@ -116,7 +116,7 @@ alt_lyrics = \lyricmode {
 alt_lyricsb = \lyricmode { \emph
   U -- ya -- ri -- huai mu -- chas -- cai -- ta
   Dios -- pa ram -- pan Dios -- pa ma -- man
-  Yu -- ra -- toc -- to ha -- man -- cai -- man
+  Yu -- rac -- toc -- to pa -- man -- cai -- man
   Yu pas ca -- lla, coll -- pas -- cai -- ta
   Hua huar qui __ man su -- yus -- cai -- ta
   Ri -- cu -- chi -- llai.
@@ -171,7 +171,7 @@ ten_lyrics = \lyricmode {
 ten_lyricsb = \lyricmode { \emph 
   U -- ya -- ri -- huai mu -- chas -- cai -- ta
   Dios -- pa ram -- pan Dios -- pa ma -- man
-  Yu -- ra -- toc -- to ha -- man -- cai -- man
+  Yu -- rac -- toc -- to pa -- man -- cai -- man
   Yu pas ca -- lla, coll -- pas -- cai -- ta
   Hua huar qui __ man su -- yus -- cai -- ta
   Ri -- cu -- chi -- llai.
@@ -228,7 +228,7 @@ bass_lyrics = \lyricmode {
 bass_lyricsb = \lyricmode {\emph
   U -- ya -- ri -- huai mu -- chas -- cai -- ta
   Dios -- pa ram -- pan Dios -- pa ma -- man
-  Yu -- ra -- toc -- to ha -- man -- cai -- man
+  Yu -- rac -- toc -- to pa -- man -- cai -- man
   Yu pas ca -- lla, coll -- pas -- cai -- ta
   Hua huar qui __ man su -- yus -- cai -- ta
   Ri -- cu -- chi -- llai.
