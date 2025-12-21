@@ -31,8 +31,8 @@ kyrie = {
 }
 
 
-lead_music = {R2.*4
-\repeat segno 2{R2.*6 r4 r <c' e>
+lead_music = {R2.*2
+\repeat segno 2{R2.*2 R2.*6 r4 r <c' e>
 <c e>4. <b d>8 <a c>4 <g b>4. <f a>8 <b, g'>4 <c e>4 4 r
 r r a'4 4. 8 4 <e' g>4. <f a>8 <e g>4 <d f>4 4 r
 r r f f4. a,8 4 4. 8 gis4 a4 4 r r2.*7
@@ -67,8 +67,8 @@ lead = \new Staff \with {instrumentName="Lead"
 >>
 
 
-sop_music = {R2.*4
-\repeat segno 2{
+sop_music = {R2.*2
+\repeat segno 2{R2.*2
 a'2 gis4 a2 g4 f2. f e2 a4 e2.~ 2 r4
 a4. gis8 a4 g2 4 2 r4 r2. a a a2 r4 r2.
 f2 4 a2 gis4 a2 gis4 a2 g4 f2. 2 4 e4. 8 a4 e2.~ e e\fermata \break
@@ -94,8 +94,8 @@ sop = \new Staff \with {instrumentName="Soprano"
 >>
 
 
-alt_music = {R2.*4
-\repeat segno 2{
+alt_music = {R2.*2
+\repeat segno 2{R2.*2
   e2 4 c2 e4 d2. c c2 e4 d2.~ 2 r4
   e2 4 d2 4 c2 r4 r2. e g f2 r4 r2.
   c2 4 e2 4 2 4 c2 e4 d2. c2 4 4. 8 e4 d2.~ 2.
@@ -120,8 +120,8 @@ alt = \new Staff \with {instrumentName="Alto"
 >>
 
 
-ten_music = {R2.*4
-\repeat segno 2{
+ten_music = {R2.*2
+\repeat segno 2{R2.*2
 c'2 e,4 e'2 a,4 2. 2 c4( a2) c4( a2.) gis2 r4
 c4. b8 a4 b2 f4 e2 r4 r2. g e' d2 r4 r2.
 a2 4 c2 b4 c2 e,4 e'2 a,4 2. 2 c4 a4. 8 c4 a2.( gis) 
@@ -146,8 +146,8 @@ ten = \new Staff \with {instrumentName="Tenor"
 >>
 
 
-bass_music = {R2.*4
-\repeat segno 2{
+bass_music = {R2.*2
+\repeat segno 2{R2.*2
 a,2 b4 c2 cis4 d2. dis e e~ e2 r4
 a,4. b8 c4 d2 g,4 c2 r4 r2. cis cis' d2 r4 r2.
 dis,2 4 e2 4 a,2 b4 c2 cis4 d2. dis2 4 e4. 8 4 e2.~ e

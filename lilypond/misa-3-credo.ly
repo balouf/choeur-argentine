@@ -136,7 +136,7 @@ csop_music = {
   R2.*8
   e4. 8 r e e'4( b8) e r4 e8 c4 b8 r e8 4. r4. r2. r2.
   e8 g4 e8 r d d4. c8 \breathe  a4 gis8 a4 b a8 
-  gis4.-- a8 \breathe 4 gis8 a4 b a8 gis4.-- a8 r4
+  gis4.-- a8 \breathe 4 gis8 a4 b a8 gis4-- a4 r4
   R2.*7 r4 r r8 e'8~ e2.~ 2.~ 2.~ 4.~ 8 c d
   \times 3/2 { e e e fis } \times 3/2 { g fis fis e}
   e4 d8 r d d e4 c4 a8 gis8
@@ -163,7 +163,7 @@ csop_music = {
   e4. <e d>4 <e cis>8 <e b>4. <e cis>8 r4 R2.*2
   g4. <g f>8 r8 <g e>8 <g d>4.( <g e>8) r8 <e cis>8 
   <b d>8 <a cis>4 <g b>8 <fis a>4
-  <d g>8 <d fis>4 <cis e>8 <d fis>4 R2.*4
+  <d g>8 <d fis>4 <cis e>4 <d fis>8 R2.*4
   e'4. d4 cis8 b4. cis4 r8 R2.*2
   r4 r a8 8 8 4 4 8 4-- 4 r
 
@@ -241,7 +241,7 @@ calt_music = {
   R2.*8
   c'4. gis8 r c b4. a8 r4 a4. gis8 r b8 a4. r4. r2. r2.
   c8 e4 c8 r b b4. a8 \breathe e4 8 4 4 8 
-  4.-- 8 \breathe 4 8 4 4 8 4.-- 8 r4
+  4.-- 8 \breathe 4 8 4 4 8 4-- 4 r4
   \repeat unfold 15 {e4.-- } r 
   R2.*3 r4 r a8 b
   \times 3/2 { c c c d } \times 3/2 { e d d c }
@@ -255,7 +255,7 @@ calt_music = {
   R2.*2
   cis4. b4 a8 gis4. a8 r4 R2.*2
   e'4. d8 r8 c8 b4. c8 r8 a8 8 e4 d8 cis4
-  b8 4 a8 4 R2.*4
+  b8 4 a4 8 R2.*4
   cis'4. b4 a8 gis4. a4 r8 R2.*2
   r4 r e8 8 8 4 4 8 4-- 4 r
   R2.*16
@@ -333,7 +333,7 @@ cten_music = {
   e4. 8 r e e4. 8 r4 e4. 8 r e8 4. r4.
   e4. 8 r <e d>8 4. <e c>8 r4
   e8 g4 e8 r <e d>8 4. <c e>8 \breathe c4 b8 c4 d4 c8 
-  b4.-- c8 \breathe 4 b8 c4 d4 c8 b4.-- c8 r4
+  b4.-- c8 \breathe 4 b8 c4 d4 c8 b4-- c4 r4
   R2.*7 r4 r r8 e8~ e2.~ 2.~ 2.~ 4.~ 8 c d
   \times 3/2 { e e e fis } \times 3/2 { g fis fis e}
   e4 d8 r d d e4 c4 c8 b8
@@ -347,7 +347,7 @@ cten_music = {
   R2.*2
   e4. 4 8 4. 8 r4 R2.*2
   g4. 8 r8 8 4.~ 8 r8 e8 8 4 8 4
-  8 a,4 8 d,4 R2.*4
+  8 a,4 4 d,8 R2.*4
   e'4. 4 8 4. 4 r8 R2.*2
   r4 r cis8 8 8 4 4 8 4-- 4 r
   R2.*16
@@ -426,8 +426,8 @@ cbass_music = {
   R2.*8
   c'4. b8 r c d4. c8 r4 c4. b8 r d8 c4. r4. c4. 8 r b8 4. a8 r4
   c8 e4 c8 r b b4. a8 \breathe e4 8 4 4 8 
-  4.-- 8 \breathe 4 8 4 4 8 4.-- 8 r4
-  \repeat unfold 7 {e2.-- } 2 r4 r2. r r r4 r a8 b
+  4.-- 8 \breathe 4 8 4 4 8 4-- 4 r4
+  \repeat unfold 8 {r2.} r2. r r r4 r a8 b
   \times 3/2 { c c c d } \times 3/2 { e d d c }
   c4 b8 r b b c4 a4 r4 r4. e4 8 4 4 r r4. 4 8 4 4 cis'8 b
   \bar "||" \key a \major
@@ -462,7 +462,7 @@ por __ _ o -- bra~y gra -- cia
 del es -- pi -- ri -- tu San -- to 
 del es -- pi -- ri -- tu San -- to 
 
-b.f. \repeat unfold 7 { "" }
+% b.f. \repeat unfold 7 { "" }
 Des -- cen -- dió a los in -- fier -- nos,
 Des -- cen -- dió a los in -- fier -- nos,
 los in -- fier -- nos,

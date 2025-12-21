@@ -150,7 +150,7 @@ r4 a'8\pp a
 \times 2/3 {a8 r8 8} r g a a a4\fermata
 \bar "||"
 \tempo "Lento"
-<e' a>8 <d g>16 <b e> <e a> <d g> <c e> <b d>
+<e' a>8 <d g>16 <b e> <e a> <d g> <c e> <a d>
 <a c>8 4.~ 4 r4 r2
   \time 3/4
   \tempo 4 = 44
@@ -390,9 +390,9 @@ r4 c8\pp c
   R2*4
   \time 3/4
   \tempo 4 = 44
-  R2.*3
-  a,2 4 2 r8 a8~ 2 4 2 4 2 4 2. 2 4 2 r8 8~ 2 4 2 4 2 4 2 4 2.
-  2.~ 2.~ 2. 2 4 2 r8 8~ 2 4 2. a~ a~ a~ a~ a~ a~ a~ a~ a2 r4
+  a,2.~ \repeat unfold 28 {a~} a8\fermata r4 r4. R2.*2
+%  a2 4 2 r8 a8~ 2 4 2 4 2 4 2. 2 4 2 r8 8~ 2 4 2 4 2 4 2 4 2.
+%  2.~ 2.~ 2. 2 4 2 r8 8~ 2 4 2. a~ a~ a~ a~ a~ a~ a~ a~ a2 r4
   \time 2/4
   \tempo 4 = 88
   R2*21 r4 c'8\pp 8

@@ -62,7 +62,7 @@ sop_lyrics_b = \lyricmode {
 Flo -- re -- ci -- ta del cam --po, cla -- vel del ai -- re __
 Si nin -- gu -- no tea -- le -- ja a don -- de na -- ces __
 Don -- de na -- ces flor -- ci -- ta que~es -- tas cre -- cien -- do __
-Pa -- lo -- mi -- ta~a -- sus -- ta -- da, gri -- llo sin tiem po. __
+Pa -- lo -- mi -- ta~a -- sus -- ta -- da, gri -- llo sin sue -- ño. __
 }
 
 sop = \new Staff \with {instrumentName="Soprano"
@@ -107,7 +107,7 @@ alt_lyrics_b = \lyricmode {
 Flo -- re -- ci -- ta del cam --po, cla -- vel del ai -- re __
 Si nin -- gu -- no gu -- no tea -- le -- ja a don -- de na -- ces __
 Don -- de na -- ces flor -- ci -- ta que~es -- tas cre -- cien -- do __
-Pa -- lo -- mi -- ta -- mi -- ta~a -- sus -- ta -- da, gri -- llo sin tiem po. __
+Pa -- lo -- mi -- ta -- mi -- ta~a -- sus -- ta -- da, gri -- llo sin sue -- ño. __
 }
 
 
@@ -153,7 +153,7 @@ bass_lyrics_b = \lyricmode {
 Flo -- re -- ci -- ta del cam --po, cla -- vel del ai -- re __
 Si nin -- gu -- no tea -- le -- ja a don -- de na -- ces __
 Don -- de na -- ces flor -- ci -- ta que~es -- tas cre -- cien -- do __
-Pa -- lo -- mi -- ta -- mi -- ta~a -- sus -- ta -- da, gri -- llo sin tiem po. __
+Pa -- lo -- mi -- ta -- mi -- ta~a -- sus -- ta -- da, gri -- llo sin sue -- ño. __
 }
 
 
