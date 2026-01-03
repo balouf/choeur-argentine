@@ -102,9 +102,9 @@ lyricsb = \lyricmode{
 }
 
 lyricsc = \lyricmode{
-  Con mi cua -- tri -- co voy can -- tan -- doo
+  Con mi cua -- tri -- co voy can -- tan -- do
   En mi bu -- rri -- to va tro -- tando
-  Con mi cua -- tri -- co voy can -- tan -- doo
+  Con mi cua -- tri -- co voy can -- tan -- do
   En mi bu -- rri -- to va tro -- tando
 }
 
