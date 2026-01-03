@@ -22,11 +22,12 @@
 staffViolon = \new Staff
 {
 	\clef treble
-	\time 4/4
-	\tempo 4 = 144
+	\time 2/2
+	\tempo 2 = 96
 	\key g \major
 
 \relative c' {
+  \repeat volta 3 {
   r4 r8 g' 8 4 4 4 4 4 4
   c4. 8 4 4 a a g a8 b~8 g4
   
@@ -35,6 +36,7 @@ staffViolon = \new Staff
   
   g4 4 2 4 4 2 b4 b a a g fis8 g~4 r
   g4 4 2 4 4 2 b4 b a a g fis8 g~4 r r2
+  }
   
   b4 8 8~8 8 a a g4 4~2
   b4 8 8~8 8 a a g4 r
@@ -54,10 +56,11 @@ staffViolon = \new Staff
 
 accords = {
 	\chords {
+  \repeat volta 3 {
   s1 g a:m d:7 g s 
   a:m d:7 g s s
   d:7 g s s d:7 g
-  
+  }
   s2. d4:7 g1 s2. d4:7
   g1:7 a:m d:7 a:7 d:7 
   g2. d4:7 g1 s2. d4:7
@@ -127,4 +130,13 @@ lyricsc = \lyricmode{
     }
   }
 }
+   \score {
+    \unfoldRepeats
+    <<
+      \accords
+      \theme
+    >>
+    \midi {}
+  }
+
 }
