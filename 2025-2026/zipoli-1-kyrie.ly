@@ -213,6 +213,16 @@ a d c bes e, f8 a g f e f g e
 a f g e f a g f e f e d c4 g'
 a g f e8 d e g f g c,4 f8 e 
 d bes c a bes d c bes
+a g a bes c a bes c d d c c d d e e 
+f2 d4 f bes,8 8 4 4 a
+f'8 8 8 8 8 8 8 8 c c c c d d d d
+f f f f a a a a bes8 8 8 8 g g g g 
+a f f f d d d d e c c c a a' a a
+c c bes bes a a g g f e d g e f e d
+c bes a g f f' g a d, e f f g2 a r4
+8 8 bes bes a a bes8 8 8 8 
+a a a a bes8 8 f f bes1 a
+\time 3/8
   }
 >>
 
@@ -235,6 +245,12 @@ f8( c) d e f g a f
 e d c bes c c c c
 f( e) d c c a bes d
 e2\trill f
+R1*2
+f2 e4 g f8 g e f d4. 8
+e4 c f4. e8 d e f2 e4
+f2 r4 e f8 d e c d f e d
+e f e d c4 e f8 g e f d4. 8
+c e d e c4 a8 g bes g a f g bes a g 
   }
 >>
 
