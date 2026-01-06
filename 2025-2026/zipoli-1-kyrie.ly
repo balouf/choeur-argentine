@@ -23,7 +23,7 @@ allegro = {
 }
 
 adagio = {
-\tempo "Adagio" 2 = 60
+\tempo "Adagio" 2 = 54
 }
 
 
@@ -41,9 +41,10 @@ sop_mus = {R1*6
 \bar "||"  c'2. 4 1
 d2. 4 2 r4 c d2 bes a1 r
 c2. 4 b2 c c b c1 r
-c2. 4 f, g( a bes8 a) g2. 4 a1 R1*4
-\bar "||"
+c2. 4 f, g( a bes8 a) g2. 4 a1 
 \allegro
+R1*4
+\bar "||"
 c2 a4 c bes8( c a bes) g4. 8
 a4 f c'4. bes8 a( bes) c4 4 b c2 r4
 a d c bes8( d c bes) a( c bes) a g2 r1
@@ -56,6 +57,23 @@ r c a c bes8( c a bes) g4. 8 a2.
 c4 bes a d2( c bes4 f) 2. bes4 a1
 \bar "||"
 \time 3/8
+\tempo 4.=54
+a8^"solo" bes4( c8a) c bes g4
+a16( g a bes a8 c) bes a g4.
+c8 d4 e8.( d16) c( b) c( d) b8. c16 4. r r
+g8 c16( d) bes( c) a4 r8
+f8( bes16 d c bes a g a c bes a g f g bes a g
+f8 d d' e) cis8. d16 4 r8 r4.
+r8 a a bes16( a) bes4 r4. g8 c16( d) bes( c) a4 r8
+d16( c d bes a bes c bes c a g a bes a bes g) f g
+a4 r8 r c4 8 bes8. 16 4 a16( g) a( bes) g8. f16
+4 r8 r a bes c8.( bes16) a( g) a( bes) g8. f16 4 r8
+\bar "||"
+\time 2/2 \adagio
+a2( g) f2. 4 e1
+\bar "||" \allegro
+f2.^"tutti" 4 g8( f g a g a f g) a4( f8 g a4 b)
+c g c2~2 b c bes
 }
 
 
@@ -102,6 +120,22 @@ d4. 8 e4 r r2 r4 d c e
 d( g~8 a g f) g2. f8( e)
 f4 4 4 e f2. a4 f f 
 f8( e f g a2 f8 g f e) d2. 4 c1
+\bar "||"
+\time 3/8
+\tempo 4.=54
+f8 g4( a8 f) a g e4 f16( e f g f8 a) g f e4. r r r
+g8 a4 g8.( f16) e( d) e( f) d8. c16 4 r8
+c f16( g) e( f) d4 r8 c( f16 a g f e d e g f e 
+d e f g a8 g16 f) e8. d16 4 r8 r4. r r8
+d d e16( d) e4 r4. c8 f16( g) e( f) d4 r8
+a'16( g a f e f g f g e d e f e f d) c d e8
+r16 f( g a d,8. e16 f g d4 c8 f16 g) e8. f16 4 r8 r
+f g a8.( g16) f( e) f( g) e8. f16 4 r8
+\bar "||" \time 2/2
+f2( c) 4( d) b2 c1
+\bar "||"
+r1 r r c2.^"tutti" 4 d8( c d e d e c d)
+e4( d8 c d4 e)
 }
 
 
@@ -146,6 +180,9 @@ c8( d bes c a4.) 8 bes4 4 2 f r1 r1 r4
 c' d f e8( f d e f4 e d8 e c d e f e) d
 c2 f4 a, bes2 c f,2. f'4 d f 
 bes,8( c d e f2 bes,4 a) bes2. 4 f1
+R4.*39 R1*3
+R1*6
+c1
 }
 
 
@@ -203,6 +240,7 @@ f8( d) e f g( e) f g a1 r1
 2. 4 b b c2 2 b c1 r
 f,8( a) g a f( a) g a
 d,( e) f g a4 bes f2 e f1
+\allegro
 f8( c) d e f g a f
 g( f) e d c g' g g
 a( g) f e f c d g g2\trill a
@@ -223,6 +261,25 @@ c bes a g f f' g a d, e f f g2 a r4
 8 8 bes bes a a bes8 8 8 8 
 a a a a bes8 8 f f bes1 a
 \time 3/8
+\tempo 4.=54
+a,8 bes4 c8 a c bes g4 a16 g a bes a8
+c bes a g4. c8 d4 e8. d16 c b c d b8. c16 4.
+r r g8 c16 d bes c a4 r8 f bes16 d c bes
+a g a c bes a g f g bes a g f8 d d'
+e cis8. d16 8 g f e16 g f e d cis d8 a a
+bes16 a bes4 r4.
+g8 c16 d bes c a4 r8 d16 c d bes a bes
+c bes c a g a bes a bes g f g a4 r8 r c c
+c bes8. 16 8 8 a16 g a bes g8. f16 8
+a'16 f e g f8 a bes c8. bes16 a g a bes g8. f16 4 r8
+\bar "||"
+\time 2/2 \adagio
+a8 8 8 8 g g g g f f f f f f f f e1
+\bar "||"
+\allegro
+f2. 4 g8 f g a g a f g a4 f8 g a4 b
+c g c2 8 8 8 8 b b b b c2 bes
+
   }
 >>
 
@@ -251,6 +308,28 @@ e4 c f4. e8 d e f2 e4
 f2 r4 e f8 d e c d f e d
 e f e d c4 e f8 g e f d4. 8
 c e d e c4 a8 g bes g a f g bes a g 
+f e f g a f g a bes8 8 a a bes8 8 c c
+a2 bes4 4 4 4 f2 d'4 f es8 f d es a, a a a f f f f
+d' d d d c c c c f f f f c c c c a a a a b c a b
+c c c c a f' f f g g g g c, c c c d g, g g g a g f
+c' bes a g f4 f'8 e bes c d bes f' f e e f2 r4
+8 8 d d f f f e f g f f f f f g f e d1 c
+\bar "||" \time 3/8
+\tempo 4.=54
+f,8 g4 a8 f a g e4 f16 e f g f8 a g f e4. r r r
+g8 a4 g8. f16 e d e f d8. c16 4 r8
+c f16 g e f d4 r8 c f16 a g f e d e g f e 
+d e f g a8 g16 f e8. d16 8 bes' f g a16 g f e f8 8 8 d
+d d e16 d e4 8 8 8 c8 f16 g e f d4 r8
+a'16 g a f e f g f g e d e f e f d c d e8.
+f16 g a d,8. e16 f g d8 8 c8 f16 g e8. f16 8
+f'16 a, c8 a
+f' g a8. g16 f e f g e8. f16 4 r8
+\bar "||" \time 2/2
+c8 8 8 8 e e e e a, a a a d d d d c1
+\bar "||"
+r1 r r c2. 4 d8 c d e d e c d
+e4 d8 c d4 e
   }
 >>
 
@@ -286,7 +365,6 @@ upper = \relative c' {
   c2 <c f> c1 2 f e f
   }
 >> \oneVoice
-\allegro
 c'2 a4 c bes8 c a bes g4. 8
 <<
 {\voiceOne 
