@@ -303,7 +303,7 @@ bass_music = {
   r8 es'8 8 bes4 8  c bes aes g8. f16 es8~8 bes'4
   es,8 8 bes~8 f'4 bes,4 8
   \bar "||"
-  r8 bes'8 8 a8. bes16 a8 g4 8 f4 8 f f g
+  r8 bes'8 8 a8. bes16 a8 g4 8 f4 8 g g a
   bes4.~8 a4 bes4. f4 8 c4 8 d d es f4.~8 e4
   f4. g8 8 a bes4. es,8 8 8 d8. es16 d8 c4 8 bes4 8
   c4 8 d d es f4 8 bes4 8 es,8 8 f
