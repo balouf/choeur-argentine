@@ -15,6 +15,16 @@ maintainers = [
     {name = "Fabien Mathieu", email = "fabien.mathieu@normalesup.org"}
 ]
 license = "MIT"
+keywords = ["lilypond", "music", "choir", "midi", "mp3"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Multimedia :: Sound/Audio :: MIDI",
+    "Intended Audience :: End Users/Desktop",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
 dependencies = [
     "ffmpeg-normalize>=1.35.0",
     "tqdm>=4.67.1",

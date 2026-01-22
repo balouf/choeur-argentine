@@ -1,11 +1,11 @@
 # Choeur de la Maison de l'Argentine
 
 
-[![Build Status](https://github.com/balouf/misatango/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/balouf/misatango/actions?query=workflow%3Abuild)
-[![Documentation Status](https://github.com/balouf/misatango/actions/workflows/docs.yml/badge.svg?branch=main)](https://github.com/balouf/misatango/actions?query=workflow%3Adocs)
-[![License](https://img.shields.io/github/license/balouf/misatango)](https://github.com/balouf/misatango/blob/main/LICENSE)
+[![Build Status](https://github.com/balouf/choeur-argentine/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/balouf/choeur-argentine/actions?query=workflow%3Abuild)
+[![Documentation Status](https://github.com/balouf/choeur-argentine/actions/workflows/docs.yml/badge.svg?branch=main)](https://github.com/balouf/choeur-argentine/actions?query=workflow%3Adocs)
+[![License](https://img.shields.io/github/license/balouf/choeur-argentine)](https://github.com/balouf/choeur-argentine/blob/main/LICENSE)
 
-Repository for Misatango by Martin Palmeri (lilypond sources).
+Répertoire Github du Choeur de la Maison de l'Argentine (fichiers sources lilypond).
 
 
 - Free software: MIT license
@@ -14,7 +14,10 @@ Repository for Misatango by Martin Palmeri (lilypond sources).
 
 ## Features
 
-- TODO
+- Partitions au format Lilypond avec génération automatique de PDF, MIDI et MP3
+- Player MIDI interactif avec mixer et contrôle de tempo
+- Player MP3 avec time-stretch (modification de vitesse sans changement de hauteur)
+- Interface responsive adaptée aux mobiles et tablettes
 
 ## Credits
 

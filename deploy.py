@@ -1,6 +1,7 @@
 import argparse
 import subprocess
 import re
+import os
 from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from tqdm.auto import tqdm
@@ -22,13 +23,17 @@ stitle = re.compile(r'\Wsubtitle\s*=.*?"(.*)"')
 instrus = re.compile(r'\WinstrumentName\s*=\s*"(.*)"')
 
 def run(cmd):
-    return subprocess.run(
+    result = subprocess.run(
         cmd,
         shell=True,
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-        universal_newlines=True
+        capture_output=True,
+        text=True,
+        encoding='utf-8',
+        errors='replace'  # Replace undecodable bytes instead of crashing
     )
+    if result.returncode != 0:
+        raise RuntimeError(f"Command failed: {cmd}\n{result.stderr}")
+    return result
 
 
 def run_lily(file, lily, dest):
@@ -76,11 +81,13 @@ def run_everything(lily, source, dest):
     input_files = [file for file in Path(source).glob('*.ly')]
 
     dest = Path(dest)
-    for root, dirs, files in dest.walk(top_down=False):
-        for name in files:
-            (root / name).unlink()
-        for name in dirs:
-            (root / name).rmdir()
+    # Use os.walk for Python 3.10+ compatibility (Path.walk is 3.12+)
+    if dest.exists():
+        for root, dirs, files in os.walk(dest, topdown=False):
+            for name in files:
+                (Path(root) / name).unlink()
+            for name in dirs:
+                (Path(root) / name).rmdir()
     dest.mkdir(exist_ok=True)
 
     with ProcessPoolExecutor() as executor:
@@ -91,17 +98,37 @@ def run_everything(lily, source, dest):
         ]
         tracks = []
         for future in tqdm(as_completed(futures), total=len(futures)):
-            tracks.append(future.result())
+            try:
+                tracks.append(future.result())
+            except Exception as e:
+                print(f"Error processing file: {e}")
+                raise
     tracks = [{'name': t[0], 'path':  t[1], 'voix': t[2], 'pdfs': t[3]}
               for t in sorted(tracks, key=lambda t: t[0])]
     # print(tracks)
 
-    with open('choeur_argentine/index.tpl', 'rt', encoding='utf8') as source, \
+    with open('choeur_argentine/index.tpl', 'rt', encoding='utf8') as source_file, \
         open(dest / 'index.html', 'wt', encoding='utf8') as target:
-        template = Template(source.read())
+        template = Template(source_file.read())
         target.write(template.substitute(tracks=json.dumps(tracks)))
-    shutil.copy('choeur_argentine/midi.css', dest / 'midi.css')
-    shutil.copy('choeur_argentine/MIDIFile.js', dest / 'MIDIFile.js')
+
+    # Copy styles directory
+    styles_src = Path('choeur_argentine/styles')
+    styles_dest = dest / 'styles'
+    if styles_src.exists():
+        shutil.copytree(styles_src, styles_dest, dirs_exist_ok=True)
+
+    # Copy JavaScript modules
+    js_src = Path('choeur_argentine/js')
+    js_dest = dest / 'js'
+    if js_src.exists():
+        shutil.copytree(js_src, js_dest, dirs_exist_ok=True)
+
+    # Copy assets if they exist
+    assets_src = Path('choeur_argentine/assets')
+    assets_dest = dest / 'assets'
+    if assets_src.exists():
+        shutil.copytree(assets_src, assets_dest, dirs_exist_ok=True)
 
 
 if __name__ == '__main__':

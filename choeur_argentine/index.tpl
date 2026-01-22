@@ -1,300 +1,176 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-	<meta charset="utf-8">
-	<script src='https://surikov.github.io/webaudiofont/npm/dist/WebAudioFontPlayer.js'></script>
-	<script src='MIDIFile.js'></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Choeur de la Maison de l'Argentine - Partitions, MIDI et MP3">
+  <title>Choeur de la Maison de l'Argentine</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/player.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+
+  <!-- External dependencies -->
+  <script src="https://surikov.github.io/webaudiofont/npm/dist/WebAudioFontPlayer.js"></script>
+  <script src="https://unpkg.com/tone@14"></script>
 </head>
-
 <body>
-	<div id='choice'>
-	</div>
-	<div id="player">
-			<p>
-				<button  id="play" onclick="startPlay();" style="width: 100px;">Play</button>
-				<input id="position" type="range" min="0" max="100" value="0" step="1" />
-				<output id="tmr"></output></p>
-		<p>Vitesse: <input type="range" value="1.0" min=".5" max="2.0" step="0.05" id="speed" oninput="this.nextElementSibling.value = 'X' + this.value"><output>X1.0</output></p>
-
-		</table>
-	</div>
-	<div id='cntls'>
-	</div>
-	<div id="downloads">
-	</div>
-	<div>
-		<h3>
-			Conseils d'utilisation du mixer:
-		</h3>
-		<ul>
-			<li>Au début, ne pas hésiter à mettre sa voix à volume maximal pour bien l'entendre.</li>
-			<li>Baisser progressivement au fur et à mesure que vous connaissez mieux votre partie.</li>
-			<li>Vous pouvez jouer avec les instruments midi selon vos goûts !</li>
-		</ul>
-	</div>
-    <div>
-        <a href="https://github.com/balouf/choeur-argentine" target="_blank">Code source</a>
+  <header>
+    <div class="container">
+      <h1>Choeur de la Maison de l'Argentine</h1>
+      <nav class="track-selector" aria-label="Sélection du morceau">
+        <label for="track-selector" class="sr-only">Choisir un morceau</label>
+        <select id="track-selector" aria-label="Morceau">
+          <!-- Populated by JavaScript -->
+        </select>
+      </nav>
     </div>
-	<script>
-		console.log('start');
-		var audioContext = null;
-		var player = null;
-		var reverberator = null;
-		var equalizer = null;
-		var input = null;
-		var currentSongTime = 0;
-		var nextStepTime = 0;
-		var nextPositionTime = 0;
-		var loadedsong = null;
-		var stepDuration = 44 / 1000;
-		var intervalId = 0;
+  </header>
 
-		var tracks = $tracks;
+  <main class="container">
+    <!-- Player Section -->
+    <section class="player-container" aria-label="Lecteur audio">
 
-		var downloads = {
-			'pdf': [{'name': 'Choeurs', 'suffix': ''}],
-				// {'name': 'Piano', 'suffix': '-piano'},
-				// {'name': 'Conducteur', 'suffix': '-full'}],
-			'mp3': [{'name': 'Complet', 'suffix': ''}],
-		}
+      <!-- Player Type Tabs -->
+      <div class="player-tabs" role="tablist">
+        <button class="player-tab active" data-player="midi" role="tab" aria-selected="true">
+          MIDI
+        </button>
+        <button class="player-tab" data-player="mp3" role="tab" aria-selected="false">
+          MP3
+        </button>
+      </div>
 
-		var voix = ['Soprano', 'Alto', 'Tenor', 'Basse', 'Main droite', 'Main gauche']
-		// var voix = ['Voix I', 'Voix II', 'Voix III', 'Voix IV', 'Voix V']
-		var song_id = 0;
+      <!-- Loading Overlay -->
+      <div id="loading-overlay" class="player-loading" style="display: none;">
+        <div class="spinner"></div>
+        <span>Chargement...</span>
+      </div>
 
-		chooserTrack();
+      <!-- Error Message -->
+      <div id="error-message" class="player-error" style="display: none;"></div>
 
-		function chooserTrack() {
-			var html = '<select id="tracks">';
-			for (var i = 0; i < tracks.length; i++) {
-				html = html + '<option value="' + i + '">' + tracks[i].name + '</option>';
-			}
-			html = html + '</select>';
-			document.getElementById('choice').innerHTML = html;
-			var track = document.getElementById('tracks');
-			track.onchange = function (e) {
-				selectTrack(track.value);
-			};
-			selectTrack(0);
-		}
+      <!-- Progress Bar -->
+      <div class="progress-container">
+        <div id="progress-bar" class="progress-bar" role="slider" aria-label="Position de lecture"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div id="loop-region" class="loop-region" style="display: none;"></div>
+          <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
+          <div id="progress-handle" class="progress-handle" style="left: 0%"></div>
+          <div id="loop-start" class="loop-marker" style="display: none;"></div>
+          <div id="loop-end" class="loop-marker" style="display: none;"></div>
+        </div>
+        <div class="time-display">
+          <span id="time-current">0:00</span>
+          <span id="time-duration">0:00</span>
+        </div>
+      </div>
 
-		function selectTrack(i) {
-		        song_id = i;
-				var path = tracks[i].path + '/' + tracks[i].path;
-				var html = '<h3>Partitions</h3> <ul>';
-				for (var j = 0; j < tracks[song_id].pdfs.length; j++) {
-					html += '<li><a href="' + path + tracks[song_id].pdfs[j].suffix + '.pdf" target="_blank">' + tracks[i].name
-							+ ' (' + tracks[song_id].pdfs[j].name + ')</a></li>'
-				}
-				html += '</ul><h3>MP3</h3> <ul>';
-				for (var j = 0; j < downloads.mp3.length; j++) {
-					html += '<li><a href="' + path + downloads.mp3[j].suffix + '.mp3" target="_blank">' + tracks[i].name
-							+ ' (' + downloads.mp3[j].name + ')</a></li>'
-				}
-				html += '</ul>';
-				document.getElementById('downloads').innerHTML = html;
-				handleExample(path+'.midi');
-				document.getElementById('position').value = 0;
-				document.getElementById('tmr').innerHTML = '';
-				document.getElementById('play').innerHTML = 'Play';
-				document.getElementById('play').setAttribute("onclick", "startPlay();");
-				if (player && audioContext) {
-					player.cancelQueue(audioContext);
-				}
-				if (intervalId != 0) {clearInterval(intervalId)}
+      <!-- Main Controls -->
+      <div class="controls">
+        <div class="controls-group">
+          <!-- Volume Control -->
+          <div class="volume-control">
+            <button class="btn-control" aria-label="Volume">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+              </svg>
+            </button>
+            <input type="range" id="volume-slider" min="0" max="100" value="100"
+                   aria-label="Volume principal">
+          </div>
+        </div>
 
-		}
+        <!-- Play Button -->
+        <button id="btn-play" class="btn-play" aria-label="Play">
+          <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor">
+            <rect x="6" y="4" width="4" height="16"/>
+            <rect x="14" y="4" width="4" height="16"/>
+          </svg>
+        </button>
 
-		function pausePlay() {
-			clearInterval(intervalId)
-			player.cancelQueue(audioContext);
-			document.getElementById('play').innerHTML = 'Play';
-			document.getElementById('play').setAttribute("onclick", "resumePlay();");
+        <div class="controls-group">
+          <!-- Tempo Control -->
+          <div class="tempo-control">
+            <label for="tempo-slider">Tempo</label>
+            <input type="range" id="tempo-slider" min="0.25" max="2.0" value="1.0" step="0.05"
+                   aria-label="Vitesse de lecture">
+            <span id="tempo-value" class="tempo-value">x1.00</span>
+          </div>
 
-		}
+          <!-- Loop Button -->
+          <button id="btn-loop" class="btn-control" aria-label="Activer la boucle" aria-pressed="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="17 1 21 5 17 9"/>
+              <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+              <polyline points="7 23 3 19 7 15"/>
+              <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+            </svg>
+          </button>
+        </div>
+      </div>
 
-		function startPlay() {
-			var pos = document.getElementById('position');
-			currentSongTime = loadedsong.duration * pos.value / 100;
-			// songStart = audioContext.currentTime - currentSongTime;
+      <!-- Mixer (MIDI only) -->
+      <div id="mixer" class="mixer">
+        <!-- Populated by JavaScript -->
+      </div>
 
-			// currentSongTime = 0;
-			// songStart = audioContext.currentTime;
-			audioContext.resume();
-			nextStepTime = audioContext.currentTime;
-			intervalId = setInterval(() => {tick()}, 40);
-			document.getElementById('play').innerHTML = 'Pause';
-			document.getElementById('play').setAttribute("onclick", "pausePlay();");
-		}
+      <!-- Keyboard Shortcuts Help -->
+      <div class="shortcuts-help">
+        <strong>Raccourcis:</strong>
+        <kbd>Espace</kbd> Play/Pause
+        <kbd>&larr;</kbd><kbd>&rarr;</kbd> Avancer/Reculer
+        <kbd>&uarr;</kbd><kbd>&darr;</kbd> Tempo
+        <kbd>L</kbd> Boucle
+        <kbd>M</kbd> Mute
+      </div>
+    </section>
 
-		function resumePlay() {
-			// songStart = audioContext.currentTime - currentSongTime;
-			nextStepTime = audioContext.currentTime;
-			intervalId = setInterval(() => {tick()}, 40)
-			document.getElementById('play').innerHTML = 'Pause';
-			document.getElementById('play').setAttribute("onclick", "pausePlay();");
-		}
+    <!-- Downloads Section -->
+    <section id="downloads" class="downloads" aria-label="Téléchargements">
+      <!-- Populated by JavaScript -->
+    </section>
 
-		function tick() {
-			var now = audioContext.currentTime;
-			var speed = document.getElementById('speed').value;
-			if (now > nextStepTime - stepDuration) {
-				sendNotes(now, speed);
-				currentSongTime = currentSongTime + (stepDuration * speed);
-				nextStepTime = nextStepTime + stepDuration;
-			}
-			if (now > nextPositionTime) {
-				var o = document.getElementById('position');
-				o.value = 100 * currentSongTime / loadedsong.duration;
-				document.getElementById('tmr').innerHTML = '' + Math.round(100 * currentSongTime / loadedsong.duration) + '%';
-				nextPositionTime = audioContext.currentTime + 3;
-			}
-			if (currentSongTime > loadedsong.duration) {
-				clearInterval(intervalId);
-				document.getElementById('tmr').innerHTML = '';
-				document.getElementById('position').value = 0;
-				document.getElementById('play').innerHTML = 'Play';
-				document.getElementById('play').setAttribute("onclick", "startPlay();");
-			}
-		}
+    <!-- Tips Section -->
+    <section class="tips">
+      <h3>Conseils d'utilisation</h3>
+      <ul>
+        <li><strong>MIDI vs MP3 :</strong> Le lecteur <em>MIDI</em> permet de contrôler le volume de chaque voix individuellement (mixer), idéal pour l'apprentissage. Le lecteur <em>MP3</em> offre une meilleure qualité sonore mais sans contrôle par voix.</li>
+        <li><strong>Tempo :</strong> Utilisez le contrôle de tempo pour ralentir les passages difficiles.</li>
+        <li><strong>Boucle :</strong> Cliquez sur le bouton boucle (<kbd>L</kbd>) pour répéter le morceau en continu.</li>
+      </ul>
+      <h4>Conseils pour le mixer (mode MIDI)</h4>
+      <ul>
+        <li>Au début, mettez votre voix au volume maximal pour bien l'entendre.</li>
+        <li>Baissez progressivement au fur et à mesure que vous connaissez mieux votre partie.</li>
+        <li>Utilisez les presets pour sauvegarder et rappeler vos réglages de mixer.</li>
+      </ul>
+    </section>
+  </main>
 
-		function sendNotes(now, speed) {
-			var start = currentSongTime;
-			var end = currentSongTime + stepDuration * speed;
-			for (var t = 0; t < loadedsong.tracks.length; t++) {
-				var track = loadedsong.tracks[t];
-				for (var i = 0; i < track.notes.length; i++) {
-					if (track.notes[i].when >= start && track.notes[i].when < end) {
-						var when = now + ( (track.notes[i].when - currentSongTime) / speed );
-						var duration = track.notes[i].duration / speed;
-						if (duration > 3) {
-							duration = 3;
-						}
-						var instr = track.info.variable;
-						var v = track.volume / 7;
-						player.queueWaveTable(audioContext, input, window[instr], when, track.notes[i].pitch, duration, v, track.notes[i].slides);
-					}
-				}
-			}
-		}
-		function startLoad(song) {
-			console.log(song);
-			var AudioContextFunc = window.AudioContext || window.webkitAudioContext;
-			audioContext = new AudioContextFunc();
-			player = new WebAudioFontPlayer();
+  <footer>
+    <div class="container">
+      <a href="https://github.com/balouf/choeur-argentine" target="_blank" rel="noopener">
+        Code source sur GitHub
+      </a>
+    </div>
+  </footer>
 
-			equalizer = player.createChannel(audioContext);
-			reverberator = player.createReverberator(audioContext);
-			//input = reverberator.input;
-			input = equalizer.input;
-			equalizer.output.connect(reverberator.input);
-			reverberator.output.connect(audioContext.destination);
+  <!-- Track data (injected by deploy.py) -->
+  <script>
+    window.TRACKS = $tracks;
+  </script>
 
-			for (var i = 0; i < song.tracks.length; i++) {
-				var nn = player.loader.findInstrument(song.tracks[i].program);
-				var info = player.loader.instrumentInfo(nn);
-				song.tracks[i].info = info;
-				song.tracks[i].id = nn;
-				song.tracks[i].volume = 0.1;
-				player.loader.startLoad(audioContext, info.url, info.variable);
-			}
-			player.loader.waitLoad(function () {
-				console.log('buildControls');
-				buildControls(song);
-				resetEqlualizer();
-			});
-		}
-		function resetEqlualizer(){
-			equalizer.band32.gain.setTargetAtTime(2,0,0.0001);
-			equalizer.band64.gain.setTargetAtTime(2,0,0.0001);
-			equalizer.band128.gain.setTargetAtTime(1,0,0.0001);
-			equalizer.band256.gain.setTargetAtTime(0,0,0.0001);
-			equalizer.band512.gain.setTargetAtTime(-1,0,0.0001);
-			equalizer.band1k.gain.setTargetAtTime(5,0,0.0001);
-			equalizer.band2k.gain.setTargetAtTime(4,0,0.0001);
-			equalizer.band4k.gain.setTargetAtTime(3,0,0.0001);
-			equalizer.band8k.gain.setTargetAtTime(-2,0,0.0001);
-			equalizer.band16k.gain.setTargetAtTime(2,0,0.0001);
-		}
-		function buildControls(song) {
-			// audioContext.resume();
-			var o = document.getElementById('cntls');
-			var html = '<h3>Mixer</h3><table><tr><th>Voix</th><th>Instrument midi</th><th>Volume</th></tr>';
-			for (var i = 0; i < song.tracks.length; i++) {
-				var v = 100 * song.tracks[i].volume;
-				html = html + '<tr><td>' + tracks[song_id].voix[i] + '</td><td>' + chooserIns(song.tracks[i].id, i)
-						+ '</td><td><input id="channel' + i + '" type="range" min="0" max="100" value="' + v + '" step="1" /></td></tr>';
-			}
-			o.innerHTML = html + '</table>';
-			console.log('Loaded');
-			var pos = document.getElementById('position');
-			pos.oninput = function (e) {
-				if (loadedsong) {
-					player.cancelQueue(audioContext);
-					var next = song.duration * pos.value / 100;
-					// songStart = songStart - (next - currentSongTime);
-					currentSongTime = next;
-				}
-			};
-			console.log('Tracks');
-			for (var i = 0; i < song.tracks.length; i++) {
-				setVolumeAction(i, song);
-			}
-			loadedsong = song;
-		}
-		function setVolumeAction(i, song) {
-			var vlm = document.getElementById('channel' + i);
-			vlm.oninput = function (e) {
-				player.cancelQueue(audioContext);
-				var v = vlm.value / 100;
-				if (v < 0.000001) {
-					v = 0.000001;
-				}
-				song.tracks[i].volume = v;
-			};
-			var sl = document.getElementById('selins' + i);
-			sl.onchange = function (e) {
-				var nn = sl.value;
-				var info = player.loader.instrumentInfo(nn);
-				player.loader.startLoad(audioContext, info.url, info.variable);
-				player.loader.waitLoad(function () {
-					console.log('loaded');
-					song.tracks[i].info = info;
-					song.tracks[i].id = nn;
-				});
-			};
-		}
-		function chooserIns(n, track) {
-			var html = '<select id="selins' + track + '">';
-			var instru = ''
-			for (var i = 0; i < player.loader.instrumentKeys().length; i++) {
-				var sel = '';
-				if (i == n) {
-					sel = ' selected';
-				}
-				if (instru != player.loader.instrumentInfo(i).title) {
-				instru = player.loader.instrumentInfo(i).title
-				html = html + '<option value="' + i + '"' + sel + '>' + player.loader.instrumentInfo(i).title + '</option>';
-				}
-			}
-			html = html + '</select>';
-			return html;
-		}
-
-		function handleExample(path) {
-			console.log(path);
-			var xmlHttpRequest = new XMLHttpRequest();
-			xmlHttpRequest.open("GET", path, true);
-			xmlHttpRequest.responseType = "arraybuffer";
-			xmlHttpRequest.onload = function (e) {
-				var arrayBuffer = xmlHttpRequest.response;
-				var midiFile = new MIDIFile(arrayBuffer);
-				var song = midiFile.parseSong();
-				startLoad(song);
-			};
-			xmlHttpRequest.send(null);
-		}
-	</script>
+  <!-- Application modules -->
+  <script type="module" src="js/app.js"></script>
 </body>
-
 </html>
