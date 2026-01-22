@@ -73,12 +73,12 @@ a4 r8 r c4 8 bes8. 16 4 a16( g) a( bes) g8. f16
 a2( g) f2. 4 e1
 \bar "||" \allegro
 f2.^"tutti" 4 g8( f g a g a f g) a4( f8 g a4 b)
-c g c2~2 b c bes
+c g c2~2 b c4. 8 bes2
 a8( g a bes a bes g a bes a bes c bes d c bes
 a g a bes) c4 d g,2 r8 e( f g) a2 g g r
 r c,4 4 d8( c d e d e c d e4 d8 c) d4 e f c f2~2 e f a4 f
 bes( a8 g c2~4 a8 bes c4 d e8 d e f e g f e d c d e d f e d)
-c4 g c2 c b c r a8( g a bes) a( c) bes( a) g2 r
+c8 8 g4 c2 c b c r a8( g a bes) a( c) bes( a) g2 r
 bes8( a bes c) bes( d) c( bes) a2 d( cis8 b cis a) d2~2 cis d r
 r1 f,2. 4 g8( f g a g a f g a g a bes a bes g a bes a bes c bes c
 a bes c2) 2~( 4 d8 c bes2~4 c8 bes a2) g2. 4 f1 
@@ -113,10 +113,10 @@ sop_lyr  = \lyricmode {
   Chri -- ste   Chri -- ste   Chri -- ste e -- le -- i- -- son.
   Chri -- ste   Chri -- ste   e -- le -- i- -- son e -- le -- i -- son.
   
-  Ky -- ri -- e e -- le -- i -- son e -- lei -- son
+  Ky -- ri -- e e -- le -- i -- son e -- le  -- i -- son
   e -- le -- i -- son e -- le -- i -- son.
   Ky -- rie e -- le -- i -- son e -- le -- i -- son.
-  Ky -- rie e -- lei -- son e -- le -- i -- son
+  Ky -- rie e -- le -- i -- son e -- le -- i -- son
   e -- le -- i -- son e -- le -- i -- son e -- le -- i -- son.
   Ky -- ri -- e e -- le -- i -- son.
   Ky -- ri -- e e -- le -- i -- son.  
@@ -136,7 +136,7 @@ f2. 4 2 r4 4 2 g c,1 r
 a'2. 4 g2 2 f2. 4 e1 r
 f2. 4 d( e) f2 2 e f1 R1*4
 R1*2 f2 e4 g f8( g e f) d4. 8
-e4 c f4. e8 d( e) f2 e4 f2 r4
+e4 c f4. e8 d( e) f2 e8 8 f2 r4
 e a g f8( a g f) e( f e) d c2 r1
 g'2 a4 c bes8( c a bes) g4. 8
 a4 f f4. 8 4 4 4. e8
@@ -161,7 +161,7 @@ f g a8.( g16) f( e) f( g) e8. f16 4 r8
 f2( c) 4( d) b2 c1
 \bar "||"
 r1 r r c2.^"tutti" 4 d8( c d e d e c d)
-e4( d8 c d4 e) f4 c f2~2 e f f
+e4( d8 c d4 e) f4 c f2~2 e f4. 8 f2
 e8( d e f e g f e f g e f) d4. 8 e2 2
 f8( e f g f g) e( f) g2 4 4 a( g8 e) f4 g
 a f8 g a4 g8( f) g2. 4 f2 4 4
@@ -170,7 +170,7 @@ g4( e) f8( e f g f g e f g4 f8 e f4) g
 c,2 r e8( d e f e g f e) d2 r
 f8( e f g f a g f e4) a f g8( f) e( d e f) e( g f e) d2 r
 r1 d2. 4 e8( d e f e f d e f e f g f g e f g f g a g a f g a2)
-2 f2. g8( f) e2 f~( 4 e8 d) e2 f1 r2 a4 4 f2. 4 
+2 f2. g8( f) e2 f~( 4 e8 d) e4. 8 f1 r2 a4 4 f2. 4 
 d2. 4 c1\fermata \fine
 }
 
@@ -181,7 +181,7 @@ alt_lyr  = \lyricmode {
   Ky -- ri -- e e -- le -- i -- son.
   Ky -- ri -- e e -- le -- i -- son.
   Ky -- ri -- e e -- le -- i -- son
-  e -- le -- i -- son e -- lei -- son.
+  e -- le -- i -- son e -- le -- i -- son.
   Ky -- ri -- e e -- le -- i -- son.
   Ky -- ri -- e
   e -- le -- i -- son e -- le -- i -- son
@@ -200,14 +200,14 @@ alt_lyr  = \lyricmode {
   Chri -- ste Chri -- ste e -- le -- i -- son
   e -- le -- i -- son.
   
-  Ky -- ri -- e e -- le -- i -- son e -- lei -- son
+  Ky -- ri -- e e -- le -- i -- son e -- le -- i -- son
   e -- le -- i -- son e -- le -- i -- son.
   Ky -- rie e -- le -- i -- son.
   Ky -- ri -- e e -- le -- i -- son.
   Ky -- rie e -- le -- i -- son e -- le -- i -- son
   e -- le -- i -- son.
   Ky -- rie Ky -- ri -- e e -- le -- i -- son.
-  Ky -- ri -- e e -- le -- i -- son e -- lei -- son.
+  Ky -- ri -- e e -- le -- i -- son e -- le -- i -- son.
   Ky -- ri -- e e -- le -- i -- son.
 }
 
@@ -228,10 +228,10 @@ R1*4 c'2 a4 c bes8( c a) bes g4. 8
 a4 f c'2 f4( e) d4. 8 c2 r4
 e d8( e) c d b4. 8 c2 r4
 a d c bes8( d c bes a bes a) g f2 r1
-f'2 d4 f es8( f es) d c4. 8 bes4 d
-c8( d bes c a4.) 8 bes4 4 2 f r1 r1 r4
+f'2 d4 f es8( f es) d c4. 8 bes8 8 d4
+c8( d bes c a4.) 8 bes4 4 4. 8 f2 r1 r1 r4
 c' d f e8( f d e f4 e d8 e c d e f e) d
-c2 f4 a, bes2 c f,2. f'4 d f 
+c2 f4 a, bes2 c4. 8 f,2. f'4 d f 
 bes,8( c d e f2 bes,4 a) bes2. 4 f1
 R4.*39 R1*3
 R1*6
@@ -259,10 +259,10 @@ ten_lyr  = \lyricmode {
   Ky -- rie e -- le -- i -- son.
   
   Ky -- rie e -- le -- i -- son
-  e -- lei -- son.
-  Ky -- ri -- e e -- lei -- son.
+  e -- le -- i -- son.
+  Ky -- ri -- e e -- le -- i -- son.
   Ky -- rie e -- le -- i -- son.
-  Ky -- rie e -- lei -- son.
+  Ky -- rie e -- le -- i -- son.
   Ky -- ri -- e e -- le -- i -- son.
   
   Ky -- ri -- e e -- le -- i -- son
@@ -283,6 +283,72 @@ ten = \new Staff \with {instrumentName="Tenor"
   \armure
   \relative c' {\ten_mus}
   \addlyrics {\ten_lyr}
+>>
+
+bass_mus = {R1*6 
+\bar "||"  f2. 4 1
+d2. 4 2 r4 a bes2 g f1 r
+f'2. 4 2 e d2. 4 c1 r
+a2. 4 bes2 f c'2. 4 f,1 R1*4
+R1*4 c'2 a4 c bes8( c a) bes g4. 8
+a4 f c'2 f4( e) d4. 8 c2 r4
+e d8( e) c d b4. 8 c2 r4
+a d c bes8( d c bes a bes a) g f2 r1
+f'2 d4 f es8( f es) d c4. 8 bes8 8 d4
+c8( d bes c a4.) 8 bes4 4 4. 8 f2 r1 r1 r4
+c' d f e8( f d e f4 e d8 e c d e f e) d
+c2 f4 a, bes2 c4. 8 f,2. f'4 d f 
+bes,8( c d e f2 bes,4 a) bes2. 4 f1
+R4.*39 R1*3
+R1*6
+f2.^"tutti" 4 g8( f g a g a f g a4) f8( g) a4 b 
+c g c2~2 b c bes a8( g a bes a bes g a bes a bes c
+bes c) a( bes) c4 a bes c f,2 d'
+bes8( a bes c bes d) c( bes) a4 c f2~2 e f r r1 r
+c2. 4 d8( c d e d e c d e4) d8( c) d4 e f2 f, 
+c'4 d e c g2 2 d'4 e f d a2 bes
+g8( f g a g bes) a( g) f4 a d2~( 4 cis8 b cis d) b( cis)
+d2. 4 c2. 4 f,1 r f'2. 4 d8( c d e d f e d c2) d4( c)
+bes2 c f,1 r2 4 4 bes8( c a c bes c) f,( a) bes2. 4
+f1\fermata \fine
+}
+
+
+bass_lyr  = \lyricmode {
+  Ky -- ri -- e Ky -- ri -- e 
+  e -- le -- i -- son.
+  Ky -- ri -- e e -- le -- i -- son.
+  Ky -- ri -- e e -- le -- i -- son.
+  Ky -- rie e -- le -- i -- son
+  e -- le -- i -- son e -- le -- i -- son.  
+  Ky -- ri -- e e -- le -- i -- son.
+  Ky -- rie e -- le -- i -- son.
+  
+  Ky -- rie e -- le -- i -- son
+  e -- le -- i -- son.
+  Ky -- ri -- e e -- le -- i -- son.
+  Ky -- rie e -- le -- i -- son.
+  Ky -- rie e -- le -- i -- son.
+  Ky -- ri -- e e -- le -- i -- son.
+  
+  Ky -- ri -- e e -- le -- i -- son
+  e -- le -- i -- son e -- le -- i -- son
+  e -- le -- i -- son e -- le -- i -- son
+  e -- le -- i -- son
+  Ky -- ri -- e e -- le -- i -- son.
+  Ky -- rie e -- le -- i -- son.
+  Ky -- rie e -- le -- i -- son e -- le -- i -- son
+  e -- le -- i -- son e -- le -- i -- son
+  Ky -- ri -- e e -- le -- i -- son.
+  Ky -- ri -- e e -- le -- i -- son.
+  }
+
+bass = \new Staff \with {instrumentName="Bass"
+  shortInstrumentName ="B."} <<
+  \hommes_style
+  \armure
+  \relative c' {\bass_mus}
+  \addlyrics {\bass_lyr}
 >>
 
 
@@ -678,6 +744,7 @@ shortInstrumentName ="B.C."}
       \sop
       \alt
       \ten
+      \bass
     >>
 >>
   }
@@ -687,6 +754,7 @@ shortInstrumentName ="B.C."}
       \sop
       \alt
       \ten
+      \bass
       \vioa
       \viob
       \piano
@@ -710,6 +778,7 @@ shortInstrumentName ="B.C."}
       \sop
       \alt
       \ten
+      \bass
     >>
     \vioa
     \viob
