@@ -38,3 +38,16 @@ Documentation = "https://balouf.github.io/choeur-argentine"
 dev = [
     "pytest>=9.0.2",
 ]
+
+[tool.coverage.report]
+skip_empty = true
+
+[tool.coverage.run]
+branch = true
+source = ["choeur-argentine"]
+
+[tool.coverage.html]
+directory = "cov"
+
+[tool.pytest.ini_options]
+addopts = "--doctest-modules --cov --cov-config=pyproject.toml --cov-report xml --cov-report html --showlocals --capture=no --exitfirst --failed-first" 
