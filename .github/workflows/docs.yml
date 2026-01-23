@@ -20,29 +20,35 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.9.11"
+
       - name: Set up Lilypond
         uses: codello/setup-lilypond@main
         with:
           lilypond-version: 2.24
 
-      - name: Ffmpeg
+      - name: Set up FFmpeg
         uses: FedericoCarboni/setup-ffmpeg@v3
         id: setup-ffmpeg
         with:
           ffmpeg-version: release
 
-      - name: Install dependencies
-        run : |
-          sudo apt update
-          sudo apt install timidity
-          sudo apt install python3-pip
-          pip3 install ffmpeg-normalize
+      - name: Install timidity (cached)
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: timidity
+          version: 1.0
+
+      - name: Install ffmpeg-normalize
+        run: uv pip install --system ffmpeg-normalize
 
       - name: Compile files
-        run: |
-          python deploy.py -s "2025-2026"
+        run: python deploy.py -s "2025-2026"
 
-      - name: Deploy Sphinx documentation on Github Pages
+      - name: Deploy on Github Pages
         uses: JamesIves/github-pages-deploy-action@v4
         if: github.ref == 'refs/heads/main'
         with:
