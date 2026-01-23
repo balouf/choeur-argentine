@@ -3,7 +3,7 @@ import subprocess
 import re
 import os
 from pathlib import Path
-from concurrent.futures import ProcessPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm.auto import tqdm
 from string import Template
 import json
@@ -90,7 +90,7 @@ def run_everything(lily, source, dest):
                 (Path(root) / name).rmdir()
     dest.mkdir(exist_ok=True)
 
-    with ProcessPoolExecutor() as executor:
+    with ThreadPoolExecutor() as executor:
         print("Lilypond compilation started...")
         futures = [
             executor.submit(run_lily, file, lily, dest)
