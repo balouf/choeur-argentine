@@ -53,11 +53,11 @@ f c' a c bes8( c a bes) g4. 8 a2 r r
 f' d4 f es8( f d es) c4 4 bes d d d c2 r
 r4 c a c b8( c a b c d bes c a c bes a)
 g4 4 a g f8( e f) g g4 r
-r c a c bes8( c a bes) g4. 8 a2.
-c4 bes a d2( c bes4 f) 2. bes4 a1
+r c a c bes8( c a bes) g4. 8 a2. \breathe
+c4 bes a d2( c bes4 f) 2.^"rall." \breathe bes4 a1
 \bar "||"
 \time 3/8
-\tempo 4.=54
+\tempo 4.=80
 a8^"solo" bes4( c8a) c bes g4
 a16( g a bes a8 c) bes a g4.
 c8 d4 e8.( d16) c( b) c( d) b8. c16 4. r r
@@ -144,11 +144,11 @@ f4 a bes4 4 4 4 4 a bes2 r r1
 r2 r4 f d f e8( f d e f g e f)
 d4. 8 e4 r r2 r4 d c e
 d( g~8 a g f) g2. f8( e)
-f4 4 4 e f2. a4 f f 
-f8( e f g a2 f8 g f e) d2. 4 c1
+f4 4 4 e f2. \breathe a4 f f 
+f8( e f g a2 f8 g f e) d2. \breathe 4 c1
 \bar "||"
 \time 3/8
-\tempo 4.=54
+\tempo 4.=80
 f8 g4( a8 f) a g e4 f16( e f g f8 a) g f e4. r r r
 g8 a4 g8.( f16) e( d) e( f) d8. c16 4 r8
 c f16( g) e( f) d4 r8 c( f16 a g f e d e g f e 
@@ -231,8 +231,8 @@ a d c bes8( d c bes a bes a) g f2 r1
 f'2 d4 f es8( f es) d c4. 8 bes8 8 d4
 c8( d bes c a4.) 8 bes4 4 4. 8 f2 r1 r1 r4
 c' d f e8( f d e f4 e d8 e c d e f e) d
-c2 f4 a, bes2 c4. 8 f,2. f'4 d f 
-bes,8( c d e f2 bes,4 a) bes2. 4 f1
+c2 f4 a, bes2 c4. 8 f,2. \breathe f'4 d f 
+bes,8( c d e f2 bes,4 a) bes2. \breathe 4 f1
 R4.*39 R1*3
 R1*6
 f2.^"tutti" 4 g8( f g a g a f g a4) f8( g) a4 b 
@@ -286,19 +286,19 @@ ten = \new Staff \with {instrumentName="Tenor"
 >>
 
 bass_mus = {R1*6 
-\bar "||"  f2. 4 1
-d2. 4 2 r4 a bes2 g f1 r
-f'2. 4 2 e d2. 4 c1 r
-a2. 4 bes2 f c'2. 4 f,1 R1*4
+\bar "||"  f,2. 4 1
+d2. 4 2 r4 a' bes2 g f1 r
+f2. 4 2 e d2. 4 c1 r
+a'2. 4 bes2 f c'2. c,4 f1 R1*4
 R1*4 c'2 a4 c bes8( c a) bes g4. 8
 a4 f c'2 f4( e) d4. 8 c2 r4
 e d8( e) c d b4. 8 c2 r4
 a d c bes8( d c bes a bes a) g f2 r1
-f'2 d4 f es8( f es) d c4. 8 bes8 8 d4
-c8( d bes c a4.) 8 bes4 4 4. 8 f2 r1 r1 r4
+f2 d4 f es8( f es) d c4. 8 bes8 8 d4
+c'8( d bes c a4.) 8 bes4 4 4. 8 f2 r1 r1 r4
 c' d f e8( f d e f4 e d8 e c d e f e) d
-c2 f4 a, bes2 c4. 8 f,2. f'4 d f 
-bes,8( c d e f2 bes,4 a) bes2. 4 f1
+c2 f4 a, bes2 c4. 8 f,2. \breathe f'4 d f 
+bes,8( c d e f2 bes,4 a) bes2. \breathe 4 f1
 R4.*39 R1*3
 R1*6
 f2.^"tutti" 4 g8( f g a g a f g a4) f8( g) a4 b 
@@ -400,7 +400,7 @@ c bes a g f f' g a d, e f f g2 a r4
 8 8 bes bes a a bes8 8 8 8 
 a a a a bes8 8 f f bes1 a
 \time 3/8
-\tempo 4.=54
+\tempo 4.=80
 a,8 bes4 c8 a c bes g4 a16 g a bes a8
 c bes a g4. c8 d4 e8. d16 c b c d b8. c16 4.
 r r g8 c16 d bes c a4 r8 f bes16 d c bes
@@ -467,7 +467,7 @@ c c c c a f' f f g g g g c, c c c d g, g g g a g f
 c' bes a g f4 f'8 e bes c d bes f' f e e f2 r4
 8 8 d d f f f e f g f f f f f g f e d1 c
 \bar "||" \time 3/8
-\tempo 4.=54
+\tempo 4.=80
 f,8 g4 a8 f a g e4 f16 e f g f8 a g f e4. r r r
 g8 a4 g8. f16 e d e f d8. c16 4 r8
 c f16 g e f d4 r8 c f16 a g f e d e g f e 
