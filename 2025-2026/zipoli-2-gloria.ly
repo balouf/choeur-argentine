@@ -128,7 +128,16 @@ r2  a8 (^"solo" bes8
    bes4 4 4 4 2 a r c4 4 d2. e8( d)
    c4 4 2~4 d8( c) bes2~4 c8( bes) a2~(
    4 bes8\( a\) g2~4 a8 g) f2 g( a4 bes c2. bes8 a g1) a
-   \bar "||" \time 3/4
+   \bar "||" \time 3/4 R2.*32 
+   \time 4/4 R1*21 \bar "||" R1*19 \bar "||"
+c2^"tutti" a4 f d'4. 8 4 4
+c bes8\( a\) g4 f8( e) f( e f g f a g f e4) c
+f2~4 4 4 4 2( g a8 g a bes) c2
+% P26
+r1 g2 e4 c a'4. 8 4 4 g f8 e d4 g e c
+c'2~( 4 bes8 a bes d c bes a4 bes) c2
+r4 4( a f bes a bes c)
+f, bes( a8 c bes a g1) f\fermata
 \fine
 }
 
@@ -174,6 +183,14 @@ su -- sci -- pe su -- sci -- pe su -- sci -- pe
 de -- pre -- ca -- ti -- o -- nem
 de -- pre -- ca -- ti -- o -- nem
 de -- pre -- ca -- ti -- o -- nem no -- stram.
+
+Cum San -- cto Spi -- ri -- tu,
+in glo -- ri -- a De -- i Pa -- tris.
+De -- i Pa -- tris. A -- men.
+
+Cum San -- cto Spi -- ri -- tu,
+in glo -- ri -- a De -- i Pa -- tris.
+A -- men. A -- men. A -- men.
 }
 
 sop = \new Staff \with {instrumentName="Soprano"
@@ -249,7 +266,13 @@ R1 | % 2
    d4 4 4 4 c2 2 f4 g a2~4 g8( f)
    g2~( 4 f8 e) f2~2. g8 f e2. f8( e)
    d2.( e8 d) c2.( f4) e2( f g a4 f~2 e) f1
-   \bar "||" \time 3/4
+   \bar "||" \time 3/4 R2.*32 
+   \time 4/4 R1*21 \bar "||" R1*19 \bar "||"
+R1*2 f2^"tutti" e4 c a'4. 8 4 4 g e8 d c4 f
+bes8( a bes c bes d c bes a4) f c2~4 4 4 4
+c2( d e8 d e f) g2 R1*2 c,2 f4 a d, d d d
+c d8 8 e4 4 f f f2~( 4 es8 d es g f es d4 e)
+f2~4 e8( d e2) f1\fermata
 \fine
 }
 
@@ -290,6 +313,13 @@ su -- sci -- pe su -- sci -- pe su -- sci -- pe
 de -- pre -- ca -- ti -- o -- nem
 de -- pre -- ca -- ti -- o -- nem
 de -- pre -- ca -- ti -- o -- nem no -- stram.
+
+Cum San -- cto Spi -- ri -- tu,
+in glo -- ri -- a De -- i Pa -- tris. De -- i Pa -- tris.
+A -- men.
+Cum San -- cto Spi -- ri -- tu,
+in glo -- ri -- a De -- i Pa -- tris.
+A -- men. A -- men.
 }
 
 alt = \new Staff \with {instrumentName="Alto"
@@ -371,7 +401,13 @@ R1*3 f'4 e f c
    g4 4 4 f e2 f r2 4 4 bes2. c8( bes) a2 2
    d2. e8( d) c2. d8( c)
    bes2.( c8 bes) a2.( f4) c'2( f e4 c f2 c1) f,
-   \bar "||" \time 3/4
+   \bar "||" \time 3/4 R2.*32 
+   \time 4/4 R1*21 \bar "||" R1*19 \bar "||"
+   R1*4
+c'2^"tutti" a4 f d'4. 8 4 4 c bes8 a g4 c f,8( e f g a g a bes
+c g c2 b4) c2 r4 e( f8 g f e d e f d e4 d8 c b c a b c2) f,
+bes8( a bes c bes4 g a g8 f e f d e) f1
+g4\( f\) g\( a\) bes( a) f2 c'1 f,\fermata
 \fine
 }
 
@@ -410,6 +446,11 @@ su -- sci -- pe su -- sci -- pe su -- sci -- pe
 de -- pre -- ca -- ti -- o -- nem
 de -- pre -- ca -- ti -- o -- nem
 de -- pre -- ca -- ti -- o -- nem no -- stram.
+
+Cum san -- cto Spi -- ri -- tu,
+in glo -- ri -- a De -- i Pa -- tris.
+A -- men. A -- men. De -- i Pa -- tris.
+A -- men. A -- men.
 }
 
 ten = \new Staff \with {instrumentName="Tenor"
@@ -557,7 +598,14 @@ a8  g8  g8 | % 7
    g e f g a4 a, r2 a'4 4 4 bes8 a g4 4 4 a8 g f4 4 4 4 4 g8 f e4 4 4 f8 e
    d4 e8 f g4 4 4 f8 e f4 a g8 e f g a g a f g e f g a a a a
    g g g g g g g g a1
-   \bar "||" \time 3/4
+   \bar "||" \time 3/4 R2.*32 
+   \time 4/4 R1*21 \bar "||" R1*19 \bar "||"
+c,2 a4 f d'4. 8 4 4 c bes8 a g4 f8 e f e f g f a g f
+c'2 a4 f d'4. 8 4 4 c bes8 a g4 f8 e f e f g a4 a'
+a8 8 g g f a g f e f e d c g' f g
+a g f e f g a f g4 f8 e d f e d
+c4 d8 e f4 4 4 g8 a bes4 bes, c d e8 f g e f1
+bes,8 8 a a bes8 8 c c d d e e f a g f f4 e8 d e2 f1\fermata
 \fine
 }
 >>
@@ -665,7 +713,13 @@ R2.*30
    c'4 4 d d d e8 d c4 4 4 4 4 d8 c bes4 4 4 c8 bes a4 4
    a4 bes8 a g4 e' g, a8 g f4 f' g8 e f g a g a f g e f g f f f f
    f f f f e e e e f1
-   \bar "||" \time 3/4
+   \bar "||" \time 3/4 R2.*32 
+   \time 4/4 R1*21 \bar "||" R1*19 \bar "||"
+ R1*2 f,2 e4 c a'4. 8 4 4 g e8 d c4 bes8 a bes a bes c
+ bes d c bes a2 c c c
+ c'4 4 4 b c2 8 g' f g a g f e f g a f e4 d8 c b d c b
+ c2 4 a d d d d c bes8 a g4 4 a1
+ g8 8 f f g g a a bes8 8 g g a c bes a g2 4 4 f1\fermata
 \fine
   }
 >>
@@ -875,11 +929,26 @@ r2 <c f a>2 1 <c g'> r2 <g' c> <c, a'>1
 \new Voice {\voiceTwo f2 e}
 >> \oneVoice
 <c f a>1
-\bar "||" \time 3/4
+   \bar "||" \time 3/4 R2.*32 
+   \time 4/4 R1*21 \bar "||" R1*19 \bar "||"
+R1*4
 <<
-{\voiceOne }
-\new Voice {\voiceTwo }
+{\voiceOne g'2 f4 a}
+\new Voice {\voiceTwo e2 c}
 >> \oneVoice
+<f bes>2 2 <f a> <e c'> <c a'> <f c'>
+<<
+{\voiceOne a4 g}
+\new Voice {\voiceTwo e2}
+>> \oneVoice
+<d f> e r4 <g c> <f a c>2 <f a d> <g c> <d g d'>
+<e g c> <c f a> <d f bes>2. <d g bes>4
+<c f c'>2 <c g'c> <c f a>2 2
+<<
+{\voiceOne bes'4 a bes c}
+\new Voice {\voiceTwo f,2 es}
+>> \oneVoice
+<d f d'>4 <e bes'> <c f a>2 <f g> <e g c> <c f a>1\fermata
 \fine
 }
 
@@ -953,7 +1022,12 @@ c4  f4  c2
    4 4 e4 4 f f r2 d4 4 cis4 4 d4 4 r2 bes4 4 a a bes4 4 r2
    g'4 4 4 f e2 f r f4 4 bes2. c8 bes a2 2 d,2. e8 d c2. d8 c
    bes2. c8 bes a2. f4 c'2 f e4 c f2 c1 f
-   \bar "||" \time 3/4
+   \bar "||" \time 3/4 R2.*32 
+   \time 4/4 R1*21 \bar "||" R1*19 \bar "||"
+R1*4 c'2 a4 f d'4. 8 4 4 c bes8 a g4 c, f8 e f g a g a bes
+c g c2 b4 c2 r4 e, f8 g f e d e f d e4 d8 c b c a b c2 f
+bes,8 a bes c bes4 g' a g8 f e f d e f1
+g4 f g a bes g f2 c'1 f,\fermata
 \fine
 }
 
