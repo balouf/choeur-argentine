@@ -40,6 +40,12 @@ sop_mus = {
 R1*2 c'2^"tutti" 4 4 4 4 4( b) c2 r4 4
 d d d2 c4 d g,2 a1 R1*3 r2 c^"solo"
 %P2
+c4( bes8 a) bes4 4 4. a8 2 d4 4 4 4 c bes8 a bes4 c
+a g8( f) e4. 8 f1 c'4^"tutti" 4 e e a, a c c d8( c) bes a g4. 8 a1 R1*6
+%P3
+R1*2 4 4 4 4 bes2 2 g4 4 4 4 a f bes2 a c
+cis d d4 4 4 cis d2 r R1*5
+%P4
 \fine
 }
 
@@ -48,7 +54,14 @@ sop_lyr  = \lyricmode {
 Pa -- trem o -- mni -- po -- ten -- tem,
 fa -- cto -- rem cae -- li et ter -- rae,
 
-Et
+Et in u -- num Do -- mi -- num Je -- sum Chri -- stum,
+Fi -- li -- um De -- i u -- ni -- ge -- ni -- tum.
+
+Et ex Pa -- tre na -- tum an -- te o -- mni -- a sae -- cu -- la.
+
+Ge -- ni -- tum, non fa -- ctum, 
+con -- sub -- stan -- ti -- a -- lem Pa -- tri: 
+per quem o -- mni -- a fa -- cta sunt.
 }
 
 sop = \new Staff \with {instrumentName="Soprano"
@@ -65,6 +78,12 @@ a f f( e) f2
 a4^"solo" 4 g f8 e f( e) f( g) e2 g4 a
 g f8( e) d4. 8 e1
 %P2
+R1*6 a4^"tutti" 4 g g f f e e d8( e) f f f4 e f1 R1*6
+%P3
+R1*2 fis4 4 4 4 g2 d e4 4 4 4 f f f( e) f2 a
+a4( g) f2 4 g8( f) e4. 8 d2 r4 a'^"solo" f2 4 4
+4. 8 4 4 d c bes2 a2. bes4 c d e2
+%P4
 \fine
 }
 
@@ -75,6 +94,16 @@ fa -- cto -- rem cae -- li et ter -- rae,
 
 vi -- si -- bi -- li -- um o -- mni -- um,
 et in -- vi -- si -- bi -- li -- um.
+
+Et ex Pa -- tre na -- tum an -- te o -- mni -- a sae -- cu -- la.
+
+Ge -- ni -- tum, non fa -- ctum, 
+con -- sub -- stan -- ti -- a -- lem Pa -- tri: 
+per quem o -- mni -- a fa -- cta sunt.
+
+Qui prop -- ter nos ho -- mi -- nes,
+et prop -- ter no -- stram
+et prop -- ter no --
 }
 
 alt = \new Staff \with {instrumentName="Alto"
@@ -90,6 +119,13 @@ f'2^"tutti" e4 c f e d2 c r4 a bes c d( e)
 f bes, c2 f, f'4^"solo" 4 e d8 c d4 g, 
 c2 e4 f e d8( c) 4 b c1
 %P2
+R1*6 f4^"tutti" 4 c c d d a a bes f8 8 c'4. 8 f,2
+f'~^"solo" 2 e4 d cis2 d a4( b8 cis) d4 e f4. e8 d2
+bes4 a bes2 a2. d4
+%P3
+cis d e2 d1 4^"tutti" 4 4 4 g,2 2 c4 4 4 4 f, bes g2 f f'
+f4( e) d2 bes4 g a a d,2 r R1*5
+%P4
 \fine
 }
 
@@ -100,6 +136,16 @@ fa -- cto -- rem cae -- li et ter -- rae,
 
 vi -- si -- bi -- li -- um o -- mni -- um,
 et in -- vi -- si -- bi -- li -- um.
+
+Et ex Pa -- tre na -- tum an -- te o -- mni -- a sae -- cu -- la.
+
+De -- um de De -- o, lu -- men de lu -- mi -- ne, De -- um ve -- rum 
+de De -- o ve -- ro.
+
+Ge -- ni -- tum, non fa -- ctum, 
+con -- sub -- stan -- ti -- a -- lem Pa -- tri: 
+per quem o -- mni -- a fa -- cta sunt.
+
 }
 
 ten = \new Staff \with {instrumentName="Tenor"
@@ -151,6 +197,15 @@ g e f g a g f e d c d e f e f g
 a a f f f f e e f2 a4 4 g f8 e f e f g
 e2 g4 a g f8 e d4. 8 e2 r4 c
 %P2
+c bes8( a) bes4 4 4. a8 2 d8 8 8 8 8 8 8 8
+c4 bes8( a) bes4 c a( g8 f) g2 f1
+a'8^\f g a f g f g e f a g f e g f e d4 c c d8( e)
+f1 2 e4 d cis2 d a4 b8 cis d4 e f4. e8 d2 bes4 a bes2 a2. d4
+%P3
+cis d e2 d1 r8 a'^\f 8 8 2 g8 f g a g a g f e2 r4 4 f f g8 a f g a2 r
+f4 cis d2 f4 g8 f e g f e d2 r4 a' f8 8 8 8 8 8 8 8 4. 8 2
+d4 c bes2 a2. bes4 c d e2
+%P4
 \fine
 }
 >>
@@ -164,6 +219,15 @@ f'8 g a f g e f g a4 g8 f e f d e
 f8 8 8 8 c c c c c c c c c c b4 c2 r4 c
 bes8 a bes c d c d e f4 d g,2 a f'8 8 8 8
 e4 d8 c d c d b c2 e4 f e d8 c c4 b c2 r4 e,
+%P2
+f2. g4 f1 bes8 8 8 8 8 8 8 8 f2 4--( e--) f2 e f1
+c'8^\f 8 8 8 8 8 8 8 d f e d c e d c bes4 a g2 f1
+g2. 4 a2 f cis2. a'4 d2 d, bes'4 a g--( e--) f2. 4
+%P3
+e4( f) d'( cis) d1 r8 fis^\f 8 8 2 d4 bes2 4 c2 r4 4 a d f e f2 r
+a,4 g f2 d'4 e8 f a,4 cis d2 r d4 4 c c d8 8 8 8 c c c c
+bes4 a g2 f2. g4 a bes c2
+%P4
 \fine
   }
 >>
@@ -198,6 +262,52 @@ f8 e f g f4 4 g2 f4 d s1 e4 d8 c8 4 b
 <c e>2 <e g c>
 %P2
 <<
+{\voiceOne c'2 bes2 2 a4 c}
+\new Voice {\voiceTwo f,2. g4 c,2. <f a>4}
+>> \oneVoice
+<f d'>2. <bes d>4
+<<
+{\voiceOne c a bes c}
+\new Voice {\voiceTwo f,2. e4}
+>> \oneVoice
+<f a> <d bes'> <e g>2
+<<
+{\voiceOne f8 a g f a bes a g}
+\new Voice {\voiceTwo c,2. d8 e}
+>> \oneVoice
+<f a c>4 4 <g c e>4 4 <d f a>4 4 <c e c'>4 4
+<<
+{\voiceOne bes'4 a8 bes <g c>2}
+\new Voice {\voiceTwo <d f>4 <c f>2 e4}
+>> \oneVoice
+<f a c>2 <f a>2 2 <e g>4 <d f> <cis e>2 <d f>
+<<
+{\voiceOne g2. a4}
+\new Voice {\voiceTwo cis,2 d4 e}
+>> \oneVoice
+<d f>2 <f a d>
+<<
+{\voiceOne bes1 a2 <a d> cis4 d2 cis4 <a d>1}
+\new Voice {\voiceTwo d,2 c4 e f8 e f g f2 e4 f8 g e2 f8 d e f g e f g}
+>> \oneVoice
+%P3+2
+< d fis a>4 4 4 4 <d g bes>2 2 <c e g>4 4 4 4
+<<
+{\voiceOne a' f bes2}
+\new Voice {\voiceTwo <f c>4 d f e}
+>> \oneVoice
+<f a>2 <f a c>
+<<
+{\voiceOne cis'2 d d2. cis4 d c8 bes a g f e}
+\new Voice {\voiceTwo a4 g f2 <f bes>4 <g bes> <e a>2 <f a> s}
+>> \oneVoice
+<a, d f>2 <c f> <d f> <c f>
+<<
+{\voiceOne d8 e f4 bes2 a2. g4 f2 e}
+\new Voice {\voiceTwo s4 c d e f c f e8 d c4 d c2}
+>> \oneVoice
+%P4
+<<
 {\voiceOne }
 \new Voice {\voiceTwo }
 >> \oneVoice
@@ -218,6 +328,13 @@ lower = \relative c {
 \lpiano_syle
 f2 e4 c f bes, c2 f2 e4 c f e d2 c r4 a bes c d e
 f bes, c2 f1 e4 c d g c,2 4 f c f g2 c, c
+%P2
+d2. e4 f2. 4 bes a bes g a f g c, f bes, c2 f1 4 4 c c
+d d a a bes f'c2 f1 g2. 4 a2 d, e2. cis4 d2. 4 g f e c f2 d
+%P3
+a'4 d, a'2 d,1 4 4 4 4 g2 2 c,4 4 4 4 f bes g2 f f
+f4 e d2 bes4 g a a d2 r4 4 2 a bes a bes4 a g c f2 4 g a bes c2
+%P4
 \fine
 }
 
