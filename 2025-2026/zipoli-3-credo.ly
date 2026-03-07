@@ -60,6 +60,11 @@ g,2 c c bes a2. 4 bes2 g d'1~1 c
 bes4( a) g2~2 f e2. 4 d1\fermata
 \bar "||" \time 3/2 \despacio
 r2 d'^"solo" a bes a1 g2. bes4 a g f( e) d1
+d'2. 4 c bes a( g) f1 r1 c'2 d2. e4 f g e( d) c1
+f4 d bes2. d4 c bes a2. g4 f2 8( a g bes a c bes d
+%P7
+c4) bes8( a) g2. f4 e1 c'2 4( f,) d2. c4 1.\fermata
+\bar "||" \time 2/2 \allegro
 \fine
 }
 
@@ -85,6 +90,9 @@ ex Ma -- ri -- a Vir -- gi -- ne: Et ho -- mo
 et ho -- mo fa -- ctus est.
 
 Cru -- ci -- fi -- xus et -- i -- am pro no -- bis
+et -- i -- am pro no -- bis: sub Pon -- ti -- o Pi -- la -- to
+pas -- sus, pas -- sus, et se -- pul -- tus est et
+se -- pul -- tus est et se -- pul -- tus est.
 }
 
 sop = \new Staff \with {instrumentName="Soprano"
@@ -117,7 +125,8 @@ es2. 4 d2. g4 2 fis g1 r2 2 f1 2 2~
 %P6
 2 e4( d) cis2 d~2 cis d1\fermata
 \bar "||" \time 3/2 \despacio
-R1.*4
+R1.*16
+\bar "||" \time 2/2 \allegro
 \fine
 }
 
@@ -177,7 +186,8 @@ c2. 4 fis,2 g d'2. 4 g,1 r2 2 bes1 a
 %P6
 g a2 d a2. 4 d,1\fermata
 \bar "||" \time 3/2 \despacio
-R1.*4
+R1.*16
+\bar "||" \time 2/2 \allegro
 \fine
 }
 
@@ -279,6 +289,11 @@ r1 r4 d d d c8 8 8 8 8 8 8 8
 bes'4( a) g2 8 8 8 8 f f f f e e e e e e e e d1\fermata
 \bar "||" \time 3/2 \despacio
 r2 2-- a-- bes a1 g2. bes4 a g f e d1
+d'2. 4 c bes a g f f' e g f2 f, c' d2. e4 f g e d c1
+f4 d bes2. d4 c bes a2. g4 f2 8 a g bes a c bes d
+%P7
+c4 bes8 a g2. f4 e1 c'2 4 f, d2. c4 1.\fermata
+\bar "||" \time 2/2 \allegro
 \fine
 }
 >>
@@ -315,7 +330,11 @@ r4 f, f f4 8 8 8 8 8 8 8 8
 %P6
 f'2 e4( d) cis8 8 8 8 d d d d d d d d cis8 8 8 8 d1\fermata
 \bar "||" \time 3/2 \despacio
-r2 f,-- 2-- g f1 e2 2 2 d1.
+r2 f,-- 2-- g f1 e2 2 2 d1. bes'2. 4 a g f2. a4 g bes a2 f a f1. g
+f2 f g a4 g f2. e4 f1.
+%P7
+g2 f d c2. d4 e2 f4 d c b4 2 c1.\fermata
+\bar "||" \time 2/2 \allegro
 \fine
   }
 >>
@@ -429,9 +448,24 @@ f8 e f g f4 4 g2 f4 d s1 e4 d8 c8 4 b
 \bar "||" \time 3/2 \despacio
 r2 <f' d'> <f a>
 <<
-{\voiceOne bes2 a1 <e g>1. f2. e4 f a}
-\new Voice {\voiceTwo d,1. bes2 a1 1 d2}
+{\voiceOne bes2 a1 <e g>1. f2. e4 f a bes2 2 c}
+\new Voice {\voiceTwo d,1. bes2 a1 1 d2 <d f> g1}
 >> \oneVoice
+<a c,>2 2 <e bes'> <f c'> <c f> <c a'> <d bes'> <f d'>2 2
+<e g c> <e g> <e g c> <f a> <f bes> <c bes'>
+<<
+{\voiceOne a'4 bes c1}
+\new Voice {\voiceTwo c,4 g' <f a>2. <e g>4}
+>> \oneVoice
+<c a'>2 2 2
+%P7
+<c g'>2 <d g>2 2
+<<
+{\voiceOne g c1 a2 <g d>1}
+\new Voice {\voiceTwo e2. f4 <c g'>2 <c f> c b}
+>> \oneVoice
+<c e g>1.\fermata
+\bar "||" \time 2/2 \allegro
 <<
 {\voiceOne }
 \new Voice {\voiceTwo }
@@ -469,7 +503,10 @@ c fis2 g d1 g, r2 g' bes1 a
 %P6
 g1 a2 d, a1 d\fermata
 \bar "||" \time 3/2 \despacio
-1. g2 f e d cis2 2 d1 2
+1. g2 f e d cis2 2 d1 2 bes e1 f2 2 g a1 f2 bes1. c1 c,2 d1 e2 f4 d c1 f1.
+%P7
+e2 b b c2. d4 e2 f g1 c,1.\fermata
+\bar "||" \time 2/2 \allegro
 \fine
 }
 
