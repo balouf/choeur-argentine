@@ -26,6 +26,9 @@ adagio = {
 \tempo "Adagio" 2 = 72
 }
 
+despacio = {
+\tempo "Despacio (Adagio)"
+}
 
 armure = {
 \accidentalStyle modern-cautionary
@@ -46,6 +49,17 @@ a g8( f) e4. 8 f1 c'4^"tutti" 4 e e a, a c c d8( c) bes a g4. 8 a1 R1*6
 R1*2 4 4 4 4 bes2 2 g4 4 4 4 a f bes2 a c
 cis d d4 4 4 cis d2 r R1*5
 %P4
+r1 r2 c a4( g8 a) f2 r d' bes4( a8 bes) g2 c a4( g8 a)
+f2 r f' d4( c8 d bes4 a8 bes g2) a4 4 g2 a4 c4 2 1\fermata
+\bar "||" \time 4/4
+%P5
+\adagio
+d2 4 4 2 2 bes1 r2 2 2 4 4 1 d1
+g,2 c c bes a2. 4 bes2 g d'1~1 c
+%P6
+bes4( a) g2~2 f e2. 4 d1\fermata
+\bar "||" \time 3/2 \despacio
+r2 d'^"solo" a bes a1 g2. bes4 a g f( e) d1
 \fine
 }
 
@@ -62,6 +76,15 @@ Et ex Pa -- tre na -- tum an -- te o -- mni -- a sae -- cu -- la.
 Ge -- ni -- tum, non fa -- ctum, 
 con -- sub -- stan -- ti -- a -- lem Pa -- tri: 
 per quem o -- mni -- a fa -- cta sunt.
+
+de -- scen -- dit de -- scen -- dit de cae -- lis
+de -- scen -- dit de cae -- lis de cae -- lis.
+
+Et in -- car -- na -- tus est de spi -- ri -- tu San -- cto
+ex Ma -- ri -- a Vir -- gi -- ne: Et ho -- mo
+et ho -- mo fa -- ctus est.
+
+Cru -- ci -- fi -- xus et -- i -- am pro no -- bis
 }
 
 sop = \new Staff \with {instrumentName="Soprano"
@@ -84,6 +107,17 @@ R1*2 fis4 4 4 4 g2 d e4 4 4 4 f f f( e) f2 a
 a4( g) f2 4 g8( f) e4. 8 d2 r4 a'^"solo" f2 4 4
 4. 8 4 4 d c bes2 a2. bes4 c d e2
 %P4
+f4 g8( f) e2 f1 r2 f^"tutti" d4( c8 d) bes2 g' e4( d8 e) c2 r
+a' f4( e8 f d4 c8 d) bes2 2 c2 4 f8( g) e2 f4 a g2 a1\fermata
+\bar "||" \time 4/4
+%P5
+\adagio
+f2 4 4 2 2 g1 r2 d d d4 4 g1 f
+es2. 4 d2. g4 2 fis g1 r2 2 f1 2 2~
+%P6
+2 e4( d) cis2 d~2 cis d1\fermata
+\bar "||" \time 3/2 \despacio
+R1.*4
 \fine
 }
 
@@ -103,7 +137,14 @@ per quem o -- mni -- a fa -- cta sunt.
 
 Qui prop -- ter nos ho -- mi -- nes,
 et prop -- ter no -- stram
-et prop -- ter no --
+et prop -- ter no -- stram sa -- lu -- tem
+
+de -- scen -- dit de cae -- lis
+de -- scen -- dit de -- scen -- dit de cae -- lis de cae -- lis.
+
+Et in -- car -- na -- tus est de spi -- ri -- tu San -- cto
+ex Ma -- ri -- a Vir -- gi -- ne: Et ho -- mo
+et ho -- mo fa -- ctus est.
 }
 
 alt = \new Staff \with {instrumentName="Alto"
@@ -126,6 +167,17 @@ bes4 a bes2 a2. d4
 cis d e2 d1 4^"tutti" 4 4 4 g,2 2 c4 4 4 4 f, bes g2 f f'
 f4( e) d2 bes4 g a a d,2 r R1*5
 %P4
+R1*2 f'2 d4( c8 d bes4 a8 bes) g2 r c a4( g8 a f4 e8 f)
+d4. 8 d'4( c8 d) bes2 f' d4( c8 d e2) f4 f, c'2 f,4 f' e2 f1\fermata
+\bar "||" \time 4/4
+%P5
+\adagio
+bes,2 4 4 2 2 g1 r2 2 2 4 4 es'1 bes
+c2. 4 fis,2 g d'2. 4 g,1 r2 2 bes1 a
+%P6
+g a2 d a2. 4 d,1\fermata
+\bar "||" \time 3/2 \despacio
+R1.*4
 \fine
 }
 
@@ -146,6 +198,12 @@ Ge -- ni -- tum, non fa -- ctum,
 con -- sub -- stan -- ti -- a -- lem Pa -- tri: 
 per quem o -- mni -- a fa -- cta sunt.
 
+de -- scen -- dit de -- scen -- dit de cae -- lis
+de -- scen -- dit de cae -- lis de cae -- lis.
+
+Et in -- car -- na -- tus est de spi -- ri -- tu San -- cto
+ex Ma -- ri -- a Vir -- gi -- ne: Et ho -- mo
+et ho -- mo fa -- ctus est.
 }
 
 ten = \new Staff \with {instrumentName="Tenor"
@@ -206,6 +264,21 @@ cis d e2 d1 r8 a'^\f 8 8 2 g8 f g a g a g f e2 r4 4 f f g8 a f g a2 r
 f4 cis d2 f4 g8 f e g f e d2 r4 a' f8 8 8 8 8 8 8 8 4. 8 2
 d4 c bes2 a2. bes4 c d e2
 %P4
+f4 g8( f) e2 f1 
+a8^\f 8 8 8 f f f f d d d d g g g g 
+g g g g e e e e c2 a'4 g8( a)
+f2 4 e8 f d4 c8( d) bes2 d8 e f d e f g e
+c c c c g g g g f' f f f g g g g a1\fermata
+\bar "||" \time 4/4
+%P5
+\adagio
+f2 4 4 4 bes8 8 f f d d bes1 r2 d2 2 4 4 bes g'8 8 es8 8 bes8 8 d1
+es8 8 8 8 8 8 8 8 c d c d bes d bes d d, g' a, g' a, fis' a, fis' g2 r
+r1 r4 d d d c8 8 8 8 8 8 8 8 
+%P6
+bes'4( a) g2 8 8 8 8 f f f f e e e e e e e e d1\fermata
+\bar "||" \time 3/2 \despacio
+r2 2-- a-- bes a1 g2. bes4 a g f e d1
 \fine
 }
 >>
@@ -228,6 +301,21 @@ e4( f) d'( cis) d1 r8 fis^\f 8 8 2 d4 bes2 4 c2 r4 4 a d f e f2 r
 a,4 g f2 d'4 e8 f a,4 cis d2 r d4 4 c c d8 8 8 8 c c c c
 bes4 a g2 f2. g4 a bes c2
 %P4
+a4 bes8( a) g2 f1
+a'8^\f 8 8 8 f f f f d d d d g g g g 
+g g g g e e e e c2 a'4 g8( a)
+f2 4 e8 f d4 c8( d) bes2 d8 e f d e f g e
+f f f f e e e e a,4 c8( f) e4 4 f1\fermata
+\bar "||" \time 4/4
+%P5
+\adagio
+d2 4 4 4 bes'8 8 f f d d g,1 r2 bes2 2 4 4 g es'8 8 bes8 8 g g f1
+g8 8 8 8 8 8 8 8 a a a a d, d d d d g' a, g' a, fis' a, fis' g2 r r1
+r4 f, f f4 8 8 8 8 8 8 8 8
+%P6
+f'2 e4( d) cis8 8 8 8 d d d d d d d d cis8 8 8 8 d1\fermata
+\bar "||" \time 3/2 \despacio
+r2 f,-- 2-- g f1 e2 2 2 d1.
 \fine
   }
 >>
@@ -307,6 +395,43 @@ f8 e f g f4 4 g2 f4 d s1 e4 d8 c8 4 b
 \new Voice {\voiceTwo s4 c d e f c f e8 d c4 d c2}
 >> \oneVoice
 %P4
+<a c f>4 <d g> <e g>2
+<<
+{\voiceOne a8 g a bes c a bes c}
+\new Voice {\voiceTwo <c, f>1}
+>> \oneVoice
+<c f a>2 <d f> <d f bes> <g bes d> <d g bes> <c e g> <c f c'> <c f a>
+<d f a> <f a d> <f bes d>2 2 <d f bes> <e g> <c f a> <c e g>
+<<
+{\voiceOne a'8 g a bes c d c bes}
+\new Voice {\voiceTwo <f c>2 <e g>}
+>> \oneVoice
+<c f a>1\fermata
+\bar "||" \time 4/4
+%P5
+<f d'>1 2 2 <g bes>1 r2 <d bes'>2 1 <g bes> <f d'>
+<<
+{\voiceOne g2 c~2 bes a1 <bes d,>2 g d'1~1}
+\new Voice {\voiceTwo es,2. 4 d2. g4 2 fis s1 r2 <g bes> <f bes>1}
+>> \oneVoice
+<f c'>1
+%P6
+<<
+{\voiceOne bes4 a g2~}
+\new Voice {\voiceTwo f2 e4 <d f>}
+>> \oneVoice
+<cis e g>2 <d f>
+<<
+{\voiceOne e1}
+\new Voice {\voiceTwo d2 cis}
+>> \oneVoice
+<a d f>1\fermata
+\bar "||" \time 3/2 \despacio
+r2 <f' d'> <f a>
+<<
+{\voiceOne bes2 a1 <e g>1. f2. e4 f a}
+\new Voice {\voiceTwo d,1. bes2 a1 1 d2}
+>> \oneVoice
 <<
 {\voiceOne }
 \new Voice {\voiceTwo }
@@ -335,6 +460,16 @@ d d a a bes f'c2 f1 g2. 4 a2 d, e2. cis4 d2. 4 g f e c f2 d
 a'4 d, a'2 d,1 4 4 4 4 g2 2 c,4 4 4 4 f bes g2 f f
 f4 e d2 bes4 g a a d2 r4 4 2 a bes a bes4 a g c f2 4 g a bes c2
 %P4
+f,4 bes, c2 f1 2 d bes g g' c a f d d bes bes' bes c f, c f c f1\fermata
+\bar "||" \time 4/4
+%P5
+\adagio
+bes,1 2 2 g1 r2 g'2 1 es bes
+c fis2 g d1 g, r2 g' bes1 a
+%P6
+g1 a2 d, a1 d\fermata
+\bar "||" \time 3/2 \despacio
+1. g2 f e d cis2 2 d1 2
 \fine
 }
 
