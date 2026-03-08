@@ -76,6 +76,12 @@ r2 c' d8( c d e d e c d e d e f e f d e f4.) e8 d2
 4 c bes a g( bes) a g f2( e4.) d8 c2 r r4 d' d d bes g d'2 e r
 r4 c c c a f c'2 d4 f bes,2 4( a) g2 a1 \bar "||" R1*3
 %P10
+R1*7 d2.^"tutti" c4 b( a8 g) a4 b c2. bes4 a2 d d(c4 bes)
+c2. f,4 bes1 a2 r
+%P11
+r4 c c c c c a c bes a d c8( bes) a2 g4 bes a2 bes R1*6
+r2 d^"tutti" bes4 d g,2 c a4 c f,2 f' d4 f bes,2
+%P12
 \fine
 }
 
@@ -117,6 +123,13 @@ ju -- di -- ca -- re vi -- vos et nor -- tu -- os:
 non e -- rit fi -- nis non non
 non e -- rit fi -- nis non non
 non e -- rit fi -- nis.
+
+Qui cum Pa -- tre et Fi -- li -- o si -- mul a -- do -- ra -- tur,
+
+et con -- glo -- ri -- fi -- ca -- tur: 
+qui lo -- cu -- tus est per Pro -- phe -- tas.
+Con -- fi -- te -- or con -- fi -- te -- or 
+u -- num ba -- ptis --
 }
 
 sop = \new Staff \with {instrumentName="Soprano"
@@ -161,6 +174,13 @@ R1*3 f2 g a4 f r2 r1 e2 f g4 e r2
 r r4 a f2 r4 4 e f f( e) f1 \bar "||"
 2 a g4 f8 e f4 g e4. d8 c2
 %P10
+g'2. f8( e) a4 g f2 e r R1*3 a2.^"tutti" g4 fis( e8 d) e4 fis
+g2. f4 e2 g~2 f4( e f2) 2 2 2~(2 e) f r
+%P11
+r4 a g g a g f es d d d g fis2 g4 4 4( fis) g2 r4 g^"solo" g g e2 f4 g
+c, e f( g) a2 f4 e d cis d g8( f) e2. 4 d1
+r2 g2^"tutti" e4 g c,2 r d2 4 4 g2~
+%P12
 \fine
 }
 
@@ -200,6 +220,17 @@ Pa -- tris. cum glo -- ri -- a,
 cu -- jus re -- gni cu -- jus re -- gni
 non non non e -- rit fi -- nis.
 Et in Spi -- ri -- tum San -- ctum Do -- mi -- num,
+et vi -- vi -- fi -- can -- tem:
+
+Qui cum Pa -- tre et Fi -- li -- o si -- mul a -- do -- ra -- tur,
+
+et con -- glo -- ri -- fi -- ca -- tur: 
+qui lo -- cu -- tus est per Pro -- phe -- tas.
+
+Et u -- nam san -- ctam ca -- tho -- li -- cam et
+a -- po -- sto -- li -- cam Ec -- cle -- si -- am.
+
+con -- fi -- te -- or u -- num ba -- ptis --
 }
 
 alt = \new Staff \with {instrumentName="Alto"
@@ -241,6 +272,11 @@ R1*9 r2 a^"solo" bes8( a bes c bes c a bes c bes c d c d bes c f,4.) 8 2 R1*3
 %P9
 R1*3 d'2 e f4 d r2 r1 c2 d e4 c r2 R1*4 \bar "||" R1*3
 %P10
+R1*2 c2 d e4 a, a a d( f) e d c2( b) a1 R1*2
+c1^"tutti" d bes a g f2 r
+%P11
+r4 f' e c f c d a bes fis g8( a) bes( c) d2 bes4 g d'2 g, R1*7
+g'2^"tutti" e4 g c,2 f d4 f bes,2 r es
 \fine
 }
 
@@ -276,6 +312,15 @@ Scrip -- tu -- ras.
 cum glo -- ri -- a,
 
 cu -- jus re -- gni cu -- jus re -- gni
+
+qui ex Pa -- tre Fi -- li -- o -- que pro -- ce -- dit.
+si -- mul a -- do -- ra -- tur,
+
+et con -- glo -- ri -- fi -- ca -- tur: 
+qui lo -- cu -- tus est per Pro -- phe -- tas.
+
+con -- fi -- te -- or con -- fi -- te -- or 
+u -- 
 }
 
 ten = \new Staff \with {instrumentName="Tenor"
@@ -367,6 +412,10 @@ d8 c d e d e c d e d e f e f d e f4. e8 d2
 d4 c bes a g bes a g f f' e4. d8 a'2 2 2 d,4 4 bes g d'2 g g g c,4 4
 a f c'2 d4 f bes,2 e4 f g2 a1 \bar "||" f2 a g4 f8 e f4 g e4. d8 c2
 %P10
+g'2. f8 e a4 g f2 e d e4 a, a a d f e d c2 b a cis d2. c4 b a8 g a4 b
+c e g g f f a a d, d f f c2. f4 4 4 e e f8 g a f g e f g
+%P11
+
 \fine
 }
 >>
@@ -418,6 +467,10 @@ bes8 a bes c bes c a bes c bes c d c d bes c a2 r f g g bes4 g a2 bes4 a
 g2. f4 e g f e d d' d cis d2 e f d4 4 bes g d'2 e f e c4 4
 a f c'2 d4 f d2 g,4 a f e f'1 \bar "||" a,2 c2 4 g c b c2 r
 %P10
+c2. g4 c c c b c2 b c r b4 d c b a2 gis a2. g4 fis e8 d e4 fis
+g2. f4 e c' e e r g, f e f d c bes c f a c bes4 4 4 4
+a a'8 f g e f g
+%P11
 \fine
   }
 >>
@@ -602,6 +655,15 @@ c d e c f e d c bes a bes d <g, c>2}
 <e g c>2 e4 f
 %P10
 <<
+{\voiceOne c'1 2. b4}
+\new Voice {\voiceTwo g a g2 a4 g f2}
+>> \oneVoice
+<e g c> <d g> <c e a> <e a c> <e d'>4 <d f b> <e c'> <f d'>
+<e a c>2 <e gis b> <c e a> <cis e> <d fis>2. <fis a>4 <d g b>2. 4
+<e g c>2 2 <f a>2 2 <f d'>2 2 <f c'>2 2 <f bes> <e bes'> 
+<f a>4 <a c> <g c> <e c'>
+%P11
+<<
 {\voiceOne }
 \new Voice {\voiceTwo }
 >> \oneVoice
@@ -651,6 +713,8 @@ c2. 4 f,2. 4 bes2. 4 c2. 4 f2 bes4 a
 g2. f4 e cis d g a2 a, d1 2 4 4 g2. 4 c,1 2 4 4 f2. 4 bes,2. 4 c f c2 f1
 \bar "||" 2 2 e4 c d g c,2 4 d
 %P10
+e d e c f e d g, c2 b a a' b4 gis a d, e1 a, d g, c d bes a g f4 f' e c
+%P11
 \fine
 }
 
