@@ -65,6 +65,17 @@ f4 d bes2. d4 c bes a2. g4 f2 8( a g bes a c bes d
 %P7
 c4) bes8( a) g2. f4 e1 c'2 4( f,) d2. c4 1.\fermata
 \bar "||" \time 2/2 \allegro
+c'2^"tutti" 8( d) e( d) c4 4 8( d) e( d) c4 4 d2
+a8( b) cis( b) a4 4 d2 c4 4 bes2 a
+r4 c d d r d e e r e c2 d4 4 g,2 a1
+\bar "||"
+%P8
+R1*6 c2^"solo" e4 d c2. 4 4 d8( e) f4 c a4. g8 f2 R1*2
+r2 c' d8( c d e d e c d e d e f e f d e f4.) e8 d2
+%P9
+4 c bes a g( bes) a g f2( e4.) d8 c2 r r4 d' d d bes g d'2 e r
+r4 c c c a f c'2 d4 f bes,2 4( a) g2 a1 \bar "||" R1*3
+%P10
 \fine
 }
 
@@ -93,6 +104,19 @@ Cru -- ci -- fi -- xus et -- i -- am pro no -- bis
 et -- i -- am pro no -- bis: sub Pon -- ti -- o Pi -- la -- to
 pas -- sus, pas -- sus, et se -- pul -- tus est et
 se -- pul -- tus est et se -- pul -- tus est.
+
+Et re -- sur -- re -- xit re -- sur -- re -- xit et
+re -- sur -- re -- xit ter -- ti -- a di -- e,
+se -- cun -- dum se -- cun -- dum se -- cun -- dum 
+Scrip -- tu -- ras.
+
+Et i -- te -- rum ven -- tu -- rus est cum glo -- ri -- a,
+cum glo -- ri -- a,
+
+ju -- di -- ca -- re vi -- vos et nor -- tu -- os:
+non e -- rit fi -- nis non non
+non e -- rit fi -- nis non non
+non e -- rit fi -- nis.
 }
 
 sop = \new Staff \with {instrumentName="Soprano"
@@ -127,6 +151,16 @@ es2. 4 d2. g4 2 fis g1 r2 2 f1 2 2~
 \bar "||" \time 3/2 \despacio
 R1.*16
 \bar "||" \time 2/2 \allegro
+a'2 g4 4 a a g g a a f2 e4 a f d f2 4 4 4( e) f2
+r4 a f f r g g g r g a a f2 4( e) f1 \bar "||"
+%P8
+f2^"solo" c f4( e) f g a2 g f4( d) g f e d c2 f( d) c r R1*2
+r2 c d8( c d e d e c d e d e f e f d e f4.) c8 c2 R1*3
+%P9
+R1*3 f2 g a4 f r2 r1 e2 f g4 e r2
+r r4 a f2 r4 4 e f f( e) f1 \bar "||"
+2 a g4 f8 e f4 g e4. d8 c2
+%P10
 \fine
 }
 
@@ -154,6 +188,18 @@ de -- scen -- dit de -- scen -- dit de cae -- lis de cae -- lis.
 Et in -- car -- na -- tus est de spi -- ri -- tu San -- cto
 ex Ma -- ri -- a Vir -- gi -- ne: Et ho -- mo
 et ho -- mo fa -- ctus est.
+
+Et re -- sur -- re -- xit re -- sur -- re -- xit et
+re -- sur -- re -- xit ter -- ti -- a di -- e,
+se -- cun -- dum se -- cun -- dum se -- cun -- dum 
+Scrip -- tu -- ras.
+
+Et a -- scen -- dit in cae -- lum: se -- det ad dex -- te -- ram 
+Pa -- tris. cum glo -- ri -- a,
+
+cu -- jus re -- gni cu -- jus re -- gni
+non non non e -- rit fi -- nis.
+Et in Spi -- ri -- tum San -- ctum Do -- mi -- num,
 }
 
 alt = \new Staff \with {instrumentName="Alto"
@@ -188,6 +234,13 @@ g a2 d a2. 4 d,1\fermata
 \bar "||" \time 3/2 \despacio
 R1.*16
 \bar "||" \time 2/2 \allegro
+f'2 e4 c f f e c f f d2 cis4 a d d bes2 a4 4 g2 f
+r4 4 bes4 4 r g c c r c f f d( bes) c2 f,1 \bar "||"
+%P8
+R1*9 r2 a^"solo" bes8( a bes c bes c a bes c bes c d c d bes c f,4.) 8 2 R1*3
+%P9
+R1*3 d'2 e f4 d r2 r1 c2 d e4 c r2 R1*4 \bar "||" R1*3
+%P10
 \fine
 }
 
@@ -214,6 +267,15 @@ de -- scen -- dit de cae -- lis de cae -- lis.
 Et in -- car -- na -- tus est de spi -- ri -- tu San -- cto
 ex Ma -- ri -- a Vir -- gi -- ne: Et ho -- mo
 et ho -- mo fa -- ctus est.
+
+Et re -- sur -- re -- xit re -- sur -- re -- xit et
+re -- sur -- re -- xit ter -- ti -- a di -- e,
+se -- cun -- dum se -- cun -- dum se -- cun -- dum 
+Scrip -- tu -- ras.
+
+cum glo -- ri -- a,
+
+cu -- jus re -- gni cu -- jus re -- gni
 }
 
 ten = \new Staff \with {instrumentName="Tenor"
@@ -294,6 +356,17 @@ f4 d bes2. d4 c bes a2. g4 f2 8 a g bes a c bes d
 %P7
 c4 bes8 a g2. f4 e1 c'2 4 f, d2. c4 1.\fermata
 \bar "||" \time 2/2 \allegro
+f'8 g a f g e f g a4 f g8 e f g a4 4 f8 a g f
+e4 a f d bes8 bes'8 8 8 f f f f f f e e f2
+r4 4 d d r g, e' e r g a2 f4 4 4 e f1 \bar "||"
+%P8
+2 c f4 e f g a2 g f4 d g f e d c2 4 d b2 c e4 d c2. 4 4 d8 e f4 c
+a4. g8 f2 d'8 c d e d e c d e d e f e f d e f2 c
+d8 c d e d e c d e d e f e f d e f4. e8 d2
+%P9
+d4 c bes a g bes a g f f' e4. d8 a'2 2 2 d,4 4 bes g d'2 g g g c,4 4
+a f c'2 d4 f bes,2 e4 f g2 a1 \bar "||" f2 a g4 f8 e f4 g e4. d8 c2
+%P10
 \fine
 }
 >>
@@ -335,6 +408,16 @@ f2 f g a4 g f2. e4 f1.
 %P7
 g2 f d c2. d4 e2 f4 d c b4 2 c1.\fermata
 \bar "||" \time 2/2 \allegro
+a'8 bes c a c g a bes a2 c8 g a bes a2 f'8 a g f a4 a, d2
+8 8 8 8 c c c c bes8 8 8 8 a2 r4 c f, f r d' g, g r e' f2 d4 4 g, g f1
+\bar "||"
+%P8
+a2 g a2. bes4 c2 e d b c g4 e f2 d c r e g a2. g4 a4. g8 f2
+bes8 a bes c bes c a bes c bes c d c d bes c a2 r f g g bes4 g a2 bes4 a
+%P9
+g2. f4 e g f e d d' d cis d2 e f d4 4 bes g d'2 e f e c4 4
+a f c'2 d4 f d2 g,4 a f e f'1 \bar "||" a,2 c2 4 g c b c2 r
+%P10
 \fine
   }
 >>
@@ -466,6 +549,58 @@ r2 <f' d'> <f a>
 >> \oneVoice
 <c e g>1.\fermata
 \bar "||" \time 2/2 \allegro
+<c f a>2 <c g'>4 <e g> <f a c>2 <c g' c> <f a c> <f a d>
+<<
+{\voiceOne e'4 cis d2}
+\new Voice {\voiceTwo <a e>2 <f a>}
+>> \oneVoice
+<f d'>2 <f c'>
+<<
+{\voiceOne bes2 a4 r a8 bes c a d c bes a bes c d bes e d c bes
+c d e c f e d c bes a bes d <g, c>2}
+\new Voice {\voiceTwo f4 e f8 e f g r4 f4 2 r4 g4 2 r4 g a2 f2. e4}
+>> \oneVoice
+<f a c>1 \bar "||"
+%P8
+<f a c>2 <c g'c>
+<<
+{\voiceOne a'4 g f e}
+\new Voice {\voiceTwo c1}
+>> \oneVoice
+<a c f>2 <c e g> <a d f> <b d g>
+<<
+{\voiceOne e4 f g2}
+\new Voice {\voiceTwo c,2. e4}
+>> \oneVoice
+<c a'>2 <b g'> <c e> <e g c>
+<<
+{\voiceOne c'2. bes4}
+\new Voice {\voiceTwo <g e> f g2}
+>> \oneVoice
+<a c,>2. <g c>4 <f a c>2 <c f a> <d f bes>1 <e g> <c f a>2 <f a c>
+<<
+{\voiceOne d'2. 4}
+\new Voice {\voiceTwo f,2 g}
+>> \oneVoice
+<e g c>2. 4
+<<
+{\voiceOne a4 g f2 bes4 a bes2~2 a4 bes f2 e}
+\new Voice {\voiceTwo c d4 c d2 g~2 f4 d d2. cis4}
+>> \oneVoice
+%P9+3
+<d f>2 <e g> <f a d>2 2 <g bes d>2 2 <e g c> <d f> <e g c>2 2
+<f a c>2 2 <d f bes>2 2
+<<
+{\voiceOne bes'4 a g2}
+\new Voice {\voiceTwo <e g>4 <c f> f e}
+>> \oneVoice
+<c f a>1 \bar "||" <f a c>2 <c f a>
+<<
+{\voiceOne c'2. b4}
+\new Voice {\voiceTwo g e f d}
+>> \oneVoice
+<e g c>2 e4 f
+%P10
 <<
 {\voiceOne }
 \new Voice {\voiceTwo }
@@ -507,6 +642,15 @@ g1 a2 d, a1 d\fermata
 %P7
 e2 b b c2. d4 e2 f g1 c,1.\fermata
 \bar "||" \time 2/2 \allegro
+f2 e4 c f f e c f2 d cis4 a d d bes2 a g f r4 f' bes2 r4 g c2 r4 c, f2 d4 
+bes c2 f1 \bar "||"
+%P8
+2 e f2. c4 f2 c d g, c4 d e c f2 g c,1 2 e f2. e4 f2 f, bes2. 4
+c2. 4 f,2. 4 bes2. 4 c2. 4 f2 bes4 a
+%P9
+g2. f4 e cis d g a2 a, d1 2 4 4 g2. 4 c,1 2 4 4 f2. 4 bes,2. 4 c f c2 f1
+\bar "||" 2 2 e4 c d g c,2 4 d
+%P10
 \fine
 }
 
