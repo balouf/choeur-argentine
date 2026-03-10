@@ -26,9 +26,9 @@ adagio = {
 \tempo "Adagio" 2 = 72
 }
 
-despacio = {
-\tempo "Despacio (Adagio)"
-}
+despacio = {\tempo "Despacio (Adagio)"}
+
+presto = {\tempo "Presto"}
 
 armure = {
 \accidentalStyle modern-cautionary
@@ -82,6 +82,9 @@ c2. f,4 bes1 a2 r
 r4 c c c c c a c bes a d c8( bes) a2 g4 bes a2 bes R1*6
 r2 d^"tutti" bes4 d g,2 c a4 c f,2 f' d4 f bes,2
 %P12
+2 r d4 4 4 4 b8( a b c) d2 4 g, c2~2 a d c c( b) c1 \bar "||"
+R1*4 4 4 4 4 4 4 a c d8( c bes a bes4) d c c r2 \bar "||"
+%P13
 \fine
 }
 
@@ -129,7 +132,12 @@ Qui cum Pa -- tre et Fi -- li -- o si -- mul a -- do -- ra -- tur,
 et con -- glo -- ri -- fi -- ca -- tur: 
 qui lo -- cu -- tus est per Pro -- phe -- tas.
 Con -- fi -- te -- or con -- fi -- te -- or 
-u -- num ba -- ptis --
+u -- num ba -- ptis -- ma
+in re -- mis -- si -- o -- nem pec -- ca -- to -- rum
+pec -- ca -- to -- rum.
+
+re -- sur -- re -- cti -- o -- nem
+re -- sur -- re -- cti -- o -- nem
 }
 
 sop = \new Staff \with {instrumentName="Soprano"
@@ -179,8 +187,11 @@ g2. f4 e2 g~2 f4( e f2) 2 2 2~(2 e) f r
 %P11
 r4 a g g a g f es d d d g fis2 g4 4 4( fis) g2 r4 g^"solo" g g e2 f4 g
 c, e f( g) a2 f4 e d cis d g8( f) e2. 4 d1
-r2 g2^"tutti" e4 g c,2 r d2 4 4 g2~
+r2 g2^"tutti" e4 g c,2 r d2 4 4 g2(
 %P12
+f4 g8 f es2) d2 r g4 4 4 4 e8( d e f) g2 4 c, f2 2 2 2 e4( d) e1 \bar "||"
+R1*4 a4 4 g g a g f e d8( c d e) f( e f g) a4 4 r2 \bar "||"
+%P13
 \fine
 }
 
@@ -230,7 +241,12 @@ qui lo -- cu -- tus est per Pro -- phe -- tas.
 Et u -- nam san -- ctam ca -- tho -- li -- cam et
 a -- po -- sto -- li -- cam Ec -- cle -- si -- am.
 
-con -- fi -- te -- or u -- num ba -- ptis --
+con -- fi -- te -- or u -- num ba -- ptis -- ma
+in re -- mis -- si -- o -- nem pec -- ca -- to -- rum
+pec -- ca -- to -- rum.
+
+re -- sur -- re -- cti -- o -- nem
+re -- sur -- re -- cti -- o -- nem
 }
 
 alt = \new Staff \with {instrumentName="Alto"
@@ -277,6 +293,10 @@ c1^"tutti" d bes a g f2 r
 %P11
 r4 f' e c f c d a bes fis g8( a) bes( c) d2 bes4 g d'2 g, R1*7
 g'2^"tutti" e4 g c,2 f d4 f bes,2 r es
+%P12
+d4 es c2 bes1 r c4 4 4 4 a2 f bes a d1 c \bar "||" e^"solo" f b, c
+f4^"tutti" f e c f c d a bes8( a bes c) d( c d e) f4 4 r2 \bar "||"
+%P13
 \fine
 }
 
@@ -320,7 +340,14 @@ et con -- glo -- ri -- fi -- ca -- tur:
 qui lo -- cu -- tus est per Pro -- phe -- tas.
 
 con -- fi -- te -- or con -- fi -- te -- or 
-u -- 
+u -- num ba -- ptis -- ma
+in re -- mis -- si -- o -- nem pec -- ca -- to -- rum.
+
+Et ex -- spe -- cto
+
+re -- sur -- re -- cti -- o -- nem
+re -- sur -- re -- cti -- o -- nem
+
 }
 
 ten = \new Staff \with {instrumentName="Tenor"
@@ -415,7 +442,12 @@ a f c'2 d4 f bes,2 e4 f g2 a1 \bar "||" f2 a g4 f8 e f4 g e4. d8 c2
 g'2. f8 e a4 g f2 e d e4 a, a a d f e d c2 b a cis d2. c4 b a8 g a4 b
 c e g g f f a a d, d f f c2. f4 4 4 e e f8 g a f g e f g
 %P11
-
+a g a f g e f g a4 g f es d d4 2 2 4 4 4 fis g2 r4 4 4 4 e2 f4 g
+c, e f g a2 f4 e d cis d g8 f e2. 4 d2 4 4 4 4 e e e e f f f2 r d4 f bes,2
+%P12
+f'4 g8 f es2 d r d4 4 d8 e f d e4 4 8 f e d c2 f4 4 d2 c f8 e f g f a g f e1
+\bar "||" R1*4 f8 g a f g e f g a4 g f e d8 c d e f e f g a4 4 r2 \bar "||"
+%P13
 \fine
 }
 >>
@@ -471,6 +503,13 @@ c2. g4 c c c b c2 b c r b4 d c b a2 gis a2. g4 fis e8 d e4 fis
 g2. f4 e c' e e r g, f e f d c bes c f a c bes4 4 4 4
 a a'8 f g e f g
 %P11
+f4 r r2 4 e d c bes a bes2 R1*4 r4 a a g f2 c' d4 cis d e
+d2 cis d r bes4 4 g g g g a a f'2 r R1
+%P12
+R1 bes,4 4 4 4 b b b8 c d b c4 4 8 d c bes a2 4 4 bes2 f c'8 8 8 8
+b b b b c1 \bar "||" R1*4 a8 bes c a c g a bes c4 e d c
+bes8 a bes c d c d e f2 r \bar "||"
+%P13
 \fine
   }
 >>
@@ -663,6 +702,30 @@ c d e c f e d c bes a bes d <g, c>2}
 <e g c>2 2 <f a>2 2 <f d'>2 2 <f c'>2 2 <f bes> <e bes'> 
 <f a>4 <a c> <g c> <e c'>
 %P11
+<a c>4 4 <g c> <e c'> <f a c> <e g c> <d f a> <es f c'>
+<d bes'> <d a'> <d g bes>2 <d fis a> <d g>4 <d bes'>
+<<
+{\voiceOne a'2 bes8 a bes c}
+\new Voice {\voiceTwo g4 fis <d g>2}
+>> \oneVoice
+<g bes d>2 4 4 <e g c>1 <e a c>2 <f c'>
+<<
+{\voiceOne c' f4 e d cis d bes <a e>1}
+\new Voice {\voiceTwo <f a>2 <f c'> f d d cis}
+>> \oneVoice
+<f a> <f d'> <d bes'> <g bes> <e g c> 
+<f a c> <f a d> <f bes d> <d f bes> <es g bes>
+%P12
+<<
+{\voiceOne bes'2 a4}
+\new Voice {\voiceTwo f g es2}
+>> \oneVoice <d f bes> <f d'>
+<<
+{\voiceOne b d~2 c~2 a d c~2 b}
+\new Voice {\voiceTwo g <g b> e4 f <e g>2~4 c f2 1 1}
+>> \oneVoice <e g c> \bar "||" 1 <d f a> <d g b> <e g c> <c f a>2 <c g'>4 
+<e g> <c a'> <e g> f <e c'> <d f d'>2 <f bes> <c f a> r \bar "||"
+%P13
 <<
 {\voiceOne }
 \new Voice {\voiceTwo }
@@ -715,6 +778,12 @@ g2. f4 e cis d g a2 a, d1 2 4 4 g2. 4 c,1 2 4 4 f2. 4 bes,2. 4 c f c2 f1
 %P10
 e d e c f e d g, c2 b a a' b4 gis a d, e1 a, d g, c d bes a g f4 f' e c
 %P11
+f f e c f c d a bes fis g8 a bes c d2 bes4 g d'2 g, g'1 c,2 bes
+a a'4 g f2 a, bes4 a bes g a1 d g2 e c f d bes2 2 es
+%P12
+d4 es c2 bes2 2 g1 c a2 f bes a d1 c \bar "||" 1 d g, c
+f4 4 e c f c d a bes8 a bes c d c d e f2 r \bar "||"
+%P13
 \fine
 }
 
