@@ -1,0 +1,554 @@
+/* ==========================================================================
+   Responsive CSS - Media Queries for Mobile/Tablet/Desktop
+   ========================================================================== */
+
+/*
+   Mobile First Approach
+   Base styles are for mobile, then we progressively enhance for larger screens
+*/
+
+/* Extra Small devices (phones, less than 576px) */
+/* This is the default - no media query needed */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+
+  header h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .track-selector select {
+    min-width: 280px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+
+  /* Header improvements */
+  header {
+    padding: var(--spacing-lg) 0;
+  }
+
+  header h1 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  /* Main content */
+  main {
+    padding: var(--spacing-xl) 0;
+  }
+
+  section {
+    padding: var(--spacing-xl);
+  }
+
+  /* Visualizer larger on tablet */
+  .visualizer {
+    height: 150px;
+  }
+
+  /* Controls layout improvements */
+  .controls {
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+  }
+
+  .btn-play {
+    width: 64px;
+    height: 64px;
+  }
+
+  .btn-play svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Tempo control wider */
+  .tempo-control input[type="range"] {
+    width: 140px;
+  }
+
+  /* Mixer tracks in grid */
+  .mixer-tracks {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: var(--spacing-md);
+    overflow-x: visible;
+  }
+
+  /* Larger VU meters */
+  .vu-meter,
+  .volume-slider-vertical {
+    height: 120px;
+  }
+
+  /* Downloads as grid */
+  .downloads ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .downloads a {
+    justify-content: center;
+  }
+}
+
+/* Large devices (desktops, 1024px and up) */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 960px;
+  }
+
+  /* Visualizer even larger on desktop */
+  .visualizer {
+    height: 180px;
+  }
+
+  /* Progress bar improvements */
+  .progress-bar {
+    height: 10px;
+  }
+
+  .progress-bar:hover {
+    height: 14px;
+  }
+
+  /* Controls more spacious */
+  .controls {
+    gap: var(--spacing-xl);
+    padding: var(--spacing-xl);
+  }
+
+  .controls-group {
+    gap: var(--spacing-md);
+  }
+
+  /* Larger track channels */
+  .track-channel {
+    min-width: 100px;
+    padding: var(--spacing-lg);
+  }
+
+  .track-name {
+    max-width: 90px;
+    font-size: var(--font-size-sm);
+  }
+
+  .vu-meter,
+  .volume-slider-vertical {
+    height: 140px;
+  }
+
+  /* Keyboard shortcuts visible on desktop */
+  .shortcuts-help {
+    display: block;
+  }
+}
+
+/* Extra Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+
+  /* Even larger visualizer */
+  .visualizer {
+    height: 200px;
+  }
+
+  /* Mixer tracks wider */
+  .mixer-tracks {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  }
+}
+
+/* Extra extra large devices (1400px and up) */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+/* ==========================================================================
+   Mobile-specific Overrides
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  /* Compact header for mobile */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-dropdown);
+  }
+
+  header h1 {
+    font-size: var(--font-size-lg);
+  }
+
+  /* Track selector full width */
+  .track-selector {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .track-selector select {
+    width: 100%;
+    min-width: unset;
+  }
+
+  /* Smaller visualizer on mobile */
+  .visualizer {
+    height: 80px;
+  }
+
+  /* Compact progress bar */
+  .progress-container {
+    padding: var(--spacing-sm);
+  }
+
+  .progress-bar {
+    height: 6px;
+  }
+
+  .progress-bar:hover {
+    height: 10px;
+  }
+
+  /* Controls stacked on mobile */
+  .controls {
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+  }
+
+  .controls-group {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Smaller play button */
+  .btn-play {
+    width: 48px;
+    height: 48px;
+  }
+
+  .btn-play svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Control buttons smaller */
+  .btn-control {
+    width: 36px;
+    height: 36px;
+  }
+
+  .btn-control svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Tempo control compact */
+  .tempo-control {
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .tempo-control input[type="range"] {
+    width: 80px;
+  }
+
+  .tempo-value {
+    min-width: 40px;
+  }
+
+  /* Volume control compact */
+  .volume-control input[type="range"] {
+    width: 60px;
+  }
+
+  /* Mixer horizontal scrolling */
+  .mixer {
+    padding: var(--spacing-sm);
+  }
+
+  .mixer-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+
+  .mixer-tracks {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: var(--spacing-sm);
+    padding-bottom: var(--spacing-sm);
+  }
+
+  .track-channel {
+    min-width: 70px;
+    padding: var(--spacing-sm);
+    scroll-snap-align: start;
+  }
+
+  .track-name {
+    font-size: 10px;
+    max-width: 60px;
+  }
+
+  .vu-meter,
+  .volume-slider-vertical {
+    height: 80px;
+    width: 6px;
+  }
+
+  .btn-mute,
+  .btn-solo {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+
+  .instrument-select {
+    font-size: 10px;
+  }
+
+  /* Downloads stacked */
+  .downloads ul {
+    flex-direction: column;
+  }
+
+  .downloads a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Hide keyboard shortcuts on mobile */
+  .shortcuts-help {
+    display: none;
+  }
+
+  /* Tips section compact */
+  .tips {
+    padding: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+  }
+
+  .tips ul {
+    padding-left: var(--spacing-md);
+  }
+}
+
+/* ==========================================================================
+   Touch-friendly Adjustments
+   ========================================================================== */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Ensure all interactive elements meet minimum touch target size */
+  .btn,
+  .btn-control,
+  .btn-play,
+  .btn-mute,
+  .btn-solo {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Larger progress bar for touch */
+  .progress-bar {
+    height: 12px;
+  }
+
+  /* Always show progress handle on touch devices */
+  .progress-handle {
+    opacity: 1;
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Larger slider thumbs */
+  .tempo-control input[type="range"]::-webkit-slider-thumb,
+  .volume-control input[type="range"]::-webkit-slider-thumb {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Remove hover effects that don't apply to touch */
+  .btn-play:hover {
+    transform: none;
+  }
+
+  .progress-bar:hover {
+    height: 12px;
+  }
+
+  /* Active states for touch feedback */
+  .btn:active,
+  .btn-control:active,
+  .btn-play:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+/* ==========================================================================
+   Landscape Mode for Mobile
+   ========================================================================== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Compact header in landscape */
+  header {
+    padding: var(--spacing-sm) 0;
+  }
+
+  header h1 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  /* Smaller visualizer */
+  .visualizer {
+    height: 60px;
+  }
+
+  /* Compact main content */
+  main {
+    padding: var(--spacing-sm) 0;
+  }
+
+  section {
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  /* Compact controls */
+  .controls {
+    padding: var(--spacing-xs);
+    gap: var(--spacing-sm);
+  }
+
+  /* Horizontal mixer layout */
+  .mixer-tracks {
+    max-height: 120px;
+  }
+
+  .vu-meter,
+  .volume-slider-vertical {
+    height: 60px;
+  }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+  /* Hide interactive elements */
+  .player-container,
+  .controls,
+  .mixer,
+  .visualizer,
+  .shortcuts-help,
+  .btn {
+    display: none !important;
+  }
+
+  /* Show only essential info */
+  header,
+  .downloads {
+    display: block;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+
+  .downloads a::after {
+    content: " (" attr(href) ")";
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* ==========================================================================
+   Reduced Motion Preferences
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .spinner {
+    animation: none;
+    border-top-color: var(--color-primary);
+  }
+}
+
+/* ==========================================================================
+   Dark Mode Support (if system prefers)
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0f172a;
+    --color-bg-card: #1e293b;
+    --color-bg-dark: #020617;
+
+    --color-text: #f1f5f9;
+    --color-text-muted: #94a3b8;
+    --color-text-light: #64748b;
+
+    --color-border: #334155;
+    --color-border-dark: #475569;
+
+    --color-primary-light: rgba(37, 99, 235, 0.2);
+  }
+
+  .visualizer {
+    background: linear-gradient(180deg, #020617 0%, #0f172a 100%);
+  }
+}
+
+/* ==========================================================================
+   High Contrast Mode
+   ========================================================================== */
+
+@media (prefers-contrast: high) {
+  :root {
+    --color-border: #000000;
+    --color-text-muted: var(--color-text);
+  }
+
+  .btn,
+  .btn-control,
+  .track-channel,
+  .progress-bar {
+    border-width: 2px;
+  }
+
+  :focus-visible {
+    outline-width: 3px;
+  }
+}
