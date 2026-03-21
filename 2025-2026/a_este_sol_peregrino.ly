@@ -513,6 +513,12 @@ shortInstrumentName ="B.C."}
     \Staff
     \RemoveAllEmptyStaves
   }
+\context {
+    \Score
+%    \override BarNumber.break-visibility = ##(#t #t #t)
+    barNumberFormatter =
+      #(lambda (n . rest)
+         (number->string (- (* 2 n) 1)))}
 }
 <<
     \new ChoirStaff
