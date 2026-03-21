@@ -26,6 +26,10 @@ adagio = {
 \tempo "Adagio" 2 = 72
 }
 
+rall = \markup {\italic "rall."}
+solo = \markup {\italic [Solo]}
+tutti = \markup {\italic [Tutti]}
+
 
 armure = {
 \accidentalStyle modern-cautionary
@@ -37,52 +41,52 @@ armure = {
 
 
 sop_mus = {
-  R1*2 c'4 8 8 e4 8 8 a,4 8 8 c4 4
+  R1*2 c'4 8 8 \breathe e4 8 8 \breathe a,4 8 8 \breathe c4 4
   d8( c) bes( a) g2 a r
-  r^"Solo" c8( bes c d bes a bes c a g a bes g4.) 8 4 r
-  c^"tutti" 4 4 4
-  r2^"Solo" a8( g a bes g a g a f e f g e4.) 8 4 r
-  a^"tutti" 4 4 4
+  r^\solo c8( bes c d bes a bes c a g a bes g4.) 8 4 r
+  c--^\tutti 4-- 4---> 4--
+  r2^\solo a8( g a bes g a g a f e f g e4.) 8 4 r
+  a--^\tutti 4-- 4---> 4--
 % Page 2
-r2  a8 (^"solo" bes8
+r2  a8 (^\solo bes8
    g8  a8 | % 4
    bes8  c8  a8  bes8 g8
    a8  f8  g8 | % 5
    a4. )  a8  a4 r4 | % 6
-   c4^"tutti" c4  c4 e4
-   a,4  a4  a4  c4 | % 8
+   c4--^\tutti c4--  c4---> e4--
+   a,4--  a4--  a4--->  c4-- | % 8
    bes8 (  c8   a8  bes8
   g2)
    a2 r2 | 
-   a8 (^"solo"  bes8   a8  bes8  c4)
+   a8 (^\solo  bes8   a8  bes8  c4)
    bes8  a8 | % 11
    g4  c4  c4 bes8(  a8 )
    g8(  c8 bes8  a8  g2)
    % Page 3
    a2  r2 | % 2
-   c4^"tutti"  c8  c8  e4  e8
+   c4^\tutti  c8  c8  e4  e8
    e8 | % 3
    a,4  a8  a8  c4  c4 | % 4
    d8(  c8)  bes8 (  a8 )  g2
   | % 5
    f2 r2 | % 6
-   a8 (^"solo" bes8)  a8(  bes8 )
+   a8 (^\solo bes8)  a8(  bes8 )
    c4  bes8 (  a8 ) | % 7
    g8 (  c8  bes8  a8  g2
   ) | % 8
    a2 r2 | % 9
-   c8 ^"tutti"  c8
+   c8 ^\tutti  c8
    e8  e8  a,8  a8  c8
    c8 
-   f,8  f8  a8  a8  g2 | % 11
+   f,8  f8  a8  a8^\rall  g2 | % 11
   a1 | % 12
   R1
   % P4
   R1*2 \bar "||" \adagio
-  d1 | % 4
-  a1 | % 5
-  f1 | % 6
-  d1 | % 7
+  d2.. r8 \breathe | % 4
+  a2.. r8 \breathe | % 5
+  f2.. r8 \breathe | % 6
+  d2.. r8 | % 7
   r2  a'2  | % 8
   d2  bes2 | % 9
    g2  a2 |
@@ -93,18 +97,18 @@ r2  a8 (^"solo" bes8
    g,2  c2
    % P5
    c b c1 R1*7
-   r4 a^"tutti" a a bes8( c a bes g a f g a2) r
+   r4 a^\tutti a a bes8( c a bes g a f g a2) r
    %P6
    r4 c c8( d) e( d) c4 4 8( d) e( d) c2 r
-   a8(^"solo" bes) a( bes) c4 bes8 a g( f g a bes a bes c a4) r r2
-   r4 c^"tutti" c8( d) e( d) c4 8 8 a4 8 8 f2 r
-   r4 d'^"solo" d d c a8 bes c4 d8 c bes8( a g a bes d c bes
+   a8(^\solo bes) a( bes) c4 bes8 a g( f g a bes a bes c a4) r r2
+   r4 c^\tutti c8( d) e( d) c4 8 8 a4 8 8 f2 r
+   r4 d'^\solo d d c a8 bes c4 d8 c bes8( a g a bes d c bes
    %P7
    a bes a bes c4 bes8 a g2) c2 4 d8( c) b4. c8 2 r R1*6
-   2^"tutti" 8( d) bes( c) a2~( 8 bes g a)
+   2^\tutti 8( d) bes( c) a2~( 8 bes g a)
    %P8
    f4 d' d d c c r c d8( c) bes( a) g4. 8 a2 r4 c d d 
-   g,4.^"rit." 8 a1
+   g,4.^\rall 8 a1
    \bar "||" \time 6/8
    R2.*30
    \bar "||" \time 2/2
@@ -113,24 +117,24 @@ r2  a8 (^"solo" bes8
    R2.*17
    \bar "||" \time 2/2
    %P15
-   r2 a^"tutti" 1 g r2 c a1~2 bes4( a) g1
+   r2 a^\tutti 1 g r2 c a1~2 bes4( a) g1
    %P16
    g c2. d4 es4 4 4 4 2 d c1 bes2 4 4 4 4 a a
-   g1 f2 f'4 4 4 es4 4 4 2 d g, c4( bes) a2 bes bes( a)^"rall." bes1
+   g1 f2 f'4 4 4 es4 4 4 2 d g, c4( bes) a2 bes bes( a)^\rall bes1
    \bar "||" \time 3/4
    %P17
-   r2 d4^"solo" d c r8 f f( bes,8) 2 r2 bes4 4 a r8 d d( g,) 2 r2 4
+   r2 d4^\solo d c r8 f f( bes,8) 2 r2 bes4 4 a r8 d d( g,) 2 r2 4
    f8 bes es,2 d d'4 c8 f bes,2 a2.
    \bar "||" \time 4/4 \allegro
-   c4^"tutti" 8 8 4 8 8 4 8 8 r2
+   c4^\tutti 8 8 4 8 8 4 8 8 r2
    d4 a8 8 4 8 8 4 8 8 r2
    d4 8 8 c4 8 8 d4 8 8 r2
    bes4 4 4 4 2 a r c4 4 d2. e8( d)
    c4 4 2~4 d8( c) bes2~4 c8( bes) a2~(
-   4 bes8\( a\) g2~4 a8 g) f2 g( a4 bes c2. bes8 a g1) a
+   4 bes8\( a\) g2~4 a8 g) f2 \breathe g( a4 bes c2. bes8 a g1) a
    \bar "||" \time 3/4 R2.*32 
    \time 4/4 R1*21 \bar "||" R1*19 \bar "||"
-c2^"tutti" a4 f d'4. 8 4 4
+c2^\tutti a4 f d'4. 8 4 4
 c bes8\( a\) g4 f8( e) f( e f g f a g f e4) c
 f2~4 4 4 4 2( g a8 g a bes) c2
 % P26
@@ -202,9 +206,9 @@ sop = \new Staff \with {instrumentName="Soprano"
 >>
 
 alt_mus = {R1*2
-a'4 8 8 g4 8 8 f4 8 8 a4 4 d,8( e) f4 4( e) f2 r
-R1*3 a4 g a g R1*3 f4 e f e R1*3 a4 g a g
-f4  e4  f4  a4 | % 8
+a'4 8 8 \breathe g4 8 8 \breathe f4 8 8 \breathe a4 4 d,8( e) f4 4( e) f2 r
+R1*3 a4-- g-- a---> g-- R1*3 f4-- e-- f---> e-- R1*3 a4-- g-- a---> g--
+f4--  e4--  f4--->  a4-- | % 8
 g8 (  a8  f8  g8  e2 )
 f2 r2 R1*3
 % P3
@@ -233,17 +237,17 @@ R1 | % 2
    f2 r2 | % 14
    d2  e2
    d2. 4 e1 r2
-   f~^"solo"4 d g f e2. c4 f( g)
+   f~^\solo4 d g f e2. c4 f( g)
    a( g8 f g2.) a8( g f2.) e8( d) e1 d4
-   f^"tutti" f f g8( a f g e f d e f2) r
+   f^\tutti f f g8( a f g e f d e f2) r
    %P6
    r4 a g g a a g g a2 r
-   f8(^"solo" g) f( g) a4 g8 f e( d e f g f g a f4) r r2
-   r4 a^"tutti" g g a g8 8  f4 e8 8 d2 r
-   r4 bes'4^"solo" 4 4 a f8 g a4 bes8 a g( f e f g bes a g
+   f8(^\solo g) f( g) a4 g8 f e( d e f g f g a f4) r r2
+   r4 a^\tutti g g a g8 8  f4 e8 8 d2 r
+   r4 bes'4^\solo 4 4 a f8 g a4 bes8 a g( f e f g bes a g
    %P7
    f g f g a4 g8 f e2) g g4 f8( e) d4 8( c) 2 r R1*6
-   a'8(^"tutti" g a bes) a( bes) g( a) f( e f g f g e f
+   a'8(^\tutti g a bes) a( bes) g( a) f( e f g f g e f
    d c d e f e f g a4) 4 r f d8( e) f4 4 e f2 r4 f f f f e f1
    \bar "||" \time 6/8
    R2.*30
@@ -253,22 +257,22 @@ R1 | % 2
    R2.*17
    \bar "||" \time 2/2
    %P15
-   r2 f^"tutti" 1 e2 2 g1~( 2 f4 e) f1~2 e4( d)
+   r2 f^\tutti 1 e2 2 g1~( 2 f4 e) f1~2 e4( d)
    %P16
    e1 R1*2 d2. es4 f f f f f2 es d c
    bes'2 2 a bes2 2 g f~4 4 4 es4 4 4 2 d c1 d
    \bar "||" \time 3/4
    R2.*11
    \bar "||" \time 4/4
-   a'4^"tutti" 8 8 g4 8 8 a4 8 8 r2
+   a'4^\tutti 8 8 g4 8 8 a4 8 8 r2
    f4 8 8 e4 8 8 f4 8 8 r2
    f4 8 8 4 8 8 4 8 8 r2
    d4 4 4 4 c2 2 f4 g a2~4 g8( f)
    g2~( 4 f8 e) f2~2. g8 f e2. f8( e)
-   d2.( e8 d) c2.( f4) e2( f g a4 f~2 e) f1
+   d2.( e8 d) c2.( f4)  \breathe e2( f g a4 f~2 e) f1
    \bar "||" \time 3/4 R2.*32 
    \time 4/4 R1*21 \bar "||" R1*19 \bar "||"
-R1*2 f2^"tutti" e4 c a'4. 8 4 4 g e8 d c4 f
+R1*2 f2^\tutti e4 c a'4. 8 4 4 g e8 d c4 f
 bes8( a bes c bes d c bes a4) f c2~4 4 4 4
 c2( d e8 d e f) g2 R1*2 c,2 f4 a d, d d d
 c d8 8 e4 4 f f f2~( 4 es8 d es g f es d4 e)
@@ -331,10 +335,10 @@ alt = \new Staff \with {instrumentName="Alto"
 >>
 
 ten_mus = {R1*2
-f'4 8 8 c4 8 8 d4 8 8 a4 4 bes f d'2 f, 2 r
-R1*3 f'4 e f c R1*3 d4 cis d a
-R1*3 f'4 e f c
-   d4  c4  d4  a4
+f'4 8 8 \breathe c4 8 8 \breathe d4 8 8 \breathe a4 4 bes f d'2 f, 2 r
+R1*3 f'4-- e-- f---> c-- R1*3 d4-- cis-- d---> a--
+R1*3 f'4-- e-- f---> c--
+   d4--  c4--  d4--->  a4--
    bes2 (  c2 )  
    f,2  r2 
   R1*3
@@ -354,10 +358,10 @@ R1*3 f'4 e f c
   R1
 % P4
   R1*2 \bar "||"
-  d'1 | % 4
-  a1 | % 5
-  f1 | % 6
-  d1 | % 7
+  d'2.. r8 \breathe | % 4
+  a2.. r8 \breathe | % 5
+  f2.. r8 \breathe | % 6
+  d2.. r8 | % 7
   r2  d'2  | % 8
   bes2  g2 | % 9
    c2.  c4 |
@@ -367,16 +371,16 @@ R1*3 f'4 e f c
    d2 r2 | % 14
    b2  c2
    % P5
-   g2. 4 c2 2~^"solo" 4 a d c
+   g2. 4 c2 2~^\solo 4 a d c
    bes2.( g4 c bes) a2~4 c f2~4
    e8( d e2~4) a, d2~(2 cis) d r R1*2
    %P5
-   r4 f e c f f e c f2 r2 R1*3
+   r4^\tutti f e c f f e c f2 r2 R1*3
    r4 f e c f c8 8 d4 a8 8 bes2 r2 R1*3
    %P7
-   R1*3 r2 c~^"solo" 4 bes8( a) bes( a bes c) a2 f'~4
+   R1*3 r2 c~^\solo 4 bes8( a) bes( a bes c) a2 f'~4
    es8( d) es( d es f) d2 bes~4 a g4. 8 f1
-   f'8(^"tutti" e f g) f4 c d8( c d e d4 a
+   f'8(^\tutti e f g) f4 c d8( c d e d4 a
    %P8
    bes8 a bes c d c d e f4) 4 r a, bes f c'4. 8 f,2
    r4 f' d bes c4. 8 f,1
@@ -388,23 +392,23 @@ R1*3 f'4 e f c
    R2.*17
    \bar "||" \time 2/2
    %P15
-   r2 c'^"tutti" 1 1 r2 es, f1~2 d' b1
+   r2 c'^\tutti 1 1 r2 es, f1~2 d' b1
    %P16
    c r g2. a4 bes4 4 4 4 2 a g1 f2 f'4 4 4 es4 4 4
    2 d g,2. 4 a2 bes es,1 f f bes
    \bar "||" \time 3/4
    R2.*11
    \bar "||" \time 4/4
-   f'4^"tutti" 8 8 e4 8 8 f4 8 8 r2
+   f'4^\tutti 8 8 e4 8 8 f4 8 8 r2
    d4 8 8 cis4 8 8 d4 8 8 r2
    bes4 8 8 a4 8 8 bes4 8 8 r2
    g4 4 4 f e2 f r2 4 4 bes2. c8( bes) a2 2
    d2. e8( d) c2. d8( c)
-   bes2.( c8 bes) a2.( f4) c'2( f e4 c f2 c1) f,
+   bes2.( c8 bes) a2.( f4)  \breathe c'2( f e4 c f2 c1) f,
    \bar "||" \time 3/4 R2.*32 
    \time 4/4 R1*21 \bar "||" R1*19 \bar "||"
    R1*4
-c'2^"tutti" a4 f d'4. 8 4 4 c bes8 a g4 c f,8( e f g a g a bes
+c'2^\tutti a4 f d'4. 8 4 4 c bes8 a g4 c f,8( e f g a g a bes
 c g c2 b4) c2 r4 e( f8 g f e d e f d e4 d8 c b c a b c2) f,
 bes8( a bes c bes4 g a g8 f e f d e) f1
 g4\( f\) g\( a\) bes( a) f2 c'1 f,\fermata
@@ -462,7 +466,81 @@ ten = \new Staff \with {instrumentName="Tenor"
 >>
 
 bass_mus = {R1*2
-f4 8 8 c4 8 8 d4 8 8 a4 4 bes f d'2 f, 2 r
+f'4 8 8 \breathe c4 8 8 \breathe d4 8 8 \breathe a4 4 bes f d'2 f, 2 r
+R1*3 f'4-- e-- f---> c-- R1*3 d4-- cis-- d---> a--
+R1*3 f'4-- e-- f---> c--
+   d4--  c4--  d4--->  a4--
+   bes,4( f'  c2 )  
+   f2  r2 
+  R1*3
+% P3
+  R1 | % 2
+   f'4  f8  f8  c4  c8
+   c8 | % 3
+   d4  d8  d8  a4  a4 | % 4
+   bes4  f4  c'2 | % 5
+   f,2 r2 | % 6
+  R1 | % 7
+  R1*2 | % 9
+   f'8  f8  c8  c8  d8
+   d8  a8  a8 
+   bes8  bes8  f8  f8  c'2 | % 11
+  f,1 | % 12
+  R1
+% P4
+  R1*2 \bar "||"
+  d'2.. r8 \breathe | % 4
+  a2.. r8 \breathe | % 5
+  f2.. r8 \breathe | % 6
+  d2.. r8 | % 7
+  r2  d'2  | % 8
+  bes2  g2 | % 9
+   c2.  c4 |
+   bes2.  bes4 | % 11
+   a2 r2 | % 12
+   f2 r2 | % 13
+   d2 r2 | % 14
+   b2  c2
+   % P5
+   g'2. 4 c1 R1*10
+   r4 f, e c f f e c f2 r2 R1*3
+   r4 f e c f c8 8 d4 a8 8 bes2 r2 R1*3
+   %P7
+   R1*10
+   f'8(^\tutti e f g) f4 c d8( c d e d4 a
+   %P8
+   bes8 a bes c d c d e f4) 4 r a bes f c'4. 8 f,2
+   r4 f d bes c4. 8 f1
+   \bar "||" \time 6/8
+   R2.*30
+   \bar "||" \time 2/2
+   R1*37
+   \bar "||" \time 6/8
+   R2.*17
+   \bar "||" \time 2/2
+   %P15
+   r2 c'^\tutti 1 1 r2 es, f1~2 d' b1
+   %P16
+   c r g2. a4 bes4 4 4 4 2 a g1 f2 
+   f g1 a2 bes es,2. 4 a2 bes es,1 f2( bes,) f'1 bes,
+   %f'4 4 4 es4 4 4
+   %2 d g,2. 4 a2 bes es,1 f f bes
+   \bar "||" \time 3/4
+   R2.*11
+   \bar "||" \time 4/4
+   f'4^\tutti 8 8 e4 8 8 f4 8 8 r2
+   d4 8 8 cis4 8 8 d4 8 8 r2
+   bes'4 8 8 a4 8 8 bes4 8 8 r2
+   g4 4 4 f e2 f r2 4 4 bes2. c8( bes) a2 2
+   d2. e8( d) c2. d8( c)
+   bes2.( c8 bes) a2.( f4) \breathe c2( f e4 c f2 c1) f
+   \bar "||" \time 3/4 R2.*32 
+   \time 4/4 R1*21 \bar "||" R1*19 \bar "||"
+   R1*4
+c'2^\tutti a4 f d'4. 8 4 4 c bes8 a g4 c f,8( e f g a g a bes
+c g c2 b4) c2 r4 e( f8 g f e d e f d e4 d8 c b c a b c2) f,
+bes8( a bes c bes4 g a g8 f e f d e) f1
+g4\( f\) g\( a\) bes( a) f2 c'1 f,\fermata
 \fine
 }
 
@@ -470,13 +548,47 @@ f4 8 8 c4 8 8 d4 8 8 a4 4 bes f d'2 f, 2 r
 bass_lyr  = \lyricmode {
 Glo -- ri -- a Glo -- ri -- a Glo -- ri -- a
 in ex -- cel -- sis De -- o.  
-  }
+in ex -- cel -- sis  in ex -- cel -- sis
+in ex -- cel -- sis
+in ex -- cel -- sis De -- o.  
+Glo -- ri -- a Glo -- ri -- a Glo -- ri -- a
+in ex -- cel -- sis De -- o.  
+in ex -- cel -- sis in ex -- cel -- sis
+in ex -- cel -- sis De -- o.
+in ter -- ra pax in ter -- ra pax ho -- mi -- ni -- bus
+pax pax pax ho -- mi -- ni -- bus
+Lau -- da -- mus te. Lau -- da -- mus te.
+Lau -- da -- mus te. Be -- ne -- di -- ci -- mus  te.
+
+Glo -- ri  -- fi -- ca -- mus
+glo -- ri -- fi -- ca -- mus te.
+Glo -- ri -- fi -- ca -- mus te.
+
+Qui tol -- lis pec -- ca -- ta mun -- di,
+mi -- se -- re -- re mi -- se -- re -- re
+no -- bis 
+mi -- se -- re -- re no -- bis.
+mi -- se -- re -- re no -- bis.
+
+su -- sci -- pe su -- sci -- pe su -- sci -- pe
+su -- sci -- pe su -- sci -- pe su -- sci -- pe
+su -- sci -- pe su -- sci -- pe su -- sci -- pe
+
+de -- pre -- ca -- ti -- o -- nem
+de -- pre -- ca -- ti -- o -- nem
+de -- pre -- ca -- ti -- o -- nem no -- stram.
+
+Cum san -- cto Spi -- ri -- tu,
+in glo -- ri -- a De -- i Pa -- tris.
+A -- men. A -- men. De -- i Pa -- tris.
+A -- men. A -- men.
+}
 
 bass = \new Staff \with {instrumentName="Bass"
   shortInstrumentName ="B."} <<
   \hommes_style
   \armure
-  \relative c' {\bass_mus}
+  \relative c {\bass_mus}
   \addlyrics {\bass_lyr}
 >>
 
@@ -1046,6 +1158,7 @@ shortInstrumentName ="B.C."}
 
 #(set-global-staff-size conductor_size)
 \book {
+  \markup {"cel" = "tchel"}
   \score {
         \layout {
   \context {
@@ -1059,7 +1172,7 @@ shortInstrumentName ="B.C."}
       \sop
       \alt
       \ten
-      %\bass
+      \bass
     >>
 >>
   }
@@ -1069,7 +1182,7 @@ shortInstrumentName ="B.C."}
       \sop
       \alt
       \ten
-      %\bass
+      \bass
       \vioa
       \viob
       \piano
@@ -1080,6 +1193,7 @@ shortInstrumentName ="B.C."}
 
 \book {
   \bookOutputSuffix "-full"
+  \markup {"cel" = "tchel"}
   \score {
         \layout {
   \context {
@@ -1093,7 +1207,7 @@ shortInstrumentName ="B.C."}
       \sop
       \alt
       \ten
-      % \bass
+      \bass
     >>
     \vioa
     \viob
