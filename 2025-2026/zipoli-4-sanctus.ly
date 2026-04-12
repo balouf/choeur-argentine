@@ -19,7 +19,7 @@ individual_size = 20
 \include "utils/macros.ly"
 
 allegro = {
-\tempo "Allegro" 2 = 72
+\tempo "Allegro" 4 = 120
 }
 
 adagio = {
