@@ -426,7 +426,7 @@ Glo -- ri -- a Glo -- ri -- a Glo -- ri -- a
 in ex -- cel -- sis De -- o.  
 in ex -- cel -- sis in ex -- cel -- sis
 in ex -- cel -- sis De -- o.
-in ter -- ra pax in ter -- ra pax ho -- mi -- ni -- bus
+Et in ter -- ra in ter -- ra pax ho -- mi -- ni -- bus
 pax pax pax ho -- mi -- ni -- bus
 bo -- nae vo -- lun -- ta -- tis
 bo -- nae vo -- lun -- ta -- tis.
@@ -502,12 +502,12 @@ R1*3 f'4-- e-- f---> c--
    d2 r2 | % 14
    b2  c2
    % P5
-   g'2. 4 c1 R1*10
-   r4 f, e c f f e c f2 r2 R1*3
+   g'2. 4 c,1 R1*10
+   r4 f e c f f e c f2 r2 R1*3
    r4 f e c f c8 8 d4 a8 8 bes2 r2 R1*3
    %P7
    R1*10
-   f'8(^\tutti e f g) f4 c d8( c d e d4 a
+   f'2^\tutti f4 c d2~( d4 a
    %P8
    bes8 a bes c d c d e f4) 4 r a bes f c'4. 8 f,2
    r4 f d bes c4. 8 f1
@@ -538,8 +538,8 @@ R1*3 f'4-- e-- f---> c--
    \time 4/4 R1*21 \bar "||" R1*19 \bar "||"
    R1*4
 c'2^\tutti a4 f d'4. 8 4 4 c bes8 a g4 c f,8( e f g a g a bes
-c g c2 b4) c2 r4 e( f8 g f e d e f d e4 d8 c b c a b c2) f,
-bes8( a bes c bes4 g a g8 f e f d e) f1
+c g c2 b4) c2 r4 e,( f8 g f e d e f d e4 d8 c b c a b c2) f
+bes,8( a bes c bes4 g' a g8 f e f d e) f1
 g4\( f\) g\( a\) bes( a) f2 c'1 f,\fermata
 \fine
 }
@@ -555,7 +555,7 @@ Glo -- ri -- a Glo -- ri -- a Glo -- ri -- a
 in ex -- cel -- sis De -- o.  
 in ex -- cel -- sis in ex -- cel -- sis
 in ex -- cel -- sis De -- o.
-in ter -- ra pax in ter -- ra pax ho -- mi -- ni -- bus
+Et in ter -- ra in ter -- ra pax ho -- mi -- ni -- bus
 pax pax pax ho -- mi -- ni -- bus
 Lau -- da -- mus te. Lau -- da -- mus te.
 Lau -- da -- mus te. Be -- ne -- di -- ci -- mus  te.

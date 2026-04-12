@@ -59,7 +59,7 @@ f2 r f' d4( c8 d bes4 a8 bes g2) a4 4 g2 a4 \breathe c4 2 1\fermata
 \bar "||" \time 4/4
 %P5
 \adagio
-d2 4 4 2 2 bes1 r2 2 2 4 4 1 d1
+d2^\< 4 4 2^\> 2 bes1\! r2 2 2 4 4 1 d1
 g,2 c c bes a2. 4 bes2 g d'1~1 c
 %P6
 bes4( a) g2~2 f e2. 4 d1\fermata
@@ -84,7 +84,7 @@ r4 c c c a f c'2 d4 f bes,2 4( a) g2 a1 \bar "||" R1*3
 R1*7 d2.^\tutti c4 b( a8 g) a4 b c2. bes4 a2 d d(c4 bes)
 c2. f,4 bes1 a2 r
 %P11
-r4 c c c c c a c bes a d c8( bes) a2 g4 bes a2 bes R1*6
+r4 c^\< c c c c a c\!\breathe bes a d c8( bes) a2 g4 bes a2 bes R1*6
 r2 d^\tutti bes4 d g,2 c a4 c f,2 f' d4 f bes,2
 %P12
 2 r d4 4 4 4 b8( a b c) d2 4 g, c2~2 a d c c( b) c1 \bar "||"
@@ -183,7 +183,7 @@ a' f4( e8 f d4 c8 d) bes2 2 c2 4 f8( g) e2 f4 \breathe a g2 a1\fermata
 \bar "||" \time 4/4
 %P5
 \adagio
-f2 4 4 2 2 g1 r2 d d d4 4 g1 f
+f2^\< 4 4 2^\> 2 g1\! r2 d d d4 4 g1 f
 es2. 4 d2. g4 2 fis g1 r2 2 f1 2 2~
 %P6
 2 e4( d) cis2 d~2 cis d1\fermata
@@ -203,7 +203,7 @@ r r4 a f2 r4 4 e f f( e) f1 \bar "||"
 g'2. f8( e) a4 g f2 e r R1*3 a2.^\tutti g4 fis( e8 d) e4 fis
 g2. f4 e2 g~2 f4( e f2) 2 2 2~(2 e) f r
 %P11
-r4 a g g a g f es d d d g fis2 g4 4 4( fis) g2 r4 g^\solo g g e2 f4 g
+r4 a^\< g g a g f es\!\breathe d d d g fis2 g4 4 4( fis) g2 r4 g^\solo g g e2 f4 g
 c, e f( g) a2 f4 e d cis d g8( f) e2. 4 d1
 r2 g2^\tutti e4 g c,2 r d2 4 4 g2(
 %P12
@@ -305,7 +305,7 @@ d4. 8 d'4( c8 d) bes2 f' d4( c8 d e2) f4 f, c'2 f,4 \breathe f' e2 f1\fermata
 \bar "||" \time 4/4
 %P5
 \adagio
-bes,2 4 4 2 2 g1 r2 2 2 4 4 es'1 bes
+bes,2^\< 4 4 2^\> 2 g1\! r2 2 2 4 4 es'1 bes
 c2. 4 fis,2 g d'2. 4 g,1 r2 2 bes1 a
 %P6
 g a2 d a2. 4 d,1\fermata
@@ -322,7 +322,7 @@ R1*3 d'2 e f4 d r2 r1 c2 d e4 c r2 R1*4 \bar "||" R1*3
 R1*2 c2 d e4 a, a a d( f) e d c2( b) a1 R1*2
 c1^\tutti d bes a g f2 r
 %P11
-r4 f' e c f c d a bes fis g8( a) bes( c) d2 bes4 g d'2 g, R1*7
+r4 f'^\< e c f c d a\!\breathe bes fis g8( a) bes( c) d2 bes4 g d'2 g, R1*7
 g'2^\tutti e4 g c,2 f d4 f bes,2 r es
 %P12
 d4 es c2 bes1 r c4 4 4 4 a2 f bes a d1 c \bar "||" e^\solo f b, c
@@ -418,15 +418,15 @@ d4. 8 d'4( c8 d) bes2 f' d4( c8 d e2) f4 f, c'2 f,4\breathe f' e2 f1\fermata
 \bar "||" \time 4/4
 %P5
 \adagio
-bes,2 4 4 2 2 g1 r2 2 2 4 4 es'1 bes
+bes,2^\< 4 4 2^\> 2 g1\! r2 2 2 4 4 es'1 bes
 c2. 4 fis,2 g d'2. 4 g,1 r2 2 bes1 a
 %P6
 g a2 d a2. 4 d,1\fermata
 \bar "||" \time 3/2 \despacio
 R1.*16
 \bar "||" \time 2/2 \allegro
-f'2 e4 c f f e c f f d2 cis4 a d d bes2 a4 4 g2 f
-r4 4 bes4 4 r g c c r c f f d( bes) c2 f,1 \bar "||"
+f2 e4 c f f e c f f d2 cis4 a d d bes'2 a4 4 g2 f
+r4 4 bes4 4 r g c c r c, f f d( bes) c2 f1 \bar "||"
 %P8
 R1*16 % r2 a^\solo bes8( a bes c bes c a bes c bes c d c d bes c f,4.) 8 2 R1*3
 %P9
@@ -436,14 +436,19 @@ R1*12 % d'2 e f4 d r2 r1 c2 d e4 c r2 R1*4
 R1*9 %  c2 d e4 a, a a d( f) e d c2( b) a1 R1*2
 c'1 d bes a g f2 r
 %P11
-r4 f' e c f c d a bes fis g8( a) bes( c) d2 bes4 g d'2 g, R1*7
-g'2 e4 g c,2 f d4 f bes,2 r es
-%P12
-d4 es c2 bes1 r c4 4 4 4 a2 f bes a d1 c \bar "||" R1*4 % e^\solo f b, c
-f4 f e c f c d a bes8( a bes c) d( c d e) f4 4 r2 \bar "||"
+r4 f'^\< e c f c d a\! \breathe bes fis g8( a) bes( c) d2 bes4 g d'2 g, R1*7
+%g'2 e4 g c,2 f d4 f bes,2 r es
+%P12 
+R1*7
+%d4 es c2 bes1 
+c4 4 4 4
+%a8( bes a g) f2 
+a2 f 
+bes a d1 c \bar "||" R1*4 % e^\solo f b, c
+f,4 f e c f c d a bes8( a bes c) d( c d e) f4 4 r2 \bar "||"
 %P13
 \adagio bes,2 es~2 f( c1) f,\fermata \bar "||" \presto R1*6
-2 g4 a bes2 c4 bes a2 g4 f bes2( a) g c( f4 d e f) bes,1
+f'2 g4 a bes2 c4 bes a2 g4 f bes2( a) g c( f4 d e f) bes,1
 %P14
 r4 g( a bes) c1 r4 f, g a bes2 c4 bes a2 g4( f) c'1 r4 d e f c2 f,
 c'1 f, bes1 1 f f\fermata
@@ -478,8 +483,8 @@ si -- mul a -- do -- ra -- tur,
 et con -- glo -- ri -- fi -- ca -- tur: 
 qui lo -- cu -- tus est per Pro -- phe -- tas.
 
-con -- fi -- te -- or con -- fi -- te -- or 
-u -- num ba -- ptis -- ma
+% con -- fi -- te -- or con -- fi -- te -- or 
+% u -- num ba -- ptis -- ma
 in re -- mis -- si -- o -- nem pec -- ca -- to -- rum.
 
 re -- sur -- re -- cti -- o -- nem
