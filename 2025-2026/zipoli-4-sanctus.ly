@@ -38,7 +38,7 @@ tutti = \markup {\italic [Tutti]}
 armure = {
 \accidentalStyle modern-cautionary
 \compressEmptyMeasures
-\time 2/2
+\time 4/4
 \allegro
 \key f \major
 }
