@@ -55,7 +55,7 @@ R1*2 4 4 4 4 bes2 2 g4 4 4 4 a f bes2 a c
 cis d d4 4 4 cis d2 r R1*5
 %P4
 r1 r2 c a4( g8 a) f2 r d' bes4( a8 bes) g2 c a4( g8 a)
-f2 r f' d4( c8 d bes4 a8 bes g2) a4 4 g2 a4 c4 2 1\fermata
+f2 r f' d4( c8 d bes4 a8 bes g2) a4 4 g2 a4 \breathe c4 2 1\fermata
 \bar "||" \time 4/4
 %P5
 \adagio
@@ -179,7 +179,7 @@ a4( g) f2 4 g8( f) e4. 8 d2 r4 a'^\solo f2 4 4
 4. 8 4 4 d c bes2 a2. bes4 c d e2
 %P4
 f4 g8( f) e2 f1 r2 f^\tutti d4( c8 d) bes2 g' e4( d8 e) c2 r
-a' f4( e8 f d4 c8 d) bes2 2 c2 4 f8( g) e2 f4 a g2 a1\fermata
+a' f4( e8 f d4 c8 d) bes2 2 c2 4 f8( g) e2 f4 \breathe a g2 a1\fermata
 \bar "||" \time 4/4
 %P5
 \adagio
@@ -301,7 +301,7 @@ cis d e2 d1 4^\tutti 4 4 4 g,2 2 c4 4 4 4 f, bes g2 f f'
 f4( e) d2 bes4 g a a d,2 r R1*5
 %P4
 R1*2 f'2 d4( c8 d bes4 a8 bes) g2 r c a4( g8 a f4 e8 f)
-d4. 8 d'4( c8 d) bes2 f' d4( c8 d e2) f4 f, c'2 f,4 f' e2 f1\fermata
+d4. 8 d'4( c8 d) bes2 f' d4( c8 d e2) f4 f, c'2 f,4 \breathe f' e2 f1\fermata
 \bar "||" \time 4/4
 %P5
 \adagio
@@ -399,22 +399,22 @@ ten = \new Staff \with {instrumentName="Tenor"
 >>
 
 bass_mus = {R1*2
-f'2^\tutti e4 c f e d2 c r4 a bes c d( e)
-f bes, c2 f,1
+f2^\tutti e4 c f e d2 c r4 a bes c d( e)
+f bes, c2 f1
 %f'4^\solo 4 e d8 c d4 g, 
 %c2 e4 f e d8( c) 4 b c1
 %P2
-R1*10 f'4 4 c c d d a a bes f8 8 c'4. 8 f,1
+R1*10 f4 4 c c d d a a bes f'8 8 c4. 8 f1
 R1*8
 %f'~^\solo 2 e4 d cis2 d a4( b8 cis) d4 e f4. e8 d2
 %bes4 a bes2 a2. d4
 %P3
 %cis d e2 d1 
-d'4 4 4 4 g,2 2 c4 4 4 4 f, bes g2 f f'
-f4( e) d2 bes4 g a a d,2 r R1*5
+d4 4 4 4 g2 2 c,4 4 4 4 f bes g2 f f
+f4( e) d2 bes4 g a a d2 r R1*5
 %P4
 R1*2 f'2 d4( c8 d bes4 a8 bes) g2 r c a4( g8 a f4 e8 f)
-d4. 8 d'4( c8 d) bes2 f' d4( c8 d e2) f4 f, c'2 f,4 f' e2 f1\fermata
+d4. 8 d'4( c8 d) bes2 f' d4( c8 d e2) f4 f, c'2 f,4\breathe f' e2 f1\fermata
 \bar "||" \time 4/4
 %P5
 \adagio

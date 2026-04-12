@@ -297,8 +297,8 @@ a d c bes8( d c bes a bes a) g f2 r1
 f2 d4 f es8( f es) d c4. 8 bes8 8 d4
 c'8( d bes c a4.) 8 bes4 4 4. 8 f2 r1 r1 r4
 c' d f e8( f d e f4 e d8 e c d e f e) d
-c2 f4 a, bes2 c4. 8 f,2. \breathe f'4 d f 
-bes,8( c d e f2 bes,4 a) bes2. \breathe 4 f1
+c2 f4 a, bes2 c4. 8 f,2. \breathe f4 bes f 
+bes,8( c d e f2 bes4 a) bes2. \breathe 4 f1
 R4.*39 R1*3
 R1*6
 f2.^"tutti" 4 g8( f g a g a f g a4) f8( g) a4 b 
@@ -309,8 +309,8 @@ c2. 4 d8( c d e d e c d e4) d8( c) d4 e f2 f,
 c'4 d e c g2 2 d'4 e f d a2 bes
 g8( f g a g bes) a( g) f4 a d2~( 4 cis8 b cis d) b( cis)
 d2. 4 c2. 4 f,1 r f'2. 4 d8( c d e d f e d c2) d4( c)
-bes2 c f,1 r2 4 4 bes8( c a c bes c) f,( a) bes2. 4
-f1\fermata \fine
+bes2 c f,1 r2 2 bes,4( a) bes a bes2 2
+f'1\fermata \fine
 }
 
 
