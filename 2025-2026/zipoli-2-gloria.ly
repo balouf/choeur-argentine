@@ -443,7 +443,12 @@ R1*3 f'4-- e-- f---> c--
    g4 4 4 f e2 f r2 4 4 bes2. c8( bes) a2 2
    d2. e8( d) c2. d8( c)
    bes2.( c8 bes) a2.( f4)  \breathe c'2( f e4 c f2 c1) f,
-   \bar "||" \time 3/4 R2.*32 
+   \bar "||" \time 3/4
+   f'4^\solo e8( c d e f4) e8( d) c( bes) a( bes) a( g) f4 r2 d'4 bes g c f,8( e f g a bes
+   c bes c d e c f4) e2 r4 d c b g( c~8 d) b2 c r4
+   R2.*2 r4 f( e) d( bes a) g e'( d) c8( bes a4) g
+   f d'( c bes8 a g4 f e c' bes a8 g) f4 r r es'4 4 4 d r r f f
+   e c( f) f8( bes, a4 g) f2. d'2 4 e,2 f4~( 8 bes) a4( g) f2.
    \time 4/4 R1*21 \bar "||" R1*19 \bar "||"
    R1*4
 c'2^\tutti a4 f d'4. 8 4 4 c bes8 a g4 c f,8( e f g a g a bes
@@ -493,6 +498,13 @@ su -- sci -- pe su -- sci -- pe su -- sci -- pe
 de -- pre -- ca -- ti -- o -- nem
 de -- pre -- ca -- ti -- o -- nem
 de -- pre -- ca -- ti -- o -- nem no -- stram.
+
+Qui se -- des ad dex -- te -- ram 
+ad dex -- te -- ram Pa -- tris,
+mi -- se -- re -- re no -- bis.
+Qui se -- des ad dex -- te -- ram Pa -- tris,
+mi -- se -- re -- re mi -- se -- re -- re no -- bis
+mi -- se -- re -- re no -- bis.
 
 Cum san -- cto Spi -- ri -- tu,
 in glo -- ri -- a De -- i Pa -- tris.
@@ -743,7 +755,9 @@ a8  g8  g8 | % 7
    f a, bes bes' a a, bes bes' a f f e f f, f e f f' r2 r f8 e f g
    e d e f d4 e8 f d2 g4 4 a c, c c a' c, c c f,2 f' f4 e8( f) d2 c1
    \bar "||" \time 6/8
-   R2.*17
+   c4.~8 d e f4 8 4 8 8 bes8 8 8 8 8 4. d,8 e f g4 8 4 8
+   8 c c c c c cis4 d8 g,4 d8 cis d e a,4 e'8 f e f r f d es4 8 8 f d cis4 d8 f4 cis8
+   d a' a a bes g a4. 8 g f e d c b4. a e'4 8 8 d c b4. a2.
    \bar "||" \time 2/2
    %P15
    r2 c f a g1 r2 2 a a, a' bes4 a g2 f
@@ -762,9 +776,14 @@ a8  g8  g8 | % 7
    g e f g a4 a, r2 a'4 4 4 bes8 a g4 4 4 a8 g f4 4 4 4 4 g8 f e4 4 4 f8 e
    d4 e8 f g4 4 4 f8 e f4 a g8 e f g a g a f g e f g a a a a
    g g g g g g g g a1
-   \bar "||" \time 3/4 R2.*32 
+   \bar "||" \time 3/4
+f4 e8 c d e f4 e8 d c bes a bes a g f4 d' f d bes g c f,8 e f g a bes
+c bes c d e c f4 e2 a,4 d c b g c c8 d d2 c g'8 e
+a4 g8 f e d e f g e c4 4 f e d bes a g e' d c8 bes a4 g
+f d' c bes8 a g4 f e c' bes a8 g f4 r es es'4 4 4 d r f, f' f
+e c f f8 bes, a4 g f2. d'4 4 4 e2 f4 8 bes a4 g f2.
    \time 4/4 R1*21 \bar "||" R1*19 \bar "||"
-c,2 a4 f d'4. 8 4 4 c bes8 a g4 f8 e f e f g f a g f
+c2 a4 f d'4. 8 4 4 c bes8 a g4 f8 e f e f g f a g f
 c'2 a4 f d'4. 8 4 4 c bes8 a g4 f8 e f e f g a4 a'
 a8 8 g g f a g f e f e d c g' f g
 a g f e f g a f g4 f8 e d f e d
@@ -866,8 +885,10 @@ f bes, a2 g4 2 4 a'8 g f e f c d bes c4 f c f, f2 4 c' e,2 f
 f' e4 d c2 a r1 f4 c' bes2 a4 c r2 f,4 c' bes2
 a d4 4 c c d d c c bes4 4 a a bes4 4 a2 f'8 e f g e d e f d c d e
 c b c d b4 c8 d b2 c4 e f a, g g f a g g a f' f2 b,4 c8 d b2 c1
-   \bar "||" \time 6/8
-   R2.*17
+\bar "||" \time 6/8
+c4.~ 8 d e f4 c8 4 8 f4. r d d8 e f g4 d8 4 8
+c4. r e4 f8 g4 d8 cis d e a,4 e'8 f e f r f d bes4 8 g4 bes8 e,4 f8 g4.
+f8 f' e f g e f4. 8 e d c b a a4 gis8 a4. c4 b8 c b a a4 gis8 a2.
    \bar "||" \time 2/2
    %P15
    r2 c c f c1 r2 c f c f g4 f f2 d
@@ -886,7 +907,12 @@ c b c d b4 c8 d b2 c4 e f a, g g f a g g a f' f2 b,4 c8 d b2 c1
    c'4 4 d d d e8 d c4 4 4 4 4 d8 c bes4 4 4 c8 bes a4 4
    a4 bes8 a g4 e' g, a8 g f4 f' g8 e f g a g a f g e f g f f f f
    f f f f e e e e f1
-   \bar "||" \time 3/4 R2.*32 
+   \bar "||" \time 3/4
+f, 4 g2 a4 bes g f2 r4 d' f d bes g c f,8 e f g a bes
+c bes c d e c b4 c2 4 b a g d e c'8 d b2 c g'8 e
+a4 g8 f e d e f g e c4 4 f e d bes a g e' d c8 bes a4 g
+f d' c bes8 a g4 f e c' bes a8 g f4 r es bes' c c bes r f c' d
+g,2 a4 bes8 g f4 e f2. bes4 4 4 g2 a4 bes8 g' f4 e f2.
    \time 4/4 R1*21 \bar "||" R1*19 \bar "||"
  R1*2 f,2 e4 c a'4. 8 4 4 g e8 d c4 bes8 a bes a bes c
  bes d c bes a2 c c c
@@ -1140,8 +1166,19 @@ r2 <c f a>2 1 <c g'> r2 <g' c> <c, a'>1
 \new Voice {\voiceTwo f2 e}
 >> \oneVoice
 <c f a>1
-   \bar "||" \time 3/4 R2.*32 
-   \time 4/4 R1*21 \bar "||" R1*19 \bar "||"
+\bar "||" \time 3/4
+<<{\voiceOne <f a>4 g8 e f g} \new Voice {\voiceTwo c,4 2} >> \oneVoice <c f a>4 <e bes'> <g c>
+<c, f a>4 4 4 <d f bes> <f bes> <d f bes> <d bes'> <c bes'> <e c'> <c f a>2.
+<c g' c> <<{\voiceOne b'4 c8 bes a g} \new Voice {\voiceTwo <d f>4 <e g>2} >> \oneVoice
+<c a'>4 <b g'> <c a'> r <d g b> <c g' c> <c f a> <b d g>2 <c e g>4 <e g c>4 4
+<f a c>2 <g c>8 <f b d> <g c e>4 <e g c>4 4 <f c'> <c a'> <c g'> <d f> <d g> <f a>
+<<{\voiceOne bes2.c4 a g} \new Voice {\voiceTwo e g f g c, e} >> \oneVoice
+<<{\voiceOne } \new Voice {\voiceTwo} >> \oneVoice
+<c a'>4 <d f> <c f> <bes f'> <d g> <f bes> <e bes'> <f bes> <g bes> <a f c>2 r4
+<es bes'>4 <g bes> <es c'> <es f> <d bes'> r <f c'> <a c> <f a d>
+<g e'> <g c> <f a f'> <f d'> <f g> <e g c> <<{\voiceOne a8 g a bes c a} \new Voice {\voiceTwo <f c>2.} >> 
+\oneVoice <f d'> <e bes'>2 <c a'>4 <d bes'> <f a> <e g> <c f a>2.
+\time 4/4 R1*21 \bar "||" R1*19 \bar "||"
 R1*4
 <<
 {\voiceOne g'2 f4 a}
@@ -1243,8 +1280,13 @@ c4  f4  c2
    4 4 e4 4 f f r2 d4 4 cis4 4 d4 4 r2 bes4 4 a a bes4 4 r2
    g'4 4 4 f e2 f r f4 4 bes2. c8 bes a2 2 d,2. e8 d c2. d8 c
    bes2. c8 bes a2. f4 c'2 f e4 c f2 c1 f
-   \bar "||" \time 3/4 R2.*32 
-   \time 4/4 R1*21 \bar "||" R1*19 \bar "||"
+\bar "||" \time 3/4
+f4 c2 f4 g e f4. g8 a f bes4 d bes g e c f2.
+e d4 c2 f2. g2 e4 f g2 c,4. d8 e c
+f a g f e d c4 c' bes a f e d bes' a g e d e f c
+f bes a g bes, d c d e f2 r4 g g a bes bes, r a' f d
+c e d bes' c c, f2. bes,2 a4 g2 f'4 bes c c, f2.
+\time 4/4 R1*21 \bar "||" R1*19 \bar "||"
 R1*4 c'2 a4 f d'4. 8 4 4 c bes8 a g4 c, f8 e f g a g a bes
 c g c2 b4 c2 r4 e, f8 g f e d e f d e4 d8 c b c a b c2 f
 bes,8 a bes c bes4 g' a g8 f e f d e f1
