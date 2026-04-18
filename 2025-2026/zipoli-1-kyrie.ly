@@ -303,9 +303,9 @@ R4.*39 R1*3
 R1*6
 f2.^"tutti" 4 g8( f g a g a f g a4) f8( g) a4 b 
 c g c2~2 b c bes a8( g a bes a bes g a bes a bes c
-bes c) a( bes) c4 a bes c f,2 d'
+bes c) a( bes) c4 a bes c f,2 d
 bes8( a bes c bes d) c( bes) a4 c f2~2 e f r r1 r
-c2. 4 d8( c d e d e c d e4) d8( c) d4 e f2 f, 
+c2. 4 d8( c d e d e c d e4) d8( c) d4 e f2 f 
 c'4 d e c g2 2 d'4 e f d a2 bes
 g8( f g a g bes) a( g) f4 a d2~( 4 cis8 b cis d) b( cis)
 d2. 4 c2. 4 f,1 r f'2. 4 d8( c d e d f e d c2) d4( c)
