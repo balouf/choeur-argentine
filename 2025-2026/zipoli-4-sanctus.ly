@@ -33,6 +33,7 @@ presto = {\tempo "Presto"}
 rall = \markup {\italic "rall."}
 solo = \markup {\italic [Solo]}
 tutti = \markup {\italic [Tutti]}
+opt = \markup {\italic [opt.]}
 
 
 armure = {
@@ -120,16 +121,19 @@ ten = \new Staff \with {instrumentName="Tenor"
 >>
 
 bass_mus = {
-f'2^\tutti e4( c) f( e d2) c1 a2 2 bes4 8 c d4 e f( bes, c4.) 8 f,1 R1*2
-r2 f' f4 e d cis d g,8 8 a2 d r4 4 bes g r c 
-a f r bes g es f f bes8( a bes c d c d es f4) f r d es a, bes es, f2 bes
-r4 d c e f bes, c2 f, bes c4( bes a bes) c1 f,\fermata
+f2^\tutti e4( c) f( e d2) c1 
+%R1*6
+a'2^\opt 2 bes4 8 c d4 e f( bes, c4.) 8 f,1 R1*2
+r2 f a4 g f e d g8 8 a2 d, r4 d'4 bes g r c 
+a f r bes g es f f bes,4( c d es4) f2 bes, es4 a, bes es f2 bes,
+r4 bes c e f bes, c2 f bes, c4( bes a bes) c1 f\fermata
 \fine
 }
 
 
 bass_lyr  = \lyricmode {
-San -- ctus, San -- ctus, San -- ctus Do -- mi -- nus De -- us Sa -- ba -- oth.
+San -- ctus, San -- ctus, 
+San -- ctus Do -- mi -- nus De -- us Sa -- ba -- oth.
 glo -- ri -- a tu -- a glo -- ri -- a tu -- a.
 Ho -- san -- na Ho -- san -- na Ho -- san -- na in ex -- cel -- sis
 Ho -- san -- na in ex -- cel -- sis Ho -- san -- na in ex -- cel -- sis
