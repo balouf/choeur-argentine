@@ -1,5 +1,5 @@
-"""Top-level package for Choeur de la Maison de l'Argentine."""
+"""Site builder for Choeur de la Maison de l'Argentine.
 
-__author__ = """Fabien Mathieu"""
-__email__ = 'loufab@gmail.com'
-__version__ = '0.1.0'
+Holds the HTML template and frontend assets (CSS, JS) consumed by
+``deploy.py`` to assemble the static site published on GitHub Pages.
+"""

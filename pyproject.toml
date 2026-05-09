@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "choeur-argentine"
-version = "0.2.0"
+version = "0.3.0"
 description = "Répertoire Github du Choeur de la Maison de l'Argentine (fichiers sources lilypond)."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -21,9 +21,7 @@ classifiers = [
     "Topic :: Multimedia :: Sound/Audio",
     "Topic :: Multimedia :: Sound/Audio :: MIDI",
     "Intended Audience :: End Users/Desktop",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3",
 ]
 dependencies = [
     "ffmpeg-normalize>=1.35.0",
@@ -32,23 +30,3 @@ dependencies = [
 
 [project.urls]
 Repository = "https://github.com/balouf/choeur-argentine"
-Documentation = "https://balouf.github.io/choeur-argentine"
-
-[dependency-groups]
-dev = [
-    "pytest>=9.0.2",
-    "pytest-cov>=7.0.0",
-]
-
-[tool.coverage.report]
-skip_empty = true
-
-[tool.coverage.run]
-branch = true
-source = ["choeur-argentine"]
-
-[tool.coverage.html]
-directory = "cov"
-
-[tool.pytest.ini_options]
-addopts = "--doctest-modules --cov --cov-config=pyproject.toml --cov-report xml --cov-report html --showlocals --capture=no --exitfirst --failed-first" 

@@ -1,13 +1,22 @@
-# This workflow will generate the docs on each push, and publish them on GitHub Pages if the branch is the main one.
-name: docs
+# Build the choir static site (PDF + MIDI + MP3 + web player) and
+# publish it on GitHub Pages. The build step doubles as the project's
+# integration check: if Lilypond / timidity / ffmpeg-normalize / the
+# template render fails, the workflow fails.
+name: site
 
 on: [push]
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  docs:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Check out
@@ -18,12 +27,10 @@ jobs:
       - name: Set up python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: '3.13'
 
       - name: Set up uv
         uses: astral-sh/setup-uv@v5
-        with:
-          version: "0.9.11"
 
       - name: Set up Lilypond
         uses: codello/setup-lilypond@main
@@ -48,10 +55,24 @@ jobs:
       - name: Compile files
         run: python deploy.py -s "2025-2026"
 
-      - name: Deploy on Github Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Setup Pages
         if: github.ref == 'refs/heads/main'
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
         with:
-          BRANCH: gh-pages
-          FOLDER: build/
-          SINGLE-COMMIT: true
+          path: build/
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

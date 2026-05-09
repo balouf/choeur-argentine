@@ -7,6 +7,21 @@
 - Test on Safari mobile
 - Minify JS/CSS for production
 
+## 0.3.0 (2026-04-29) : Nettoyage de la coquille PH3
+
+- Suppression des artefacts hérités du template Package Helper 3 :
+  configuration Poetry, documentation Sphinx zombie, tests scaffold,
+  configurations PyCharm, `CONTRIBUTING.md` et `AUTHORS.md` obsolètes,
+  workflow `build.yml` sans tests à exécuter.
+- Renommage du workflow `docs.yml` → `site.yml` : il construit le site
+  public, pas une documentation Sphinx. Badge README mis à jour.
+- `pyproject.toml` allégé : suppression de la config pytest/coverage,
+  du dependency-group `dev`, des classifiers Python par mineure, et
+  alignement de l'email auteur sur `fabien.mathieu@normalesup.org`.
+- Bump CI : Python 3.13, dépin de `uv` (suit la dernière stable).
+- `choeur_argentine/__init__.py` réduit à un docstring (la métadonnée
+  vit désormais uniquement dans `pyproject.toml`).
+
 ## 0.2.0 (2025-01-22): Frontend refactoring
 
 - Complete frontend rewrite with modern ES modules architecture
