@@ -84,9 +84,9 @@ r2  a8 (^\solo bes8
   % P4
   R1*2 \bar "||" \adagio
   d2.. r8 \breathe | % 4
-  a2.. r8 \breathe | % 5
-  f2.. r8 \breathe | % 6
-  d2.. r8 | % 7
+  a1 | % 5
+  f | % 6
+  d | % 7
   r2  a'2  | % 8
   d2  bes2 | % 9
    g2  a2 |
@@ -427,9 +427,9 @@ R1*3 f'4-- e-- f---> c--
 % P4
   R1*2 \bar "||"
   d'2.. r8 \breathe | % 4
-  a2.. r8 \breathe | % 5
-  f2.. r8 \breathe | % 6
-  d2.. r8 | % 7
+  a1 | % 5
+  f | % 6
+  d | % 7
   r2  d'2  | % 8
   bes2  g2 | % 9
    c2.  c4 |
@@ -590,9 +590,9 @@ R1*3 f'4-- e-- f---> c--
 % P4
   R1*2 \bar "||"
   d'2.. r8 \breathe | % 4
-  a2.. r8 \breathe | % 5
-  f2.. r8 \breathe | % 6
-  d2.. r8 | % 7
+  a1 | % 5
+  f | % 6
+  d | % 7
   r2  d'2  | % 8
   bes2  g2 | % 9
    c2.  c4 |
@@ -622,7 +622,7 @@ R1*3 f'4-- e-- f---> c--
    r2 c'^\tutti 1 1 r2 e, f1~2 d' b1
    %P16
    c r g2. a4 bes4 4 4 4 2 a g1 f2 
-   f g1 a2 bes es,2. 4 a2 bes es,1 f2( bes,) f'1 bes,
+   f g1 a2 bes es,2. 4 a,2 bes es1 f2( bes,) f'1 bes,
    %f'4 4 4 es4 4 4
    %2 d g,2. 4 a2 bes es,1 f f bes
    \bar "||" \time 3/4
