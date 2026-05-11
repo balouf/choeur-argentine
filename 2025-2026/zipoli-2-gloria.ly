@@ -84,9 +84,9 @@ r2  a8 (^\solo bes8
   % P4
   R1*2 \bar "||" \adagio
   d2.. r8 \breathe | % 4
-  a2.. r8 \breathe | % 5
-  f2.. r8 \breathe | % 6
-  d2.. r8 | % 7
+  a1 | % 5
+  f | % 6
+  d | % 7
   r2  a'2  | % 8
   d2  bes2 | % 9
    g2  a2 |
@@ -147,7 +147,7 @@ a4 g8 f c'2~(8 g a b c b c d e d) c( d) b2 c r R1*2 a2 g f1 e
 R1*16
 f2. 4 2( e) f1
 \bar "||"
-c'2^\tutti a4 f d'4. 8 4 4
+c'4\(^\tutti 4\) a4 f d'4. 8 4 4
 c bes8\( a\) g4 f8( e) f( e f g f a g f e4) c
 f2~4 4 4 4 2( g a8 g a bes) c2
 % P26
@@ -223,7 +223,7 @@ Je -- su Chri -- ste. Je -- su Chri -- ste.
 
 Je -- su Chri -- ste.
 
-Cum San -- cto Spi -- ri -- tu,
+Cu -- m San -- cto Spi -- ri -- tu,
 in glo -- ri -- a De -- i Pa -- tris.
 De -- i Pa -- tris. A -- men.
 
@@ -320,7 +320,7 @@ d2. c4 c2( b) c1
 R1*2 r2 e4. f8 g4 4 4 e8 f f4 4 4 e8 f g4 4 4. f8 e2 r4 g a( g) a g8( f) g g g4 r e
 f( e) f e8( d) e e e4 f2~( 8 c d e f e f g a g) f( g) e2 f r R1*2 d2 c bes1 a
 \bar "||"
-R1*2 f'2^\tutti e4 c a'4. 8 4 4 g e8 d c4 f
+R1*2 f'4\(^\tutti 4\) e4 c a'4. 8 4 4 g e8 d c4 f
 bes8( a bes c bes d c bes a4) f c2~4 4 4 4
 c2( d e8 d e f) g2 R1*2 c,2 f4 a d, d d d
 c d8 8 e4 4 f f f2~( 4 es8 d es g f es d4 e)
@@ -386,7 +386,7 @@ Tu so -- lus Al -- tis -- si -- mus,
 Tu so -- lus Al -- tis -- si -- mus,
 Je -- su Chri -- ste. Je -- su Chri -- ste.
 
-Cum San -- cto Spi -- ri -- tu,
+Cu -- m San -- cto Spi -- ri -- tu,
 in glo -- ri -- a De -- i Pa -- tris. De -- i Pa -- tris.
 A -- men.
 Cum San -- cto Spi -- ri -- tu,
@@ -427,9 +427,9 @@ R1*3 f'4-- e-- f---> c--
 % P4
   R1*2 \bar "||"
   d'2.. r8 \breathe | % 4
-  a2.. r8 \breathe | % 5
-  f2.. r8 \breathe | % 6
-  d2.. r8 | % 7
+  a1 | % 5
+  f | % 6
+  d | % 7
   r2  d'2  | % 8
   bes2  g2 | % 9
    c2.  c4 |
@@ -590,9 +590,9 @@ R1*3 f'4-- e-- f---> c--
 % P4
   R1*2 \bar "||"
   d'2.. r8 \breathe | % 4
-  a2.. r8 \breathe | % 5
-  f2.. r8 \breathe | % 6
-  d2.. r8 | % 7
+  a1 | % 5
+  f | % 6
+  d | % 7
   r2  d'2  | % 8
   bes2  g2 | % 9
    c2.  c4 |
@@ -622,7 +622,7 @@ R1*3 f'4-- e-- f---> c--
    r2 c'^\tutti 1 1 r2 e, f1~2 d' b1
    %P16
    c r g2. a4 bes4 4 4 4 2 a g1 f2 
-   f g1 a2 bes es,2. 4 a2 bes es,1 f2( bes,) f'1 bes,
+   f g1 a2 bes es,2. 4 a,2 bes es1 f2( bes,) f'1 bes,
    %f'4 4 4 es4 4 4
    %2 d g,2. 4 a2 bes es,1 f f bes
    \bar "||" \time 3/4
@@ -637,7 +637,7 @@ R1*3 f'4-- e-- f---> c--
    \bar "||" \time 3/4 R2.*32 
    \time 4/4 R1*21 \bar "||" R1*19 \bar "||"
    R1*4
-c'2^\tutti a4 f d'4. 8 4 4 c bes8 a g4 c f,8( e f g a g a bes
+c'4\(^\tutti 4\) a4 f d'4. 8 4 4 c bes8 a g4 c f,8( e f g a g a bes
 c g c2 b4) c2 r4 e,( f8 g f e d e f d e4 d8 c b c a b c2) f
 bes,8( a bes c bes4 g' a g8 f e f d e) f1
 g4\( f\) g\( a\) bes( a) f2 c'1 f,\fermata
@@ -678,7 +678,7 @@ de -- pre -- ca -- ti -- o -- nem
 de -- pre -- ca -- ti -- o -- nem
 de -- pre -- ca -- ti -- o -- nem no -- stram.
 
-Cum san -- cto Spi -- ri -- tu,
+Cu -- m san -- cto Spi -- ri -- tu,
 in glo -- ri -- a De -- i Pa -- tris.
 A -- men. A -- men. De -- i Pa -- tris.
 A -- men. A -- men.
