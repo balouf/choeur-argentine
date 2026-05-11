@@ -72,8 +72,13 @@ def run_lily(file, lily, dest):
                     pdfs.append({'name': 'Piano', 'suffix': '-piano'})
                 elif new_name.endswith('-full'):
                     pdfs.append({'name': 'Conducteur', 'suffix': '-full'})
+                elif new_name.endswith('-violon1'):
+                    pdfs.append({'name': 'Violon 1', 'suffix': '-violon1'})
+                elif new_name.endswith('-violon2'):
+                    pdfs.append({'name': 'Violon 2', 'suffix': '-violon2'})
                 else:
                     pdfs.append({'name': 'Choeurs', 'suffix': ''})
+    pdfs = sorted(pdfs, key=lambda pdf: pdf['name'])
     return title, stem, voix, pdfs
 
 

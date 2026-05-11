@@ -327,10 +327,34 @@ shortInstrumentName ="B.C."}
     \RemoveAllEmptyStaves
   }
 }
-<<
- \vioa
- \viob
  \piano
->>
+  }
+}
+
+
+\book {
+  \bookOutputSuffix "-violon2"
+  \score {
+        \layout {
+  \context {
+    \Staff
+    \RemoveAllEmptyStaves
+  }
+}
+ \viob
+  }
+}
+
+
+\book {
+  \bookOutputSuffix "-violon1"
+  \score {
+        \layout {
+  \context {
+    \Staff
+    \RemoveAllEmptyStaves
+  }
+}
+ \vioa
   }
 }
