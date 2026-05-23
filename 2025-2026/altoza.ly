@@ -498,12 +498,12 @@ bass = \new Staff \with {instrumentName="Bass"
    \score {
     \unfoldRepeats
     <<
-      \sola
-      \alta
-      \tena
-      \sop
-      \ten
-      \bass
+      \new Staff << \soprano_style \armure \relative c' {\sola_music} >>
+      \new Staff << \soprano_style \armure \relative c' {\alta_music} >>
+      \new Staff << \tenor_style   \armure \relative c' {\tena_music} >>
+      \new Staff << \soprano_style \armure \relative c' {\sop_music}  >>
+      \new Staff << \tenor_style   \armure \relative c' {\ten_music}  >>
+      \new Staff << \hommes_style  \armure \relative c  {\bass_music} >>
     >>
     \midi {}
   }
