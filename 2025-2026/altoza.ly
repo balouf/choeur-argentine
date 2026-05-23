@@ -25,7 +25,7 @@ armure = {
 \accidentalStyle modern-cautionary
 \compressEmptyMeasures
 \time 3/8
-\tempo 4. = 60
+\tempo 4. = 72
 \key c \major
 }
 
@@ -143,8 +143,13 @@ sop_music = {
   8 e4 d8 b c d4 8 e e e d d d
   d g g f d4 e4 8 fis8 8 8 8 g g
   g fis4 g4. r \bar "||"
-  % segno
+  \repeat segno 2 {
   r4. r r4 8~8 4 8 e f g4 8 a a a g g g g a a
+  g e4 fis4. r r r r4 d8
+  g g g f e e g4 a8 4. r8 d, b e d4 4.\fermata
+  \volta 2 \fine \break
+  \volta 1 {r r}
+  }
 }
 
 sop_lyrics = \lyricmode {
