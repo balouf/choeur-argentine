@@ -6,6 +6,48 @@
 % par la police spéciale "lilyjazzchord" ou les altérations sont définies par les caractères > = b et < = #
 %---------------------------------
 
+% Extra-macros
+trio = #(define-music-function (notes) (ly:music?)
+  #{
+    \tuplet 3/2 { #notes }
+  #})
+
+
+
+rythme = #(define-music-function (notes) (ly:music?)
+  #{
+    ^\markup { \rhythm { \improvisationOn #notes \improvisationOff } }
+  #}) 
+
+rythm = #(define-music-function (notes) (ly:music?)
+  #{
+    ^\markup {
+      \override #'(font-size . -3) % Taille plus petite
+      \column {
+        \score {
+          <<
+            \new RhythmicStaff {
+              \new Voice = "rythm" { #notes }
+            }
+          >>
+          \layout {
+            \context {
+              \RhythmicStaff
+              \remove Time_signature_engraver
+              \remove Staff_symbol_engraver % Supprime la ligne de portée
+              \remove Bar_engraver % Supprime les barres de mesure
+               \override Stem.length = #5 % Ajuster la longueur des hampes
+              \override Flag.stroke-style = #"grace" % Style des croches
+              \override Beam.positions = #'(3 . 3) % Position du faisceau
+              \override NoteHead.style = #'cross % Par défaut, notes en croix
+            }
+          }
+        }
+      }
+    }
+  #})
+
+
 % modification de la procedure "chordRootNamer"
 %---- définition des altérations dans les accords -------
 #(define (chordNamer pitch majmin)	;majmin is un argument nécessaire à "chordNamer" mais inutile ici

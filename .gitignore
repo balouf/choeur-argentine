@@ -110,3 +110,6 @@ ENV/
 
 # Claude Code working notes (regenerated per checkup, not for git)
 CLAUDE.md
+
+# Partitions sources en cours de transcription (sous droits, hors dépôt)
+sandbox/

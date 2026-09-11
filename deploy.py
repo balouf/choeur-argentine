@@ -2,6 +2,7 @@ import argparse
 import subprocess
 import re
 import os
+import tomllib
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm.auto import tqdm
@@ -10,17 +11,56 @@ import json
 import shutil
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument("-l", "--lilypond", default="lilypond", help="path to Lilypond executable")
-parser.add_argument("-d", "--dest", default="build", help="destination folder")
-parser.add_argument("-s", "--source", default="lilypond", help="source folder")
-args = parser.parse_args()
-lily = args.lilypond
-dest = args.dest
-source = args.source
+def parse_args(argv=None):
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-l", "--lilypond", default="lilypond", help="path to Lilypond executable")
+    parser.add_argument("-d", "--dest", default="build", help="destination folder")
+    parser.add_argument("-s", "--source", default=None,
+                        help="build every .ly of that folder, ignoring the manifest")
+    parser.add_argument("-m", "--manifeste", default="saisons.toml",
+                        help="season manifest (used unless --source is given)")
+    parser.add_argument("--saison", default=None,
+                        help="season to build; defaults to the manifest's `actif` key")
+    return parser.parse_args(argv)
+
+
 rtitle = re.compile(r'\Wtitle\s*=.*?"(.*)"')
 stitle = re.compile(r'\Wsubtitle\s*=.*?"(.*)"')
 instrus = re.compile(r'\WinstrumentName\s*=\s*"(.*)"')
+
+SOURCES = Path("lilypond")
+
+
+def lire_manifeste(manifeste="saisons.toml"):
+    """Parse the season manifest and return (active season name, seasons dict)."""
+    with open(manifeste, "rb") as f:
+        data = tomllib.load(f)
+    saisons = data.get("saisons", {})
+    if not saisons:
+        raise ValueError(f"{manifeste}: aucune saison déclarée")
+    actif = data.get("actif")
+    if actif is None:
+        raise ValueError(f"{manifeste}: clé `actif` manquante")
+    if actif not in saisons:
+        raise ValueError(f"{manifeste}: saison active `{actif}` non déclarée")
+    return actif, saisons
+
+
+def pieces_de_saison(manifeste="saisons.toml", saison=None, sources=SOURCES):
+    """Resolve the pieces of a season into existing .ly paths under `sources`."""
+    actif, saisons = lire_manifeste(manifeste)
+    saison = saison or actif
+    if saison not in saisons:
+        connues = ", ".join(sorted(saisons))
+        raise ValueError(f"saison inconnue `{saison}` (connues : {connues})")
+    files = [Path(sources) / f"{nom}.ly" for nom in saisons[saison]["pieces"]]
+    manquants = [str(f) for f in files if not f.is_file()]
+    if manquants:
+        raise FileNotFoundError(
+            f"saison `{saison}` : fichiers déclarés mais absents : {', '.join(manquants)}"
+        )
+    return files
+
 
 def run(cmd):
     result = subprocess.run(
@@ -82,9 +122,7 @@ def run_lily(file, lily, dest):
     return title, stem, voix, pdfs
 
 
-def run_everything(lily, source, dest):
-    input_files = [file for file in Path(source).glob('*.ly')]
-
+def run_everything(lily, input_files, dest):
     dest = Path(dest)
     # Use os.walk for Python 3.10+ compatibility (Path.walk is 3.12+)
     if dest.exists():
@@ -137,4 +175,12 @@ def run_everything(lily, source, dest):
 
 
 if __name__ == '__main__':
-    run_everything(lily, source, dest)
+    args = parse_args()
+    if args.source is not None:
+        input_files = sorted(Path(args.source).glob('*.ly'))
+        print(f"{len(input_files)} pièce(s) depuis {args.source}/")
+    else:
+        input_files = pieces_de_saison(args.manifeste, args.saison)
+        saison = args.saison or lire_manifeste(args.manifeste)[0]
+        print(f"{len(input_files)} pièce(s) de la saison {saison}")
+    run_everything(args.lilypond, input_files, args.dest)

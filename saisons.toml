@@ -1,0 +1,35 @@
+# Programmes par saison.
+#
+# Toutes les sources vivent dans lilypond/ ; ce fichier dit lesquelles sont au
+# programme de quelle saison. Une pièce reprise d'une année sur l'autre se cite
+# dans les deux saisons, elle ne se recopie pas.
+#
+# Chaque nom correspond à lilypond/<nom>.ly. Le fonds de répertoire non cité ici
+# (misa-*, navidad-*, paloma, lunes…) reste disponible sans être construit.
+#
+# `actif` désigne la saison que `python deploy.py` construit et que la CI publie.
+
+actif = "2025-2026"
+
+[saisons."2026-2027"]
+# Rentrée en préparation : folklore argentin du XXe siècle.
+# Slugs prévus, à décommenter au fur et à mesure que les .ly sont écrits :
+#   caminito, balderrama, jangadero, candombe, cuando-tenga-la-tierra
+pieces = []
+
+[saisons."2025-2026"]
+# Baroque et Renaissance d'Amérique latine.
+pieces = [
+    "a_este_sol_peregrino",
+    "altoza",
+    "burrito",
+    "coflades",
+    "convidando",
+    "eso_rigo",
+    "hanacpachap",
+    "xicochi",
+    "zipoli-1-kyrie",
+    "zipoli-2-gloria",
+    "zipoli-3-credo",
+    "zipoli-4-sanctus",
+]

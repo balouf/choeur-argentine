@@ -53,7 +53,7 @@ jobs:
         run: uv pip install --system ffmpeg-normalize
 
       - name: Compile files
-        run: python deploy.py -s "2025-2026"
+        run: python deploy.py
 
       - name: Setup Pages
         if: github.ref == 'refs/heads/main'
