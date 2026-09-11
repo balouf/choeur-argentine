@@ -37,17 +37,12 @@ jobs:
         with:
           lilypond-version: 2.24
 
-      - name: Set up FFmpeg
-        uses: FedericoCarboni/setup-ffmpeg@v3
-        id: setup-ffmpeg
-        with:
-          ffmpeg-version: release
-
-      - name: Install timidity (cached)
-        uses: awalsh128/cache-apt-pkgs-action@latest
-        with:
-          packages: timidity
-          version: 1.0
+      - name: Set up FFmpeg & Timidity
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          sudo apt update
+          sudo apt install -y timidity
 
       - name: Install ffmpeg-normalize
         run: uv pip install --system ffmpeg-normalize

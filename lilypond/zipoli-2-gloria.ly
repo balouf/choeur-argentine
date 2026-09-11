@@ -492,7 +492,7 @@ R1*4
 c'2^\tutti a4 f d'4. 8 4 4 c bes8 a g4 c f,8( e f g a g a bes
 c g c2 b4) c2 r4 e( f8 g f e d e f d e4 d8 c b c a b c2) f,
 bes8( a bes c bes4 g a g8 f e f d e) f1
-g4\( f\) g\( a\) bes( a) f2 c'1 f,\fermata
+g4\( f\) g\( a\) bes( g) f2 c'1 f,\fermata
 \fine
 }
 
@@ -640,7 +640,7 @@ R1*3 f'4-- e-- f---> c--
 c'4\(^\tutti 4\) a4 f d'4. 8 4 4 c bes8 a g4 c f,8( e f g a g a bes
 c g c2 b4) c2 r4 e,( f8 g f e d e f d e4 d8 c b c a b c2) f
 bes,8( a bes c bes4 g' a g8 f e f d e) f1
-g4\( f\) g\( a\) bes( a) f2 c'1 f,\fermata
+g4\( f\) g\( a\) bes( g) f2 c'1 f,\fermata
 \fine
 }
 

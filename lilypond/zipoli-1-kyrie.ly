@@ -294,8 +294,8 @@ R1*4 c'2 a4 c bes8( c a) bes g4. 8
 a4 f c'2 f4( e) d4. 8 c2 r4
 e d8( e) c d b4. 8 c2 r4
 a d c bes8( d c bes a bes a) g f2 r1
-f2 d4 f es8( f es) d c4. 8 bes8 8 d4
-c'8( d bes c a4.) 8 bes4 4 4. 8 f2 r1 r1 r4
+f'2 d4 f es8( f es) d c4. 8 bes8 8 d4
+c8( d bes c a4.) 8 bes4 4 4. 8 f2 r1 r1 r4
 c' d f e8( f d e f4 e d8 e c d e f e) d
 c2 f4 a, bes2 c4. 8 f,2. \breathe f4 bes f 
 bes,8( c d e f2 bes4 a) bes2. \breathe 4 f1
