@@ -1,4 +1,23 @@
 
+% Deux voix indépendantes sur une même portée : pupitre divisé, polyrythmie.
+%
+%   \duo { <bes' d>4 4 <g c>2 } { f2. e4 }
+%
+% développe exactement l'écriture manuelle
+%
+%   <<{\voiceOne <bes' d>4 4 <g c>2 } \new Voice {\voiceTwo f2. e4 }>> \oneVoice
+%
+% — gravure identique au pixel près et MIDI identique à l'octet, y compris à
+% l'intérieur d'un \relative, où les deux voix partent de la même note de
+% référence et la suite reprend celle de la voix du haut. La voix du bas
+% accepte les silences invisibles (s1*2) pour sauter les mesures qu'elle ne
+% chante pas.
+duo =
+#(define-music-function (haut bas) (ly:music? ly:music?)
+   #{
+     << { \voiceOne #haut } \new Voice { \voiceTwo #bas } >> \oneVoice
+   #})
+
 emph = {
   \override Lyrics.LyricText.font-shape = #'italic
   % \override Lyrics.LyricText.font-series = #'bold
