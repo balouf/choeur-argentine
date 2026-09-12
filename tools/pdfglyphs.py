@@ -25,6 +25,7 @@ Un cercle sur un silence ou une tête sans cercle se voient d'un coup d'œil.
 
 import argparse
 import json
+import re
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -53,6 +54,7 @@ LEGACY = {          # Maestro (Finale), Opus (Sibelius), sous-polices Ghostscrip
     0x62: "bemol",
     0x6E: "becarre",
     0x2E: "point",
+    0x2122: "point",    # point d'augmentation, dans la police d'ornements
     0x26: "cle_sol",
     0x56: "cle_sol8",   # clé de sol octaviée : un glyphe à part, pas sol + « 8 »
     0x3F: "cle_fa",
@@ -180,6 +182,13 @@ def codes_police(page, motif=None):
     return Counter((c["fontname"], ord(c["text"])) for c in chars)
 
 
+def taille_dominante(page, fontes):
+    """Corps auquel sont gravés les glyphes de ces polices."""
+    tailles = Counter(round(c["size"], 1) for c in page.chars
+                      if c["fontname"] in fontes)
+    return tailles.most_common(1)[0][0] if tailles else None
+
+
 def polices_musicales(page, part_minimale=0.5):
     """Toutes les polices musicales de la page, chacune avec sa disposition.
 
@@ -188,32 +197,57 @@ def polices_musicales(page, part_minimale=0.5):
     deuxième et une blanche isolée dans un troisième. Ne décoder que la police
     majoritaire perdait silencieusement ces glyphes-là — et une pause perdue
     fausse la somme d'une mesure entière.
+
+    L'admission se fait en deux tours. Le premier retient les polices qui
+    portent la musique elle-même, le second les polices d'ornements, qui
+    n'ont ni tête ni clé ni silence à exhiber et ne se reconnaissent qu'au
+    corps auquel elles sont gravées.
     """
     par_fonte = defaultdict(Counter)
     for c in page.chars:
         par_fonte[c["fontname"]][ord(c["text"])] += 1
-    tables = {}
-    for fonte, codes in par_fonte.items():
+
+    def bilan(codes):
         total = sum(codes.values())
         symbolique = sum(n for k, n in codes.items() if k >= 0xF000) > total / 2
-        table = SYMBOLIQUE if symbolique else LEGACY
         vus = [(decoder(k), n) for k, n in codes.items()]
         connus = sum(n for sym, n in vus if sym)
         signature = any(sym in DISCRIMINANTS for sym, _ in vus)
+        return total, symbolique, connus, signature
+
+    tables = {}
+    for fonte, codes in par_fonte.items():
+        total, symbolique, connus, signature = bilan(codes)
         # L'encodage symbolique tranche à lui seul : aucune police de texte
-        # n'encode ses lettres en 0xF000+. Les polices d'ornements (braces,
-        # points d'augmentation, « 8 » des clés octaviées) sont de celles-là,
-        # et un critère de couverture les rejetterait, faute d'avoir la
-        # plupart de leurs signes dans la table — c'est ainsi que les points
-        # des blanches pointées du jangadero étaient perdus, rendant un tiers
-        # de ses mesures insolubles.
+        # n'encode ses lettres en 0xF000+.
         #
         # Pour les polices encodées en ASCII, il faut les deux conditions :
         # une police de paroles décode ses « b », « n » et « . » en bémol,
         # bécarre et point, donc elle a des symboles connus, mais ils restent
         # minoritaires parmi ses lettres et elle n'a aucune signature.
         if symbolique or (signature and connus > part_minimale * total):
-            tables[fonte] = table
+            tables[fonte] = SYMBOLIQUE if symbolique else LEGACY
+
+    # Second tour. Une police d'ornements — points d'augmentation, accolades,
+    # points d'orgue, le « 8 » des clés octaviées — n'a ni tête, ni clé, ni
+    # silence à exhiber, et une part de glyphes connus trop faible pour un
+    # critère de couverture : sur une page de Caminito, six points sur treize
+    # glyphes. Ce qui la sépare d'une police de paroles est le corps. L'écart
+    # est une constante de gravure et non un hasard du corpus : les paroles
+    # sont réglées à peu près à la moitié des glyphes musicaux, et aucune
+    # police de texte des quatre partitions n'approche la taille de la
+    # musique à 10 % près. Sans ce tour, les points de Caminito, que son
+    # OpusSpecialStd code en 0x2122, étaient perdus, et une noire pointée sur
+    # deux devenait une noire.
+    taille = taille_dominante(page, tables)
+    if taille:
+        for fonte, codes in par_fonte.items():
+            if fonte in tables:
+                continue
+            corps = taille_dominante(page, {fonte})
+            if abs(corps - taille) < 0.1 * taille:
+                _, symbolique, _, _ = bilan(codes)
+                tables[fonte] = SYMBOLIQUE if symbolique else LEGACY
     return tables
 
 
@@ -381,8 +415,14 @@ def hampes(page, haut, bas, interligne, tol=1.0):
     Ghostscript en empile une dizaine de filets décalés d'un dixième de point,
     qu'il faut refondre — sinon une hampe compte pour dix.
     """
+    # Le plancher de longueur doit rester bien sous la hampe canonique de trois
+    # interlignes et demi : une hampe se raccourcit quand sa note s'éloigne de
+    # la portée, et la plus courte du corpus, celle d'une blanche posée
+    # au-dessus de la cinquième ligne dans Caminito, ne fait qu'un interligne
+    # et trois quarts. Calé à deux, il la perdait, et sa blanche devenait une
+    # ronde faute de hampe.
     bruts = [o for o in list(page.lines) + list(page.rects)
-             if o["width"] <= 2.0 and o["height"] >= 2 * interligne
+             if o["width"] <= 2.0 and o["height"] >= 1.5 * interligne
              and haut - 6 * interligne < (o["top"] + o["bottom"]) / 2 < bas + 6 * interligne]
     sortie = []
     for groupe in fusionner(bruts, lambda o: (o["x0"] + o["x1"]) / 2, tol):
@@ -414,7 +454,7 @@ def meme_portee_horizontale(objets, tol):
     return groupes
 
 
-def ligatures(page, haut, bas, interligne):
+def ligatures(page, haut, bas, interligne, hampes_portee=()):
     """Barres de ligature : (x0, x1, y).
 
     Une ligature est une surface pleine, large et basse. Selon le graveur c'est
@@ -464,16 +504,31 @@ def ligatures(page, haut, bas, interligne):
             # penchées du candombe.
             if 0.18 * interligne < y1 - y0 < 1.6 * interligne:
                 sortie.append((x0, x1, (y0 + y1) / 2))
-    return sortie
+    if not hampes_portee:
+        return sortie
+    # Une ligature s'appuie sur des hampes : elle part de l'une et s'arrête
+    # sur une autre, ou, fractionnaire, déborde d'un seul côté. Une liaison
+    # de phrasé, elle, ne s'appuie sur rien — et c'est le seul critère qui
+    # l'écarte, car pdfplumber aplatit son arc sur ses deux extrémités et en
+    # rend une boîte englobante large, plate et inclinée : une ligature, au
+    # pixel près. Sur Caminito, où les phrasés sont longs, elles ajoutaient
+    # un crochet à des noires isolées.
+    xs = [h[0] for h in hampes_portee]
+    marge = 0.15 * interligne
+    return [(x0, x1, y) for (x0, x1, y) in sortie
+            if any(abs(x - x0) < marge or abs(x - x1) < marge for x in xs)]
 
 
-def crochets_de(tete, y_tete, hampes_portee, ligatures_portee, interligne,
-                crochets_portee=()):
-    """Nombre de crochets d'une note : 0 noire, 1 croche, 2 double, etc.
+def hampes_candidates(tete, y_tete, hampes_portee, interligne):
+    """Hampes accolées à une tête, de la plus vraisemblable à la moins.
 
-    La hampe est accolée au bord de la tête ; les ligatures qui la croisent se
-    comptent à son extrémité libre, celle qui s'éloigne de la tête. Le compte
-    donne la durée directement, sans avoir à la deviner.
+    La hampe d'une note est celle qui lui est accolée, donc la plus proche —
+    et non la plus longue. Une note posée juste avant une barre de mesure voit
+    la barre passer le filtre de proximité, et la barre, qui couvre toute la
+    portée, est toujours plus longue qu'une hampe : c'est elle qui était
+    retenue, et les ligatures se comptaient alors à son abscisse. À égalité de
+    distance on garde la plus longue, pour préférer une hampe entière à un
+    fragment que la fusion aurait laissé de côté.
     """
     def ecart(h):
         return min(abs(h[0] - tete["x0"]), abs(h[0] - tete["x1"]))
@@ -481,19 +536,33 @@ def crochets_de(tete, y_tete, hampes_portee, ligatures_portee, interligne,
     candidates = [h for h in hampes_portee
                   if ecart(h) < 0.6 * interligne
                   and h[1] - interligne <= y_tete <= h[2] + interligne]
-    if not candidates:
-        return 0, None
-    # La hampe d'une note est celle qui lui est accolée, donc la plus proche —
-    # et non la plus longue. Une note posée juste avant une barre de mesure
-    # voit la barre passer le filtre de proximité, et la barre, qui couvre
-    # toute la portée, est toujours plus longue qu'une hampe : c'est elle qui
-    # était retenue, et les ligatures se comptaient alors à son abscisse. À
-    # égalité de distance on garde la plus longue, pour préférer une hampe
-    # entière à un fragment que la fusion aurait laissé de côté.
-    hampe = min(candidates, key=lambda h: (round(ecart(h), 1), -(h[2] - h[1])))
+    return sorted(candidates, key=lambda h: (round(ecart(h), 1), -(h[2] - h[1])))
+
+
+def sens_de(hampe, ys):
+    """Sens d'une hampe, d'après les têtes qu'elle porte.
+
+    Le sens se décide par hampe et non par tête : dans un accord étalé, la
+    tête la plus éloignée de la tête d'attache est plus près du bout libre que
+    de l'autre bout, et une décision prise tête par tête retournait le sens
+    pour elle seule. Or les têtes d'un accord partagent une hampe, donc un
+    sens — et c'est précisément ce qui distingue un accord de deux voix
+    superposées, qui ont chacune la leur.
+    """
+    _, y0, y1 = hampe
+    return "haut" if (min(ys) - y0) > (y1 - max(ys)) else "bas"
+
+
+def crochets_de(hampe, sens, y_attache, ligatures_portee, interligne,
+                crochets_portee=()):
+    """Nombre de crochets d'une hampe : 0 noire, 1 croche, 2 double, etc.
+
+    Les ligatures qui croisent la hampe se comptent à son extrémité libre,
+    celle qui s'éloigne des têtes. Le compte donne la durée directement, sans
+    avoir à la deviner.
+    """
     x, y0, y1 = hampe
-    vers_le_haut = abs(y0 - y_tete) > abs(y1 - y_tete)
-    bout = y0 if vers_le_haut else y1
+    bout = y0 if sens == "haut" else y1
     n = 0
     for (bx0, bx1, by) in ligatures_portee:
         # La marge doit rester bien plus étroite qu'un espacement de notes :
@@ -501,8 +570,9 @@ def crochets_de(tete, y_tete, hampes_portee, ligatures_portee, interligne,
         # une note du groupe — s'arrête entre deux hampes, et une marge large
         # la fait déborder sur la voisine, qu'elle raccourcit de moitié.
         if bx0 - 0.15 * interligne <= x <= bx1 + 0.15 * interligne:
-            # à l'extrémité libre, et pas du côté de la tête
-            if abs(by - bout) <= 2.6 * interligne and abs(by - y_tete) > 1.6 * interligne:
+            # à l'extrémité libre, et pas du côté des têtes
+            if (abs(by - bout) <= 2.6 * interligne
+                    and abs(by - y_attache) > 1.6 * interligne):
                 n += 1
     # Une note isolée porte un crochet dessiné, pas une ligature : même rôle,
     # même compte. Les deux ne coexistent pas sur une même hampe.
@@ -510,7 +580,7 @@ def crochets_de(tete, y_tete, hampes_portee, ligatures_portee, interligne,
         for (cx, cy) in crochets_portee:
             if abs(cx - x) < 1.6 * interligne and abs(cy - bout) <= 2.6 * interligne:
                 n += 1
-    return n, ("haut" if vers_le_haut else "bas")
+    return n
 
 
 def attribuer_points(page, points, porteurs, interligne, demi):
@@ -679,6 +749,71 @@ def codes_suspects(page, seuil_occurrences=5, seuil_hauteurs=4):
     )
 
 
+TIRETS = "-‐‑‒–—"
+
+
+def paroles_de(page, bas, plancher, tables, ecart=0.6):
+    """Syllabes chantées sous une portée, avec leur abscisse.
+
+    Elles sont dans le PDF, posées chacune sous sa note : la couche texte les
+    donne exactement, là où `pdftotext` rend une suite de mots sans position
+    et l'OCR les redevine.
+
+    Le trait d'union de césure y est aussi, tantôt collé à sa syllabe
+    (« Bal-de »), tantôt isolé entre deux — c'est l'espacement de la gravure
+    qui en décide, pas le texte. On le retire du mot et on le garde comme
+    liaison : `lie` dit que la syllabe se rattache à la suivante, ce qui
+    donne le `--` de LilyPond. Toutes les partitions n'en mettent pas ;
+    Balderrama en a dans ses couplets et pas dans ses « Tra la la ».
+
+    Les couplets superposés se séparent par leur ligne de base ; on rend une
+    liste de lignes, chacune dans l'ordre de lecture.
+    """
+    sous = [c for c in page.chars
+            if c["fontname"] not in tables and bas < c["top"] < plancher
+            and c["text"].strip()]
+    lignes = []
+    for groupe in fusionner(sous, lambda c: c["top"], 3.0):
+        jetons, mot, debut, fin = [], "", None, None
+        for c in sorted(groupe, key=lambda c: c["x0"]):
+            if mot and c["x0"] - fin > ecart:
+                jetons.append((debut, mot))
+                mot = ""
+            if not mot:
+                debut = c["x0"]
+            mot += c["text"]
+            fin = c["x1"]
+        if mot:
+            jetons.append((debut, mot))
+        lignes.append(syllabes(jetons))
+    return [l for l in lignes if l]
+
+
+def syllabes(jetons):
+    """Découpe les jetons en syllabes liées ou non par la césure."""
+    sortie = []
+    lier_la_suivante = False
+    for x, mot in jetons:
+        if all(c in TIRETS for c in mot):        # tiret isolé entre deux syllabes
+            if sortie:
+                sortie[-1]["lie"] = True
+            lier_la_suivante = False
+            continue
+        morceaux = [m for m in re.split("[" + TIRETS + "]", mot) if m]
+        if not morceaux:
+            continue
+        # le tiret peut pendre d'un côté comme de l'autre : « Bal-de » lie ce
+        # qui suit, « -mos » ce qui précède, et les deux se rencontrent dans
+        # la même partition
+        if (lier_la_suivante or mot[0] in TIRETS) and sortie:
+            sortie[-1]["lie"] = True
+        lier_la_suivante = mot[-1] in TIRETS
+        for i, m in enumerate(morceaux):
+            sortie.append({"x": round(x, 2), "texte": m,
+                           "lie": i < len(morceaux) - 1})
+    return sortie
+
+
 def lire_page(page, numero):
     staves = portees(page)
     if not staves:
@@ -731,7 +866,7 @@ def lire_page(page, numero):
             return compte.get(id(c), 0)
 
         hampes_p = hampes(page, haut, bas, interligne)
-        ligatures_p = ligatures(page, haut, bas, interligne)
+        ligatures_p = ligatures(page, haut, bas, interligne, hampes_p)
         crochets_p = [((c["x0"] + c["x1"]) / 2, y_baseline(page, c)) for c in bande
                       if symbole(c, table) == "crochet"]
 
@@ -747,8 +882,6 @@ def lire_page(page, numero):
                     alt = ALTERATIONS[symbole(a, table)]
             if alt is None:
                 alt = armure.get(step % 7, 0)
-            crochets, sens = crochets_de(c, y, hampes_p, ligatures_p, interligne,
-                                         crochets_p)
             notes.append({
                 "x": round(c["x0"], 2),
                 "y": round(y, 2),
@@ -756,9 +889,50 @@ def lire_page(page, numero):
                 "nom": nom(step, alt),
                 "tete": symbole(c, table),
                 "points": points_de(c, y),
-                "crochets": crochets,
-                "hampe": sens,
+                "crochets": 0,
+                "hampe": None,
+                "hampe_x": None,
+                "_candidates": hampes_candidates(c, y, hampes_p, interligne),
             })
+
+        # Une hampe ne porte jamais deux têtes de même hauteur : un accord n'a
+        # pas deux fois la même note. Deux têtes superposées à l'identique sont
+        # deux voix à l'unisson, et chacune a la sienne — la seconde, plus
+        # éloignée, serait sans cela attribuée à la hampe de la première, et
+        # la voix du haut perdrait sa note.
+        prises = set()
+        for n in notes:
+            for h in n["_candidates"]:
+                if (h, round(n["y"], 1)) in prises:
+                    continue
+                prises.add((h, round(n["y"], 1)))
+                n["_hampe"] = h
+                break
+            else:
+                # faute de hampe libre, on partage : mieux vaut une tête
+                # rattachée à la hampe de sa voisine qu'une tête sans durée
+                n["_hampe"] = n["_candidates"][0] if n["_candidates"] else None
+
+        # Sens et crochets se décident par hampe, une fois connues toutes les
+        # têtes qu'elle porte. C'est aussi ce qui sépare un accord — plusieurs
+        # têtes sur une hampe — de deux voix superposées, qui en ont chacune
+        # une : `hampe_x` les distingue là où l'abscisse seule les confond.
+        par_hampe = defaultdict(list)
+        for n in notes:
+            if n["_hampe"]:
+                par_hampe[n["_hampe"]].append(n)
+        for h, groupe in par_hampe.items():
+            sens = sens_de(h, [n["y"] for n in groupe])
+            attache = max(n["y"] for n in groupe) if sens == "haut"                 else min(n["y"] for n in groupe)
+            crochets = crochets_de(h, sens, attache, ligatures_p, interligne,
+                                   crochets_p)
+            for n in groupe:
+                n["hampe"] = sens
+                n["hampe_x"] = round(h[0], 2)
+                n["crochets"] = crochets
+        for n in notes:
+            del n["_hampe"]
+            del n["_candidates"]
 
         silences = []
         for c in bande:
@@ -778,6 +952,11 @@ def lire_page(page, numero):
             })
         silences.sort(key=lambda s: s["x"])
 
+        # Les paroles vivent entre cette portée et la suivante ; sans borne
+        # basse on ramasserait celles du pupitre d'en dessous.
+        plancher = staves[idx + 1][0] if idx + 1 < len(staves) else page.height
+        paroles = paroles_de(page, bas + 0.5 * interligne, plancher, table)
+
         premiers = [e["x"] for e in notes + silences]
         chiffrage = chiffrage_de(page, bande, bas, demi,
                                  min(premiers) if premiers else bande[-1]["x1"],
@@ -795,6 +974,7 @@ def lire_page(page, numero):
             "chiffrage": chiffrage,
             "notes": notes,
             "silences": silences,
+            "paroles": paroles,
             "_tetes": têtes,
         })
 

@@ -13,9 +13,11 @@ actif = "2025-2026"
 
 [saisons."2026-2027"]
 # Rentrée en préparation : folklore argentin du XXe siècle.
-# Slugs prévus, à décommenter au fur et à mesure que les .ly sont écrits :
-#   caminito, balderrama, jangadero, candombe, cuando-tenga-la-tierra
-pieces = []
+# Slugs prévus, à ajouter au fur et à mesure que les .ly sont écrits :
+#   caminito, jangadero, candombe, cuando-tenga-la-tierra
+pieces = [
+    "balderrama",
+]
 
 [saisons."2025-2026"]
 # Baroque et Renaissance d'Amérique latine.

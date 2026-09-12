@@ -9,6 +9,7 @@ uv run tools/pdfglyphs.py partition.pdf -o notes.json     # extraction
 uv run tools/pdfglyphs.py partition.pdf --pages 1 --overlay v.png   # vérification
 uv run tools/pdfglyphs.py partition.pdf --codes           # relever un encodage
 python tools/durees.py notes.json [--detail --page 1]     # durées
+python tools/verslily.py notes.json -o lilypond/x.ly ...  # génération
 python tools/pitchdiff.py notes.json partition.mxl        # confrontation à l'OMR
 ```
 
@@ -26,41 +27,53 @@ source principale.
 Seul le manuscrit (`Cuando tenga la tierra`) échappe à cette voie : il se saisit
 à la main.
 
-## Deux contrôles indépendants
+## Quatre contrôles indépendants
 
-La somme de la mesure vérifie les durées **à l'intérieur** d'une mesure : si le
-chiffrage ne tombe pas juste, un signe a été mal lu. Elle ne dit rien d'une
-mesure entièrement perdue, puisqu'il ne reste alors rien à sommer.
+**La somme de la mesure** vérifie les durées *à l'intérieur* d'une mesure : si le
+chiffrage ne tombe pas juste, un signe a été mal lu.
 
-C'est le second contrôle qui l'attrape : un système est barré d'un seul tenant,
-donc toutes ses voix y ont le même nombre de mesures. Une voix qui en compte une
-de moins a perdu tout le contenu d'une mesure. `durees.py` rend les deux.
+**La concordance des voix** attrape ce que la somme ne peut pas voir — une mesure
+entièrement perdue, dont il ne reste rien à sommer. Un système est barré d'un
+seul tenant, donc toutes ses voix y ont le même nombre de mesures. C'est ce
+contrôle qui a trouvé les rondes du candombe, dont le glyphe manquait à la
+table : deux mesures de ténor vides, et aucune alarme ailleurs.
 
-Les deux ensemble valent mieux que chacun : les rondes du candombe, dont le
-glyphe manquait à la table, ne faisaient sonner aucune alarme de somme — elles
-laissaient deux mesures de ténor vides, que seule la concordance a signalées.
+**Le partage en deux voix** rend son sens à la somme sur une portée divisée, qui
+totalise autant de fois la mesure qu'elle porte de voix. Le sens des hampes le
+propose — les têtes d'une même voix partagent leur orientation — mais ne prouve
+rien : une portée monodique retourne aussi ses hampes autour de la ligne
+médiane. Le partage n'est donc tenté que si la mesure déborde, et retenu que
+s'il tombe juste **des deux côtés**. Il est alors vérifié, pas présumé, et c'est
+lui qui donne les `\duo` à la génération.
 
-Réserve : la somme ne vaut que sur une portée **monodique**. Une portée divisée
-totalise autant de fois la mesure qu'elle porte de voix, et son verdict
-« somme fausse » ne veut rien dire tant que les voix ne sont pas séparées.
+**L'aller-retour par le MIDI** vérifie la génération et non plus la lecture :
+le `.mid` que LilyPond produit doit redonner, piste par piste et note par note,
+la suite de hauteurs extraite du PDF. Sur Balderrama, 689 notes identiques. Ce
+contrôle-là est exhaustif et gratuit, là où relire la gravure ne l'est ni l'un
+ni l'autre.
 
 ## État au 12 septembre 2026
 
-| Partition | Notes | Mesures | Lues | Résolues |
-|---|---|---|---|---|
-| Leguizamón, *Balderrama* | 689 | 188 | 100 % | **100 %** |
-| Dávalos, *Canción del jangadero* | 575 | 256 | 99,2 % | 99,2 % |
-| *Candombe del seis de enero* | 1052 | 148 | 94,6 % | **100 %** |
-| Atahualpa, *Caminito del indio* | 1200 | 330 | 64,8 % | 87,5 % |
+Le tableau ne compte que les mesures **lues et vérifiées** : les durées viennent
+du dessin, et l'un des contrôles les confirme. Les verdicts du solveur par
+somme — « unique par somme », « par espacement » — n'y figurent pas : ce sont
+des mesures où la lecture s'est contredite et où le solveur a reconstruit autre
+chose, donc des mesures à relire.
+
+| Partition | Notes | Mesures | Vérifiées |
+|---|---|---|---|
+| Leguizamón, *Balderrama* | 689 | 188 | **188 (100 %)** |
+| *Candombe del seis de enero* | 1052 | 148 | **148 (100 %)** |
+| Dávalos, *Canción del jangadero* | 575 | 256 | 254 (99,2 %) |
+| Atahualpa, *Caminito del indio* | 1200 | 330 | 313 (94,8 %) |
+
+Caminito se lit à deux vitesses : ses quatre voix chorales sont à **220/220**, son
+piano à 93/110. Les deux mesures du jangadero qui résistent sont à **trois** voix,
+que le partage ne sait pas encore faire.
 
 Concordance des voix : les quatre partitions donnent le même découpage en
 mesures dans toutes leurs voix, système par système — et pour le candombe comme
 pour le jangadero, exactement celui relevé à l'œil sur le papier.
-
-Les deux mesures restantes du jangadero et les 41 de Caminito ne sont pas des
-erreurs de lecture mais des **portées divisées** : trois voix à la fin du
-jangadero, et tout le piano de Caminito (les quatre voix chorales y sont à
-217/220). Elles se résoudront avec la séparation par le sens des hampes.
 
 Hauteurs vérifiées : overlay (un cercle par tête, rien d'autre) et recoupement
 avec des repères donnés par l'oreille humaine sur le candombe — sept sur sept.
@@ -128,6 +141,26 @@ Les commentaires du code portent le détail ; voici la liste de rappel.
 - **Une barre de mesure ne passe jamais par une tête de note ; une hampe y est
   toujours accolée.** C'est le seul critère qui sépare les deux, la contrainte
   de hauteur laissant passer la hampe d'une note posée sur la ligne du bas.
+- **Une ligature s'appuie sur des hampes, une liaison de phrasé sur rien.**
+  C'est le seul critère qui les sépare : pdfplumber aplatit l'arc d'une liaison
+  sur ses deux extrémités et en rend une boîte large, plate et inclinée — une
+  ligature au pixel près. Sur Caminito, elles ajoutaient un crochet à des
+  noires isolées.
+- **Le sens d'une hampe se décide par hampe, pas par tête.** Dans un accord
+  étalé, la tête la plus éloignée de la tête d'attache est plus près du bout
+  libre que de l'autre bout, et le sens se retournait pour elle seule.
+- **Une hampe ne porte jamais deux têtes de même hauteur** : deux têtes
+  superposées à l'identique sont deux voix à l'unisson, et chacune a la sienne.
+- **Une hampe se raccourcit quand sa note s'éloigne de la portée** : la plus
+  courte du corpus ne fait qu'un interligne trois quarts, bien loin des trois
+  et demi canoniques. Un plancher à deux interlignes la perdait, et sa blanche
+  devenait une ronde faute de hampe.
+- **Une police d'ornements se reconnaît à son corps.** Elle n'a ni tête, ni
+  clé, ni silence à exhiber, et trop peu de glyphes connus pour un critère de
+  couverture ; mais elle est gravée à la taille de la musique, quand les
+  paroles le sont à la moitié. L'écart est une constante de gravure : aucune
+  police de texte des quatre partitions n'approche la taille de la musique à
+  10 % près.
 
 **Conventions d'écriture**
 
@@ -143,16 +176,29 @@ Les commentaires du code portent le détail ; voici la liste de rappel.
   octaviée ; `pitchdiff` aligne donc sur les noms de notes et classe l'octave à
   part.
 
+## Ce que la génération ne lit pas
+
+`verslily.py` écrit les hauteurs, les durées, l'armure, le chiffrage, les clés,
+les `\duo` des portées divisées et les paroles syllabe à syllabe. Il ne lit ni
+les liaisons (de tenue comme de phrasé), ni les barres de reprise et les doubles
+barres, ni les nuances, ni les repères. Ce sont des ajouts, pas des corrections :
+ils ne remettent pas en cause ce qui est écrit.
+
+Une conséquence à ne pas oublier : sans liaison de tenue, le MIDI réattaque une
+note liée par-dessus la barre. Et sans mélisme, une syllabe tenue sur plusieurs
+notes laisse des `_` là où la gravure tire un trait.
+
+Deux choses se décident à l'oreille et non sur le dessin : le **tempo**, que la
+partition ne porte pas toujours, et la **césure des paroles** là où le graveur
+n'a pas mis de trait d'union. Tout le reste se déduit — la tonalité comprise,
+que la finale de la basse tranche entre la majeure et sa relative mineure.
+
 ## Reste à faire
 
-1. Séparation des voix par le sens des hampes, pour les portées divisées
-   (piano de Caminito, fin du jangadero). C'est le seul verrou restant sur les
-   durées, et c'est de toute façon un préalable à la génération du `.ly` :
-   on n'écrit pas un `\duo` sans savoir quelle note va à quelle voix.
-2. Génération du `.ly` dans l'idiome du dépôt : variables `<voix>_music` /
-   `<voix>_lyrics`, `\relative`, `\addlyrics`, styles de `utils/macros.ly`,
-   macro `\duo` pour les portées à deux voix. Paroles reprises de la couche
-   texte via `pdftotext`, plus fiables que l'OCR.
-3. Liaisons (de tenue et de phrasé) : elles sont dans le vectoriel, elles ne
-   sont pas encore lues.
+1. Liaisons de tenue : elles changent le MIDI, et ce sont les seules qui
+   manquent vraiment. Elles sont dans le vectoriel, la détection des ligatures
+   les côtoie déjà pour les écarter.
+2. Trois voix sur une portée : la fin du jangadero, et quelques mesures du
+   piano de Caminito. Le partage actuel n'en sépare que deux.
+3. Générer les trois autres partitions, puis les relire.
 4. Saisie manuelle du manuscrit `Cuando tenga la tierra`.

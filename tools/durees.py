@@ -23,6 +23,7 @@ position — et pour signaler celles qui ne tombent pas juste.
 """
 
 import argparse
+import itertools
 import json
 import sys
 from collections import Counter, defaultdict
@@ -154,24 +155,101 @@ def decouper(evenements, barres, fin):
 
 
 def evenements_de(portee):
-    """Notes groupées en accords, et silences, dans l'ordre de lecture."""
-    par_x = {}
+    """Notes groupées en accords, et silences, dans l'ordre de lecture.
+
+    Le groupe est la hampe, pas l'abscisse : les têtes d'un accord partagent
+    une hampe, deux voix superposées en ont chacune une. Grouper par abscisse
+    confondait les secondes avec les premières — sur Caminito, cent quatre-
+    vingt-onze paires de têtes à la même abscisse portent des hampes de sens
+    opposés, et la plus longue des deux commandait la durée de l'autre.
+
+    Un silence gravé deux fois au même endroit n'est pas deux silences de la
+    même voix : c'est une mesure où deux voix se taisent ensemble. Il compte
+    donc pour un, et sa multiplicité est conservée — c'est elle qui dira, à la
+    séparation des voix, combien en réclament un exemplaire.
+    """
+    par_cle = {}
     for n in portee["notes"]:
-        cle = round(n["x"] / 2)
-        e = par_x.setdefault(cle, {"x": n["x"], "signe": n["tete"], "points": n["points"],
-                                   "crochets": n.get("crochets", 0),
-                                   "hampe": n.get("hampe"), "notes": []})
+        cle = (("h", n["hampe_x"]) if n.get("hampe_x") is not None
+               else ("x", round(n["x"] / 2)))
+        e = par_cle.setdefault(cle, {"x": n["x"], "signe": n["tete"],
+                                     "points": n["points"],
+                                     "crochets": n.get("crochets", 0),
+                                     "hampe": n.get("hampe"), "notes": []})
+        e["x"] = min(e["x"], n["x"])
         e["notes"].append(n["nom"])
         if n["tete"] in ("tete_blanche", "ronde"):   # dans un accord, la plus longue commande
             e["signe"] = n["tete"]
         e["points"] = max(e["points"], n["points"])
-        e["crochets"] = max(e["crochets"], n.get("crochets", 0))
-        e["hampe"] = e["hampe"] or n.get("hampe")
-    for s in portee.get("silences", []):
-        par_x[round(s["x"] / 2) + 100000] = {
-            "x": s["x"], "signe": s["silence"], "points": s["points"],
-            "crochets": 0, "hampe": None, "notes": []}
-    return sorted(par_x.values(), key=lambda e: e["x"])
+    for sil in portee.get("silences", []):
+        cle = ("r", round(sil["x"] / 2), round(sil["y"] / 2), sil["silence"])
+        if cle in par_cle:
+            par_cle[cle]["multiplicite"] += 1
+            continue
+        par_cle[cle] = {
+            "x": sil["x"], "signe": sil["silence"], "points": sil["points"],
+            "crochets": 0, "hampe": None, "notes": [], "multiplicite": 1,
+            "niveau": sil.get("niveau")}
+    return sorted(par_cle.values(), key=lambda e: e["x"])
+
+
+def separer_voix(mesure, longueur, plafond=12):
+    """Répartit une mesure entre deux voix d'après le sens des hampes.
+
+    Une portée divisée totalise autant de fois la mesure qu'elle porte de
+    voix : le contrôle par la somme n'y veut rien dire tant qu'on ne les a pas
+    séparées. Le sens des hampes le fait — les têtes d'une même voix partagent
+    leur orientation — mais il ne suffit pas : une portée monodique retourne
+    aussi ses hampes autour de la ligne médiane, et c'est banal. Deux garde-
+    fous : on n'essaie que si la mesure déborde, et on ne retient le partage
+    que s'il **tombe juste des deux côtés**. Il est alors vérifié, pas présumé.
+
+    Les silences n'ont pas de hampe pour les trahir. Un silence gravé deux fois
+    au même endroit appartient aux deux voix ; gravé une fois, il peut revenir
+    à l'une, à l'autre, ou encore aux deux. On essaie les trois, et on départage
+    par ce que le graveur montre : sa multiplicité, et sa position, un silence
+    étant haussé pour la voix du dessus et abaissé pour celle du dessous.
+
+    Rend (voix du haut, voix du bas, partage sûr), ou None.
+    """
+    lues = [duree_lue(e, longueur) for e in mesure]
+    if any(d is None for d in lues) or sum(lues, F(0)) <= longueur:
+        return None
+    duree = {id(e): d for e, d in zip(mesure, lues)}
+    haut = [e for e in mesure if e["hampe"] == "haut"]
+    bas = [e for e in mesure if e["hampe"] == "bas"]
+    libres = [e for e in mesure if not e["hampe"]]
+    if len(libres) > plafond:
+        return None
+    sh = sum(duree[id(e)] for e in haut)
+    sb = sum(duree[id(e)] for e in bas)
+
+    def cout(e, c):
+        """Ce que coûte une affectation, au vu de ce que le graveur montre."""
+        double = e.get("multiplicite", 1) > 1
+        n = 0 if (c == "deux") == double else 1
+        niveau = e.get("niveau")
+        if niveau is not None and c != "deux":
+            # 4 demi-interlignes = ligne médiane, position de repos
+            if (niveau - 4) * (1 if c == "haut" else -1) < 0:
+                n += 1
+        return n
+
+    trouvees = []
+    for choix in itertools.product(("haut", "bas", "deux"), repeat=len(libres)):
+        ah = sum(duree[id(e)] for e, c in zip(libres, choix) if c != "bas")
+        ab = sum(duree[id(e)] for e, c in zip(libres, choix) if c != "haut")
+        if sh + ah == longueur and sb + ab == longueur:
+            trouvees.append((sum(cout(e, c) for e, c in zip(libres, choix)), choix))
+    if not trouvees:
+        return None
+    trouvees.sort(key=lambda t: t[0])
+    sur = len(trouvees) == 1 or trouvees[0][0] < trouvees[1][0]
+    choix = trouvees[0][1]
+    dessus = haut + [e for e, c in zip(libres, choix) if c != "bas"]
+    dessous = bas + [e for e, c in zip(libres, choix) if c != "haut"]
+    return (sorted(dessus, key=lambda e: e["x"]),
+            sorted(dessous, key=lambda e: e["x"]), sur)
 
 
 def analyser(portee, longueur):
@@ -208,6 +286,12 @@ def analyser(portee, longueur):
                                "somme": somme})
                 continue
         somme_lue = (sum(lues, F(0)) if all(d is not None for d in lues) else None)
+        voix = separer_voix(mesure, longueur)
+        if voix is not None:
+            sortie.append({"rang": rang, "mesure": mesure, "etat": "deux voix",
+                           "durees": tuple(lues), "candidates": 1,
+                           "somme": somme_lue, "voix": voix})
+            continue
         sols, complet = solutions(mesure, longueur)
         if not complet:
             etat, durees = "explosif", None
@@ -317,7 +401,7 @@ def main():
 
     total = sum(bilan.values())
     print(f"{total} mesures analysées")
-    for cle in ("lue", "levée", "clôture", "unique par somme", "par espacement",
+    for cle in ("lue", "levée", "clôture", "deux voix", "unique par somme", "par espacement",
                 "ambigu", "somme fausse", "explosif"):
         if bilan[cle]:
             print(f"   {bilan[cle]:5d}  {cle:16s} {bilan[cle] / total:6.1%}")
