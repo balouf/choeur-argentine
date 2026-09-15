@@ -13,10 +13,12 @@ actif = "2025-2026"
 
 [saisons."2026-2027"]
 # Rentrée en préparation : folklore argentin du XXe siècle.
-# Slugs prévus, à ajouter au fur et à mesure que les .ly sont écrits :
-#   caminito, jangadero, candombe, cuando-tenga-la-tierra
+# Reste à écrire : cuando-tenga-la-tierra (manuscrit, saisie à la main).
 pieces = [
     "balderrama",
+    "caminito",
+    "candombe",
+    "jangadero",
 ]
 
 [saisons."2025-2026"]

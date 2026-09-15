@@ -91,7 +91,10 @@ def run_lily(file, lily, dest):
     stem = file.stem
     target = dest / stem
     target.mkdir(parents=True, exist_ok=True)
-    run(f'{lily} -o {str(target)} -dno-point-and-click {str(file)}')
+    # Le chemin de l'exécutable se met entre guillemets : sous Windows il
+    # contient des espaces (« Program Files (x86) ») et `shell=True` le
+    # coupait au premier, sur `C:/Program`.
+    run(f'"{lily}" -o {str(target)} -dno-point-and-click {str(file)}')
     for midi in target.glob('*.mid*'):
         wav = midi.with_suffix(".wav")
         mp3 = midi.with_suffix(".mp3")

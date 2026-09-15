@@ -175,9 +175,13 @@ def evenements_de(portee):
         e = par_cle.setdefault(cle, {"x": n["x"], "signe": n["tete"],
                                      "points": n["points"],
                                      "crochets": n.get("crochets", 0),
-                                     "hampe": n.get("hampe"), "notes": []})
+                                     "hampe": n.get("hampe"), "notes": [],
+                                     "staccato": False})
         e["x"] = min(e["x"], n["x"])
         e["notes"].append(n["nom"])
+        # Un accord s'articule d'un seul point, posé sur le bord ; il suffit
+        # qu'une de ses têtes le porte pour que l'accord soit piqué.
+        e["staccato"] = e["staccato"] or n.get("staccato", False)
         if n["tete"] in ("tete_blanche", "ronde"):   # dans un accord, la plus longue commande
             e["signe"] = n["tete"]
         e["points"] = max(e["points"], n["points"])

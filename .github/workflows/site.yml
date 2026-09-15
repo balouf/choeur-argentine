@@ -35,7 +35,7 @@ jobs:
       - name: Set up Lilypond
         uses: codello/setup-lilypond@main
         with:
-          lilypond-version: 2.24
+          lilypond-version: 2.26.0
 
       - name: Set up FFmpeg & Timidity
         run: |

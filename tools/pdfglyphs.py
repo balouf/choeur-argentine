@@ -29,6 +29,7 @@ import re
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
+from statistics import median
 
 import pdfplumber
 
@@ -66,7 +67,7 @@ SYMBOLIQUE = {      # police symbolique, codes décalés de 0xF000
     0xFA: "tete_blanche",
     0x77: "ronde",
     0x6E: "becarre",
-    0x62: "tete_agrement",
+    0x62: "bemol",
     0xCE: "silence_noire",
     0xB7: "pause",                 # sert aussi de pause de mesure entière
     0xEE: "demi_pause",
@@ -78,12 +79,17 @@ SYMBOLIQUE = {      # police symbolique, codes décalés de 0xF000
     0x6A: "crochet",
     0x4A: "crochet",
 }
-# Deux entrées ont d'abord été devinées, et les deux étaient fausses : 0x2030
-# passait pour une tête blanche (c'est un soupir de croche, toujours sur la
-# ligne médiane) et 0x62 pour un bémol (c'est une acciaccatura, collée à gauche
-# d'une vraie tête, même hauteur). Un symbole plausible par la largeur et la
-# fréquence ne l'est pas par la position. D'où la règle : toute entrée ajoutée
-# ici se vérifie avec --overlay avant d'être crue.
+# 0x2030 a d'abord été deviné tête blanche : c'est un soupir de croche, toujours
+# sur la ligne médiane. Un symbole plausible par la largeur et la fréquence ne
+# l'est pas par la position. D'où la règle : toute entrée ajoutée ici se vérifie
+# avec --overlay avant d'être crue.
+#
+# 0xF062 a été retourné deux fois, et la position ne pouvait pas trancher : une
+# acciaccatura comme un bémol se collent à gauche d'une tête, à la même bande
+# d'ordonnées. Ce qui tranche est que les deux hauteurs **coïncident** — sur le
+# jangadero, 26 fois sur 29 le glyphe est exactement à la hauteur de la tête
+# qu'il précède, ce qui ne veut rien dire d'un ornement et tout d'une
+# altération. Le rendu de la zone le confirme à l'œil : c'est un bémol.
 TETES = {"tete_pleine", "tete_blanche", "ronde"}
 SILENCES = {"silence_noire", "silence_croche", "silence_double_croche",
             "pause", "demi_pause"}
@@ -94,6 +100,62 @@ DISCRIMINANTS = TETES | SILENCES | {"cle_sol", "cle_sol8", "cle_fa"}
 # Les chiffres du chiffrage sont les codes ASCII ordinaires dans les deux
 # dispositions ; inutile de les lister un par un dans les tables.
 CHIFFRES = {0x30 + i: str(i) for i in range(10)}
+
+
+# La police de **texte musical** que chaque graveur adjoint à sa police de
+# notation : `EngraverFontSet` chez Finale, `OpusText` chez Sibelius, une
+# sous-police anonyme chez Ghostscript. Elle est gravée au corps du texte, donc
+# l'admission par le corps l'écarte à raison — ses lettres ne sont pas des
+# notes — mais elle porte les nuances, la marque d'élision et le métronome.
+# Elle se reconnaît à son répertoire, qui tient dans une poignée de signes là
+# où la moindre police de paroles en aligne cinquante.
+ALPHABET_MUSICAL = set("fmpszr") | set("qI_.= ") | set("0123456789")
+NUANCES = {"ppppp", "pppp", "ppp", "pp", "p", "mp", "mf", "f", "ff", "fff",
+           "ffff", "fffff", "fp", "sf", "sff", "sp", "spp", "sfz", "rfz"}
+
+
+def polices_texte_musical(page, tables):
+    """Polices de texte musical : répertoire entier dans l'alphabet des signes.
+
+    Le critère est l'ensemble des glyphes employés, pas le nom : `Fine` du
+    candombe ajoute un `e`, un `i` et un `n` à ses chiffres, et sort donc de
+    l'alphabet — c'est une police de titres, pas de nuances.
+    """
+    repertoire = defaultdict(set)
+    for c in page.chars:
+        if c["fontname"] not in tables:
+            repertoire[c["fontname"]].add(c["text"])
+    return {police for police, chars in repertoire.items()
+            if chars and chars <= ALPHABET_MUSICAL}
+
+
+def nuances_de(page, polices, ecart=0.6):
+    """Les nuances de la page : `{x, y, texte}`, avant attribution aux portées.
+
+    Une nuance est une suite horizontale de lettres collées — `pp`, `mf`,
+    `sfz`. Le reste de la police (le `q` du métronome, le `_` de l'élision,
+    les chiffres) n'en est pas, et la liste blanche des nuances de LilyPond
+    suffit à l'écarter.
+    """
+    lettres = [c for c in page.chars
+               if c["fontname"] in polices and c["text"] in "fmpszr"]
+    sortie = []
+    for groupe in fusionner(lettres, lambda c: c["top"], 2.0):
+        mot, debut, fin = "", None, None
+        for c in sorted(groupe, key=lambda c: c["x0"]):
+            if mot and c["x0"] - fin > ecart:
+                if mot in NUANCES:
+                    sortie.append({"x": round(debut, 2), "y": round(haut, 2),
+                                   "texte": mot})
+                mot = ""
+            if not mot:
+                debut, haut = c["x0"], c["top"]
+            mot += c["text"]
+            fin = c["x1"]
+        if mot in NUANCES:
+            sortie.append({"x": round(debut, 2), "y": round(haut, 2),
+                           "texte": mot})
+    return sortie
 
 
 def decoder(code):
@@ -174,6 +236,27 @@ def nom(step, alteration=0):
     lettre = DIATO[step % 7]
     suffixe = {1: "is", -1: "es", 0: ""}[alteration]
     return f"{lettre}{step // 7}{suffixe}"
+
+
+def enharmonie(step, alteration, bemols_armure):
+    """Ramène au nom usuel les enharmonies que la tonalité rend absurdes.
+
+    Un fa bémol sous une armure de dièses n'est pas une orthographe, c'est le
+    reste d'une transposition faite sur les degrés sans regarder la tonalité :
+    il se lit mi. Un do bémol de même se lit si, une octave plus bas — `step`
+    étant un indice diatonique continu, l'octave suit toute seule.
+
+    Le miroir vaut pour un mi dièse ou un si dièse sous une armure de bémols.
+    Hors de ces deux cas on ne touche à rien : les mi dièses de Balderrama et
+    le si dièse de Caminito sont écrits ainsi par leurs graveurs, et c'est la
+    bonne orthographe de leur sensible sous trois et quatre dièses.
+    """
+    lettre = DIATO[step % 7]
+    if alteration == -1 and not bemols_armure and lettre in ("F", "C"):
+        return step - 1, 0
+    if alteration == 1 and bemols_armure and lettre in ("E", "B"):
+        return step + 1, 0
+    return step, alteration
 
 
 def codes_police(page, motif=None):
@@ -426,10 +509,92 @@ def hampes(page, haut, bas, interligne, tol=1.0):
              and haut - 6 * interligne < (o["top"] + o["bottom"]) / 2 < bas + 6 * interligne]
     sortie = []
     for groupe in fusionner(bruts, lambda o: (o["x0"] + o["x1"]) / 2, tol):
-        xs = [(o["x0"] + o["x1"]) / 2 for o in groupe]
-        sortie.append((sum(xs) / len(xs),
-                       min(o["top"] for o in groupe),
-                       max(o["bottom"] for o in groupe)))
+        # Même abscisse ne veut pas dire même hampe : deux portées voisines
+        # alignent souvent leurs hampes, et les réunir en donne une qui
+        # traverse l'entre-portées. Sur le piano de Caminito elle faisait onze
+        # interlignes, et la tête se retrouvait à son extrémité basse — donc
+        # hampe montante, donc voix du dessus, donc partage impossible. Une
+        # hampe est continue : ce qui s'interrompt est une autre hampe.
+        for morceau in morceaux_contigus(groupe, 0.5 * interligne):
+            if max(o["bottom"] for o in morceau) - min(o["top"] for o in morceau) \
+                    < 1.5 * interligne:
+                continue
+            xs = [(o["x0"] + o["x1"]) / 2 for o in morceau]
+            sortie.append((sum(xs) / len(xs),
+                           min(o["top"] for o in morceau),
+                           max(o["bottom"] for o in morceau)))
+    return sortie
+
+
+def liaisons_de(page, haut, bas, interligne, tetes, marge=1.5):
+    """Arcs de liaison : ceux dont les **deux bouts** sont posés sur une tête.
+
+    C'est le seul critère qui vaille pour les quatre graveurs. La hauteur de
+    la boîte ne sert pas : Finale et Sibelius rendent un arc par liaison,
+    plate pour une tenue et bombée pour un phrasé, mais Ghostscript en rend
+    **deux**, les deux bords d'une forme pleine, tous deux plats. Ce qui
+    sépare la tenue du phrasé se lit ailleurs, sur les hauteurs : deux notes
+    voisines de même hauteur sous un arc sont tenues.
+
+    Une liaison relie deux têtes ; un point d'orgue, un accent ou le crochet
+    d'une hampe sont des courbes aussi, mais trop courtes, ou posées sur une
+    seule note.
+
+    Reste la **ligature** de croches, qui relie elle aussi deux têtes, à leur
+    abscisse près : chez Finale elle sort en courbe à quatre points comme un
+    arc, et les deux bouts posés sur une tête ne la distinguent pas. Sur la
+    page 1 de Balderrama, vingt des vingt-deux courbes sont des ligatures.
+    C'est `ligature()` qui les écarte.
+    """
+    spans = [(t["x0"], t["x1"]) for t in tetes]
+
+    def sur_une_tete(x):
+        return any(a - marge * interligne < x < b + marge * interligne
+                   for a, b in spans)
+
+    arcs = set()
+    for o in page.curves:
+        if not (haut - 4 * interligne < o["top"]
+                and o["bottom"] < bas + 4 * interligne):
+            continue
+        if not (1.5 * interligne < o["x1"] - o["x0"] < 0.6 * page.width):
+            continue
+        if ligature(o, interligne):
+            continue
+        if sur_une_tete(o["x0"]) and sur_une_tete(o["x1"]):
+            arcs.add((round(o["x0"], 2), round(o["x1"], 2)))
+    return sorted(arcs)
+
+
+def ligature(o, interligne, part=0.25):
+    """Une barre de croches, que sa section constante trahit.
+
+    Un arc de liaison s'amincit jusqu'à rien à ses deux bouts, où il touche la
+    tête ; une ligature est un parallélogramme, aussi épais à droite qu'à
+    gauche. Les deux sortent en courbe fermée à quatre points et leurs boîtes
+    se ressemblent — 4,4 points de haut pour la ligature des trois croches de
+    « la ra la », page 1 de Balderrama, contre 3,3 pour un vrai phrasé. C'est
+    l'épaisseur **aux extrémités** qui les sépare sans appel : une demi-
+    interligne pour la ligature, moins d'un trentième pour la liaison.
+    """
+    pts = o.get("pts") or []
+    if len(pts) != 4:
+        return False
+    bouts = min(abs(pts[0][1] - pts[3][1]), abs(pts[1][1] - pts[2][1]))
+    return bouts > part * interligne
+
+
+def morceaux_contigus(objets, marge):
+    """Découpe une pile de filets là où elle s'interrompt verticalement."""
+    sortie, courant, bord = [], [], None
+    for o in sorted(objets, key=lambda o: o["top"]):
+        if courant and o["top"] > bord + marge:
+            sortie.append(courant)
+            courant, bord = [], None
+        courant.append(o)
+        bord = o["bottom"] if bord is None else max(bord, o["bottom"])
+    if courant:
+        sortie.append(courant)
     return sortie
 
 
@@ -599,7 +764,7 @@ def attribuer_points(page, points, porteurs, interligne, demi):
     deux points sont à la même hauteur, côte à côte, et aucune autre tête ne
     les leur dispute.
     """
-    compte = {}
+    compte, restants = {}, []
     for d in sorted(points, key=lambda d: d["x0"]):
         yd = y_baseline(page, d)
         # La fenêtre verticale se place à mi-chemin entre les deux distances
@@ -611,12 +776,54 @@ def attribuer_points(page, points, porteurs, interligne, demi):
                      if 0 < d["x0"] - c["x1"] < 2.5 * interligne
                      and abs(y_baseline(page, c) - yd) <= 1.5 * demi]
         if not candidats:
+            restants.append(d)
             continue
         gagnant = min(candidats,
                       key=lambda c: (round(abs(y_baseline(page, c) - yd), 2),
                                      compte.get(id(c), 0), d["x0"] - c["x1"]))
         compte[id(gagnant)] = compte.get(id(gagnant), 0) + 1
-    return compte
+    return compte, restants
+
+
+def attribuer_staccatos(page, points, tetes, interligne,
+                        large=1.0, bas=1.5, haut=7.0):
+    """Les points qui ne sont pas d'augmentation et qui articulent une note.
+
+    Les deux se séparent par la géométrie, sans ambiguïté sur le corpus : le
+    point d'augmentation se pose **à droite** de la tête et à sa hauteur (dx
+    ≈ +1,5 interligne, dy ≈ 0, le demi-interligne de décalage près quand la
+    note est sur une ligne) ; le point de staccato se pose **au-dessus ou
+    au-dessous**, centré sur la tête (dx ≈ +0,5, dy de 4 à 6 selon que le
+    graveur le range du côté de la hampe ou de la tête).
+
+    Les rejets sont tout aussi nets : les points d'une barre de reprise, ceux
+    d'un point d'orgue ou d'un chiffrage sont tous à plus de deux interlignes
+    du centre d'une tête. D'où une fenêtre horizontale serrée — c'est elle qui
+    porte la décision — et une fenêtre verticale large, qui ne fait qu'exclure
+    le point d'augmentation d'une note posée sur une ligne.
+
+    Sur les quatre partitions : 32 staccatos au jangadero, 12 à Caminito,
+    aucun à Balderrama ni au candombe, et rien d'autre retenu.
+    """
+    marques = set()
+    if not tetes:
+        return marques
+    for d in points:
+        yd = y_baseline(page, d)
+        xd = (d["x0"] + d["x1"]) / 2
+        candidats = [
+            c for c in tetes
+            if abs(xd - (c["x0"] + c["x1"]) / 2) <= large * interligne
+            and bas * interligne <= abs(y_baseline(page, c) - yd) <= haut * interligne
+        ]
+        if not candidats:
+            continue
+        # La tête la plus proche, l'ordonnée d'abord : dans un accord, c'est
+        # celle du bord qui porte l'articulation.
+        marques.add(id(min(candidats,
+                           key=lambda c: (abs(y_baseline(page, c) - yd),
+                                          abs(xd - (c["x0"] + c["x1"]) / 2)))))
+    return marques
 
 
 def y_baseline(page, c):
@@ -660,18 +867,43 @@ def cle_de(page, glyphes_portee, bas, interligne, table, taille_musique):
     return "sol"
 
 
-def armure_de(glyphes_portee, x_cle, x_premiere_tete, table):
+def armure_de(glyphes_portee, x_cle, x_premiere_tete, table, interligne,
+              colle=0.6):
     """Altérations de l'armure, par comptage dans l'ordre canonique.
 
     Renvoie aussi l'abscisse de fin de l'armure : ses dièses sont des glyphes
     d'altération comme les autres, et le dernier d'entre eux se retrouve collé
     à la première note quand aucun chiffrage ne les sépare (systèmes 2 et
     suivants). Sans cette borne il est pris pour une altération accidentelle.
+
+    La réciproque coûtait plus cher encore : une altération portée par la
+    **première note** du système tombe elle aussi entre la clé et cette note,
+    et elle était comptée dans l'armure — donc appliquée à toute la portée. Le
+    jangadero lisait ainsi six portées sur quarante en « un dièse et un
+    bémol », ce qu'aucune armure n'est, et tous ses si devenaient bémols.
+
+    Les deux se séparent à l'écart : une altération d'armure laisse passer la
+    note, celle d'une note lui est collée. Sur les quatre partitions, la plus
+    serrée des armures garde 1,26 interligne quand les six mauvaises lectures
+    sont à 0,02. Le seuil tient au milieu, avec un facteur deux de chaque côté.
     """
-    entre = [
-        c for c in glyphes_portee
-        if x_cle < c["x0"] < x_premiere_tete and symbole(c, table) in ("diese", "bemol")
-    ]
+    entre = sorted(
+        (c for c in glyphes_portee
+         if x_cle < c["x0"] < x_premiere_tete
+         and symbole(c, table) in ("diese", "bemol")),
+        key=lambda c: c["x0"],
+    )
+    while entre and x_premiere_tete - entre[-1]["x1"] < colle * interligne:
+        entre.pop()
+    # Une armure ne mêle jamais dièses et bémols : ce qui rompt la série ne lui
+    # appartient pas. Garde-fou, et non le ressort principal — l'écart tranche
+    # déjà les cas du corpus, celui-ci attrape ceux qu'il laisserait passer.
+    if entre:
+        premier = symbole(entre[0], table)
+        garde = 0
+        while garde < len(entre) and symbole(entre[garde], table) == premier:
+            garde += 1
+        entre = entre[:garde]
     x_fin = max((c["x1"] for c in entre), default=x_cle)
     dieses = sum(1 for c in entre if symbole(c, table) == "diese")
     bemols = sum(1 for c in entre if symbole(c, table) == "bemol")
@@ -763,30 +995,80 @@ def paroles_de(page, bas, plancher, tables, ecart=0.6):
     (« Bal-de »), tantôt isolé entre deux — c'est l'espacement de la gravure
     qui en décide, pas le texte. On le retire du mot et on le garde comme
     liaison : `lie` dit que la syllabe se rattache à la suivante, ce qui
-    donne le `--` de LilyPond. Toutes les partitions n'en mettent pas ;
-    Balderrama en a dans ses couplets et pas dans ses « Tra la la ».
+    donne le `--` de LilyPond. Son absence est une lecture et non un trou :
+    Balderrama en a dans ses couplets et pas dans ses « Tra la la », qui sont
+    trois mots et non trois syllabes, comme les « Bom » de sa basse.
 
     Les couplets superposés se séparent par leur ligne de base ; on rend une
-    liste de lignes, chacune dans l'ordre de lecture.
+    liste de lignes triées de haut en bas, chacune dans l'ordre de lecture.
+    L'ordre compte : le premier couplet est toujours gravé au-dessus du
+    second, et c'est le seul critère qui les distingue à coup sûr — le second
+    a souvent plus de syllabes que le premier.
     """
     sous = [c for c in page.chars
             if c["fontname"] not in tables and bas < c["top"] < plancher
             and c["text"].strip()]
+    # On sépare d'abord par le corps, et on ne regroupe en lignes qu'ensuite.
+    # Une ligne de paroles n'est pas toujours d'aplomb — page 2 de Caminito
+    # elle se brise en deux moitiés décalées de trois points et demi — et il
+    # faut donc une tolérance large pour les recoudre ; mais large, elle
+    # ramasse au passage le « pp legato » gravé quatre points sous le second
+    # couplet. Le corps les sépare sans rien coûter : les paroles sont à 9,01
+    # et les nuances à 9,38.
+    paquets = defaultdict(list)
+    for c in sous:
+        paquets[round(c["size"], 1)].append(c)
     lignes = []
-    for groupe in fusionner(sous, lambda c: c["top"], 3.0):
-        jetons, mot, debut, fin = [], "", None, None
-        for c in sorted(groupe, key=lambda c: c["x0"]):
-            if mot and c["x0"] - fin > ecart:
+    for corps_paquet, chars in paquets.items():
+        for groupe in fusionner(chars, lambda c: c["top"], 0.55 * corps_paquet):
+            jetons, mot, debut, fin = [], "", None, None
+            for c in sorted(groupe, key=lambda c: c["x0"]):
+                if mot and c["x0"] - fin > ecart:
+                    jetons.append((debut, mot))
+                    mot = ""
+                if not mot:
+                    debut = c["x0"]
+                mot += c["text"]
+                fin = c["x1"]
+            if mot:
                 jetons.append((debut, mot))
-                mot = ""
-            if not mot:
-                debut = c["x0"]
-            mot += c["text"]
-            fin = c["x1"]
-        if mot:
-            jetons.append((debut, mot))
-        lignes.append(syllabes(jetons))
-    return [l for l in lignes if l]
+            # L'ordonnee de la ligne et son corps accompagnent chaque
+            # syllabe : ils servent a ranger les couplets.
+            y = min(c["top"] for c in groupe)
+            corps = median(c["size"] for c in groupe)
+            lignes.append([dict(s, y=round(y, 2), corps=round(corps, 2))
+                           for s in syllabes(jetons)])
+    lignes = sorted((l for l in lignes if l), key=lambda l: l[0]["y"])
+    for ligne in lignes:
+        prolongations(page, ligne, bas, plancher)
+    return lignes
+
+
+def prolongations(page, ligne, bas, plancher, marge=2.0):
+    """Marque les syllabes que la gravure prolonge d'un trait.
+
+    Une syllabe tenue sur plusieurs notes se signale par un trait horizontal
+    qui court jusqu'à la dernière : c'est le mélisme, et c'est aussi la
+    liaison qui le porte dans la partie chantée. Le trait est posé sur la
+    **ligne de base** du texte, à un point près ; ce qui traîne ailleurs dans
+    la même bande — et il y en a — sont les lignes supplémentaires des notes
+    sous la portée, à une quinzaine de points au-dessus, et de la largeur
+    d'une tête. C'est l'ordonnée qui les sépare, pas la largeur : une
+    prolongation courte fait la même dizaine de points qu'une ligne
+    supplémentaire.
+
+    Chez Sibelius le même trait est une suite de glyphes `_` de la police de
+    texte musical ; ils sont alors dans la couche texte et non ici.
+    """
+    base = ligne[0]["y"] + 0.8 * ligne[0]["corps"]
+    traits = [o for o in list(page.lines) + list(page.rects)
+              if o["bottom"] - o["top"] < 1.0
+              and abs(o["top"] - base) < marge
+              and bas < o["top"] < plancher]
+    for o in traits:
+        avant = [s for s in ligne if s["x"] <= o["x0"]]
+        if avant:
+            avant[-1]["tenue"] = round(o["x1"], 2)
 
 
 def syllabes(jetons):
@@ -822,6 +1104,8 @@ def lire_page(page, numero):
     glyphes = [c for c in page.chars if c["fontname"] in table]
     if not glyphes:
         return []
+    signes = polices_texte_musical(page, table)
+    nuances = nuances_de(page, signes)
     taille_musique = Counter(round(c["size"], 1) for c in glyphes).most_common(1)[0][0]
 
     resultat = []
@@ -847,7 +1131,8 @@ def lire_page(page, numero):
         cles = [c for c in bande if symbole(c, table) in ("cle_sol", "cle_sol8", "cle_fa")]
         x_cle = min(c["x1"] for c in cles) if cles else bande[0]["x0"]
         fin_armure = têtes[0]["x0"] if têtes else bande[-1]["x1"]
-        armure, x_fin_armure = armure_de(bande, x_cle, fin_armure, table)
+        armure, x_fin_armure = armure_de(bande, x_cle, fin_armure, table,
+                                         interligne)
         base = BASE_CLE[cle]
 
         accidentelles = [
@@ -860,13 +1145,16 @@ def lire_page(page, numero):
         points = [c for c in bande if symbole(c, table) == "point"]
         porteurs = [c for c in bande
                     if symbole(c, table) in TETES or symbole(c, table) in SILENCES]
-        compte = attribuer_points(page, points, porteurs, interligne, demi)
+        compte, sans_note = attribuer_points(page, points, porteurs,
+                                             interligne, demi)
+        staccatos = attribuer_staccatos(page, sans_note, têtes, interligne)
 
         def points_de(c, y):
             return compte.get(id(c), 0)
 
         hampes_p = hampes(page, haut, bas, interligne)
         ligatures_p = ligatures(page, haut, bas, interligne, hampes_p)
+        arcs = liaisons_de(page, haut, bas, interligne, têtes)
         crochets_p = [((c["x0"] + c["x1"]) / 2, y_baseline(page, c)) for c in bande
                       if symbole(c, table) == "crochet"]
 
@@ -874,21 +1162,30 @@ def lire_page(page, numero):
         for c in têtes:
             y = y_baseline(page, c)
             step = base + round((bas - y) / demi)
-            # une altération accidentelle est collée à gauche, à la même hauteur
+            # Une altération accidentelle est collée à gauche, à la même
+            # hauteur — et parfois *collée* au sens propre : les si dièses de
+            # Caminito ont leur bord droit quatre centièmes de point à gauche
+            # de la tête, donc du mauvais côté d'un écart exigé strictement
+            # positif. La tolérance négative reste bien en deçà d'une largeur
+            # de tête, pour ne jamais rattraper une altération d'après.
             alt = None
             for a in accidentelles:
-                if (0 < c["x0"] - a["x1"] < 2.2 * interligne
+                if (-0.3 * interligne < c["x0"] - a["x1"] < 2.2 * interligne
                         and abs(y_baseline(page, a) - y) < demi):
                     alt = ALTERATIONS[symbole(a, table)]
-            if alt is None:
-                alt = armure.get(step % 7, 0)
             notes.append({
                 "x": round(c["x0"], 2),
                 "y": round(y, 2),
                 "step": step,
-                "nom": nom(step, alt),
+                # provisoire : l'altération ne se fige qu'une fois les barres
+                # de mesure connues, la mémoire des altérations s'arrêtant à
+                # la barre. Voir `memoire_alterations`.
+                "nom": nom(step, armure.get(step % 7, 0) if alt is None else alt),
+                "_alt_ecrite": alt,
+                "_alt_armure": armure.get(step % 7, 0),
                 "tete": symbole(c, table),
                 "points": points_de(c, y),
+                "staccato": id(c) in staccatos,
                 "crochets": 0,
                 "hampe": None,
                 "hampe_x": None,
@@ -900,12 +1197,21 @@ def lire_page(page, numero):
         # deux voix à l'unisson, et chacune a la sienne — la seconde, plus
         # éloignée, serait sans cela attribuée à la hampe de la première, et
         # la voix du haut perdrait sa note.
-        prises = set()
+        # Et elle ne porte qu'une **durée**, donc qu'un seul type de tête : un
+        # accord se lit d'un seul rythme. Deux têtes à la même abscisse dont
+        # l'une est pleine et l'autre blanche sont donc deux voix, pas un
+        # accord — c'est ce qui manquait au piano de Caminito, où une noire
+        # pointée du dessus et une blanche du dessous se retrouvaient dans le
+        # même accord, lu blanche, et la mesure ne tombait plus juste.
+        prises, portees_par = set(), {}
         for n in notes:
             for h in n["_candidates"]:
                 if (h, round(n["y"], 1)) in prises:
                     continue
+                if portees_par.get(h, n["tete"]) != n["tete"]:
+                    continue
                 prises.add((h, round(n["y"], 1)))
+                portees_par[h] = n["tete"]
                 n["_hampe"] = h
                 break
             else:
@@ -955,7 +1261,8 @@ def lire_page(page, numero):
         # Les paroles vivent entre cette portée et la suivante ; sans borne
         # basse on ramasserait celles du pupitre d'en dessous.
         plancher = staves[idx + 1][0] if idx + 1 < len(staves) else page.height
-        paroles = paroles_de(page, bas + 0.5 * interligne, plancher, table)
+        paroles = paroles_de(page, bas + 0.5 * interligne, plancher,
+                             set(table) | signes)
 
         premiers = [e["x"] for e in notes + silences]
         chiffrage = chiffrage_de(page, bande, bas, demi,
@@ -975,8 +1282,20 @@ def lire_page(page, numero):
             "notes": notes,
             "silences": silences,
             "paroles": paroles,
+            "nuances": [],
+            "liaisons": arcs,
             "_tetes": têtes,
         })
+
+    # Les nuances se rangent à la portée la plus proche, et non à celle qui
+    # les surplombe : celles d'un piano sont gravées entre ses deux portées,
+    # donc sous la voix d'à côté. C'est la distance à la portée qui tranche.
+    for n in nuances:
+        proche = min(resultat,
+                     key=lambda p: max(p["y_haut"] - n["y"], n["y"] - p["y_bas"], 0))
+        proche["nuances"].append({"x": n["x"], "texte": n["texte"]})
+    for p in resultat:
+        p["nuances"].sort(key=lambda n: n["x"])
 
     # Les barres se calculent par système, une fois les clés connues : c'est
     # leur périodicité qui dit où un système s'arrête.
@@ -990,9 +1309,77 @@ def lire_page(page, numero):
             p["systeme"] = debut // periode
             p["portees_par_systeme"] = periode
             p["barres"] = barres
+            memoire_alterations(p)
     for p in resultat:
         del p["_tetes"]
     return resultat
+
+
+def memoire_alterations(portee):
+    """Fige l'altération de chaque note, la mémoire s'arrêtant à la barre.
+
+    Une altération accidentelle vaut jusqu'à la fin de la mesure, pour la
+    seule position exacte où elle est écrite : le graveur ne la répète pas,
+    et la lire note à note redonne un bécarre là où le dièse tient encore.
+    Le candombe écrit `sol#` puis un `sol` nu deux croches plus loin ; sans
+    mémoire il redevenait naturel.
+
+    C'est pour cela que l'altération ne se fige qu'ici : la mémoire s'arrête
+    à la barre de mesure, et les barres ne sont connues qu'une fois le
+    système entier lu. Les liaisons, elles, la reportent d'une mesure à la
+    suivante — voir plus bas.
+    """
+    barres = portee.get("barres") or []
+    notes = sorted(portee["notes"], key=lambda n: n["x"])
+
+    # La mémoire s'arrête à la barre, la liaison de tenue la franchit : une
+    # note liée garde l'altération de celle qui la précède, sans que le
+    # graveur la réécrive. Le jangadero tient un si bémol d'une mesure sur la
+    # suivante ; sans ce report la seconde redevenait naturelle, et l'arc
+    # entre deux hauteurs devenues différentes n'était même plus une tenue
+    # mais un mélisme.
+    #
+    # Les bouts d'un arc ne tombent pas sur les têtes — il est tracé de l'une
+    # à l'autre sans les toucher — donc chacun se rabat sur la plus proche,
+    # comme le fait `couvert_par_arc` du générateur.
+    def proche(x):
+        return min(notes, key=lambda n: abs(n["x"] - x)) if notes else None
+
+    tenue = {}
+    for depart, fin in portee.get("liaisons") or ():
+        a, b = proche(depart), proche(fin)
+        if a is None or b is None or a is b or a["step"] != b["step"]:
+            continue
+        if a["x"] > b["x"]:
+            a, b = b, a
+        # Une tenue joint deux notes **voisines**. Un arc dont les deux bouts
+        # retombent sur le même degré mais qui enjambe d'autres notes est un
+        # phrasé : Caminito en a un sur si, si dièse, si dièse, si, et reporter
+        # le bécarre du premier sur le dernier lui retirait le dièse que la
+        # mesure lui devait.
+        if any(a["x"] < n["x"] < b["x"] for n in notes):
+            continue
+        tenue[id(b)] = a
+
+    effective, courant, i = {}, {}, 0
+    for n in notes:
+        while i < len(barres) and barres[i] <= n["x"]:
+            i += 1
+            courant.clear()
+        source = tenue.get(id(n))
+        if n["_alt_ecrite"] is not None:
+            courant[n["step"]] = n["_alt_ecrite"]
+        elif source is not None and id(source) in effective:
+            courant[n["step"]] = effective[id(source)]
+        alt = courant.get(n["step"], n["_alt_armure"])
+        effective[id(n)] = alt
+        # L'enharmonie se règle en dernier : la mémoire raisonne sur le degré
+        # écrit, c'est le nom rendu qui se corrige.
+        pas, ecrite = enharmonie(n["step"], alt, portee.get("armure_bemols", 0))
+        n["nom"] = nom(pas, ecrite)
+    for n in portee["notes"]:
+        del n["_alt_ecrite"]
+        del n["_alt_armure"]
 
 
 def dessiner_overlay(pdf_path, pages, sortie, dpi=300):
