@@ -9,7 +9,7 @@
 #
 # `actif` désigne la saison que `python deploy.py` construit et que la CI publie.
 
-actif = "2025-2026"
+actif = "2026-2027"
 
 [saisons."2026-2027"]
 # Rentrée en préparation : folklore argentin du XXe siècle.
