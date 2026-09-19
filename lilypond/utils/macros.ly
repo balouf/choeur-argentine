@@ -28,17 +28,34 @@ normal = {
   % \revert Lyrics.LyricText.font-series
 }
 
-pe = \markup {\dynamic p \italic espressivo}
-pl = \markup {\dynamic p \italic legato}
-spl = \markup {\italic subito \dynamic p \italic legato}
-pll = \markup {\dynamic p \italic legatissimo}
-mpe = \markup {\dynamic mp \italic espressivo}
-mfa = \markup {\dynamic mf \italic articolato}
-mfll = \markup {\dynamic mf \italic legatissimo}
-fa = \markup {\dynamic f \italic articolato}
-fam = \markup {\dynamic f \italic ampio}
-fs = \markup {\dynamic f \italic sostenuto}
-ffp = \markup {\dynamic ff \italic pesante}
+% Une nuance suivie de son intention : l'intensité dans la fonte des nuances,
+% l'intention en italique à sa droite.
+%
+%   c4^\markup \nuance p legato
+%   c4_\markup \nuance ff pesante
+%   c4-\markup \nuance f "molto sostenuto"
+%
+% Les deux arguments sont des markups, donc les mots nus passent sans
+% guillemets — y compris `f`, qui est aussi un nom de note. C'est la raison
+% pour laquelle c'est une **commande de markup** et non une fonction
+% d'événement : `c4^\nuance f legato` ferait lire `f` comme une hauteur et
+% échouerait, quand `^\markup \nuance f legato` lit ses arguments en mode
+% markup, où `f` n'est qu'un mot. Le `\markup` coûte huit caractères et
+% supprime un piège qui ne se déclenche que sur certaines nuances.
+%
+% Et comme ça rend un markup, ça se compose — ce qui couvre le cas où un
+% terme précède la nuance :
+%
+%   c4^\markup { \italic subito \nuance p legato }
+%
+% Remplace douze variables (`pe`, `pl`, `ppl`, `spl`, `pll`, `mpe`, `mfa`,
+% `mfll`, `fa`, `fam`, `fs`, `ffp`) dont chaque combinaison nouvelle
+% demandait sa propre déclaration, et dont certaines portaient un nom qui
+% ment : `ffp` se lit « fortissimo puis subito piano » pour un musicien.
+#(define-markup-command (nuance layout props intensite intention)
+   (markup? markup?)
+   (interpret-markup layout props
+     #{ \markup { \dynamic #intensite \italic #intention } #}))
 
 
 soprano_style = {
