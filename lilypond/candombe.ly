@@ -39,11 +39,11 @@ soprano_music = {
 
   b16 b8. r4 r2 | fis16 fis8 fis16~ fis16 fis8 fis16~ fis16 fis8 fis16 gis8 a16 gis16~ | gis16 fis8.~ fis2. |
 
-  a16 a8 fis16 a8 fis16 a16~ a16 a8 fis16 a8 a16 a16~ | a8. e16 r4 r2 | a16 a8 fis16 a8 fis16 a16~ a16 a8 fis16 a8 fis16 b16~ |
+  a16 a8 fis16 a a fis16 a16~ a8. fis16 a8 a16 a16~ | a8. e16 r4 r2 | a16 a8 fis16 a8 fis16 a16~ a16 a8 fis16 a8 fis16 b16~ |
 
   b16 b8. r4 r2 | a16 a8 fis16 a8 fis16 a16~( a16 a8 fis16) a8 cis16 b16~ | b16 b8. r4 r2 |
 
-  fis16 fis8 fis16~ fis16 fis8 fis16 fis16 fis8 fis16 gis8 a16 gis16~ | gis16 fis8.~ fis2. | a16 a8 fis16 a8 fis16 a16~ a16 a8 fis16 a8 a16 a16 |
+  fis16 fis8 fis16~ fis16 fis8 fis16 fis16 fis8 fis16 gis8 a16 gis16~ | gis16 fis8.~ fis2. | a16 a8 fis16 a8 fis16 a16~ a16 a8 fis16 a8 a16 a16~ |
 
   a8. e16 r4 r8 fis8 e8. d16 | cis4 r4 r2 | R1 |
 
@@ -63,10 +63,10 @@ soprano_lyrics = \lyricmode {
   pa rap pap __ pa pap Pa ra pa pa rap __ pa pa __ pap pa pa pa ra ba rap pap __ pa pap
   Es por to -- dos sa -- bi -- doque elseisde _ _ ene -- ro es el dí -- a de los __ _ _  re -- yes ma --
   gos y~en ho -- nor __ de~u -- no __ de~e llos, el más ne -- gro, __
-  se pro -- gra -- ma una fies -- _ ta en el bar -- rio. Es por to -- dos sa -- bi -- doque es el mas ne --
+  se pro -- gra -- ma u -- na fie -- sta en el bar -- rio. Es por to -- dos sa -- bi -- doque es el mas ne --
   gro el rey de los san -- tos __ can -- dom -- be -- ros,
-  SanBal -- ta -- _ sar es unsan -- to _ muy a -- le -- gre, __ di -- ce la ma -- ma I~nés __ y mue -- ve los pies,
-  _ es, Dom do -- ri -- do
+  SanBal -- ta -- _ sar es unsan -- to _ muy a -- le -- gre, __ di -- ce la ma -- ma~I nés __ y mue -- ve los pies,
+  es, Dom do -- ri -- do
   Con el mis -- _ mo rit -- mo~a pro fe sar __ Los ro -- jos __ co -- lo -- res,
   con fes -- tón __ do -- ra -- do, le gus tan __ al rey __ San Bal ta sar. __
   Los ro -- jos __ co -- lo -- res, con fes tón __ do -- ra -- do, le gus tan __ al rey __ San Bal ta sar. __
@@ -80,8 +80,8 @@ soprano_lyrics_ii = \lyricmode {
   San Bal -- ta -- sar~se~ha ma -- ca so -- bre las an -- das. __
   de~unmar _ de pro -- me san -- tesquecanta _ _ y bai -- la. Conversa _ el ron -- cobom -- _ bo mien -- tras a -- van -- za, 
   re -- pi -- can tam -- bo -- ri -- les~en~las com -- par -- sas,
-  fies -- ta crio -- lla de ne -- _ gros y blanquea -- _ dos, __ cuandocambian _ _ _ de to -- quecambiande _ _ es -- ta --
-  _ do. _ _ _ _
+  fies -- ta crio -- lla de ne -- _ gros y blanquea -- _ dos, __ cuan -- do  cam -- bian de to -- que cam -- bian -- de~es -- ta --
+  do.
 }
 
 soprano = \new Staff \with {instrumentName="Sopr."
@@ -110,11 +110,11 @@ alto_music = {
 
   d,8. d16~ d8 d8~ d8 e8 d8 e8 | cis2 cis2 | b8. cis16~ cis8 dis8~ dis2 |
 
-  fis16 fis8 d16 fis8 d16 fis16~ fis16 fis8 d16 fis8 fis16 e16~ | e8. bis16( cis8) d8~ d8 fis8 e8. d16 | cis8. cis16~ cis8 cis8~ cis8 e8 fis8 a8 |
+  fis16 fis8 d16 fis fis d16 fis16~ fis8. d16 fis8 fis16 e16~ | e8. bis16( cis8) d8~ d8 fis8 e8. d16 | cis8. cis16~ cis8 cis8~ cis8 e8 fis8 a8 |
 
   d,8. d16~ d8 d8~ d8 e8 d8 e8 | cis8. cis16~ cis8 cis8~ cis8 e8 fis8 a8 | d,8. d16~ d8 d8~ d8 e8 d8 e8 |
 
-  cis2 cis2( | b8. cis16~ cis8 dis8~) dis2 | fis16 fis8 d16 fis8 d16 fis16~ fis16 fis8 d16 fis8 fis16 e16 |
+  cis2 cis2( | b8. cis16~ cis8 dis8~) dis2 | fis16 fis8 d16 fis8 d16 fis16~ fis16 fis8 d16 fis8 fis16 e16~ |
 
   e8. cis16~ cis8 d8~ d4 r4 | fis8 fis16 gis16~ gis16 a16 gis8~ gis4 cis,4 | fis8 fis16 gis16~ gis16 a16 gis8~ gis4 cis,4 |
 
@@ -134,10 +134,10 @@ alto_lyrics = \lyricmode {
   pa rap pap __ pa pap Pa ra pa pa rap __ pa pa __ pap pa pa pa ra ba rap pap __ pa pap
   Dom dom __ dom __ di ro ri, dom dom __ dom __ di ro ri, dom dom __ dom __ di ro ri,
   dom dom __ dom __ di ro ri do ro dom dom __ do __
-  se pro -- gra -- ma una fies -- _ ta en el bar -- rio. __ Do __ domdo _ ri dom dom __ dom, __ di ro ri
+  se pro -- gra -- ma u -- na fie -- sta en el bar -- rio. __ Do __ domdo _ ri dom dom __ dom, __ di ro ri
   dom dom __ dom, __ di ro ri dom dom __ dom __ di ro ri dom dom __ dom __ di ro ri
-  do ro __ di -- ce la ma -- ma I~nés __ y mue -- ve los pies,
-  _ dom __ do, __ Lis -- tos co -- ra zo -- nes van con el __ can dom -- be
+  do ro __ di -- ce la ma -- ma~I nés __ y mue -- ve los pies,
+  dom __ do, __ Lis -- tos co -- ra zo -- nes van con el __ can dom -- be
   Con el mis -- mo rit -- mo~a pro fe sar __ con el rit -- mo, Los ro -- jos __ co -- lo -- res,
   con fes -- tón __ do -- ra -- do, le gus tan __ al rey __ San Bal ta sar. __ pa ra pa pa pa pa __
   Los ro -- jos __ co -- lo -- res, con fes tón __ do -- _ do, le gus tan __ al rey __ San Bal ta sar. __
@@ -151,7 +151,7 @@ alto_lyrics_ii = \lyricmode {
   _ _ _ _ _ _ _ _ _ _ _ _
   de~unmar _ de pro -- me san -- tesquecanta _ _ y bai -- la _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _ _ cuandocambian _ _ _ de to -- quecambiande _ _ es -- ta
+  _ _ cuan -- do  cam -- bian de to -- que cam -- bian -- de~es -- ta
 }
 
 alto = \new Staff \with {instrumentName="Alto"
@@ -180,11 +180,11 @@ tenor_music = {
 
   gis8. e16~ e8 fis8~ fis8 gis8 gis4 | a2 a2 | a1 |
 
-  a16 a8 a16~ a8 b16 c16~ c16 c8 a16 c8 c16 cis16~ | cis8. a16~ a8 b4 d8 cis8.( b16) | a8. e16~ e8 fis4 a8 a4 |
+  a16 a8 a16 a a b16 c16~ c8. a16 c8 c16 cis16~ | cis8. a16~ a8 b4 d8 cis8.( b16) | a8. e16~ e8 fis4 a8 a4 |
 
   gis8. e16~ e8 fis8~ fis8 gis8 gis4 | a8. e16~ e8 fis8~ fis8 a8 a4 | gis8. e16~ e8 fis8~ fis8 gis8 gis4 |
 
-  a2 a2( | a1) | a16 a8 a16 a8 b16 c16~ c16 c8 a16 c8 c16 cis16 |
+  a2 a2( | a1) | a16 a8 a16 a8 b16 c16~ c16 c8 a16 c8 c16 cis16~ |
 
   cis8. a16~ a8 b8~ b4 r4 | a8 a16 b16~ b16 cis16 d8~ d4 cis8 b8 | a8 a16 b16~ b16 cis16 d8~ d4 cis8 b8 |
 
@@ -204,10 +204,10 @@ tenor_lyrics = \lyricmode {
   pa rap pap __ pa pap Pa ra pa pa rap __ pa pa __ pap pa ba rap pap __ pa pap
   Dom dom __ dom __ dom do Dom dom __ dom __ domdo _ Dom dom __ dom __ dom do
   Dom dom __ dom __ dom do do ro do
-  se pro -- gra -- ma~una fies -- _ ta en el bar -- rio. __ Do dom ri __ dom dom __ dom dom do,
+  se pro -- gra -- ma u -- na fie -- sta en el bar -- rio. __ Do dom ri __ dom dom __ dom dom do,
   dom dom __ dom __ dom do, dom dom __ dom __ dom do, dom dom __ dom __ dom do,
-  do ro __ di -- ce la ma -- ma I~nés __ y mue -- ve los pies,
-  _ dom __ do __ Lis -- tos co -- ra zo -- nes se van con el __ can -- dom -- be y
+  do ro __ di -- ce la ma -- ma~I nés __ y mue -- ve los pies,
+  dom __ do __ Lis -- tos co -- ra zo -- nes se van con el __ can -- dom -- be y
   con el __ rit -- mo~a pro -- fe sar __ con el rit -- mo, Los ro -- jos __ co -- lo -- _ res,
   con fes -- tón __ do -- ra -- do, le gus -- tan al rey con el rit -- mo
   Los ro -- jos __ co -- lo -- _ res, con fes tón __ do -- _ do, le gus -- _ tan al rey
@@ -221,7 +221,7 @@ tenor_lyrics_ii = \lyricmode {
   _ _ _ _ _ _ _ _ _
   de~unmar _ de~pro -- me san -- tesquecanta _ _ y bai -- la _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _ _ cuandocambian _ _ _ de to -- quecambiande __ _ _ es -- ta
+  _ _ _ cuan -- do  cam -- bian de to -- que cam -- bian -- de~es -- ta
 }
 
 tenor = \new Staff \with {instrumentName="Tenor"
@@ -250,11 +250,11 @@ basse_music = {
 
   b8. e16~ e8 b8~ b8 e8 e4 | fis2 e2 | dis8. b16~ b8 fis'8~ fis8 b,8 b8. cis16 |
 
-  d16 d8 d16 d8 d16 d16~ d16 d8 d16 d8 d16 e16~ | e8. e16~ e8 e8~ e2 | a,8. e'16~ e8 a,8~ a8 e'8 e4 |
+  d16 d8 d16 d d d16 d16~ d8. d16 d8 d16 e16~ | e8. e16~ e8 e8~ e2 | a,8. e'16~ e8 a,8~ a8 e'8 e4 |
 
   b8. e16~ e8 b8~ b8 e8 e4 | a,8. e'16~ e8 a,8~ a8 e'8 e4 | b8. e16~ e8 b8~ b8 e8 e4 |
 
-  fis2 e2 | dis8. b16~ b8 fis'8~ fis8 b,8 b8. cis16 | d16 d8 d16 d8 d16 d16~ d16 d8 d16 d8 d16 e16 |
+  fis2 e2 | dis8. b16~ b8 fis'8~ fis8 b,8 b8. cis16 | d16 d8 d16 d8 d16 d16~ d16 d8 d16 d8 d16 e16~ |
 
   e8. e16~ e8 e8~ e4 e8 eis8 | fis8. cis16~ cis8 fis8~ fis8 eis8 gis4 | fis8. cis16~ cis8 fis8~ fis8 eis8 gis4 |
 
@@ -274,10 +274,10 @@ basse_lyrics = \lyricmode {
   pa rap pap __ pa pap Pa ra pa pa rap __ pa pa __ pap pa ba rap pap __ pa pap
   Dom dom __ dom __ dom do Dom dom __ dom __ dom do Dom dom __ dom __ dom do
   Dom dom __ dom __ dom do Do ro dom dom __ dom __ dom do ri
-  se pro -- gra -- ma una fies -- _ ta en el bar -- rio. __ Do __ dom dom __ dom __ dom do,
+  se pro -- gra -- ma u -- na fie -- sta en el bar -- rio. __ Do __ dom dom __ dom __ dom do,
   dom dom __ dom __ dom do, dom dom __ dom __ dom do, dom dom __ dom __ dom do,
-  do ro dom dom __ dom __ domdo _ ri di -- ce la ma -- ma I~nés __ y mue -- ve los pies,
-  _ dom __ do, __ do ri dom dom __ dom __ dom do, dom dom __ dom __ dom do,
+  do ro dom dom __ dom __ domdo _ ri di -- ce la ma -- ma~I -- nés __ y mue -- ve los pies,
+  dom __ do, __ do ri dom dom __ dom __ dom do, dom dom __ dom __ dom do,
   con el __ rit -- mo~a pro -- fe sar __ pa ra pa pa pa pa __ Los ro -- jos __ co -- lo -- res,
   con fes -- tón __ do -- ra -- do, le gus -- tan al rey con el rit -- mo
   Los ro -- jos __ co -- lo -- res, con fes tón __ do -- ra -- do, le gus -- tan al rey
@@ -288,10 +288,10 @@ basse_lyrics_ii = \lyricmode {
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  de~unmar _ de pro -- me san -- tesquecanta _ _ y bai -- la. _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _ _ _ _ _
+  de~un -- mar de pro -- me san -- te -- sque can -- ta~y bai -- la. _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _ _ _ _ _ _ _ _ cuandocambian _ _ _ de to -- quecambiande _ _ es -- ta
+  _ _ _ _ _ _ _ _ cuan -- do  cam -- bian de to -- que cam -- bian -- de~es -- ta
 }
 
 basse = \new Staff \with {instrumentName="Basse"
