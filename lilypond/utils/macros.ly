@@ -57,6 +57,29 @@ normal = {
    (interpret-markup layout props
      #{ \markup { \dynamic #intensite \italic #intention } #}))
 
+% Un terme d'agogique — rit., accel., a tempo — dans le gras droit.
+%
+%   c4^\markup \agogique rit.
+%   c4^\markup \agogique "a tempo"
+%
+% Le point ne casse pas le mot, donc `rit.` s'écrit sans guillemets ; il n'en
+% faut que pour les termes en plusieurs mots.
+%
+% Ce qu'enregistre cette commande est un **choix de style**, et c'est sa seule
+% raison d'être : le réflexe serait l'italique, comme pour l'intention d'une
+% nuance, et ce serait faux. Les graveurs rangent ces termes-là avec les
+% indications de parcours — Caminito grave `rit.`, `D.C.` et `Moderato` dans
+% la même fonte, au même corps, et c'est le gras droit que LilyPond donne
+% déjà à `\tempo`.
+%
+% Pourquoi une commande et non une variable par terme : `rit` serait une
+% constante, et une constante se déclare. Mais il en faudrait une par mot, et
+% c'est le travers dont `\nuance` sort. La règle du dépôt : une **fonction**
+% quand quelque chose varie, une **variable** quand rien ne varie et que le
+% même jeton revient partout.
+#(define-markup-command (agogique layout props texte) (markup?)
+   (interpret-markup layout props #{ \markup \bold #texte #}))
+
 
 soprano_style = {
   \set Staff.midiInstrument = "trumpet"

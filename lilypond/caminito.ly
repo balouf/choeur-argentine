@@ -4,7 +4,11 @@
 
 \header {
   title = \markup { \fontsize #5 \bold "Caminito del indio" }
-  subtitle = "Canción andina a cuatro voces mixtas"
+  % En `subsubtitle` et non en `subtitle` : `deploy.py` accole le sous-titre
+  % au titre pour nommer la piste du site — c'est ce qui distingue les six
+  % « Navidad Nuestra » entre elles — et ici ça donnerait un nom à rallonge.
+  % La ligne reste gravée sur la partition, une taille en dessous.
+  subsubtitle = "Canción andina a cuatro voces mixtas"
   composer = "Atahualpa Yupanqui"
   tagline = ""
 }
@@ -17,8 +21,8 @@ individual_size = 20
 armure = {
   \accidentalStyle modern-cautionary
   \compressEmptyMeasures
-  \time 3/4
-  \tempo "Moderato" 4 = 70
+  \time 6/8
+  \tempo "Moderato" 4. = 60
   \key e \major
 }
 
@@ -27,21 +31,21 @@ soprano_music = \repeat segno 2 {
 
   b8 gis8 fis8 e8 cis8 b8 | cis4.) r8 r4 | R2. | R2. | R2. | R2. |
 
-  R2. | gis'4\(^\markup \nuance pp legato gis8 gis8 gis8 fis8 | gis4 gis8 gis8 gis8 gis8 | cis4 cis8 cis8 cis8 cis8 | b4 b2\) | b4 b8\( bis8 bis8 bis8\) |
+  R2. | gis'4\(^\markup \nuance pp legato gis8 gis8 gis8 fis8 | gis4 gis8 gis8 gis8 gis8 | cis4 cis8 cis8 cis8 cis8 | b4 b2\) | b4\(^\< b8 bis8 bis8\! bis8\) |
 
-  cis4 gis8\( gis8 gis8 gis8 | gis4 fis8 fis8 fis8 fis8 | gis4\) gis4 r4 | b4 b8 bis8 bis8 bis8 | cis4 gis8 gis8 gis8 gis8 |
+  cis4^\( gis8 gis8 gis8 gis8 | gis4 fis8 fis8 fis8 fis8 | gis4\) gis4 r4 | b4^\f b8 bis8 bis8 bis8 | cis4 gis8 gis8 gis8 gis8 |
 
   gis4 fis8 fis8 fis8 fis8 | gis4 gis4 r4 | R2. | R2. | R2. | R2. |
 
   R2. | R2. | R2. | R2. | R2. |
 
-  b4\f b8\( bis8 bis8 bis8 | cis4 gis8 gis8 gis8 gis8 | gis4 fis8 fis8 fis8 fis8 | gis4 gis2\) | R2. |
+  b4^\f\( b8 bis8 bis8 bis8 | cis4 gis8 gis8 gis8 gis8 | gis4 fis8 fis8 fis8 fis8 | gis4 gis2\) | R2. |
 
-  gis2(\mf fis4 | gis2) b4( | gis2\( fis4 | gis2)\) r4 | e2( dis4) |
+  gis2(^\mf fis4 | gis2) b4( | gis2 fis4 | gis2) r4 | e2( dis4 |
 
-  e4\( dis4 e4 | cis2 fis4 | e2\) b'4\f | b4. b8 b4 | b4 b4 cis4 | cis8 cis8 cis4 b4 |
+  e4 dis4 e4 | cis2 fis4 | e2) \breathe b'4^\f | b4. b8 b4 | b4 b4 cis4~-> | cis8 cis8 cis4 b4 |
 
-  b4 b4 gis4 | gis4. gis8 gis4 | gis4 gis4 r8 gis8\p | gis4. gis8 gis4 | gis4 gis2 |
+  b4 b4 \breathe gis4 | gis4. gis8^\> gis4 | gis4 gis4 r8 gis8\p | gis4.^\markup \agogique rit. gis8 gis4 | gis4 gis2\fermata \volta 2 \fine
 }
 
 soprano_lyrics = \lyricmode {
@@ -51,7 +55,7 @@ soprano_lyrics = \lyricmode {
   va -- lle con las es -- tre -- llas.
   y~el ca -- mi -- ni -- to sa -- be cual es la cho -- la que~el in -- dio lla -- ma...
   U __ u __ u __
-  _ _ _ _ _ _ El sol y la lu -- na y~es -- _ te can -- to
+  El sol y la lu -- na y~es -- te can -- to
   mí -- o be -- ca -- ron tus pie -- dras, ca -- mi -- no del in -- dio...
 }
 
@@ -80,19 +84,19 @@ alto_music = \repeat segno 2 {
 
   e4.-> e4->\! dis8 | e4 r4 r4 | cis4 cis8 cis8 dis8 dis8 | e4 e2 | e4 e8 e8 fis8 fis8 | gis4 gis8 gis8 fis8 fis8 |
 
-  e4 e8 e8 dis8 dis8 | cis4 dis8 dis8 bis8 bis8 | cis4 cis4 r4 | e4 e8 fis8 fis8 fis8 | e4 e8 e8 cis8 cis8 |
+  e4 e8 e8 dis8 dis8 | cis4 dis8 dis8 bis8 bis8 | cis4 cis4 r4 | e4^\f e8 fis8 fis8 fis8 | e4 e8 e8 cis8 cis8 |
 
-  cis4 cis8 cis8 bis8 bis8 | cis4 cis4 r4 | R2. | R2. | cis8( b8 cis4 e4 | gis2 b4) |
+  cis4 cis8 cis8 bis8 bis8 | cis4 cis4 r4 | R2. | R2. | cis8( b8 cis4 e4 | gis2 b4 |
 
-  gis2 fis8( gis8\( | b8 cis8 gis4 fis4 | e4)\) gis8 fis8\( e8 dis8 | cis8 b8 cis4 gis'4 | e2.\) |
+  gis2) fis8( gis8 | b8 cis8 gis4 fis4 | e4) gis8( fis8 e8 dis8 | cis8 b8 cis4 gis'4 | e2.) \breathe |
 
-  e4 e8\( fis8 fis8 fis8 | e4 e8 e8 d8 d8 | cis4 cis8 cis8 bis8 bis8 | cis4 cis2\) | R2. |
+  e4^\f\( e8 fis8 fis8 fis8 | e4 e8 e8 d8 d8 | cis4 cis8 cis8 bis8 bis8 | cis4 cis2\) | R2. |
 
-  e2 dis4 | e2 e4( | e2 dis4 | e2) r4 | cis2( bis4) |
+  e2(^\mf dis4 | e2) e4( | e2 dis4 | e2) r4 | cis2( bis4 |
 
-  cis4\( b2 | cis2 bis4 | cis2\) r4 | gis'2(\mf fis4\( | e2 dis4 | e2 dis4)\) |
+  cis4 b2 | cis2 bis4 | cis2) r4 | gis'2(^\mf fis4 | e2 dis4 | e2 dis4 |
 
-  e2 gis4 | e4. e8 dis4 | cis4 b4 r8 dis8\p | cis4. cis8 bis4 | cis4 cis2 |
+  e2) \breathe gis4 | e4. e8^\> dis4 | cis4 b4 r8 dis8\p | cis4.^\markup \agogique rit. cis8 bis4 | cis4 cis2 \fermata \volta 2 \fine
 }
 
 alto_lyrics = \lyricmode {
@@ -101,11 +105,11 @@ alto_lyrics = \lyricmode {
   du, du -- du -- du. Ca -- mi -- ni -- to del in -- dio, Ca -- mi --ni -- to del in -- dio que jun -- ta~el
   va -- llee con las es -- tre -- llas, con las es -- tre -- llas. Ca -- mi -- ni -- to del in -- dio que jun -- ta~el
   va -- lle con las es -- tre -- llas. U __
-  _ u __ u _ _ _ _ _ _ _ _
+  u __ u __ 
   y~el ca -- mi -- ni -- to sa -- be cual es la cho -- la que~el in -- dio lla -- ma...
-  _ _ _ u __ u __
-  _ _ _ _ _ U __
-  _ be -- ca -- ron tus pie -- dras, ca -- mi -- no del in -- dio...
+  U __ u __ u __
+  U __
+  be -- ca -- ron tus pie -- dras, ca -- mi -- no del in -- dio...
 }
 
 alto_lyrics_ii = \lyricmode {
@@ -113,8 +117,7 @@ alto_lyrics_ii = \lyricmode {
   _ _ _ _ _
   _ _ _ _ Ca -- mi -- ni -- to del in dio, Ca -- mi -- ni -- to que~an -- du vo, de sur a
   nor -- te, mi ra -- za vie -- ja, mi ra -- za vie -- ja An -- tes que~en la mon -- ta -- ña la Pa -- cha
-  ma -- ma se~en -- som -- bre -- cie -- ra. _
-  _ _ _ _ _ _ _ _ _ _ _
+  ma -- ma se~en -- som -- bre -- cie -- ra. _ _ _
   y~el ca -- mi -- no la -- men -- ta ser el cul -- pa -- ble de la dis -- ta -- cia.
 }
 
@@ -134,19 +137,19 @@ tenor_music = \repeat segno 2 {
 
   cis4.-> cis8\! bis4 | cis4-> r4 r4 | cis4 cis8 cis8 b8 b8 | a4 a8 a8 a8 a8 | gis4 gis4 r4 | e'4 e8 dis8 dis8 dis8 |
 
-  cis4 gis8 gis8 fis8 fis8 | e4 e8 e8 dis8 dis8 | e4 e4 r4 | gis4 gis8 gis8 gis8 gis8 | gis4 gis8 gis8 e8 e8 |
+  cis4 gis8 gis8 fis8 fis8 | e4 e8 e8 dis8 dis8 | e4 e4 r4 | gis4^\f gis8 gis8 gis8 gis8 | gis4 gis8 gis8 e8 e8 |
 
-  e4 e8 e8 dis8 dis8 | e4 e4 cis'8 b8\( | gis2 fis4 | cis2\) r4 | R2. | e'8( dis8 e4 fis4) |
+  e4 e8 e8 dis8 dis8 | e4 e4 cis'8 b8\( | gis2 fis4 | cis2\) r4 | R2. | e'8( dis8 e4 fis4 |
 
-  e2 r4 | e2( dis4 | cis4) e8 dis8 cis8\( b8 | gis4 cis4 dis4 | b4 cis4 b4\) |
+  e2) r4 | e2( dis4 | cis4) e8( dis8 cis8 b8 | gis4 cis4 dis4 | b4 cis4 b4) \breathe |
 
-  gis4 gis8\( gis8 gis8 gis8 | gis4 gis8 gis8 e8 e8 | e4 e8 e8 dis8 dis8 | e4 e2\) | r2 b'4\f |
+  gis4^\f\( gis8 gis8 gis8 gis8 | gis4 gis8 gis8 e8 e8 | e4 e8 e8 dis8 dis8 | e4 e2\) | r2 b'4^\f |
 
-  b4. b8 b4 | b4 b4 cis4 | cis4. cis8 b4 | b4 b4 r4 | R2. |
+  b4. b8 b4 | b4 b4 \breathe cis4 | cis4. cis8 b4 | b4 b4 r4 | R2. |
 
-  R2. | R2. | R2. | b2(\mf a4\( | gis2 fis4 | gis2 fis4)\) |
+  R2. | R2. | R2. | b2(^\mf a4 | gis2 fis4 | gis2 fis4 |
 
-  gis2 gis4 | cis4. cis8 b4 | a4 fis4 r8 fis8\p | e4. e8 fis4 | e4 e2 |
+  gis2) \breathe gis4 | cis4. cis8^\> b4 | a4 fis4 r8 fis8\p | e4.^\markup \agogique rit. e8 fis4 | e4 e2 \fermata \volta 2 \fine
 }
 
 tenor_lyrics = \lyricmode {
@@ -155,11 +158,11 @@ tenor_lyrics = \lyricmode {
   du, du -- du -- du. in -- dio,sen _ de -- ro co -- ya sem -- brao de pie -- dras. Ca mi ni -- to del
   in -- dio que jun -- ta~el va -- lle con las es -- tre -- llas. Ca -- mi -- ni -- to del in -- dio que jun -- ta~el
   va -- lle con las es -- tre -- llas. U _ _ _ _ U __
-  _ u __ _ _ _ _ _ _ _ _ _ _
+  u __ u __ 
   y~el ca -- mi -- ni -- to sa -- be cual es la cho -- la que~el in -- dio lla -- ma... Can --
   ta -- do~en el ce -- rro, llo -- ran -- do~en el río -- o,
   U __
-  _ be -- ca -- ron tus pie -- dras, ca -- mi -- no del in -- dio...
+  be -- ca -- ron tus pie -- dras, ca -- mi -- no del in -- dio...
 }
 
 tenor_lyrics_ii = \lyricmode {
@@ -167,8 +170,7 @@ tenor_lyrics_ii = \lyricmode {
   _ _ _ _ _
   _ _ _ _ du -- vo, de sur a nor te, mi ra -- za vie -- ja. an -- tes que~en la mon --
   ta -- ña la Pa -- cha -- ma -- ma en~en -- som -- bre -- cie -- ra An -- tes que~en la mon -- ta -- ña la Pa -- cha
-  ma -- ma se~en -- som -- bre -- cie -- ra. _ _ _ _ _ _
-  _ _ _ _ _ _ _ _ _ _ _ _
+  ma -- ma se~en -- som -- bre -- cie -- ra. _ _ _ _ _ _ _ _ 
   y~el ca -- mi -- no la -- men -- ta ser el cul -- pa -- ble de la dis -- ta -- cia. _
 }
 
@@ -188,19 +190,19 @@ basse_music = \repeat segno 2 {
 
   <gis' cis,>2 <gis, fis'>4->\! | <gis' cis,>4-> r4 r4 | R2. | R2. | e2 b4 | e4. fis8 gis4 |
 
-  cis,2 b4 | a4. a8 gis4 | cis4 cis4 r4 | e4 e8 dis8 dis8 dis8 | cis4 cis8 cis8 b8 b8 |
+  cis,2 b4 | a4. a8 gis4 | cis4 cis4 r4 | e4^\f e8 dis8 dis8 dis8 | cis4 cis8 cis8 b8 b8 |
 
   a4 a8 a8 gis8 gis8 | cis4 cis4 r4 | R2. | gis'4^\p gis8\( gis8 gis8 fis8 | gis4 gis8 gis8 gis8 gis8 | cis4 cis8 cis8 cis8 cis8 |
 
-  b4 b2\) | b4 b8 b8\( bis8 bis8\) | cis4 gis8 gis8 gis8 gis8 | gis4 fis8 fis8 fis8 fis8 | gis4 gis2 |
+  b4 b2\) | b4 b8 b8\( bis8 bis8\) | cis4 gis8 gis8 gis8 gis8 | gis4 fis8 fis8 fis8 fis8 | gis4 gis2 \breathe |
 
-  e4 e8\( dis8 dis8 dis8 | cis4 cis8 cis8 b8 b8 | a4 a8 a8 gis8 gis8 | cis4 cis2\) | e8\mf fis8 gis4 fis4 |
+  e4^\f\( e8 dis8 dis8 dis8 | cis4 cis8 cis8 b8 b8 | a4 a8 a8 gis8 gis8 | cis4 cis2\) \breathe | e8^\mf( fis8 gis4 fis4 |
 
-  e2 b4 | e2 a,4( | a2\( b4 | e2)\) gis4 | gis4. gis8 gis4 |
+  e2 b4 | e2) a,4( | a2 b4 | e2) gis4 | gis4. gis8 gis4 |
 
-  gis4 gis4 gis4 | gis4. gis8 gis4 | gis4 gis4 r4 | e2(\mf dis4 | cis2\( b4 | a2 b4)\) |
+  gis4 gis4 gis4 | gis4. gis8 gis4 | gis4 gis4 r4 | e2(^\mf dis4 | cis2 b4 | a2 b4 |
 
-  e2 gis4 | gis4. gis8 fis4 | e4 dis4 r8 b8\p | a4. a8 gis4 | cis4 cis2 |
+  e2) \breathe gis4 | gis4. gis8^\> fis4 | e4 dis4 r8 b8\p | a4.^\markup \agogique rit. a8 gis4 | cis4 cis2 \fermata \volta 2 \fine
 }
 
 basse_lyrics = \lyricmode {
@@ -209,10 +211,9 @@ basse_lyrics = \lyricmode {
   in -- dio sem -- brao de pie -- dras. Ca -- mi -- ni -- to del in -- dio que jun -- ta~el
   va -- lle con las es -- tre -- llas. En la no -- che se -- rra -- na llo -- ra la que -- na su~hon -- da nos --
   tal -- gia, y~el ca -- mi -- ni -- to sa -- be cual es la cho -- la que~el in -- dio lla -- ma...
-  y~el ca -- mi -- ni -- to sa -- be cual es la cho -- la que~el in -- dio lla -- ma... U _ _ _
-  _ _ _ u __ se~a -- gran -- da la
+  y~el ca -- mi -- ni -- to sa -- be cual es la cho -- la que~el in -- dio lla -- ma... U __ u __ se~a -- gran -- da la
   no -- che, la pe -- na del in -- dio... U __
-  _ be -- ca -- ron tus pie -- dras, ca -- mi -- no del in -- dio...
+  be -- ca -- ron tus pie -- dras, ca -- mi -- no del in -- dio...
 }
 
 basse_lyrics_ii = \lyricmode {
@@ -257,9 +258,9 @@ pianoderecha_music = \repeat segno 2 {
 
   \duo { gis'2 fis4 } { e2 dis4 } | \duo { gis2 b4 } { e,2 e4 } | \duo { gis2 fis4 } { e2 dis4 } | \duo { gis2 r4 } { e2 r4 } | \duo { e2 dis4 } { cis2 bis4 } |
 
-  \duo { e4 dis4 e4 } { cis4 b2 } | \duo { cis2 fis4 } { cis2 bis4 } | \duo { e2 b'4\f } { cis,2 r4 } | \duo { b'4. b8 b4 } { gis2 fis4 } | \duo { b4 b4 cis4 } { e,2 dis4 } | \duo { cis'8 cis8 cis4 b4 } { e,2 dis4 } |
+  \duo { e4 dis4 e4 } { cis4 b2 } | \duo { cis2 fis4 } { cis2 bis4 } | <cis e>2 b'4 | \duo { b4. b8 b4 } { gis2 fis4 } | \duo { b4 b4 cis4 } { e,2 dis4 } | \duo { cis'8 cis8 cis4 b4 } { e,2 dis4 } |
 
-  \duo { b'4 b4 gis4 } { e2 gis4 } | \duo { gis4. gis8 gis4 } { e4. e8 dis4 } | \duo { gis4 gis4 r8 gis8\pp\pp } { cis,4 b4 r8 dis8\pp\pp } | \duo { gis4. gis8 gis4 } { cis,4. cis8 bis4 } | \duo { gis'4 gis2 } { cis,4 cis2 } |
+  \duo { b'4 b4 gis4 } { e2 gis4 } | \duo { gis4. gis8 gis4 } { e4. e8 dis4 } | \duo { gis4 gis4 r8 gis8 } { cis,4 b4 r8 dis8\pp } | \duo { gis4.^\markup \agogique rit. gis8 gis4 } { cis,4. cis8 bis4 } |  <gis' cis,>4 2\fermata \volta 2 \fine
 }
 
 pianoderecha = \new Staff <<
@@ -278,12 +279,12 @@ pianoizquierda_music = \repeat segno 2 {
   \duo { cis'2 b4 } { <b e,>4. <b fis>8 gis4-> }
   %cis'4. <gis cis,>2 cis8 bis8 <fis gis,>4 %{ À RELIRE mesure 13 : par espacement %} | \duo { cis'4 r4 r4 } { <gis cis,>4 r4 r4 } | cis4 cis8 cis8 b8 b8 | a4 a8 a8 a8 a8 | \duo { gis4 gis4 r4 } { e2 b4 } | e4. e'4 e16 dis8 fis,8 gis4 dis'16 dis8 %{ À RELIRE mesure 18 : par espacement %} |
   \duo {gis4. \breathe cis8 bis4->}{cis,2-> <fis gis,>4} |
-  \duo {cis'4. 8 bis4} {<gis cis,>2 <fis gis,>4} | <gis cis cis,> r2 |
+  \duo {cis'4. 8 bis4} {<gis cis,>2 <fis gis,>4} | <gis cis cis,>^\markup \nuance pp legato r2 |
   cis4 8 8 b b a4 8 8 8 8 \duo {gis4 4} {e2} b4 |
   \duo {e'4 8 dis8 8 8} {e,4. fis8 gis4} |
 
   % 19 below
-  \duo { cis4 gis8 gis8 fis8 fis8 } { cis2 b4 } | \duo { e4 e8 e8 dis8 dis8 } { a4. a8 gis4 } | \duo { e'4 e4} { cis4 cis4} r4 | \duo { gis'4 gis8 gis8 gis8 gis8 } { e4 e8 dis8 dis8 dis8 } | \duo { gis4 gis8 gis8 e8 e8 } { cis4 cis8 cis8 b8 b8 } |
+  \duo { cis4 gis8 gis8 fis8 fis8 } { cis2 b4 } | \duo { e4 e8 e8 dis8 dis8 } { a4. a8 gis4 } | \duo { e'4 e4} { cis4 cis4} r4 | \duo { gis'4^\f gis8 gis8 gis8 gis8 } { e4 e8 dis8 dis8 dis8 } | \duo { gis4 gis8 gis8 e8 e8 } { cis4 cis8 cis8 b8 b8 } |
 
   \duo { e4 e8 e8 dis8 dis8 } { a4 a8 a8 gis8 gis8 } | \duo { e'4 e4 cis'8 b8 } { cis,4 cis4 r4 } | gis'2 fis4 | 
   \duo  { gis4 gis8 gis8 gis8 fis8 } {cis2 s4} | 
@@ -298,7 +299,7 @@ pianoizquierda_music = \repeat segno 2 {
   % gis4 gis8 cis4 fis,8 fis8 dis'4 fis,8 fis8 %{ À RELIRE mesure 33 : ambigu %} | 
   \duo { b4 cis4 b4 } { gis4 gis2 } |
 
-  \duo { gis4 gis8 gis8 gis8 gis8 } { e4 e8 dis8 dis8 dis8 } | 
+  \duo { gis4^\f gis8 gis8 gis8 gis8 } { e4 e8 dis8 dis8 dis8 } | 
   \duo { gis4 gis8 gis8 e8 e8 } { cis4 cis8 cis8 b8 b8 } | 
   \duo { e4 e8 e8 dis8 dis8 } { a4 a8 a8 gis8 gis8 } | 
   \duo { e'4 e2 } { cis4 cis2 } |
@@ -308,7 +309,7 @@ pianoizquierda_music = \repeat segno 2 {
 
   gis4 gis4 gis4 | gis4. gis8 gis4 | gis4 gis4 r4 | \duo { b2 a4 } { e2 dis4 } | \duo { gis2 fis4 } { cis2 b4 } | \duo { gis'2 fis4 } { a,2 b4 } |
 
-  \duo { gis'2 gis4 } { e2 gis4 } | \duo { cis4. cis8 b4 } { gis4. gis8 fis4 } | \duo { a4 fis4 r8 fis8 } { e4 dis4 r8 b8 } | \duo { e4. e8 fis4 } { a,4. a8 gis4 } | \duo { e'4 e2 } { cis4 cis2 } |
+  \duo { gis'2 gis4 } { e2 gis4 } | \duo { cis4. cis8 b4 } { gis4. gis8 fis4 } | \duo { a4 fis4 r8 fis8 } { e4 dis4 r8 b8 } | \duo { e4.^\markup \agogique rit. e8 fis4 } { a,4. a8 gis4 } | <cis e>4 2\fermata \volta 2 \fine
 }
 
 pianoizquierda = \new Staff <<
@@ -324,45 +325,68 @@ piano = \new PianoStaff \with {instrumentName="Piano"
     \pianoizquierda
   >>
 
+% La mise en page est la même pour les trois sorties, et elle porte une
+% décision : le « D.C. » descendu au niveau de la portée. Sans ce partage,
+% la partie de piano, qui n'a pas de portée de chœur au-dessus d'elle, le
+% perdrait — c'est exactement la sortie où il manquerait le plus.
+mise_en_page = \layout {
+  \context {
+    \Staff
+    \RemoveAllEmptyStaves
+    % Le « D.C. » est un saut, gravé une seule fois pour toute la
+    % partition — au-dessus de la seule portée du haut. Chaque exécutant
+    % lit sa ligne et doit voir où il repart : descendre le graveur au
+    % niveau de la portée le pose sur toutes, comme dans le candombe.
+    \consists "Jump_engraver"
+    % Descendu à la portée, il se grave en dessous, du côté des paroles.
+    % Sa place est au-dessus : c'est là qu'un chanteur cherche les
+    % indications de parcours, et c'est là que l'original le pose.
+    \override JumpScript.direction = #UP
+  }
+  \context {
+    \Score
+    \remove "Jump_engraver"
+  }
+}
+
+choeur = \new ChoirStaff <<
+  \soprano
+  \alto
+  \tenor
+  \basse
+>>
+
 #(set-global-staff-size conductor_size)
+
+% Trois sorties, comme les messes de Zipoli : le chœur sans suffixe, le
+% conducteur en `-full`, l'instrument en `-piano`. `deploy.py` lit ces
+% suffixes pour nommer les liens du site. Le MIDI est produit une seule
+% fois, dans le premier livre et sur l'ensemble complet : c'est lui qui
+% alimente le mélangeur, qui a besoin de toutes les pistes.
 \book {
   \score {
-    \layout {
-      \context {
-        \Staff
-        \RemoveAllEmptyStaves
-        % Le « D.C. » est un saut, gravé une seule fois pour toute la
-        % partition — au-dessus de la seule portée du haut. Chaque exécutant
-        % lit sa ligne et doit voir où il repart : descendre le graveur au
-        % niveau de la portée le pose sur toutes, comme dans le candombe.
-        \consists "Jump_engraver"
-      }
-      \context {
-        \Score
-        \remove "Jump_engraver"
-      }
-    }
-    <<
-      \new ChoirStaff <<
-        \soprano
-        \alto
-        \tenor
-        \basse
-      >>
-      \piano
-    >>
+    \mise_en_page
+    << \choeur >>
   }
   \score {
     \unfoldRepeats
-    <<
-      \new ChoirStaff <<
-        \soprano
-        \alto
-        \tenor
-        \basse
-      >>
-      \piano
-    >>
+    << \choeur \piano >>
     \midi {}
+  }
+}
+
+\book {
+  \bookOutputSuffix "-full"
+  \score {
+    \mise_en_page
+    << \choeur \piano >>
+  }
+}
+
+\book {
+  \bookOutputSuffix "-piano"
+  \score {
+    \mise_en_page
+    \piano
   }
 }
