@@ -22,7 +22,7 @@ armure = {
   \accidentalStyle modern-cautionary
   \compressEmptyMeasures
   \time 6/8
-  \tempo "Moderato" 4. = 60
+  \tempo "Moderato" 4. = 54
   \key e \major
 }
 

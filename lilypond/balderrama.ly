@@ -262,7 +262,7 @@ basse_music = {
 
   b8. b8 cis16 d8. fis8 e16 | e8. d16~ d8 r4. | b'8 gis8 fis8 fis8 e8 e8 |
 
-  b4 b4 fis'8 e8 | d4 cis8 e4 d8 | cis4.~ cis8 r8 a8 | a8. cis16 e8 b'8 ais8 b8 |
+  b4 b4 fis'8 e8 | d4 cis8 e4 d8 | cis4.~ cis8 r8 a8 | a8. cis16 e8 b'8 ais8 b8~ |
 
   b4 fis2 | b,8. b8 cis16 d8. e8 eis16 | fis8. fis16~ fis8 r4. |
 
@@ -292,7 +292,7 @@ basse_lyrics = \lyricmode {
   sa -- le can -- tan -- do des -- de lo de Bal -- de -- rra -- ma,
   sa -- le can -- tan -- do la no -- che __ des -- de lo de Bal -- de --
   rra -- ma. A -- den -- tro pu -- ro tem -- blor. __ El bom -- bo con la ba -- gua --
-  _ la. Y se~al -- bo -- ro -- ta que -- man -- do, __
+  la. Y se~al -- bo -- ro -- ta que -- man -- do, __
   chis -- pear la gui -- ta -- rra. __ Y se~al -- bo -- ro -- ta que
   man -- do, __ de -- le chis -- pear, la gui -- ta -- rra. __
   Lu -- ce -- ro so -- li -- to, bro -- te del al -- ba,
@@ -309,7 +309,7 @@ basse_lyrics_ii = \lyricmode {
   y~en ca -- da va -- so tiem -- bla~el lu -- ce -- ro del al -- ba.
   Y~en ca -- da va -- so de vi -- no __ tiem -- bla~el lu -- ce -- ro del
   al -- ba. Zam -- ba del a -- ma -- ne -- cer. __ A -- rru -- llo de Bal -- de -- rra --
-  _ ma. Can -- ta por la me -- dia -- no -- che, __
+  ma. Can -- ta por la me -- dia -- no -- che, __
   por la ma -- dru -- ga -- da. __ Can -- ta por la me -- dia
   no -- che, __ llo -- ra por la ma -- dru -- ga -- da. __
 }
