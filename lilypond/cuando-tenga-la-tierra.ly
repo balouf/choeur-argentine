@@ -179,7 +179,7 @@ alto_lyrics = \lyricmode {
   cuan -- do ten -- ga la tie -- rra, __
   cam -- pe -- si -- no, cam -- pe -- si -- no, cam -- pe -- si -- no. __
   
-  pu -- so~al vien -- to __ cuan -- do ten -- gua la tie -- rra __
+  pu -- so~al vien -- to __ cuan -- do ten -- ga la tie -- rra __
   
   cuan -- do  cuan -- do ten -- ga la tie -- rra, __
   te lo ju -- ro se -- mi -- lla, __

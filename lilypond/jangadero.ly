@@ -57,7 +57,7 @@ soprano_lyrics = \lyricmode {
   Pa ra na Pa ra na Pa ra na Pa ra na Pa ra na Ah!
   Ah __ Ah __ Pa ra na Pa ra na
   Jan ga de __ ro jan ga de
-  __ ro mi des -- ti -- no so -- re~el ri --  o~es de -- ri -- var
+  __ ro mi des -- ti -- no so -- bre~el ri --  o~es de -- ri -- var
   des -- de~el fon -- do -- del o -- bra -- je ma -- de -- re -- ro con el a -- nhe -- lo del
   a -- gua que se va 
   Ri -- o~a -- ba -- jo __ voy lle van do __ la jan
@@ -121,7 +121,7 @@ alto_lyrics = \lyricmode {
   Pa -- ra -- na Pa -- ra -- na Pa -- ra -- na Pa -- ra -- na Pa -- ra -- na Ah!
   Ah __ Ah __ Pa -- ra -- na Pa -- ra -- na
   Jan -- ga -- de __ ro jan -- ga -- de
-  __ ro mi des -- ti -- no so -- re~el ri -- o~es de -- ri -- var
+  __ ro mi des -- ti -- no so -- bre~el ri -- o~es de -- ri -- var
   des -- de~el fon -- do -- del o -- bra -- je ma -- de -- re -- ro __ con el a -- nhe -- lo del
   a -- gua que se va 
   Ri -- o~a -- ba -- jo __ voy lle -- van do __ la jan

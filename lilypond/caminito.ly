@@ -221,7 +221,7 @@ basse_lyrics_ii = \lyricmode {
   _ _ _ Ca -- mi -- ni -- to que~an --
   du -- vo, mi ra -- za vie -- ja An -- tes que~en la mon -- ta -- ña la Pa -- cha
   ma -- ma se~en -- som -- bre -- cie -- ra. Se le -- van -- ta~en el ce -- rro la voz do -- lien -- te de la va --
-  gua -- da y~el ca -- mi -- no la -- men -- ta ser el cual -- pa -- ble de la dis -- ta -- cia.
+  gua -- da y~el ca -- mi -- no la -- men -- ta ser el cul -- pa -- ble de la dis -- ta -- cia.
   y~el ca -- mi -- no la -- men -- ta ser el cul -- pa -- ble de la dis -- ta -- cia. _ _ _ _
 }
 
