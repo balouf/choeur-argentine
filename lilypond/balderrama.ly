@@ -128,8 +128,8 @@ alto_music = {
 
   
   \alternative {
-    { e8[ gis8] d8[ cis8] cis4 | d4. r8 b'8 b8 | } 
-    { e,8[ gis8] d8[ d8] e4 | d2. | } 
+    { e8[ gis8] d8[ cis8] cis4 | d4. r8 r4 | } 
+    { e8[ gis8] d8[ d8] e4 | d2. | } 
   }
   } \fine
 }
@@ -148,7 +148,7 @@ alto_lyrics = \lyricmode {
   Lu -- ce -- ro so -- li -- to, bro -- te del al -- ba,
   ¿dón -- de~i -- re -- mos a pa -- rar __ si se~a -- pa -- ga Bal -- de -- rra --
   ma? __ ¿dón -- de~i -- re -- mos a pa -- rar __ si se~a --
-  pa -- ga Bal -- de -- rra -- ma? Si~u -- no pa -- ga Bal -- de -- rra -- ma?
+  pa -- ga Bal -- de -- rra -- ma? pa -- ga Bal -- de -- rra -- ma?
 }
 
 alto_lyrics_ii = \lyricmode {
@@ -203,7 +203,7 @@ tenor_music = {
 
   
   \alternative {
-    { b8[ b8] cis8[ b8] ais4 | a4. r8 r4 | } 
+    { b8[ b8] cis8[ b8] ais4 | a4. r8 b8 b8 | } 
     { b8[ b8] cis8[ b8] ais4 | a2. | } 
   }
   }\fine
@@ -223,7 +223,7 @@ tenor_lyrics = \lyricmode {
   Lu -- ce -- ro so -- li -- to, bro -- te del al -- ba, __
   ¿dón -- de~i -- re -- mos a pa -- rar, __
   ay, Bal -- de -- rra -- ma, dón -- de~i -- re -- mos a pa -- rar si se~a --
-  pa -- ga Bal -- de -- rra -- ma? pa -- ga Bal -- de -- rra -- ma?
+  pa -- ga Bal -- de -- rra -- ma? Si~u -- no pa -- ga Bal -- de -- rra -- ma?
 }
 
 tenor_lyrics_ii = \lyricmode {

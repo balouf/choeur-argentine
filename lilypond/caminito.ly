@@ -56,7 +56,7 @@ soprano_lyrics = \lyricmode {
   y~el ca -- mi -- ni -- to sa -- be cual es la cho -- la que~el in -- dio lla -- ma...
   U __ u __ u __
   El sol y la lu -- na y~es -- te can -- to
-  mí -- o be -- ca -- ron tus pie -- dras, ca -- mi -- no del in -- dio...
+  mí -- o be -- sa -- ron tus pie -- dras, ca -- mi -- no del in -- dio...
 }
 
 soprano_lyrics_ii = \lyricmode {
@@ -64,7 +64,7 @@ soprano_lyrics_ii = \lyricmode {
   Ca -- mi -- ni -- to que~an -- du vo de sur a nor te Mi ra -- za vie -- ja; An -- tes que~en la mon --
   ta -- ña la Pa -- cha -- ma -- ma se~en -- som -- bre -- cia -- ra. An -- tes que~en la mon -- ta -- ña la Pa -- cha
   ma -- ma se~en -- som -- bre -- cie -- ra.
-  y~el ca -- mi -- no la -- men -- ta ser el cul -- pa -- ble de la dis -- ta -- cia.
+  y~el ca -- mi -- no la -- men -- ta ser el cul -- pa -- ble de la dis -- tan -- cia.
 }
 
 soprano = \new Staff \with {instrumentName="Sopr."
@@ -109,7 +109,7 @@ alto_lyrics = \lyricmode {
   y~el ca -- mi -- ni -- to sa -- be cual es la cho -- la que~el in -- dio lla -- ma...
   U __ u __ u __
   U __
-  be -- ca -- ron tus pie -- dras, ca -- mi -- no del in -- dio...
+  be -- sa -- ron tus pie -- dras, ca -- mi -- no del in -- dio...
 }
 
 alto_lyrics_ii = \lyricmode {
@@ -118,7 +118,7 @@ alto_lyrics_ii = \lyricmode {
   _ _ _ _ Ca -- mi -- ni -- to del in dio, Ca -- mi -- ni -- to que~an -- du vo, de sur a
   nor -- te, mi ra -- za vie -- ja, mi ra -- za vie -- ja An -- tes que~en la mon -- ta -- ña la Pa -- cha
   ma -- ma se~en -- som -- bre -- cie -- ra. _ _ _
-  y~el ca -- mi -- no la -- men -- ta ser el cul -- pa -- ble de la dis -- ta -- cia.
+  y~el ca -- mi -- no la -- men -- ta ser el cul -- pa -- ble de la dis -- tan -- cia.
 }
 
 alto = \new Staff \with {instrumentName="Alto"
@@ -162,7 +162,7 @@ tenor_lyrics = \lyricmode {
   y~el ca -- mi -- ni -- to sa -- be cual es la cho -- la que~el in -- dio lla -- ma... Can --
   ta -- do~en el ce -- rro, llo -- ran -- do~en el río -- o,
   U __
-  be -- ca -- ron tus pie -- dras, ca -- mi -- no del in -- dio...
+  be -- sa -- ron tus pie -- dras, ca -- mi -- no del in -- dio...
 }
 
 tenor_lyrics_ii = \lyricmode {
@@ -171,7 +171,7 @@ tenor_lyrics_ii = \lyricmode {
   _ _ _ _ du -- vo, de sur a nor te, mi ra -- za vie -- ja. an -- tes que~en la mon --
   ta -- ña la Pa -- cha -- ma -- ma en~en -- som -- bre -- cie -- ra An -- tes que~en la mon -- ta -- ña la Pa -- cha
   ma -- ma se~en -- som -- bre -- cie -- ra. _ _ _ _ _ _ _ _ 
-  y~el ca -- mi -- no la -- men -- ta ser el cul -- pa -- ble de la dis -- ta -- cia. _
+  y~el ca -- mi -- no la -- men -- ta ser el cul -- pa -- ble de la dis -- tan -- cia. _
 }
 
 tenor = \new Staff \with {instrumentName="Tenor"
@@ -213,16 +213,16 @@ basse_lyrics = \lyricmode {
   tal -- gia, y~el ca -- mi -- ni -- to sa -- be cual es la cho -- la que~el in -- dio lla -- ma...
   y~el ca -- mi -- ni -- to sa -- be cual es la cho -- la que~el in -- dio lla -- ma... U __ u __ se~a -- gran -- da la
   no -- che, la pe -- na del in -- dio... U __
-  be -- ca -- ron tus pie -- dras, ca -- mi -- no del in -- dio...
+  be -- sa -- ron tus pie -- dras, ca -- mi -- no del in -- dio...
 }
 
 basse_lyrics_ii = \lyricmode {
   _ _ _ _ _ _ _ _ _ _ _
   _ _ _ Ca -- mi -- ni -- to que~an --
   du -- vo, mi ra -- za vie -- ja An -- tes que~en la mon -- ta -- ña la Pa -- cha
-  ma -- ma se~en -- som -- bre -- cie -- ra. Se le -- van -- ta~en el ce -- rro la voz do -- lien -- te de la va --
-  gua -- da y~el ca -- mi -- no la -- men -- ta ser el cul -- pa -- ble de la dis -- ta -- cia.
-  y~el ca -- mi -- no la -- men -- ta ser el cul -- pa -- ble de la dis -- ta -- cia. _ _ _ _
+  ma -- ma se~en -- som -- bre -- cie -- ra. Se le -- van -- ta~en el ce -- rro la voz do -- lien -- te de la ba --
+  gua -- la y~el ca -- mi -- no la -- men -- ta ser el cul -- pa -- ble de la dis -- tan -- cia.
+  y~el ca -- mi -- no la -- men -- ta ser el cul -- pa -- ble de la dis -- tan -- cia. _ _ _ _
 }
 
 basse = \new Staff \with {instrumentName="Basse"
