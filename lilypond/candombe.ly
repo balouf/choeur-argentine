@@ -110,11 +110,11 @@ alto_music = {
 
   d,8. d16~ d8 d8~ d8 e8 d8 e8 | cis2 cis2 | b8. cis16~ cis8 dis8~ dis2 |
 
-  fis16 fis8 d16 fis fis d16 f16~ f8. d16 f8 f16 e16~ | e8. bis16( cis8) d8~ d8 fis8 e8. d16 | cis8. cis16~ cis8 cis8~ cis8 e8 fis8 a8 |
+  fis16 fis8 d16 fis fis d16 fis16~ fis8. d16 fis8 fis16 e16~ | e8. bis16( cis8) d8~ d8 fis8 e8. d16 | cis8. cis16~ cis8 cis8~ cis8 e8 fis8 a8 |
 
   d,8. d16~ d8 d8~ d8 e8 d8 e8 | cis8. cis16~ cis8 cis8~ cis8 e8 fis8 a8 | d,8. d16~ d8 d8~ d8 e8 d8 e8 |
 
-  cis2 cis2( | b8. cis16~ cis8 dis8~) dis2 | fis16 fis8 d16 fis8 d16 f16~ f16 f8 d16 f8 f16 e16~ |
+  cis2 cis2( | b8. cis16~ cis8 dis8~) dis2 | fis16 fis8 d16 fis8 d16 fis16~ fis16 fis8 d16 fis8 fis16 e16~ |
 
   e8. cis16~ cis8 d8~ d4 r4 | fis8 fis16 gis16~ gis16 a16 gis8~ gis4 cis,4 | fis8 fis16 gis16~ gis16 a16 gis8~ gis4 cis,4 |
 
