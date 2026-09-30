@@ -85,7 +85,7 @@ soprano_music = \relative c' {
   a8 8 g8.^\> e16 | f8 8 e8. c16 | d8 8~4\! | R2*2 \break
   %% Segno. Corps chanté trois fois, cf. `accords`.
   \repeat segno 3 {
-  r8^\p^"with Alti" f16 g a8 16 g | a8 8~4 | r8 f16 g a16 8 g16 | a8 8~4|
+  r8^\p f16 g a8 16 g | a8 8~4 | r8 f16 g a16 8 g16 | a8 8~4|
   r4 b8. g16 a8 8~4 | r4 g8. e16 f8 8~4 |
   \break
   r4 e8. c16 | d8^\> 8~4~2~2~ \mark \markup { \box "B" } 4 r4\!|
@@ -155,8 +155,9 @@ alto_music = \relative c' {
   f8 8 e8.^\> 16| d8 8 c8. 16 | d8 8~4\! | R2*2
   %% Segno. Corps chanté trois fois, cf. `accords`.
   \repeat segno 3 {
-  %% l'alto se tait jusqu'au « puso al viento »
-  R2*8 |
+  %% l'alto double le sorprano jusqu'au « puso al viento »
+  r8 d16 e f8 16 e f8 8~4 r8 d16 e f f8 e16 f8 8~4 |
+   r4 g8. e16 f8 8~4 r4 e8. c16 d8 8~4 % R2*8 |
   r4 e8. c16 | a8 8~4 | r8 a16 b c8 16 b a8 8 ~4 ~ 4 r|
   r2*11 | f'2-> | 8 \breathe f16 g a8 16 bes | a8 f~4 |
   r8 d16 e f8 16 g | f8 8~4 | r4 a8 8 | f2 2 \breathe |
@@ -179,6 +180,9 @@ alto_lyrics = \lyricmode {
   cuan -- do ten -- ga la tie -- rra, __
   cam -- pe -- si -- no, cam -- pe -- si -- no, cam -- pe -- si -- no. __
   
+  Cuan -- do ten -- ga la tie -- rra, __
+  sem -- bra -- ré las pa -- la -- bras
+  que mi pa -- dre Mar -- tin Fie -- rro __
   pu -- so~al vien -- to __ cuan -- do ten -- ga la tie -- rra __
   
   cuan -- do  cuan -- do ten -- ga la tie -- rra, __
@@ -194,7 +198,8 @@ alto_lyrics = \lyricmode {
 }
 
 alto_lyrics_ii = \lyricmode { 
-  \*40 _ lu -- na nue -- va __
+  \*47 _ le da -- ré~a las es -- tre -- llas
+  as -- tro -- nau -- tas de tri -- ga -- les lu -- na nue -- va __
 }
 
 
@@ -208,7 +213,7 @@ tenor_music = \relative c' {
   c8 8 8.^\> 16 | a8 8 8. 16 | 8 8~4\! | r2*2 |
   %% Segno. Corps chanté trois fois, cf. `accords`.
   \repeat segno 3 {
-  r2*12 | r8^\mf^"with Bass" f16 g a8 16 g a8 8~4 | \break
+  r2*12 | r8^\mf f16 g a8 16 g a8 8~4 | \break
   r8 f16 g a8 16 g a8 8~4 | r4 b8. g16 a8 8~4 | r4 g8. e16 f8 8~4 |
   r4 e8. c16 d8 8~4 | r8^\p d16 e f8 16 g a8 8~4~ | 8 r r4 |
   r8 a16 bes c8 16 d | c8 8 ~4 | r8 b16 c d8 16 e | d8 8~4|
@@ -265,7 +270,8 @@ basse_music = \relative c {
   f8 8 c8.^\> 16 | d8 8 a8. 16 | d8 8~4\! | r2*2 |
   %% Segno. Corps chanté trois fois, cf. `accords`.
   \repeat segno 3 {
-  r2*20 | r4 e8. c16 d8 8 ~4~2~2 |
+  r2*12 | r8 d16 e f8 16 e f8 8~4 r8 d16 e f8 f16 e16 f8 8~4 |
+   r4 g8. e16 f8 8~4 r4 e8. c16 d8 8~4  | r4 c8. e16 d8 8 ~4~2~2 |
   % C
   r8 f16 g a8 16 bes a8 f~4 | r8 c'16 bes a8 g16 f g8 8~4 |
   r4 g8 8 f2 4 \breathe c8 8 f2
@@ -293,7 +299,9 @@ basse_lyrics = \lyricmode {
   cuan -- do ten -- ga la tie -- rra, __ la tie -- rra
   cam -- pe -- si -- no, cam -- pe -- si -- no, cam -- pe --
   si -- no. __
-  los o -- bre -- ros __
+  cuan -- do ten -- ga la tie -- rra, __
+  La ten -- drán los que lu -- chan, los ma -- es -- tros,
+  los ha -- che -- ros, los o -- bre -- ros __
   cuan -- do ten -- ga la tie -- rra, __
   te lo ju -- ro se -- mi -- lla, __
   que la vi -- da que la vi -- da se -- rá~un dul -- ce  ra -- ci -- mo __ 
@@ -306,8 +314,9 @@ basse_lyrics = \lyricmode {
   can -- ta -- ré, can -- ta -- ré, -ré. __
 }
 
-basse_lyrics_ii = \lyricmode { \*64 _
-los que pien -- san __
+basse_lyrics_ii = \lyricmode { \*71 _
+For -- ma -- ré con los gri -- llos u -- na~or -- ques -- ta
+don -- de can -- ten los que pien -- san __
 }
 
 

@@ -21,8 +21,8 @@ individual_size = 20
 armure = {
   \accidentalStyle modern-cautionary
   \compressEmptyMeasures
-  \time 6/8
-  \tempo "Moderato" 4. = 54
+  \time 3/4
+  \tempo "Moderato" 4 = 78
   \key e \major
 }
 

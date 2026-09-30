@@ -18,7 +18,7 @@ armure = {
   \accidentalStyle modern-cautionary
   \compressEmptyMeasures
   \time 4/4
-  \tempo 4 = 108
+  \tempo 4 = 96
   \key a \major
 }
 
