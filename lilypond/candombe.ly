@@ -134,7 +134,7 @@ alto_lyrics = \lyricmode {
   pa rap pap __ pa pap Pa ra pa pa rap __ pa pa __ pap pa pa pa ra ba rap pap __ pa pap
   Dom dom __ dom __ di ro ri, dom dom __ dom __ di ro ri, dom dom __ dom __ di ro ri,
   dom dom __ dom __ di ro ri do ro dom dom __ do __
-  se pro -- gra -- ma u -- na fie -- sta en el bar -- rio. __ Do __ domdo _ ri dom dom __ dom, __ di ro ri
+  se pro -- gra -- ma u -- na fie -- sta en el bar -- rio. __ Do __ dom do ri dom dom __ dom, __ di ro ri
   dom dom __ dom, __ di ro ri dom dom __ dom __ di ro ri dom dom __ dom __ di ro ri
   do ro __ di -- ce la ma -- ma~I nés __ y mue -- ve los pies,
   dom __ do, __ Lis -- tos co -- ra zo -- nes van con el __ can dom -- be
@@ -180,7 +180,7 @@ tenor_music = {
 
   gis8. e16~ e8 fis8~ fis8 gis8 gis4 | a2 a2 | a1 |
 
-  a16 a8 a16 a a b16 c16~ c8. a16 c8 c16 cis16~ | cis8. a16~ a8 b4 d8 cis8.( b16) | a8. e16~ e8 fis4 a8 a4 |
+  a16 a8 a16 a a b16 c16~ c8. a16 c8 c16 cis16~ | cis8. a16~ a8 b4 d8 cis8. b16 | a8. e16~ e8 fis4 a8 a4 |
 
   gis8. e16~ e8 fis8~ fis8 gis8 gis4 | a8. e16~ e8 fis8~ fis8 a8 a4 | gis8. e16~ e8 fis8~ fis8 gis8 gis4 |
 
@@ -204,7 +204,7 @@ tenor_lyrics = \lyricmode {
   pa rap pap __ pa pap Pa ra pa pa rap __ pa pa __ pap pa ba rap pap __ pa pap
   Dom dom __ dom __ dom do Dom dom __ dom __ domdo _ Dom dom __ dom __ dom do
   Dom dom __ dom __ dom do do ro do
-  se pro -- gra -- ma u -- na fie -- sta en el bar -- rio. __ Do dom ri __ dom dom __ dom dom do,
+  se pro -- gra -- ma u -- na fie -- sta en el bar -- rio. __ Do dom do ri dom dom __ dom dom do,
   dom dom __ dom __ dom do, dom dom __ dom __ dom do, dom dom __ dom __ dom do,
   do ro __ di -- ce la ma -- ma~I nés __ y mue -- ve los pies,
   dom __ do __ Lis -- tos co -- ra zo -- nes se van con el __ can -- dom -- be y
