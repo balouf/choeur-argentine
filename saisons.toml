@@ -12,13 +12,23 @@
 actif = "2026-2027"
 
 [saisons."2026-2027"]
-# Folklore argentin du XXe siècle.
+# Folklore argentin du XXe siècle, puis Renaissance espagnole.
 pieces = [
     "balderrama",
     "caminito",
     "candombe",
     "cuando-tenga-la-tierra",
     "jangadero",
+    # Renaissance espagnole
+    "corten-espadas",
+    "dadme-albricias",
+    "lagrimas-de-mi-consuelo",
+    "levanta-pascual",
+    "por-unos-puertos",
+    "prado-verde",
+    "riu-riu-chiu",
+    "teresica-hermana",
+    "tricotea",
 ]
 
 [saisons."2025-2026"]

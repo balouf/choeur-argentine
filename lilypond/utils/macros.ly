@@ -80,6 +80,31 @@ normal = {
 #(define-markup-command (agogique layout props texte) (markup?)
    (interpret-markup layout props #{ \markup \bold #texte #}))
 
+% Une altération de *musica ficta* : ajoutée par l'éditeur, absente de la
+% source. Elle se grave au-dessus de la note et non devant, pour qu'on la
+% distingue d'un coup d'œil d'une altération écrite.
+%
+%   \ficta cis4
+%
+% Elle sonne comme les autres : seul l'emplacement du signe change. Et comme
+% tout signe d'altération, elle ne se grave que si la note en demande un — un
+% `\ficta` posé sur une note déjà altérée par l'armure ne montre rien.
+ficta = { \once \set suggestAccidentals = ##t }
+
+% Une syllabe sur une note liée. Quand un couplet tient la note et qu'un autre
+% la réarticule, la liaison de tenue reste gravée mais le second couplet doit
+% pouvoir y poser sa syllabe :
+%
+%   b2~ \syllabeSurLiee b2
+%
+% LilyPond tient une note liée pour la suite d'un mélisme et ne lui donne
+% jamais de syllabe — pas même avec `ignoreMelismata`, qui ne lève que les
+% liaisons d'expression. On retire donc la tenue de la liste des mélismes, pour
+% cette note seulement. Elle devient une place de syllabe pour **tous** les
+% couplets : celui qui tient y écrit `_`.
+syllabeSurLiee = \once \set melismaBusyProperties =
+  #'(melismaBusy slurMelismaBusy beamMelismaBusy completionBusy)
+
 
 soprano_style = {
   \set Staff.midiInstrument = "trumpet"
