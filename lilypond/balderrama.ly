@@ -199,12 +199,12 @@ tenor_music = {
 
   d8. d8 cis16 b8. b8 b16 | b4( ais4) r4 | R2. |
 
-  fis8. a16 gis8 a8 a8 r8 | a8. a8 a16 a8. a8 a16 | a4. r8 b8 b8 |
+  fis8. a16 gis8 a8[ a8] \breathe 8 | a8. a16 a8 a8 b4 | a8. a16 a8 a8 b4 |
 
   
   \alternative {
-    { b8[ b8] cis8[ b8] ais4 | a4. r8 b8 b8 | } 
-    { b8[ b8] cis8[ b8] ais4 | a2. | } 
+    { cis4. b8 ais4  | a4. r8 b8 b8 | } 
+    { cis4. b8 ais4 | a2. | } 
   }
   }\fine
 }
@@ -223,7 +223,7 @@ tenor_lyrics = \lyricmode {
   Lu -- ce -- ro so -- li -- to, bro -- te del al -- ba, __
   ¿dón -- de~i -- re -- mos a pa -- rar, __
   ay, Bal -- de -- rra -- ma, dón -- de~i -- re -- mos a pa -- rar si se~a --
-  pa -- ga Bal -- de -- rra -- ma? Si~u -- no pa -- ga Bal -- de -- rra -- ma?
+  pa -- ga Bal -- de -- rra -- ma? Si~u -- no Bal -- de -- rra -- ma?
 }
 
 tenor_lyrics_ii = \lyricmode {
@@ -274,12 +274,12 @@ basse_music = {
 
   b8. b8 cis16 d8. e8 eis16 | fis2 r4 | fis8 fis16 fis16 fis8 fis16 fis16 fis4 |
 
-  b,4.~ b4 r8 | b8. b8 cis16 d8. fis8 e16 | e8.( d16)~ d8 r8 e8 e8 |
+  b,4. r8 a4 | d8. d16 d8 d8 e4 | d8. d16  d8 d e4 |
 
   
   \alternative {
-    { e8[ e8] fis8[ fis8] fis4 | b,4. r8 r4 | } 
-    { e8[ e8] fis8[ fis8] fis4 | b,2. | } 
+    { d4. e8 fis4 | b,4. r8 r4 | } 
+    { d4. e8 fis4 | b,2. | } 
   }
   }\fine
 }
@@ -298,7 +298,7 @@ basse_lyrics = \lyricmode {
   Lu -- ce -- ro so -- li -- to, bro -- te del al -- ba,
   ¿dón -- de~i -- re -- mos a pa -- rar si se~a -- pa -- ga Bal -- de -- rra --
   ma? __ ¿dón -- de~i -- re -- mos a pa -- rar __ si se~a --
-  pa -- ga Bal -- de -- rra -- ma? pa -- ga Bal -- de -- rra -- ma?
+  pa -- ga Bal -- de -- rra -- ma? Bal -- de -- rra -- ma?
 }
 
 basse_lyrics_ii = \lyricmode {
