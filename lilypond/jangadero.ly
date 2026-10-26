@@ -41,9 +41,9 @@ soprano_music = {
   \repeat volta 2 {
   r2^\mp d'8 b8 | d8 d8~ d4 b8 g8 | b8 b8~ b4 g8 e8 |
 
-  g8 g8~ g2 | r4 r4 e8 e8 | d4. d8 d8 d8 | d'4. d8 e8 e8 | b2. | r4 r4 d8 d8 |
+  g8 e8~ e2 | r4 r4 e8 e8 | d4. d8 d8 d8 | d'4. d8 e8 e8 | b2. | r4 r4 d8 d8 |
 
-  e4. e8 d8 d8 | c4. c8 b8 b8 | a2. | a4 r4 d,8 d8 | d'4. d8 c8 c8 | b4. b8 a8 a8 |
+  e4. e8 d8 d8 | c4. c8 b8 b8 | a4. a | r4 r4 d,8 d8 | d'4. d8 c8 c8 | b4. b8 a8 a8 |
 
   g2. | R2. | R2. 
   }
@@ -61,7 +61,7 @@ soprano_lyrics = \lyricmode {
   des -- de~el fon -- do -- del o -- bra -- je ma -- de -- re -- ro con el a -- nhe -- lo del
   a -- gua que se va 
   Ri -- o~a -- ba -- jo __ voy lle van do __ la jan
-  ga da __ ri -- o~a -- ba -- jo por el al -- to Pa -- ra -- na es el
+  ga da __ ri -- o~a -- ba -- jo des de~el al -- to Pa -- ra -- na es el
   pe -- so de la som -- bra de -- rrum -- ba da que bus -- can -- do~el ho -- ri -- zon -- te ba -- ja --
   ra Jan ga de __ ro
   _ jan ga de __ ro na na Pa -- ra -- na!
@@ -107,7 +107,7 @@ alto_music = {
 
   c8 c8~ c2 | r4 r4 e8 e8 | d4. d8 c8 d8 | d4. d8 e8 bes'8 | g2. | r4 r4 f8 f8 |
 
-  e4. e8 f8 e8 | gis4. f8 e8 d8 | c2. | c4 r4 d8 d8 | fis4. g8 fis8 e8 | d4. e8 d8 c8 |
+  e4. e8 f8 e8 | gis4. f8 e8 d8 | c4. c | r4 r4 d8 d8 | fis4. g8 fis8 e8 | d4. e8 d8 c8 |
 
   b2. | R2. | R2. |
   }
@@ -125,7 +125,7 @@ alto_lyrics = \lyricmode {
   des -- de~el fon -- do -- del o -- bra -- je ma -- de -- re -- ro __ con el a -- nhe -- lo del
   a -- gua que se va 
   Ri -- o~a -- ba -- jo __ voy lle -- van do __ la jan
-  ga da __ ri -- o~a -- ba -- jo por el al -- to Pa -- ra -- na es el
+  ga da __ ri -- o~a -- ba -- jo des de~el al -- to Pa -- ra -- na es el
   pe -- so de la som -- bra de -- rrum -- ba -- da que bus -- can -- do~el ho -- ri zon -- te ba -- ja
   ra Jan -- ga de __ ro
   _ jan -- ga de __ ro na na Pa -- ra -- na!
@@ -173,7 +173,7 @@ tenor_music = {
 
   c2 d4 | e4 fis4 g4 | a2 g4 | bes2 bes4 | b2.~ | b2. |
 
-  gis2 f4 | e4 e4 d4 | c4 c4 e4 | a4 a4 g4 | fis2 e4 | d2 fis4 |
+  gis2 f4 | e4 e4 d4 | c4 \breathe c4 e4 | a4 a4 g4 | fis2 e4 | d2 fis4 |
 
   g4 d'8 e8 d4( | b4) d8 e8 d4~ | d2. |
   }
@@ -239,9 +239,9 @@ g,2. | g2. |
   \repeat volta 2 {
   g,2) r4 | g2. | b2. |
 
-  a2 b4 | c4 d4 e4 | d2 d4 | c2 c4 | b4 g'4 e4 | d4 b4 a4 |
+  a2 b4 | c4 d4 e4 | d2 d4 | c2 c4 | b4 \breathe g'4 e4 | d4 b4 a4 |
 
-  gis2 b4 | d4 c4 b4 | a4 a4 b4 | c4 d4 e4 | d2 c4 | b2 a4 |
+  gis2 b4 | d4 c4 b4 | a4 \breathe a4 b4 | c4 d4 e4 | d2 c4 | b2 a4 |
 
   g4 b8 c8 b4( | g4) b8 c8 b4~ | b2. | 
   }
