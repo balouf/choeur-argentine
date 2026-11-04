@@ -8,15 +8,55 @@
 %   <<{\voiceOne <bes' d>4 4 <g c>2 } \new Voice {\voiceTwo f2. e4 }>> \oneVoice
 %
 % — gravure identique au pixel près et MIDI identique à l'octet, y compris à
-% l'intérieur d'un \relative, où les deux voix partent de la même note de
-% référence et la suite reprend celle de la voix du haut. La voix du bas
-% accepte les silences invisibles (s1*2) pour sauter les mesures qu'elle ne
-% chante pas.
+% l'intérieur d'un \relative, qui lit le tout dans l'ordre écrit : la voix du
+% bas part de la dernière note de la voix du haut, et la suite de la dernière
+% note de la voix du bas. La voix du bas accepte les silences invisibles
+% (s1*2) pour sauter les mesures qu'elle ne chante pas.
 duo =
 #(define-music-function (haut bas) (ly:music? ly:music?)
    #{
      << { \voiceOne #haut } \new Voice { \voiceTwo #bas } >> \oneVoice
    #})
+
+% Quelques notes qui changent d'une fois à l'autre, au milieu d'une reprise —
+% là où une \alternative obligerait à couper la reprise en deux.
+%
+%   \selonReprise #UP { e2 } { c2 }
+%   \selonReprise #DOWN { c4 b } { e4 f }
+%
+% La gravure superpose les deux variantes, comme \duo, étiquetées « 1. » et
+% « 2. » ; le premier argument place la variante 1 en haut (UP) ou en bas
+% (DOWN). Le MIDI déplié (\unfoldRepeats) chante la variante 1 aux passages
+% impairs, la variante 2 aux pairs : la première fois puis la seconde dans une
+% reprise simple, le couplet 1 puis le couplet 2 dans un \repeat volta 4 à deux
+% couplets empilés. La reprise en jeu est la plus proche qui englobe :
+% \repeat volta, ou le \repeat segno d'un D.C.
+%
+% Les paroles suivent la variante 1 : si la variante 2 a un autre rythme, le
+% couplet qui la chante sera mal calé.
+%
+% En \relative, même lecture que \duo : la variante 2 part de la dernière note
+% de la variante 1, la suite de la dernière note de la variante 2. Chaque
+% variante sert deux fois (gravure et MIDI) ; make-relative calcule l'octave
+% une seule fois pour les deux, sans quoi les copies du MIDI pourraient sortir
+% à une autre octave que la gravure. Revers : dans un \fixed, les variantes se
+% lisent en absolu.
+selonReprise =
+#(define-music-function (sens premiere seconde) (ly:dir? ly:music? ly:music?)
+   (make-relative (premiere seconde)
+     #{ #premiere #seconde #}
+     #{
+       \volta #'() {
+         <<
+           { $(if (> sens 0) voiceOne voiceTwo)
+             <>-\markup \tiny "1." $premiere }
+           \new Voice { $(if (> sens 0) voiceTwo voiceOne)
+             <>-\markup \tiny "2." $seconde }
+         >>
+         \oneVoice
+       }
+       \unfolded { \volta #(iota 10 1 2) $premiere \volta #(iota 10 2 2) $seconde }
+     #}))
 
 emph = {
   \override Lyrics.LyricText.font-shape = #'italic

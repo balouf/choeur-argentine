@@ -199,12 +199,12 @@ tenor_music = {
 
   d8. d8 cis16 b8. b8 b16 | b4( ais4) r4 | R2. |
 
-  fis8. a16 gis8 a8[ a8] \breathe 8 | a8. a16 a8 a8 b4 | a8. a16 a8 a8 b4 |
+  fis8. a16 gis8 a8[ a8] \breathe g8 | fis8. 16 8 8 gis4 | a4. r8 b4 |
 
   
   \alternative {
-    { cis4. b8 ais4  | a4. r8 b8 b8 | } 
-    { cis4. b8 ais4 | a2. | } 
+    { a4. gis8 ais4  | a4. r8 b8 b8 | } 
+    { a4. gis8 ais4 | a2. | } 
   }
   }\fine
 }
@@ -222,8 +222,8 @@ tenor_lyrics = \lyricmode {
   man -- do, __ de -- le chis -- pear, la gui -- ta -- rra. __
   Lu -- ce -- ro so -- li -- to, bro -- te del al -- ba, __
   ¿dón -- de~i -- re -- mos a pa -- rar, __
-  ay, Bal -- de -- rra -- ma, dón -- de~i -- re -- mos a pa -- rar si se~a --
-  pa -- ga Bal -- de -- rra -- ma? Si~u -- no Bal -- de -- rra -- ma?
+  ay, Bal -- de -- rra -- ma, dón -- de~i -- re -- mos a pa -- rar Ay
+  Bal -- de -- rra -- ma? Si~u -- no Bal -- de -- rra -- ma?
 }
 
 tenor_lyrics_ii = \lyricmode {
