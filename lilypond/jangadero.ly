@@ -126,7 +126,7 @@ alto_music = {
   b2. | R2. | R2.
 
   \alternative {
-  \volta 1,3 { r2^\mp b8 c8 | }
+  \volta 1,3 { r2 b8^\mp c8 | }
   \volta 2 {
   r2 d8 d8 | g2.~ | g2. | g2. | r4 r4 es8^\mp es8 | g2.~ |
 
@@ -134,7 +134,7 @@ alto_music = {
 
   r4 r4 d8 d8 | e4. e8 f8 e8 | gis4. f8 e8 d8 | c4 c4( d4 | e2) d8 d8 | fis4. g8 fis8 e8 |
 
-  d4. e8 d8 c8 | b2 r4 | R2. | r2^\mp b8 c8 |
+  d4. e8 d8 c8 | b2 r4 | R2. | r2 b8^\mp c8 |
   }
   \volta 4 {
   r2 d8 d8 | g2.~ | g2. | g2. |
