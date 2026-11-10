@@ -41,12 +41,12 @@ soprano_music = {
 
   e4 d4 d8 cis8 | c4 b4 a8 gis8 | \selonReprise #DOWN a4. b a | r4 r4 d,8 d8 | d'4 d4 c8 c8 | b4. b8 a8 a8 |
 
-  g2. | R2. | R2.
+  g2. | R2. 
   
   \alternative {
-  \volta 1, 3 {  r2 d'8^\mp b8 | }
+  \volta 1, 3 {  r2\fermata d'8^\mp b8 | }
   \volta 2 {
-  r2 d,8 d8 | \sectionLabel "B" d'2.~ | d2. | b2. | r4 r4 g8^\mp g8 | bes2.~ |
+  r2\fermata d,8 d8 | \sectionLabel "B" d'2.~ | d2. | b2. | r4 r4 g8^\mp g8 | bes2.~ |
 
   bes2. | g2. | r4 r4 g8 g8 | a4. a8 a8 a8 | a4. b8 a8 g8 | b2. |
 
@@ -123,12 +123,12 @@ alto_music = {
 
   e4 e4 f8 e8 | gis4. f8 e8 d8 | c4. c | r4 r4 d8 d8 | fis4 g4 fis8 e8 | d4. e8 d8 c8 |
 
-  b2. | R2. | R2.
+  b2. | R2.
 
   \alternative {
-  \volta 1,3 { r2 b8^\mp c8 | }
+  \volta 1,3 { r2\fermata b8^\mp c8 | }
   \volta 2 {
-  r2 d8 d8 | g2.~ | g2. | g2. | r4 r4 es8^\mp es8 | g2.~ |
+  r2\fermata d8 d8 | g2.~ | g2. | g2. | r4 r4 es8^\mp es8 | g2.~ |
 
   g2. | d2. | r4 r4 g8 g8 | e4. e8 e8 e8 | es4. es8 es8 es8 | d2. |
 
@@ -187,7 +187,7 @@ tenor_music = {
 
   \repeat volta 2 {
   g4\p-.   8-. 8-. 4-. | \*3 {g4-. 8-. 8-. 4-. |}}
-  g2. | b2. |
+  g2. | b2~4\fermata |
 
   g2-- r4 |
 
@@ -198,14 +198,14 @@ tenor_music = {
 
   gis2 f4 | e4 e4 d4 | c4 \breathe c4 e4 | a4 a4 g4 | fis2 e4 | d2 fis4 |
 
-  g4 d'8 e8 d4( | b4) d8 e8 d4~ | d2.
+  g4 d'8 e8 d4( | b4) d8 e8 d4~
 
   \alternative {
-  \volta 1,3 { g,2 r4 | }
+  \volta 1,3 { d2\fermata r4 | }
   \volta 2 {
-  g2.-- | r4 d'8 b8 d4~ | d4 d8 b8 d4~ | d4 e8 b8 e4~ | e4 e8 b8 e4( | c4) c8 g8 c4~ |
+  g,2.--\fermata | r4 d'8 b8 d4~ | d4 d8 b8 d4~ | d4 e8 b8 e4~ | e4 e8 b8 es4( | c4) c8 g8 c4~ |
 
-  c4 c8 g8 c4 | d,4 g8 d8 g4 | d4 e8 d8 e4 | b'4 b4 b4 | a4 a4 a4 | g4 g8 d8 g4( |
+  c4 c8 g8 c4 | d,4 g8 d8 g4 | d4 g8 d8 g4 | b4 b4 b4 | a4 a4 a4 | g4 g8 d8 g4( |
 
   e2) r4 | b'4. b8 b8 c8 | d4. c8 b8 d8 | c4 a4( b4 | c4 b4 a4) | fis4. fis8 fis8 g8 |
 
@@ -230,7 +230,7 @@ tenor_lyrics = \lyricmode {
   Ri -- o a -- ba -- jo ri --
   o a -- ba -- jo el al -- to Pa -- ra -- na
   Pe -- so de la som -- bra de -- rrum -- ba -- da bus -- can -- do ba -- ja --
-  ra ba -- ja -- rá __ ba -- ja -- rá __ _
+  ra ba -- ja -- rá __ ba -- ja -- rá __ 
   Ah Pa -- ra -- na Pa -- ra -- na Pa ra na Pa ra -- na Pa -- ra -- na
   Pa ra na pam Pa -- ra -- na pam Pa -- ra -- na mi des -- ti -- no~es de -- ri -- var Pa -- ra -- na
   __ fon -- do -- del o -- bra -- je ma -- de -- re -- ro __ a -- nhe -- lo del
@@ -262,23 +262,23 @@ basse_music = {
 
 \repeat volta 2 {
   g4\p-. 8-. 8-. 4-. | 4-. 8-. 8-. 4-. \*2 {d'4-. 8-. 8-. 4-.}}
-g,2. | g2. |
+g,2. | g2~4\fermata |
 
-  d'2-- r4 |
+  g2-- r4 |
 
   \repeat volta 4 {
-  g,2. | b2. |
+  g2. | b2. |
 
   a2 b4 | c4 d4 e4 | d2 d4 | c2 c4 | b4 \breathe g'4 e4 | d4 b4 a4 |
 
   gis2 b4 | d4 c4 b4 | a4 \breathe a4 b4 | c4 d4 e4 | d2 c4 | b2 a4 |
 
-  g4 b8 c8 b4( | g4) b8 c8 b4~ | b2.
+  g4 b8 c8 b4( | g4) b8 c8 b4~
 
   \alternative {
-  \volta 1,3 { g2 r4 | }
+  \volta 1,3 { b2\fermata r4 | }
   \volta 2 {
-  d'2.-- | r4 b'8 g8 b4~ | b4 b8 g8 b4~ | b4 b8 g8 b4~ | b4 b8 g8 es4~ | es4 es8 c8 es4~ |
+  d2.--\fermata | r4 b'8 g8 b4~ | b4 b8 g8 b4~ | b4 b8 g8 b4~ | b4 b8 g8 es4~ | es4 es8 c8 es4~ |
 
   es4 es8 c8 c4 | g4 d'8 b8 d4 | g,4 d'8 b8 d4 | e4 e4 e4 | es4 es4 es4 | d4 d8 b8 d4( |
 
@@ -302,7 +302,7 @@ basse_lyrics = \lyricmode {
   Ri -- o~a
   ba -- jo~a -- ba -- jo el al -- to Pa -- ra -- na Pa -- ra -- na Es el
   pe -- so de la som -- bra de -- rrum -- ba -- da bus can -- do ba -- ja --
-  rá ba -- ja -- rá __ ba -- ja -- rá __ _
+  rá ba -- ja -- rá __ ba -- ja -- rá __ 
   Ah Pa -- ra -- na Pa -- ra -- na Pa ra na Pa ra -- na Pa -- ra -- na
   Pa -- ra -- na pam Pa -- ra -- na pam Pa -- ra -- na mi des -- ti -- no~es de -- ri -- var Pa -- ra -- na
   __ fon -- do -- del o -- bra -- je ma -- de -- re -- ro __ a -- nhe
