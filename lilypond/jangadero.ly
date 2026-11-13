@@ -2,6 +2,14 @@
 
 #(set-default-paper-size "a4")
 
+%% Trois pages, texte final compris. Sans cette contrainte LilyPond envoie le
+%% texte seul sur une quatrième ; avec elle il resserre les systèmes de la
+%% page 3, tout tient dans les marges, et il avertit quand même (« trop peu de
+%% pages ») — son estimation est plus pessimiste que sa mise en page.
+\paper {
+  page-count = #3
+}
+
 \header {
   title = \markup { \fontsize #5 \bold "Canción del jangadero" }
   composer = "Jaime Dávalos"
@@ -329,6 +337,18 @@ basse = \new Staff \with {instrumentName="Basse"
   \addlyrics {\basse_lyrics_ii}
 >>
 
+%% Une ligne du texte final : le numéro de strophe dans une marge de largeur
+%% fixe — vide sur les lignes de suite — puis le texte.
+%%
+%%   \vers "3." "Padre río, tus escamas de oro vivo / …"
+%%   \vers ""   "Voy detrás de tu horizonte fugitivo / …"
+%%
+%% La marge est une boîte et non un `\hspace` : `\line` ne met pas d'espace de
+%% mot après un `\hspace`, et les lignes de suite commençaient un millimètre à
+%% gauche des lignes numérotées.
+#(define-markup-command (vers layout props numero texte) (markup? markup?)
+   (interpret-markup layout props
+     #{ \markup \line { \pad-to-box #'(0 . 3) #'(0 . 0) \bold #numero #texte } #}))
 
 #(set-global-staff-size conductor_size)
 \book {
@@ -354,6 +374,34 @@ basse = \new Staff \with {instrumentName="Basse"
         \basse
       >>
     >>
+  }
+  %% Le texte complet, repris de la dernière page du PDF. Seules les strophes
+  %% 1 et 2 sont sous les notes : les 3 et 4 se chantent sur la même musique
+  %% (A), aux troisième et quatrième passages. Les numéros ne sont pas dans le
+  %% PDF ; ce sont ceux des crochets de reprise.
+  %%
+  %% Deux mots s'écartent du PDF pour suivre ce qui est chanté sous les notes :
+  %% « desde el alto Paraná » (PDF : « por el alto ») et « sombra derrumbada »
+  %% (le PDF écrit « selva » ici, « sombra » sous les notes). Et « Música »
+  %% reçoit l'accent que le PDF oublie.
+  \markup { \vspace #1 }
+  \markup {
+    \column {
+      \line { \bold "Letra de Jaime Dávalos / Música de Eduardo Falú" }
+      \vspace #0.5
+      \vers "1." "Río abajo voy llevando la jangada, / río abajo desde el alto Paraná."
+      \vers ""   "Es el peso de la sombra derrumbada / que buscando el horizonte bajará."
+      \vers "2." "Río abajo, río abajo, río abajo; / a flor de agua va sangrando mi canción."
+      \vers ""   "Es el sueño de la vida y el trabajo / que me vuelve camalote el corazón."
+      \vspace #0.5
+      \vers ""   \italic "Jangadero, jangadero / mi destino sobre el río es derivar"
+      \vers ""   \italic "desde el fondo del obraje maderero, / con el anhelo del agua que se va."
+      \vspace #0.5
+      \vers "3." "Padre río, tus escamas de oro vivo / son la fiebre que me lleva al más allá."
+      \vers ""   "Voy detrás de tu horizonte fugitivo / y la sangre con el agua se me va."
+      \vers "4." "Ancha banda, sol y luna, cielo y agua / espejismo que no acaba de pasar."
+      \vers ""   "Piel de barro, fabulosa lampalagua / me devora, la pasión de navegar."
+    }
   }
   \score {
     \unfoldRepeats
