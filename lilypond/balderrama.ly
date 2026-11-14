@@ -24,12 +24,13 @@ armure = {
 }
 
 soprano_music = {
-  r2 d'8 d8 | \bar "||" b4. r8 d8 d8 | b4. r8 d16 cis16 d16 dis16 | e8. d16 cis8 b8 a8 g8 |
+  \repeat segno 2 {
+  \partial 4. r8 d'8 d8 | \bar "||" b4. r8 d8 d8 | b4. r8 d16 cis16 d16 dis16 | e8. d16 cis8 b8 a8 g8 |
 
   fis4. r8 a8 a8 | fis4. r8 a8 a8 | gis4. r8 a16 gis16 a16 ais16 |
 
   b8. fis16 eis8 fis4 e8 | d4. r8 d'8 cis8 | 
-  \repeat volta 2 { b4 ais8 cis4 b8 | a4.~ a8 r8 a,8 |
+   b4 ais8 cis4 b8 | a4.~ a8 r8 a,8 |
 
   a8. cis16 e8 b'8 ais8 b8~ | b8. fis16~ fis8~ fis4 r8 | fis8[ b16 a16] g8[ fis16 e16] d4 |
 
@@ -50,12 +51,8 @@ soprano_music = {
   fis8. b8 a16 g8. fis8 e16 | d4( cis4) cis8 b8 | ais8 fis'8 e8 d8 cis4 |
 
   d4.~ d4 r8 | d8. d8 e16 fis8. a8 gis16 | gis8.( fis16~) fis8 r8 gis8 fis8 |
-
   
-  \alternative {
-    { gis8[ b8] fis8[ e8] fis4 | d4. r8 d'8 d8 | } 
-    { gis,8[ b8] fis8[ fis8] d'4 | b2. | } 
-  }
+gis8[ b8] fis8[ e8] fis4 | d4.   
   } \fine
 }
 
@@ -79,7 +76,7 @@ soprano_lyrics = \lyricmode {
 soprano_lyrics_ii = \lyricmode {
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _ _
-  _ _ _ _ _ _ _ _ se po -- ne~a can -- tar, __ un
+  _ _ _ _ _ _ Si~u -- no se po -- ne~a can -- tar, __ un
   co -- che -- ro lo~a -- com -- pa -- ña, __ y~en ca -- da va -- so de vi --
   no,
   y~en ca -- da va -- so de vi -- no __ tiem -- bla~el lu -- ce -- ro del al --
@@ -99,12 +96,14 @@ soprano = \new Staff \with {instrumentName="Sopr."
 >>
 
 alto_music = {
-  r2 b'8 b8 | \bar "||" fis4. r8 b8 b8 | g4. r8 b16 ais16 b16 bis16 | cis8. b16 a8 g8 fis8 e8 |
+  \repeat segno 2 { 
+  \partial 4. r8 b'8 b8 | \bar "||" fis4. r8 b8 b8 | g4. r8 b16 ais16 b16 bis16 | cis8. b16 a8 g8 fis8 e8 |
 
   d4. r8 fis8 fis8 | d4. r8 fis8 fis8 | e4. r8 fis16 eis16 fis16 e16 |
 
   d8. d16 cis8 d4 ais8 | b4. r4. | 
-  \repeat volta 2 { R2. | r4. r4 a8 |
+  
+  R2. | r4. r4 a8 |
 
   a8. cis16 e8 eis8 eis8 fis8~ | fis8. cis16~ cis8~ cis4 r8 | R2. |
 
@@ -127,10 +126,7 @@ alto_music = {
   b4.~ b4 r8 | d8. d8 cis16 d8. fis8 e16 | e8.( d16~) d8 r8 e8 d8 |
 
   
-  \alternative {
-    { e8[ gis8] d8[ cis8] cis4 | d4. r8 r4 | } 
-    { e8[ gis8] d8[ d8] e4 | d2. | } 
-  }
+e8[ gis8] d8[ cis8] cis4 | d4.
   } \fine
 }
 
@@ -174,12 +170,14 @@ alto = \new Staff \with {instrumentName="Alto"
 >>
 
 tenor_music = {
-  r2. | \bar "||" r8 cis'16 d16 cis16 d16 b4. | r8 cis16 d16 cis16 d16 g,4. | r8 a16 b16 cis16 d16 e4 cis8 |
+  \repeat segno 2 { 
+  \partial 4. r4. | \bar "||" r8 cis'16 d16 cis16 d16 b4. | r8 cis16 d16 cis16 d16 g,4. | r8 a16 b16 cis16 d16 e4 cis8 |
 
   d4. r4. | r8 cis16 d16 cis16 d16 a4. | r8 dis16 e16 dis16 e16 b4. |
 
   b16 fis16 fis16 fis16 fis16 fis16 fis16 fis16 fis16 fis16 fis16 fis16 | fis4. r8 fis'8 e8 | 
-  \repeat volta 2 { d4 cis8 e4 d8 | cis4.~ cis8 r4 |
+  
+  d4 cis8 e4 d8 | cis4.~ cis8 r4 |
 
   R2. | R2. | d8[ d16 cis16] b8[ d16 cis16] b4 |
 
@@ -202,10 +200,7 @@ tenor_music = {
   fis8. a16 gis8 a8[ a8] \breathe g8 | fis8. 16 8 8 gis4 | a4. r8 b4 |
 
   
-  \alternative {
-    { a4. gis8 ais4  | a4. r8 b8 b8 | } 
-    { a4. gis8 ais4 | a2. | } 
-  }
+a4. gis8 ais4  | a4.
   }\fine
 }
 
@@ -229,7 +224,7 @@ tenor_lyrics = \lyricmode {
 tenor_lyrics_ii = \lyricmode {
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _ _ _
-  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ se po -- ne~a can -- tar, __
+  _ _ _ _ _ _ _ _ _ _ _ _ _ Si~u -- no se po -- ne~a can -- tar, __
   y~en ca -- da va -- so de vi --
   no, _ _ _ _ _ _ _ _ _ _ _ _
   y~en ca -- da va -- so de vi -- no __ ""  del al --
@@ -249,12 +244,13 @@ tenor = \new Staff \with {instrumentName="Tenor"
 >>
 
 basse_music = {
-  r2. | \bar "||" b4 d4 fis4 | g4 b4 d4 | cis4 a4 cis,4 |
+  \repeat segno 2 { 
+  \partial 4. r4. | \bar "||" b4 d4 fis4 | g4 b4 d4 | cis4 a4 cis,4 |
 
   d4 fis4 a4 | d,4 fis4 a4 | e4 gis4 b4 |
 
   b4 fis4 ais,4 | b4. r4. | 
-  \repeat volta 2 { R2. | a8. cis16 e8 g8 b8 a8 |
+  R2. | a8. cis16 e8 g8 b8 a8 |
 
   a4. a,4. | d4 a8 d8. d16 cis8 | b4 d4 fis4 |
 
@@ -277,10 +273,7 @@ basse_music = {
   b,4. r8 a4 | d8. d16 d8 d8 e4 | d8. d16  d8 d e4 |
 
   
-  \alternative {
-    { d4. e8 fis4 | b,4. r8 r4 | } 
-    { d4. e8 fis4 | b,2. | } 
-  }
+d4. e8 fis4 | b,4. 
   }\fine
 }
 
