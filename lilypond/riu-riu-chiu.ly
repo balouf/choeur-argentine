@@ -86,9 +86,9 @@ alto_music = {
   % 14
   f4 f e c | d2 e4 f~ | f e d d | \ficta cis2 cis |
   % 18
-  R1 | e4 e d c | e c d2 | c4 d2 d4 |
+  R1 | e4 e d c | e c d2 | \ficta cis4 d2 d4 |
   % 22
-  c c d2 | d2 r | r e4 e | d c e c |
+  \ficta cis cis d2 | d2 r | r e4 e | d c e c |
   % 26
   d2 c4 a~ | a4 a a a | a2 a |
   \volta 2 \fine
