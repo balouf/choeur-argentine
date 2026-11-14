@@ -168,6 +168,7 @@ basse_music = {
   % 26
   d2 a4 d~ | d4 d a a | d2 d |
   \volta 2 \fine \break
+  \pageBreak
   \volta 1 {
   % 29 — couplets
   a'4 a g a | f2 e4 g~ | g4 g e f | \tieDashed d2~ \syllabeSurLiee d \tieSolid |
