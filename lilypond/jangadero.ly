@@ -56,9 +56,9 @@ soprano_music = {
   \volta 2 {
   r2 d,8 d8 | \sectionLabel "B" d'2.~ | d2. | b2. | r4 r4 g8^\mp g8 | bes2.~ |
 
-  bes2. | g2. | r4 r4 g8 g8 | a4. a8 a8 a8 | a4. b8 a8 g8 | b2. |
+  bes2. | g2. | r4 r4 g8 g8 | a4 a4 a8 a8 | a4. b8 a8 g8 | b2. |
 
-  r4 r4 d8 d8 | e4. e8 d8 d8 | c4. c8 b8 b8 | a2 a4 | r4 r4 d,8 d8 | d'4. d8 c8 c8 |
+  r4 r4 d8 d8 | e4 e4 d8 d8 | c4 c4 b8 b8 | a2 a4 | r4 r4 d,8 d8 | d'4. d8 c8 c8 |
 
   b4. b8 a8 a8 | g2 r4 | R2. | r2 d'8^\mp b8 |
   }
@@ -138,9 +138,9 @@ alto_music = {
   \volta 2 {
   r2 d8 d8 | g2.~ | g2. | g2. | r4 r4 es8^\mp es8 | g2.~ |
 
-  g2. | d2. | r4 r4 g8 g8 | e4. e8 e8 e8 | es4. es8 es8 es8 | d2. |
+  g2. | d2. | r4 r4 g8 g8 | e4 e4 e8 e8 | es4. es8 es8 es8 | d2. |
 
-  r4 r4 d8 d8 | e4. e8 f8 e8 | gis4. f8 e8 d8 | c4 c4( d4 | e2) d8 d8 | fis4. g8 fis8 e8 |
+  r4 r4 d8 d8 | e4 e4 f8 e8 | gis4 f4 e8 d8 | c4 c4( d4 | e2) d8 d8 | fis4. g8 fis8 e8 |
 
   d4. e8 d8 c8 | b2 r4 | R2. | r2 b8^\mp c8 |
   }
@@ -215,7 +215,7 @@ tenor_music = {
 
   c4 c8 g8 c4 | d,4 g8 d8 g4 | d4 g8 d8 g4 | b4 b4 b4 | a4 a4 a4 | g4 g8 d8 g4( |
 
-  e2) r4 | b'4. b8 b8 c8 | d4. c8 b8 d8 | c4 a4( b4 | c4 b4 a4) | fis4. fis8 fis8 g8 |
+  e2) r4 | b'4 b4 b8 c8 | d4 c4 b8 d8 | c4 a4( b4 | c4 b4 a4) | fis4. fis8 fis8 g8 |
 
   a4. g8 fis8 a8 | g4 b8 c8 b4( | g4) b8 c8 b4(\fermata | g2) r4 |
   }
