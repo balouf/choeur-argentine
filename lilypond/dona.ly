@@ -73,7 +73,7 @@ dum dum
   No tie -- ne tiem -- po ya no da más,
   re -- za que re -- za por -- qué se -- rá?
   
-  A -- yes so -- no -- ros de pe -- dre -- gal
+  Va -- yes so -- no -- ros de pe -- dre -- gal
   pie -- dra por pie -- dra~el vien -- to va
   bo -- rra -- do pe -- nas a mi do -- lor,
   si -- len -- cio pu -- ro~es mi co -- ra
@@ -143,7 +143,7 @@ dum dum dum dum dum \markup \italic (simile)
   No tie -- ne tiem -- po ya no da más,
   du ru ru ru
   
-  A -- yes so -- no -- ros de pe -- dre -- gal
+  Va -- yes so -- no -- ros de pe -- dre -- gal
   pie -- dra por pie -- dra~el vien -- to va
   bo -- rra -- do pe -- nas a mi do -- lor,
   du ru ru 
@@ -217,7 +217,7 @@ ten_lyrics = \lyricmode {
   ay, no da más,
   du ru ru ru
   
-  A -- yes so -- no -- ros de pe -- dre -- gal
+  Va -- yes so -- no -- ros de pe -- dre -- gal
   pie -- dra por pie -- dra~el vien -- to~el vien -- to 
   va ay mi do -- lor,
   du ru ru 
@@ -288,7 +288,7 @@ dum dum dum dum dum \markup \italic (simile)
   ay, no da más,
   du ru ru ru
   
-  A -- yes so -- no -- ros de pe -- dre -- gal
+  Va -- yes so -- no -- ros de pe -- dre -- gal
   el vien -- to va va ay mi do -- lor,
   du ru ru 
   ru ru ru ru
