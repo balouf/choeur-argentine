@@ -54,7 +54,7 @@ soprano_music = {
   \alternative {
   \volta 1, 3 {  r2\fermata d'8^\mp b8 | }
   \volta 2 {
-  r2\fermata d,8 d8 | \sectionLabel "B" d'2.~ | d2. | b2. | r4 r4 g8^\mp g8 | bes2.~ |
+  r2 d,8 d8 | \sectionLabel "B" d'2.~ | d2. | b2. | r4 r4 g8^\mp g8 | bes2.~ |
 
   bes2. | g2. | r4 r4 g8 g8 | a4. a8 a8 a8 | a4. b8 a8 g8 | b2. |
 
@@ -136,7 +136,7 @@ alto_music = {
   \alternative {
   \volta 1,3 { r2\fermata b8^\mp c8 | }
   \volta 2 {
-  r2\fermata d8 d8 | g2.~ | g2. | g2. | r4 r4 es8^\mp es8 | g2.~ |
+  r2 d8 d8 | g2.~ | g2. | g2. | r4 r4 es8^\mp es8 | g2.~ |
 
   g2. | d2. | r4 r4 g8 g8 | e4. e8 e8 e8 | es4. es8 es8 es8 | d2. |
 
@@ -211,7 +211,7 @@ tenor_music = {
   \alternative {
   \volta 1,3 { d2\fermata r4 | }
   \volta 2 {
-  g,2.--\fermata | r4 d'8 b8 d4~ | d4 d8 b8 d4~ | d4 e8 b8 e4~ | e4 e8 b8 es4( | c4) c8 g8 c4~ |
+  d2.--\repeatTie | r4 d8 b8 d4~ | d4 d8 b8 d4~ | d4 e8 b8 e4~ | e4 e8 b8 es4( | c4) c8 g8 c4~ |
 
   c4 c8 g8 c4 | d,4 g8 d8 g4 | d4 g8 d8 g4 | b4 b4 b4 | a4 a4 a4 | g4 g8 d8 g4( |
 
@@ -220,7 +220,7 @@ tenor_music = {
   a4. g8 fis8 a8 | g4 b8 c8 b4( | g4) b8 c8 b4(\fermata | g2) r4 |
   }
   \volta 4 {
-  b2. | R2. | R2. | R2. |
+  d'2. | R2. | R2. | R2. |
 
   R2. | R2. | R2. | R2. |
   e,4\( <e g>\)\( <e g b>\) 2.\fermata <es g b> <d g b> g\fermata \fine
@@ -286,7 +286,7 @@ g,2. | g2~4\fermata |
   \alternative {
   \volta 1,3 { b2\fermata r4 | }
   \volta 2 {
-  d2.--\fermata | r4 b'8 g8 b4~ | b4 b8 g8 b4~ | b4 b8 g8 b4~ | b4 b8 g8 es4~ | es4 es8 c8 es4~ |
+  d2.-- | r4 b'8 g8 b4~ | b4 b8 g8 b4~ | b4 b8 g8 b4~ | b4 b8 g8 es4~ | es4 es8 c8 es4~ |
 
   es4 es8 c8 c4 | g4 d'8 b8 d4 | g,4 d'8 b8 d4 | e4 e4 e4 | es4 es4 es4 | d4 d8 b8 d4( |
 
@@ -295,9 +295,9 @@ g,2. | g2~4\fermata |
   d4 d4 c4 | b4 d8 e8 d4( | b4) d8 e8 d4(\fermata | g,2) r4 |
   }
   \volta 4 {
-  g2. | R2. | R2. | R2. |
+  d'2. | R2. | R2. | R2. |
 
-  R2. | R2. | R2. | g4\( <g b>\)\( <g b d>\)~2. 2.\fermata 2. 2. g\fermata\fine
+  R2. | R2. | R2. | g,4\( <g b>\)\( <g b d>\)~2. 2.\fermata 2. 2. g\fermata\fine
   }
   }
   }
